@@ -1,0 +1,115 @@
+.hero {
+  background-image: linear-gradient(to bottom, var(--blue) 82%, transparent 0%);
+  &__title,
+  &__desc,
+  &__btn {
+    @include background-text();
+  }
+  &__content,
+  &__container {
+    position: relative;
+  }
+  &__container {
+    overflow: hidden;
+    padding-bottom: 255px;
+  }
+  &__content {
+    padding-top: 62px;
+    width: 100%;
+    max-width: 510px;
+    z-index: 2;
+  }
+  &__title {
+    letter-spacing: 0 !important;
+    &::first-line {
+      letter-spacing: 2px;
+    }
+  }
+  &__desc {
+    margin: 0 0 45px 0;
+    font-size: 18px;
+    line-height: 140%;
+  }
+  &__btn {
+    width: max-content;
+    font-size: 18px;
+    @include transition(opacity, 1);
+    &,
+    & span {
+      display: flex;
+      align-items: center;
+    }
+    & span {
+      justify-content: center;
+      @include block-size(56px);
+      margin-right: 21px;
+      border-radius: 100%;
+      background-color: var(--white);
+      & svg {
+        transform-origin: center center;
+        transform: rotate(90deg);
+        & > path {
+          stroke: var(--black);
+        }
+      }
+    }
+    &:focus {
+      outline: none;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      opacity: 0.5;
+    }
+  }
+  &__img {
+    &,
+    &-container {
+      position: absolute;
+    }
+    &-container {
+      top: 0;
+      right: 0;
+      z-index: 1;
+      @include block-size(100%);
+      max-width: 1240px;
+    }
+    &-1 {
+      @include picture(400px);
+      bottom: 355px;
+      right: 34.7%;
+    }
+    &-2 {
+      @include picture(924px, 438px);
+      bottom: 0;
+      right: 20%;
+    }
+    &-3 {
+      @include picture(544px, 635px);
+      bottom: 6px;
+      right: -5.2%;
+    }
+  }
+  @media (max-width: 376px) {
+    &__container {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 100px;
+    }
+    &__img {
+      &-container {
+        position: relative;
+        @include block-size(100%, 248px);
+      }
+      &-1 {
+        @include block-size(127px);
+      }
+      &-2 {
+        @include block-size(297px, 141px);
+      }
+      &-3 {
+        @include block-size(173px, 202px);
+      }
+    }
+  }
+}

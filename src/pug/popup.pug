@@ -1,0 +1,12 @@
+//- Mixins
+include mixin.pug
+
+.popup#popup
+  .popup__box#popup-box
+    h2.popup__title.us-title Заявка отправлена
+    p.popup__desc Ваша заявка была успешно отправлена. Наши менеджеры свяжутся с Вами в ближайшее время
+    a.popup__link(href="#")
+      | На главную
+      +icon('arrow-2')
+    button.popup__close#popup-close(aria-label="Закрыть")
+      +icon('close')

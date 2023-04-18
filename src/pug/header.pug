@@ -1,0 +1,22 @@
+//- Mixins
+include mixin.pug
+
+header.header
+  .header__container.container__inner
+    button.header__btn-menu
+      +icon('burger')
+    a(href="#", aria-label="Логотип").header__logo
+      img(src="img/logo.svg", alt="Катарсис")#logo
+    nav.header__nav 
+      ul.header__nav-list 
+        //- Data nav
+        - var nav = ['Каталог', 'Портфолио', 'О компании','Контакты']
+
+        each link in nav
+          li.header__nav-item 
+            a(href="#").header__nav-link= link
+    .header__btn-box 
+      a(href="#", aria-label="Избранные").header__btn.favorite
+        +icon('favorite')
+      a(href="#", aria-label="Корзина").header__btn.basket
+        +icon('basket')

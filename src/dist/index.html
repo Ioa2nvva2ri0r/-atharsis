@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Катарсис</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#1d3552">
+    <meta name="msapplication-TileColor" content="#1d3552">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="style/main.min.css">
+    <script src="js/main.min.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container container__inner"><a class="header__logo" href="#" aria-label="Логотип"><img src="img/logo.svg" alt="Катарсис"></a>
+        <nav class="header__nav"> 
+          <ul class="header__nav-list"> 
+            <li class="header__nav-item"> <a class="header__nav-link" href="#">Каталог</a></li>
+            <li class="header__nav-item"> <a class="header__nav-link" href="#">Портфолио</a></li>
+            <li class="header__nav-item"> <a class="header__nav-link" href="#">О компании</a></li>
+            <li class="header__nav-item"> <a class="header__nav-link" href="#">Контакты</a></li>
+          </ul>
+        </nav>
+        <div class="header__btn-box"> <a class="header__btn favorite" href="#" aria-label="Избранные">
+                <svg width="38" height="38">
+                  <use xlink:href="img/sprite.svg#favorite"></use>
+                </svg></a><a class="header__btn basket" href="#" aria-label="Корзина">
+                <svg width="38" height="38">
+                  <use xlink:href="img/sprite.svg#basket"></use>
+                </svg></a></div>
+      </div>
+    </header>
+    <main>
+      <section class="hero"> 
+        <div class="hero__container container__inner"> 
+          <div class="hero__content">
+            <h1 class="hero__title us-title">Лучшая Дизайнерская Мебель</h1>
+            <p class="hero__desc">Наша компания сотрудничает с дизайнерами, российскими и европейскими мебельными фабриками, чтобы вы могли купить оригинальную дизайнерскую мебель в Москве или заказать доставку в другие регионы.</p><a class="hero__btn" href="#"><span> 
+                    <svg width="8" height="13">
+                      <use xlink:href="img/sprite.svg#arrow-1"></use>
+                    </svg></span>Смотреть товары</a>
+          </div>
+          <div class="hero__img-container">
+            <picture>
+              <source class="hero__img-1 hero__img" srcset="img/hero/1.png"><img class="hero__img-1 hero__img" src="img/hero/1.png" alt="">
+            </picture>
+            <picture>
+              <source class="hero__img-2 hero__img" srcset="img/hero/2.png"><img class="hero__img-2 hero__img" src="img/hero/2.png" alt="">
+            </picture>
+            <picture>
+              <source class="hero__img-3 hero__img" srcset="img/hero/3.png"><img class="hero__img-3 hero__img" src="img/hero/3.png" alt="">
+            </picture>
+          </div>
+        </div>
+      </section>
+      <section class="catalog container__inner"> 
+        <h2 class="catalog__title us-title">Каталог</h2>
+        <div class="catalog__content">
+          <div class="catalog__img-box"> 
+            <picture>
+              <source class="catalog__img" srcset="img/catalog/main.png"><img class="catalog__img" src="img/catalog/main.png" alt="">
+            </picture>
+          </div>
+          <ul class="catalog__list"> 
+            <li class="catalog__card"> <a class="catalog__card-link" href="#"> 
+                <picture>
+                  <source class="catalog__card-img" srcset="img/catalog/1.png"><img class="catalog__card-img" src="img/catalog/1.png" alt="Раздел-1">
+                </picture><span class="catalog__card-desc">Диваны</span></a></li>
+            <li class="catalog__card"> <a class="catalog__card-link" href="#"> 
+                <picture>
+                  <source class="catalog__card-img" srcset="img/catalog/2.png"><img class="catalog__card-img" src="img/catalog/2.png" alt="Раздел-2">
+                </picture><span class="catalog__card-desc">кресла</span></a></li>
+            <li class="catalog__card"> <a class="catalog__card-link" href="#"> 
+                <picture>
+                  <source class="catalog__card-img" srcset="img/catalog/3.png"><img class="catalog__card-img" src="img/catalog/3.png" alt="Раздел-3">
+                </picture><span class="catalog__card-desc">светильники</span></a></li>
+            <li class="catalog__card"> <a class="catalog__card-link" href="#"> 
+                <picture>
+                  <source class="catalog__card-img" srcset="img/catalog/4.png"><img class="catalog__card-img" src="img/catalog/4.png" alt="Раздел-4">
+                </picture><span class="catalog__card-desc">кровати</span></a></li>
+            <li class="catalog__card"> <a class="catalog__card-link" href="#"> 
+                <picture>
+                  <source class="catalog__card-img" srcset="img/catalog/5.png"><img class="catalog__card-img" src="img/catalog/5.png" alt="Раздел-5">
+                </picture><span class="catalog__card-desc">тумбочки</span></a></li>
+            <li class="catalog__card"> <a class="catalog__card-link" href="#"> 
+                <picture>
+                  <source class="catalog__card-img" srcset="img/catalog/6.png"><img class="catalog__card-img" src="img/catalog/6.png" alt="Раздел-6">
+                </picture><span class="catalog__card-desc">все</span></a></li>
+          </ul>
+        </div>
+      </section>
+      <section class="popular container__inner"> 
+        <div class="popular__title-box"> 
+          <h2 class="popular__title us-title">Популярные товары</h2>
+          <div class="popular__slider-box-btn"> 
+            <button class="popular__slider-btn-prev">
+                  <svg width="8" height="13">
+                    <use xlink:href="img/sprite.svg#arrow-1"></use>
+                  </svg>
+            </button>
+            <button class="popular__slider-btn-next">
+                  <svg width="8" height="13">
+                    <use xlink:href="img/sprite.svg#arrow-1"></use>
+                  </svg>
+            </button>
+          </div>
+        </div>
+        <div class="popular__slider swiper">
+          <div class="swiper-wrapper">
+            <article class="popular__product swiper-slide">
+              <picture>
+                <source class="popular__product-img" srcset="img/popular/1.png"><img class="popular__product-img" src="img/popular/1.png" alt="Продукт-1">
+              </picture>
+              <div class="popular__product-box-content"> 
+                <div class="popular__product-content">
+                  <div> 
+                    <h3 class="popular__product-title"><a href="">Кресло SILLA NEGRA</a></h3>
+                    <p class="popular__product-desc"> Кресло SILLA NEGRA
+                    </p>
+                  </div><strong class="popular__product-price">7 000 ₽</strong>
+                </div>
+                <div class="popular__product-box-btn"> 
+                  <button class="popular__product-btn">
+                        <svg width="38" height="38">
+                          <use xlink:href="img/sprite.svg#basket"></use>
+                        </svg>
+                  </button>
+                  <button class="popular__product-btn">
+                        <svg width="38" height="38">
+                          <use xlink:href="img/sprite.svg#favorite"></use>
+                        </svg>
+                  </button>
+                </div>
+              </div>
+            </article>
+            <article class="popular__product swiper-slide">
+              <picture>
+                <source class="popular__product-img" srcset="img/popular/2.png"><img class="popular__product-img" src="img/popular/2.png" alt="Продукт-2">
+              </picture>
+              <div class="popular__product-box-content"> 
+                <div class="popular__product-content">
+                  <div> 
+                    <h3 class="popular__product-title"><a href="">Кресло</a></h3>
+                    <p class="popular__product-desc"> Кресло SILLA NEGRA black edition
+                    </p>
+                  </div><strong class="popular__product-price">7 000 ₽</strong>
+                </div>
+                <div class="popular__product-box-btn"> 
+                  <button class="popular__product-btn">
+                        <svg width="38" height="38">
+                          <use xlink:href="img/sprite.svg#basket"></use>
+                        </svg>
+                  </button>
+                  <button class="popular__product-btn">
+                        <svg width="38" height="38">
+                          <use xlink:href="img/sprite.svg#favorite"></use>
+                        </svg>
+                  </button>
+                </div>
+              </div>
+            </article>
+            <article class="popular__product swiper-slide">
+              <picture>
+                <source class="popular__product-img" srcset="img/popular/3.png"><img class="popular__product-img" src="img/popular/3.png" alt="Продукт-3">
+              </picture>
+              <div class="popular__product-box-content"> 
+                <div class="popular__product-content">
+                  <div> 
+                    <h3 class="popular__product-title"><a href="">Кресло</a></h3>
+                    <p class="popular__product-desc"> Кресло SILLA NEGRA black edition
+                    </p>
+                  </div><strong class="popular__product-price">7 000 ₽</strong>
+                </div>
+                <div class="popular__product-box-btn"> 
+                  <button class="popular__product-btn">
+                        <svg width="38" height="38">
+                          <use xlink:href="img/sprite.svg#basket"></use>
+                        </svg>
+                  </button>
+                  <button class="popular__product-btn">
+                        <svg width="38" height="38">
+                          <use xlink:href="img/sprite.svg#favorite"></use>
+                        </svg>
+                  </button>
+                </div>
+              </div>
+            </article>
+            <article class="popular__product swiper-slide">
+              <picture>
+                <source class="popular__product-img" srcset="img/popular/4.png"><img class="popular__product-img" src="img/popular/4.png" alt="Продукт-4">
+              </picture>
+              <div class="popular__product-box-content"> 
+                <div class="popular__product-content">
+                  <div> 
+                    <h3 class="popular__product-title"><a href="">Кресло</a></h3>
+                    <p class="popular__product-desc"> Кресло SILLA NEGRA black edition
+                    </p>
+                  </div><strong class="popular__product-price">7 000 ₽</strong>
+                </div>
+                <div class="popular__product-box-btn"> 
+                  <button class="popular__product-btn">
+                        <svg width="38" height="38">
+                          <use xlink:href="img/sprite.svg#basket"></use>
+                        </svg>
+                  </button>
+                  <button class="popular__product-btn">
+                        <svg width="38" height="38">
+                          <use xlink:href="img/sprite.svg#favorite"></use>
+                        </svg>
+                  </button>
+                </div>
+              </div>
+            </article>
+            <article class="popular__product swiper-slide">
+              <picture>
+                <source class="popular__product-img" srcset="img/popular/5.png"><img class="popular__product-img" src="img/popular/5.png" alt="Продукт-5">
+              </picture>
+              <div class="popular__product-box-content"> 
+                <div class="popular__product-content">
+                  <div> 
+                    <h3 class="popular__product-title"><a href="">Кресло</a></h3>
+                    <p class="popular__product-desc"> Кресло SILLA NEGRA black edition
+                    </p>
+                  </div><strong class="popular__product-price">7 000 ₽</strong>
+                </div>
+                <div class="popular__product-box-btn"> 
+                  <button class="popular__product-btn">
+                        <svg width="38" height="38">
+                          <use xlink:href="img/sprite.svg#basket"></use>
+                        </svg>
+                  </button>
+                  <button class="popular__product-btn">
+                        <svg width="38" height="38">
+                          <use xlink:href="img/sprite.svg#favorite"></use>
+                        </svg>
+                  </button>
+                </div>
+              </div>
+            </article>
+            <article class="popular__product swiper-slide">
+              <picture>
+                <source class="popular__product-img" srcset="img/popular/6.png"><img class="popular__product-img" src="img/popular/6.png" alt="Продукт-6">
+              </picture>
+              <div class="popular__product-box-content"> 
+                <div class="popular__product-content">
+                  <div> 
+                    <h3 class="popular__product-title"><a href="">Кресло</a></h3>
+                    <p class="popular__product-desc"> Кресло SILLA NEGRA black edition
+                    </p>
+                  </div><strong class="popular__product-price">7 000 ₽</strong>
+                </div>
+                <div class="popular__product-box-btn"> 
+                  <button class="popular__product-btn">
+                        <svg width="38" height="38">
+                          <use xlink:href="img/sprite.svg#basket"></use>
+                        </svg>
+                  </button>
+                  <button class="popular__product-btn">
+                        <svg width="38" height="38">
+                          <use xlink:href="img/sprite.svg#favorite"></use>
+                        </svg>
+                  </button>
+                </div>
+              </div>
+            </article>
+            <article class="popular__product swiper-slide">
+              <picture>
+                <source class="popular__product-img" srcset="img/popular/7.png"><img class="popular__product-img" src="img/popular/7.png" alt="Продукт-7">
+              </picture>
+              <div class="popular__product-box-content"> 
+                <div class="popular__product-content">
+                  <div> 
+                    <h3 class="popular__product-title"><a href="">Кресло</a></h3>
+                    <p class="popular__product-desc"> Кресло SILLA NEGRA black edition
+                    </p>
+                  </div><strong class="popular__product-price">7 000 ₽</strong>
+                </div>
+                <div class="popular__product-box-btn"> 
+                  <button class="popular__product-btn">
+                        <svg width="38" height="38">
+                          <use xlink:href="img/sprite.svg#basket"></use>
+                        </svg>
+                  </button>
+                  <button class="popular__product-btn">
+                        <svg width="38" height="38">
+                          <use xlink:href="img/sprite.svg#favorite"></use>
+                        </svg>
+                  </button>
+                </div>
+              </div>
+            </article>
+            <article class="popular__product swiper-slide">
+              <picture>
+                <source class="popular__product-img" srcset="img/popular/8.png"><img class="popular__product-img" src="img/popular/8.png" alt="Продукт-8">
+              </picture>
+              <div class="popular__product-box-content"> 
+                <div class="popular__product-content">
+                  <div> 
+                    <h3 class="popular__product-title"><a href="">Кресло</a></h3>
+                    <p class="popular__product-desc"> Кресло SILLA NEGRA black edition
+                    </p>
+                  </div><strong class="popular__product-price">7 000 ₽</strong>
+                </div>
+                <div class="popular__product-box-btn"> 
+                  <button class="popular__product-btn">
+                        <svg width="38" height="38">
+                          <use xlink:href="img/sprite.svg#basket"></use>
+                        </svg>
+                  </button>
+                  <button class="popular__product-btn">
+                        <svg width="38" height="38">
+                          <use xlink:href="img/sprite.svg#favorite"></use>
+                        </svg>
+                  </button>
+                </div>
+              </div>
+            </article>
+            <article class="popular__product swiper-slide">
+              <picture>
+                <source class="popular__product-img" srcset="img/popular/9.png"><img class="popular__product-img" src="img/popular/9.png" alt="Продукт-9">
+              </picture>
+              <div class="popular__product-box-content"> 
+                <div class="popular__product-content">
+                  <div> 
+                    <h3 class="popular__product-title"><a href="">Кресло</a></h3>
+                    <p class="popular__product-desc"> Кресло SILLA NEGRA black edition
+                    </p>
+                  </div><strong class="popular__product-price">7 000 ₽</strong>
+                </div>
+                <div class="popular__product-box-btn"> 
+                  <button class="popular__product-btn">
+                        <svg width="38" height="38">
+                          <use xlink:href="img/sprite.svg#basket"></use>
+                        </svg>
+                  </button>
+                  <button class="popular__product-btn">
+                        <svg width="38" height="38">
+                          <use xlink:href="img/sprite.svg#favorite"></use>
+                        </svg>
+                  </button>
+                </div>
+              </div>
+            </article>
+            <article class="popular__product swiper-slide">
+              <picture>
+                <source class="popular__product-img" srcset="img/popular/10.png"><img class="popular__product-img" src="img/popular/10.png" alt="Продукт-10">
+              </picture>
+              <div class="popular__product-box-content"> 
+                <div class="popular__product-content">
+                  <div> 
+                    <h3 class="popular__product-title"><a href="">Кресло</a></h3>
+                    <p class="popular__product-desc"> Кресло SILLA NEGRA black edition
+                    </p>
+                  </div><strong class="popular__product-price">7 000 ₽</strong>
+                </div>
+                <div class="popular__product-box-btn"> 
+                  <button class="popular__product-btn">
+                        <svg width="38" height="38">
+                          <use xlink:href="img/sprite.svg#basket"></use>
+                        </svg>
+                  </button>
+                  <button class="popular__product-btn">
+                        <svg width="38" height="38">
+                          <use xlink:href="img/sprite.svg#favorite"></use>
+                        </svg>
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="popular__slider-scrollbar swiper-scrollbar">    </div>
+        </div>
+      </section>
+      <section class="application container__outer"> 
+        <picture>
+          <source class="application__img" srcset="img/application/1.png"><img class="application__img" src="img/application/1.png" alt="">
+        </picture>
+        <form class="application__form">
+          <h2 class="application__title us-title">оставьте заявку</h2>
+          <p class="application__desc">Наши менеджеры помогут вам!</p>
+          <div class="application__form-box-input">
+            <label class="application__form-label" for="name"><span>Имя</span>
+              <input class="application__form-input" id="name" type="text" name="name" placeholder="Имя">
+            </label>
+            <label class="application__form-label" for="tel"><span>Номер телефона</span>
+              <input class="application__form-input" id="tel" type="tel" name="tel" placeholder="Номер телефона">
+            </label>
+          </div>
+          <div class="application__form-box-btn"> 
+            <button class="application__form-btn">
+               Отправить
+                  <svg width="6" height="11">
+                    <use xlink:href="img/sprite.svg#arrow-2"></use>
+                  </svg>
+            </button>
+            <p class="application__form-desc">Отправляя форму, вы соглашаетесь с&nbsp;<a href="#">политикой&nbsp;конфиденциальности</a></p>
+          </div>
+        </form>
+      </section>
+      <section class="company container__inner"> 
+        <div class="company__content"> 
+          <h2 class="company__title us-title">О компании</h2>
+          <p class="company__desc">Наша компания сотрудничает с дизайнерами, российскими и европейскими мебельными фабриками, чтобы вы могли купить оригинальную дизайнерскую мебель в Москве или заказать доставку в другие регионы. Наша компания сотрудничает с дизайнерами, российскими и европейскими мебельными фабриками, чтобы вы могли купить оригинальную дизайнерскую мебель в Москве или заказать доставку в другие.</p><a class="company__btn" href="#">
+             Подробнее
+                <svg width="6" height="11">
+                  <use xlink:href="img/sprite.svg#arrow-2"></use>
+                </svg></a>
+        </div>
+        <picture>
+          <source class="company__img" srcset=""><img class="company__img" src="" alt="">
+        </picture>
+      </section>
+      <section class="contacts container__inner"> 
+        <div class="contacts__content"> 
+          <h2 class="contacts__title us-title">Наши контакты </h2>
+          <ul class="contacts__list">
+            <li class="contacts__item">
+              <h3 class="contacts__subtitle">Адрес</h3>
+              <address class="contacts__desc">г. Москва, ул. Расточная, 24 А</address>
+            </li>
+            <li class="contacts__item">
+              <h3 class="contacts__subtitle">Режим</h3>
+              <p class="contacts__desc">Пн-Пт: 10-20 / Сб-Вс: 10-15</p>
+            </li>
+            <li class="contacts__item">
+              <h3 class="contacts__subtitle">Метро</h3><strong class="contacts__desc">Любинская</strong>
+            </li>
+            <li class="contacts__item">
+              <h3 class="contacts__subtitle">Телефон</h3><a class="contacts__desc" href="tel:+89999999999">8 (999) 999-99-99</a>
+            </li>
+            <li class="contacts__item">
+              <h3 class="contacts__subtitle">Почта</h3><a class="company__desc" href="mailto:mail@example.com">mail@example.com</a>
+            </li>
+            <li class="contacts__item">
+              <h3 class="contacts__subtitle">Соц.сети</h3>
+              <ul class="contacts__socials-list">
+                <li class="contacts__socials-item"> <a class="contacts__socials-link" href="https://vk.com/" aria-label="vkontakte">
+                        <svg width="35" height="35">
+                          <use xlink:href="img/sprite.svg#vkontakte"></use>
+                        </svg></a></li>
+                <li class="contacts__socials-item"> <a class="contacts__socials-link" href="https://www.whatsapp.com/" aria-label="whatsapp">
+                        <svg width="35" height="35">
+                          <use xlink:href="img/sprite.svg#whatsapp"></use>
+                        </svg></a></li>
+                <li class="contacts__socials-item"> <a class="contacts__socials-link" href="https://t.me/NIK_NAME" aria-label="telegram">
+                        <svg width="35" height="35">
+                          <use xlink:href="img/sprite.svg#telegram"></use>
+                        </svg></a></li>
+                <li class="contacts__socials-item"> <a class="contacts__socials-link" href="tel:+89999999999" aria-label="phone">
+                        <svg width="35" height="35">
+                          <use xlink:href="img/sprite.svg#phone"></use>
+                        </svg></a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="contacts__map"></div>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>

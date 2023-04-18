@@ -1,0 +1,152 @@
+.popular {
+  padding-bottom: 177px;
+  &__title {
+    margin-bottom: 46px !important;
+    letter-spacing: 1.65px !important;
+    &-box {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__slider {
+    padding-bottom: 47px;
+    &-scrollbar {
+      cursor: pointer;
+      left: 0 !important;
+      width: 100% !important;
+      & > .swiper-scrollbar-drag {
+        background: var(--grey) !important;
+      }
+    }
+    &-box-btn {
+      padding-top: 4px;
+    }
+    &-btn {
+      @include block-size(56px);
+      border: 1px solid var(--black);
+      border-radius: 100%;
+      padding: 0;
+      background-color: transparent;
+      @include transitions((border-color, background-color));
+      & svg {
+        & > path {
+          @include transition(stroke, var(--black));
+        }
+      }
+      &:first-child {
+        margin-right: 15px;
+        & svg {
+          transform-origin: center center;
+          transform: rotate(180deg);
+        }
+      }
+      &:hover,
+      &:focus,
+      &:active {
+        border-color: var(--blue);
+        background-color: var(--blue);
+        & svg > path {
+          stroke: var(--white);
+        }
+      }
+    }
+  }
+  &__product {
+    &-box {
+      &-content,
+      &-btn {
+        display: flex;
+      }
+      &-img {
+        min-height: 360px;
+        margin-bottom: 18px;
+        padding: 9px 5px 10px 5px;
+        background-color: var(--white);
+      }
+      &-content {
+        justify-content: space-between;
+        min-height: 112px;
+      }
+      &-btn {
+        align-items: center;
+        padding-top: 10px;
+      }
+    }
+    &-img {
+      display: block;
+      @include picture(320px, 100%);
+      margin: 0 auto;
+    }
+    &-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 224px;
+    }
+    &-title {
+      margin: 0 0 7px 0;
+      & a {
+        @include reset(link);
+        @include background-text();
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        @include transition(opacity, 1);
+      }
+      & a:hover,
+      & a:focus,
+      & a:active {
+        opacity: 0.5;
+      }
+    }
+    &-desc {
+      margin: 0 0 4px 0;
+      font-size: 18px;
+      line-height: 140%;
+    }
+    &-price {
+      &,
+      & * {
+        font-family: 'EB Garamond', serif;
+        font-weight: 400;
+      }
+      font-size: 25px;
+      line-height: 110%;
+      & sup {
+        font-size: 16px;
+        top: -5px;
+        left: 6px;
+      }
+    }
+    &-btn {
+      @include reset(btn);
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+      & svg {
+        @include block-size(inherit);
+        & > path {
+          @include transition(fill);
+        }
+        & > rect {
+          @include transitions((fill, stroke));
+        }
+      }
+      &:hover,
+      &:focus,
+      &:active {
+        & svg {
+          & > path {
+            fill: var(--beige);
+          }
+          & > rect {
+            stroke: var(--blue);
+            fill: var(--blue);
+          }
+        }
+      }
+    }
+  }
+}

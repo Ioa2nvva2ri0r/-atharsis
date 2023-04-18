@@ -1,0 +1,47 @@
+//- Mixins
+include mixin.pug
+
+footer.footer 
+  .footer__container-top
+    .footer__box-top.container__inner
+      .footer__box-logo 
+        a(href="#", aria-label="Логотип").footer__logo
+          img(src="img/logo.svg", alt="Катарсис")
+        p.footer__logo-desc Наша компания сотрудничает с&nbsp;дизайнерами, российскими и&nbsp;европейскими мебельными фабриками.
+        ul.socials__list
+          //- Data socials
+          - var socials = [{id: 'vkontakte', href: 'https://vk.com/'}, {id: 'whatsapp', href: 'https://www.whatsapp.com/'}, {id: 'telegram', href: 'https://t.me/NIK_NAME'}, {id: 'phone', href: 'tel:+89999999999'}]
+
+          each objSocials in socials
+            li.socials__item 
+              a.socials__link(href= objSocials.href, aria-label=objSocials.id)
+                +icon(objSocials.id)
+      nav.footer__nav
+          //- Data footer nav
+          - var footerNav = [{title: 'Информация', links: ['О компании', 'Портфолио', 'Контакты']}, {title: 'Услуги', links: ['Услуги дизайнера интерьера', 'Поиск проекта по фото']}, {title: 'Каталог', links: ['Межкомнатные перегородки', 'Дизайнерская мебель']}]
+
+          each objNav in footerNav
+            div.footer__nav-box
+              h3.footer__nav-title= objNav.title
+              ul.footer__nav-list 
+
+                each link in objNav.links
+                  li.footer__nav-item 
+                    a.footer__nav-link(href="#")= link
+      .footer__box-mail 
+        p.footer__top-desc Если у вас есть вопросы, наши&nbsp;менеджеры помогут вам!
+        a(href="mailto:mail@example.com").footer__link.footer__link-tel
+          +icon('mail') 
+          | mail@example.com
+        a(href="tel:+89999999999").footer__link.footer__link-mail
+          +icon('call')  
+          | 8 (999) 999-99-99
+  .footer__container-bottom 
+    .footer__box-bottom.container__inner
+      strong.footer__copyright © 2023 MMEXPERT.RU
+      p.footer__bottom-desc Информация, размещенная на сайте, не является публичной офертой
+      .footer__box-developed
+        strong.footer__developed-title Разработано
+        strong.footer__developed-desc 
+          span Request&nbsp;
+          | Design

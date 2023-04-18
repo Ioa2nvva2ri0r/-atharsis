@@ -1,0 +1,118 @@
+.catalog {
+  padding-top: 80px;
+  padding-bottom: 179px;
+  &__title {
+    margin-bottom: 44px !important;
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  &__list {
+    @include reset(li);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 30px;
+    width: 48%;
+    padding-top: 1px;
+  }
+  &__img {
+    @include picture(100%);
+    &-box {
+      position: relative;
+      width: 100%;
+      max-width: 1058px;
+    }
+  }
+  &__label {
+    @include reset(btn);
+    overflow: visible;
+    position: absolute;
+    @include block-size(20px);
+    &,
+    &::after {
+      position: absolute;
+    }
+    &,
+    &::after,
+    & span {
+      border-radius: 100%;
+    }
+    & span {
+      display: block;
+      position: relative;
+      z-index: 2;
+      @include block-size(inherit);
+      @include transition(background-color, var(--white));
+    }
+    &::after {
+      content: '';
+      top: 50%;
+      left: 50%;
+      opacity: 0.5;
+      z-index: 1;
+      @include block-size(30px);
+      background-color: var(--blue);
+      transform: translate(-50%, -50%);
+      @include transitions((opacity, background-color));
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      & span {
+        background-color: var(--blue);
+      }
+      &::after {
+        opacity: 1;
+        background-color: var(--white);
+      }
+    }
+    &-1 {
+      left: 210px;
+      bottom: 199px;
+    }
+    &-2 {
+      right: 421px;
+      bottom: 145px;
+    }
+  }
+  &__card {
+    background-color: var(--white);
+    &-img {
+      @include picture(100%);
+      margin-bottom: 21px;
+    }
+    &-link {
+      @include reset(link);
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding: 44px 5px 15px 5px;
+      outline: 1px solid transparent;
+      @include transition(outline-color);
+      &:hover,
+      &:focus,
+      &:active {
+        outline-color: var(--beige);
+        & span {
+          color: var(--beige);
+        }
+      }
+    }
+    &-desc {
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      @include transition(color, var(--black));
+    }
+  }
+  @media (max-width: 376px) {
+    &__content {
+      flex-direction: column-reverse;
+    }
+    &__list {
+      width: 100%;
+      gap: 10px;
+    }
+  }
+}

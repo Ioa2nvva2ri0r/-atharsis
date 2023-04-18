@@ -1,0 +1,76 @@
+.company {
+  padding-top: 180px;
+  padding-bottom: 181px;
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 95px 0 96px 137px;
+    background-image: linear-gradient(
+      to right,
+      var(--white) 57.5%,
+      transparent 0%
+    );
+  }
+  &__content {
+    width: 100%;
+    max-width: 425px;
+  }
+  &__title {
+    letter-spacing: 0.5px !important;
+  }
+  &__desc {
+    margin: 0 0 45px 0;
+    font-size: 18px;
+    line-height: 130%;
+    & span {
+      line-height: 130%;
+    }
+  }
+  &__btn {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    width: max-content;
+    border-radius: 43px;
+    padding: 15px 27px;
+    font-size: 18px;
+    color: var(--white);
+    background-color: var(--black);
+    @include transition(color);
+    & svg {
+      margin-left: 20px;
+      & > path {
+        @include transition(stroke);
+      }
+    }
+    &:focus {
+      outline: none;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--beige);
+      & svg > path {
+        stroke: var(--beige);
+      }
+    }
+  }
+  &__img {
+    @include picture(921px, 629px);
+  }
+  @media (max-width: 376px) {
+    &__container {
+      flex-direction: column;
+      padding: 40px 20px;
+      background-image: linear-gradient(
+        to bottom,
+        var(--white) 57.5%,
+        transparent 0%
+      );
+    }
+    &__img {
+      @include picture(100%, 400px);
+    }
+  }
+}

@@ -1,0 +1,87 @@
+.popup {
+  position: fixed;
+  justify-content: center;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  opacity: 0;
+  @include block-size(100%);
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(7.5px);
+  @include transitions((opacity, visibility));
+  &-active {
+    visibility: visible;
+    opacity: 1;
+  }
+  &,
+  &__box,
+  &__link {
+    display: flex;
+    align-items: center;
+  }
+  &__box {
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    max-width: 785px;
+    padding: 120px 80px 87px 80px;
+    background-color: var(--white);
+  }
+  &__title {
+    margin-bottom: 15px !important;
+  }
+  &__desc {
+    text-align: center;
+    width: 100%;
+    max-width: 518px;
+    margin: 0 0 45px 0;
+    font-size: 18px;
+    line-height: 140%;
+  }
+  &__link {
+    text-decoration: none;
+    border-radius: 49px;
+    padding: 15px 28px;
+    font-size: 18px;
+    background-color: var(--blue);
+    @include transition(color, var(--white));
+    & svg {
+      margin-left: 20px;
+      & > path {
+        @include transition(stroke);
+      }
+    }
+    &:focus {
+      outline: none;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--beige);
+      & svg > path {
+        stroke: var(--beige);
+      }
+    }
+  }
+  &__close {
+    @include reset(btn);
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    @include block-size(21px);
+    & svg {
+      @include block-size(inherit);
+      & > path {
+        @include transition(stroke);
+      }
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      & svg > path {
+        stroke: var(--beige);
+      }
+    }
+  }
+}

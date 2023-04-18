@@ -1,0 +1,143 @@
+.application {
+  &,
+  &__form {
+    position: relative;
+  }
+  &__title,
+  &__desc,
+  &__form-desc,
+  &__form-desc a,
+  &__form-input,
+  &__form-input::placeholder,
+  &__form-btn {
+    color: var(--white);
+  }
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include picture(100%);
+    z-index: 1;
+  }
+  &__title {
+    letter-spacing: 1.8px !important;
+    margin-bottom: 15px !important;
+  }
+  &__desc {
+    margin: 0 0 45px 0;
+    font-size: 18px;
+  }
+  &__form {
+    width: 100%;
+    max-width: 839px;
+    padding: 80px 70px 82px 160px;
+    z-index: 2;
+    background: rgba(29, 53, 82, 0.65);
+    &-box {
+      &-input,
+      &-btn {
+        display: flex;
+      }
+      &-input {
+        flex-direction: column;
+      }
+      &-btn {
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+    &-label {
+      & span {
+        overflow: hidden;
+        font-size: 0;
+        @include block-size(0);
+      }
+      &:not(:last-child) {
+        margin-bottom: 38px;
+      }
+      &:last-child {
+        margin-bottom: 45px;
+      }
+    }
+    &-input {
+      width: 100%;
+      padding: 0 0 20px 0;
+      border: none;
+      border-bottom: 1px solid var(--grey);
+      background-color: transparent;
+      @include transition(border-color);
+      &,
+      &::placeholder {
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        line-height: 20px;
+      }
+      &:focus {
+        outline: none;
+      }
+      &:hover,
+      &:focus,
+      &:active {
+        border-color: var(--beige);
+      }
+    }
+    &-btn {
+      display: flex;
+      align-items: center;
+      border-radius: 49px;
+      border: none;
+      padding: 15px 28px;
+      font-size: 18px;
+      background-color: var(--blue);
+      @include transition(color);
+      & svg {
+        margin-left: 20px;
+        & > path {
+          @include transition(stroke);
+        }
+      }
+      &:focus {
+        outline: none;
+      }
+      &:hover,
+      &:focus,
+      &:active {
+        color: var(--beige);
+        & svg > path {
+          stroke: var(--beige);
+        }
+      }
+    }
+    &-desc {
+      width: 100%;
+      max-width: 407px;
+      margin: 0;
+      font-size: 18px;
+      line-height: 140%;
+      & a {
+        text-decoration: none;
+        border-bottom: 1px solid var(--white);
+        font-size: inherit;
+        @include transitions((border-color, color));
+      }
+      & a:focus {
+        outline: none;
+      }
+      & a:hover,
+      & a:focus,
+      & a:active {
+        color: var(--beige);
+        border-color: var(--beige);
+      }
+    }
+  }
+  @media (max-width: 376px) {
+    &__form {
+      padding: 40px 20px;
+      &-box-btn {
+        flex-direction: column;
+      }
+    }
+  }
+}

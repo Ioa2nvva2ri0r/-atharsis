@@ -1,0 +1,192 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Катарсис
+    //- Favicon
+    link(rel="apple-touch-icon", sizes="180x180", href="img/favicon/apple-touch-icon.png")
+    link(rel="icon", type="image/png", sizes="32x32", href="img/favicon/favicon-32x32.png")
+    link(rel="icon", type="image/png", sizes="16x16", href="img/favicon/favicon-16x16.png")
+    link(rel="manifest", href="img/favicon/site.webmanifest")
+    link(rel="mask-icon", href="img/favicon/safari-pinned-tab.svg", color="#1d3552")
+    meta(name="msapplication-TileColor", content="#1d3552")
+    meta(name="theme-color", content="#ffffff")
+    //- Font --Garamond--
+    link(rel="preconnect", href="https://fonts.googleapis.com")
+    link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=EB+Garamond&display=swap", rel="stylesheet")
+    //- Normalize CSS
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css", integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==", crossorigin="anonymous" referrerpolicy="no-referrer")
+    //- Swiper-Slider
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css")
+    script(src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js")
+    //- Basic Styles
+    link(rel="stylesheet", href="style/main.min.css")
+    //- Yandex-map
+    script(src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&lang=ru_RU", type="text/javascript")
+    //- Basic JavaScript
+    script(src="js/main.min.js", defer)
+
+  body
+
+    //- Mixins
+    include pug/mixin.pug
+
+    //- Header
+    include pug/header.pug
+
+    main
+
+      section.hero 
+        .hero__container.container__inner 
+          .hero__content
+            h1.hero__title.us-title Лучшая Дизайнерская Мебель
+            p.hero__desc Наша компания сотрудничает с дизайнерами, российскими и европейскими мебельными фабриками, чтобы вы могли купить оригинальную дизайнерскую мебель в Москве или заказать доставку в другие регионы.
+            a(href="#").hero__btn
+              span 
+                +icon('arrow-1') 
+              | Смотреть товары
+          .hero__img-container
+            - for(var i = 1; i < 4; i++)
+              picture
+                source(srcset=`img/hero/${i}.png`, class=`hero__img-${i}`).hero__img
+                img(src=`img/hero/${i}.png`, class=`hero__img-${i}`, alt=`Продукт-${i}`).hero__img
+
+      section.catalog.container__inner 
+        h2.catalog__title.us-title Каталог
+        .catalog__content
+          .catalog__img-box 
+            picture
+              source(srcset="img/catalog/main.png").catalog__img
+              img(src="img/catalog/main.png", alt="Гостиная").catalog__img
+            button.catalog__label.catalog__label-1(aria-label="Комод")
+              span
+            button.catalog__label.catalog__label-2(aria-label="Пуф")
+              span
+          ul.catalog__list 
+            //- Data catalog
+            - var catalog = ['Диваны', 'кресла', 'светильники', 'кровати', 'тумбочки', 'все']
+
+            each card,index in catalog
+              li.catalog__card 
+                a(href="#").catalog__card-link 
+                  picture
+                    source(srcset=`img/catalog/${index + 1}.png`).catalog__card-img
+                    img(src=`img/catalog/${index + 1}.png`, alt=`Раздел-${index + 1}`).catalog__card-img
+                  span.catalog__card-desc= card
+
+      section.popular.container__inner  
+        .popular__title-box 
+          h2.popular__title.us-title Популярные товары
+          .popular__slider-box-btn 
+            button.popular__slider-btn.popular__slider-btn-prev
+              +icon('arrow-1') 
+            button.popular__slider-btn.popular__slider-btn-next
+              +icon('arrow-1') 
+        .popular__slider.swiper
+          .swiper-wrapper
+            - for(var i = 1; i < 11; i++)
+              .popular__product.swiper-slide
+                .popular__product-box-img
+                  picture
+                    source(srcset=`img/popular/${i}.png`).popular__product-img
+                    img(src=`img/popular/${i}.png`, alt=`Продукт-${i}`).popular__product-img
+                .popular__product-box-content 
+                  .popular__product-content
+                    div 
+                      h3.popular__product-title
+                        a(href="")
+                          if i === 1
+                            | Кресло SILLA NEGRA
+                          else
+                            | Кресло
+                      p.popular__product-desc 
+                        if i === 1
+                          | Кресло SILLA NEGRA
+                        else
+                          | Кресло SILLA NEGRA black edition
+                    strong.popular__product-price 
+                      | 7 000 
+                      sup ₽
+                  .popular__product-box-btn 
+                    button.popular__product-btn(aria-label="Корзина")
+                      +icon('basket')
+                    button.popular__product-btn(aria-label="Избранные")
+                      +icon('favorite')
+          .popular__slider-scrollbar.swiper-scrollbar     
+
+      section.application.container__outer 
+        picture
+          source(srcset="img/application/1.png").application__img
+          img(src="img/application/1.png", alt="Спальня").application__img
+        form.application__form#application
+          h2.application__title.us-title оставьте заявку
+          p.application__desc Наши менеджеры помогут вам!
+          .application__form-box-input
+            label(for="name").application__form-label
+              span Имя
+              input(id="name", type="text", name="name", placeholder="Имя").application__form-input
+            label(for="tel").application__form-label
+              span Номер телефона
+              input(id="tel", type="tel", name="tel" , placeholder="Номер телефона").application__form-input
+          .application__form-box-btn 
+            button.application__form-btn 
+              | Отправить
+              +icon('arrow-2')
+            p.application__form-desc
+              | Отправляя форму, вы соглашаетесь с&nbsp;
+              a(href="#") политикой&nbsp;конфиденциальности
+
+      section.company.container__inner
+        .company__container  
+          .company__content 
+            h2.company__title.us-title О компании
+            p.company__desc 
+              | Наша компания сотрудничает с дизайнерами, российскими и европейскими мебельными фабриками, чтобы вы могли купить оригинальную дизайнерскую мебель в Москве или заказать доставку в другие регионы. Наша компания сотрудничает с дизайнерами, российскими и европейскими мебельными фабриками, чтобы вы могли купить оригинальную дизайнерскую мебель в Москве или заказать доставку в другие.
+            a(href="#").company__btn 
+              | Подробнее
+              +icon('arrow-2')
+          picture
+            source(srcset="img/company/1.png").company__img
+            img(src="img/company/1.png", alt="Офис").company__img
+
+      section.contacts.container__inner  
+        .contacts__content 
+          h2.contacts__title.us-title Наши контакты 
+          ul.contacts__list
+            li.contacts__item
+              h3.contacts__subtitle Адрес
+              address.contacts__desc г. Москва, ул. Расточная, 24 А
+            li.contacts__item
+              h3.contacts__subtitle Режим
+              p.contacts__desc Пн-Пт: 10-20 / Сб-Вс: 10-15
+            li.contacts__item
+              h3.contacts__subtitle Метро
+              strong.contacts__desc Любинская
+            li.contacts__item
+              h3.contacts__subtitle Телефон
+              a(href="tel:+89999999999").contacts__desc 8 (999) 999-99-99
+            li.contacts__item
+              h3.contacts__subtitle Почта
+              a(href="mailto:mail@example.com").contacts__desc mail@example.com
+            li.contacts__item
+              h3.contacts__subtitle Соц.сети
+              ul.socials__list.contacts__socials-list
+                //- Data socials
+                - var socials = [{id: 'vkontakte', href: 'https://vk.com/'}, {id: 'whatsapp', href: 'https://www.whatsapp.com/'}, {id: 'telegram', href: 'https://t.me/NIK_NAME'}, {id: 'phone', href: 'tel:+89999999999'}]
+
+                each objSocials in socials
+                  li.socials__item.contacts__socials-item 
+                    a.socials__link.contacts__socials-link(href= objSocials.href, aria-label=objSocials.id)
+                      +icon(objSocials.id)
+        .contacts__map#map
+
+    //- Footer
+    include pug/footer.pug
+
+    //- Popup
+    include pug/popup.pug
+
+

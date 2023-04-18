@@ -1,0 +1,99 @@
+.header {
+  padding: 21px 0 19px 0;
+  background-color: var(--blue);
+  &__nav-list {
+    @include reset(li);
+  }
+  &__container,
+  &__nav-list {
+    display: flex;
+    align-items: center;
+  }
+  &__logo,
+  &__nav-link,
+  &__btn {
+    @include reset(link);
+  }
+  &__container {
+    justify-content: space-between;
+  }
+  &__logo {
+    @include block-size(202px, 48px);
+    margin-left: -7px;
+    outline: 1px solid transparent;
+    @include transition(outline-color);
+    & img {
+      @include block-size(inherit);
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      outline-color: var(--beige);
+    }
+  }
+  &__nav {
+    padding-bottom: 5px;
+    padding-right: 103px;
+    &-item {
+      &:not(:last-child) {
+        margin-right: 80px;
+      }
+    }
+    &-link {
+      @include background-text();
+      font-size: 18px;
+      @include transition(opacity, 1);
+      &:hover,
+      &:focus,
+      &:active {
+        opacity: 0.5;
+      }
+    }
+  }
+  &__btn {
+    @include block-size(38px);
+    @include transition(opacity, 1);
+    &:hover,
+    &:focus,
+    &:active {
+      opacity: 0.5;
+    }
+    & svg {
+      @include block-size(inherit);
+      & > path {
+        fill: var(--beige);
+      }
+      & > rect {
+        stroke: var(--beige);
+      }
+    }
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+    &-menu {
+      @include reset(btn);
+      display: none;
+    }
+    &-box {
+      padding-top: 4px;
+    }
+  }
+  @media (max-width: 376px) {
+    padding: 15px 0;
+    &__logo {
+      @include block-size(55px, 45px);
+      margin-left: 8px;
+    }
+    &__nav {
+      display: none;
+    }
+    &__btn {
+      &-menu {
+        display: block;
+      }
+      &.favorite {
+        display: none;
+      }
+    }
+  }
+}

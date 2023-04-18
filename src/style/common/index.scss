@@ -1,0 +1,46 @@
+@import './fonts';
+
+:root {
+  --white: #fff;
+  --bg: #eae8e4;
+  --grey-light: #f4f4f4;
+  --grey: #909090;
+  --black: #2f2f2f;
+  --beige-light: #c6af90;
+  --beige: #a58a63;
+  --brass: linear-gradient(135deg, #a58a63 0%, #c6af90 52.4%, #a58a63 100%);
+  --blue: #1d3552;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Gilroy', sans-serif;
+  font-style: normal;
+}
+
+html,
+body {
+  position: relative;
+  min-width: 375px;
+  margin: 0 auto;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 140%;
+  background-color: var(--bg);
+  color: var(--black);
+  @media (max-width: 376px) {
+    font-size: 14px;
+  }
+}
+
+button,
+textarea,
+input {
+  cursor: pointer;
+}
+
+@import '../mixins';
+@import './common';
+@import './header';
+@import './footer';
+@import './popup';
