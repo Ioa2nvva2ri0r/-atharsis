@@ -1,6 +1,6 @@
 .company {
   padding-top: 180px;
-  padding-bottom: 181px;
+  padding-bottom: 180px;
   &__container {
     display: flex;
     align-items: center;
@@ -15,6 +15,7 @@
   &__content {
     width: 100%;
     max-width: 425px;
+    margin-right: 40px;
   }
   &__title {
     letter-spacing: 0.5px !important;
@@ -22,10 +23,7 @@
   &__desc {
     margin: 0 0 45px 0;
     font-size: 18px;
-    line-height: 130%;
-    & span {
-      line-height: 130%;
-    }
+    line-height: 131%;
   }
   &__btn {
     display: flex;
@@ -57,20 +55,50 @@
     }
   }
   &__img {
-    @include picture(921px, 629px);
+    @include picture(100%, 629px);
   }
-  @media (max-width: 376px) {
+  @media (max-width: 1500px) {
+    &__img {
+      object-position: 13% 50%;
+    }
+  }
+  @media (max-width: 1200px) {
+    padding-top: 90px;
+    padding-bottom: 91px;
     &__container {
       flex-direction: column;
-      padding: 40px 20px;
+      padding: 0 10px;
       background-image: linear-gradient(
         to bottom,
         var(--white) 57.5%,
         transparent 0%
       );
     }
+    &__content {
+      max-width: 525px;
+      margin-right: 0;
+      padding: 40px 12px 40px 10px;
+    }
+    &__title {
+      margin-bottom: 20px !important;
+      letter-spacing: 0.3px !important;
+    }
+    &__desc {
+      margin: 0 0 22px;
+      font-size: 16px;
+      line-height: 137%;
+    }
+    &__btn {
+      padding: 16px 27px;
+      background-color: var(--blue);
+    }
     &__img {
-      @include picture(100%, 400px);
+      height: 500px;
+    }
+  }
+  @media (max-width: 700px) {
+    &__img {
+      height: 400px;
     }
   }
 }

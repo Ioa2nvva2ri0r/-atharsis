@@ -24,11 +24,11 @@ body {
   min-width: 375px;
   margin: 0 auto;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 140%;
   background-color: var(--bg);
   color: var(--black);
-  @media (max-width: 376px) {
+  @media (max-width: 700px) {
     font-size: 14px;
   }
 }

@@ -70,7 +70,7 @@ const scriptsMinify = () => {
         presets: ['@babel/env'],
       })
     )
-    .pipe(uglify().on('eroor', notify.onError()))
+    .pipe(uglify().on('error', notify.onError()))
     .pipe(sourcemaps.write())
     .pipe(dest('build/js'))
     .pipe(browserSync.stream());

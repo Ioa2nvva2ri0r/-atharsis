@@ -22,10 +22,10 @@ html(lang="ru")
     //- Swiper-Slider
     link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css")
     script(src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js")
-    //- Basic Styles
-    link(rel="stylesheet", href="style/main.min.css")
     //- Yandex-map
     script(src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&lang=ru_RU", type="text/javascript")
+    //- Basic Styles
+    link(rel="stylesheet", href="style/main.min.css")
     //- Basic JavaScript
     script(src="js/main.min.js", defer)
 
@@ -57,14 +57,29 @@ html(lang="ru")
       section.catalog.container__inner 
         h2.catalog__title.us-title Каталог
         .catalog__content
-          .catalog__img-box 
-            picture
-              source(srcset="img/catalog/main.png").catalog__img
-              img(src="img/catalog/main.png", alt="Гостиная").catalog__img
-            button.catalog__label.catalog__label-1(aria-label="Комод")
-              span
-            button.catalog__label.catalog__label-2(aria-label="Пуф")
-              span
+          .catalog__slider.swiper 
+            .swiper-wrapper
+              - for(var slide = 1; slide < 3; slide++)
+                .catalog__slide.swiper-slide 
+                  picture
+                    source(srcset="img/catalog/main.png").catalog__img
+                    img(src="img/catalog/main.png", alt=`Гостиная-${slide}`).catalog__img
+                  - for(var label = 1; label < 3; label++)
+                    .catalog__label-box(class=`catalog__label-box-${slide + label}`)
+                      button.catalog__label(data-label=`${slide + label}` aria-label= "Пуф")
+                        span
+                      .catalog__label-box-desc(data-descLabel=`${slide + label}`)
+                        h3.catalog__label-desc Пуф круглый большой (велюр)
+                        picture
+                          source(srcset="img/catalog/pouf.png").catalog__label-img
+                          img(src="img/catalog/pouf.png", alt="Пуф").catalog__label-img
+                        a.catalog__label-link(href="#") 
+                          | Перейти к товару
+                          +icon('arrow-2')
+            button.catalog__slider-btn.catalog__slider-btn-prev
+              +icon('arrow-1') 
+            button.catalog__slider-btn.catalog__slider-btn-next
+              +icon('arrow-1') 
           ul.catalog__list 
             //- Data catalog
             - var catalog = ['Диваны', 'кресла', 'светильники', 'кровати', 'тумбочки', 'все']
@@ -122,22 +137,23 @@ html(lang="ru")
           source(srcset="img/application/1.png").application__img
           img(src="img/application/1.png", alt="Спальня").application__img
         form.application__form#application
-          h2.application__title.us-title оставьте заявку
-          p.application__desc Наши менеджеры помогут вам!
-          .application__form-box-input
-            label(for="name").application__form-label
-              span Имя
-              input(id="name", type="text", name="name", placeholder="Имя").application__form-input
-            label(for="tel").application__form-label
-              span Номер телефона
-              input(id="tel", type="tel", name="tel" , placeholder="Номер телефона").application__form-input
-          .application__form-box-btn 
-            button.application__form-btn 
-              | Отправить
-              +icon('arrow-2')
-            p.application__form-desc
-              | Отправляя форму, вы соглашаетесь с&nbsp;
-              a(href="#") политикой&nbsp;конфиденциальности
+          .application__form-container
+            h2.application__title.us-title оставьте заявку
+            p.application__desc Наши менеджеры помогут вам!
+            .application__form-box-input
+              label(for="name").application__form-label
+                span Имя
+                input(id="name", type="text", name="name", placeholder="Имя").application__form-input
+              label(for="tel").application__form-label
+                span Номер телефона
+                input(id="tel", type="tel", name="tel" , placeholder="Номер телефона").application__form-input
+            .application__form-box-btn 
+              button.application__form-btn 
+                | Отправить
+                +icon('arrow-2')
+              p.application__form-desc
+                | Отправляя форму, вы соглашаетесь с&nbsp;
+                a(href="#") политикой&nbsp;конфиденциальности
 
       section.company.container__inner
         .company__container  
@@ -161,7 +177,7 @@ html(lang="ru")
               address.contacts__desc г. Москва, ул. Расточная, 24 А
             li.contacts__item
               h3.contacts__subtitle Режим
-              p.contacts__desc Пн-Пт: 10-20 / Сб-Вс: 10-15
+              p.contacts__desc Пн-Пт: 10-20 / Сб&#8209;Вс:&nbsp;&nbsp;10&#8209;15
             li.contacts__item
               h3.contacts__subtitle Метро
               strong.contacts__desc Любинская

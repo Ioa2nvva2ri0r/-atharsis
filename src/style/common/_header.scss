@@ -23,6 +23,7 @@
     outline: 1px solid transparent;
     @include transition(outline-color);
     & img {
+      margin-top: -1px;
       @include block-size(inherit);
     }
     &:hover,
@@ -33,10 +34,14 @@
   }
   &__nav {
     padding-bottom: 5px;
-    padding-right: 103px;
+    padding-right: 105px;
     &-item {
-      &:not(:last-child) {
-        margin-right: 80px;
+      &:first-child,
+      &:last-child {
+        display: none;
+      }
+      &:nth-last-child(n + 3) {
+        margin-right: 81px;
       }
     }
     &-link {
@@ -70,29 +75,95 @@
     &:not(:last-child) {
       margin-right: 15px;
     }
-    &-menu {
+    &-menu,
+    &-close {
       @include reset(btn);
       display: none;
+      & svg {
+        @include block-size(inherit);
+      }
     }
     &-box {
       padding-top: 4px;
+      &-close {
+        display: none;
+      }
     }
   }
-  @media (max-width: 376px) {
-    padding: 15px 0;
-    &__logo {
-      @include block-size(55px, 45px);
-      margin-left: 8px;
-    }
+  @media (max-width: 1670px) {
     &__nav {
-      display: none;
+      padding: 0;
+    }
+  }
+  @media (max-width: 1200px) {
+    padding: 16px 0 14px 0;
+    &__nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 50;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(-150%);
+      @include transition((opacity, transform));
+      &-list {
+        flex-direction: column;
+        padding-top: 41px;
+        padding-bottom: 117px;
+        background-color: var(--bg);
+      }
+      &-item {
+        &:not(:last-child) {
+          margin-right: 0;
+          margin-bottom: 40px;
+        }
+        &:first-child,
+        &:last-child {
+          display: block;
+        }
+      }
+      &-link {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 35px;
+        font-weight: 400;
+        line-height: 110%;
+      }
+      &.active {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
     &__btn {
-      &-menu {
+      @include block-size(36px);
+      &-menu,
+      &-close {
         display: block;
+      }
+      &-close {
+        @include block-size(30px);
+        & svg > path {
+          stroke: var(--beige);
+        }
+      }
+      &-box-close {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        min-height: 75px;
+        padding: 0 20px;
+        background-color: var(--blue);
       }
       &.favorite {
         display: none;
+      }
+    }
+  }
+  @media (max-width: 700px) {
+    &__logo {
+      @include block-size(55px, 45px);
+      margin-left: 8px;
+      & img {
+        margin-top: -2px;
       }
     }
   }

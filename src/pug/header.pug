@@ -3,18 +3,21 @@ include mixin.pug
 
 header.header
   .header__container.container__inner
-    button.header__btn-menu
+    button.header__btn-menu#menu-open
       +icon('burger')
     a(href="#", aria-label="Логотип").header__logo
-      img(src="img/logo.svg", alt="Катарсис")#logo
-    nav.header__nav 
+      img#logo(src="img/logo.svg", alt="Катарсис")
+    nav.header__nav#menu
+      .header__btn-box-close#menu-close
+        button.header__btn-close
+          +icon('close')
       ul.header__nav-list 
         //- Data nav
-        - var nav = ['Каталог', 'Портфолио', 'О компании','Контакты']
+        - var nav = ['Главная', 'Каталог', 'Портфолио', 'О компании','Контакты', 'Избранное']
 
         each link in nav
           li.header__nav-item 
-            a(href="#").header__nav-link= link
+            a(href="index.html").header__nav-link= link
     .header__btn-box 
       a(href="#", aria-label="Избранные").header__btn.favorite
         +icon('favorite')

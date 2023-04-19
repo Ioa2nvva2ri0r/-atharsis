@@ -1,56 +1,81 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-const swiper = new Swiper('.popular__slider', {
+
+// Catalog -- Swiper-slider
+const swiperCatalog = new Swiper('.catalog__slider', {
+  loop: true,
+  navigation: {
+    nextEl: '.catalog__slider-btn-next',
+    prevEl: '.catalog__slider-btn-prev'
+  },
+  a11y: {
+    prevSlideMessage: 'Назад',
+    nextSlideMessage: 'Вперёд'
+  },
+  speed: 1000
+});
+
+// Popular -- Swiper-slider
+const swiperPopular = new Swiper('.popular__slider', {
   loop: true,
   navigation: {
     nextEl: '.popular__slider-btn-next',
     prevEl: '.popular__slider-btn-prev'
   },
   a11y: {
-    nextSlideMessage: 'Вправо'
+    prevSlideMessage: 'Назад',
+    nextSlideMessage: 'Вперёд'
   },
   scrollbar: {
     el: '.popular__slider-scrollbar',
     draggable: true
   },
+  speed: 1000,
   breakpoints: {
-    1000: {
+    1500: {
       slidesPerView: 4,
       slidesPerGroup: 4,
       spaceBetween: 29
     },
+    1200: {
+      slidesPerView: 3,
+      slidesPerGroup: 3,
+      spaceBetween: 20
+    },
+    700: {
+      slidesPerView: 2,
+      slidesPerGroup: 2,
+      spaceBetween: 20
+    },
     320: {
-      slidesPerView: 1,
+      slidesPerView: 'auto',
       slidesPerGroup: 1,
       spaceBetween: 10
     }
   }
 });
 
-const popup = document.getElementById('popup');
-const popupBox = document.getElementById('popup-box');
-const popupClose = document.getElementById('popup-close');
+// Sofas -- Catalog -- popup-label
+document.querySelectorAll('.catalog__label').forEach((el) => {
+  const label = (id) => document.querySelector(`[data-label='${id}']`);
+  const labelDesc = (id) => document.querySelector(`[data-descLabel='${id}']`);
 
-document.getElementById('application').addEventListener('submit', (e) => {
-  e.preventDefault();
+  let id = '';
 
-  popup.classList.add('popup-active');
-});
+  el.addEventListener('click', (e) => {
+    id = e.currentTarget.dataset.label;
+    labelDesc(id).classList.toggle('catalog__label-box-active');
+  });
 
-popupClose.addEventListener('click', () =>
-  popup.classList.remove('popup-active')
-);
-
-document.body.addEventListener('click', (e) => {
-  if (popup.classList.contains('popup-active') && !popupBox.contains(e.target))
-    popup.classList.remove('popup-active');
-});
-
-window.addEventListener('resize', (e) => {
-  console.log(e.currentTarget.innerWidth);
-  if (e.currentTarget.innerWidth < 376)
-    document.getElementById('logo').src = 'img/logo-min.svg';
+  document.body.addEventListener('click', (e) => {
+    if (
+      id &&
+      !label(id).contains(e.target) &&
+      !labelDesc(id).contains(e.target)
+    )
+      labelDesc(id).classList.remove('catalog__label-box-active');
+  });
 });
 
 // Yandex-map
@@ -72,6 +97,7 @@ function init() {
       iconImageOffset: [-3, -42]
     }
   );
+
   myMap.geoObjects.add(myPlacemark);
 
   myMap.controls.remove('zoomControl');

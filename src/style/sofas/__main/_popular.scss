@@ -1,5 +1,5 @@
 .popular {
-  padding-bottom: 177px;
+  padding-bottom: 176px;
   &__title {
     margin-bottom: 46px !important;
     letter-spacing: 1.65px !important;
@@ -19,7 +19,7 @@
       }
     }
     &-box-btn {
-      padding-top: 4px;
+      padding-top: 5px;
     }
     &-btn {
       @include block-size(56px);
@@ -29,6 +29,7 @@
       background-color: transparent;
       @include transitions((border-color, background-color));
       & svg {
+        margin-top: 4px;
         & > path {
           @include transition(stroke, var(--black));
         }
@@ -39,6 +40,9 @@
           transform-origin: center center;
           transform: rotate(180deg);
         }
+      }
+      &:focus {
+        outline: none;
       }
       &:hover,
       &:focus,
@@ -59,13 +63,13 @@
       }
       &-img {
         min-height: 360px;
-        margin-bottom: 18px;
+        margin-bottom: 16px;
         padding: 9px 5px 10px 5px;
         background-color: var(--white);
       }
       &-content {
         justify-content: space-between;
-        min-height: 112px;
+        min-height: 113px;
       }
       &-btn {
         align-items: center;
@@ -74,7 +78,7 @@
     }
     &-img {
       display: block;
-      @include picture(320px, 100%);
+      @include picture();
       margin: 0 auto;
     }
     &-content {
@@ -82,16 +86,16 @@
       flex-direction: column;
       justify-content: space-between;
       width: 100%;
-      max-width: 224px;
+      max-width: 220px;
     }
     &-title {
-      margin: 0 0 7px 0;
+      margin: 0 0 9px 0;
       & a {
         @include reset(link);
         @include background-text();
         text-transform: uppercase;
         font-size: 16px;
-        font-weight: 600;
+        font-weight: 400;
         letter-spacing: 0.15em;
         @include transition(opacity, 1);
       }
@@ -115,8 +119,8 @@
       font-size: 25px;
       line-height: 110%;
       & sup {
-        font-size: 16px;
-        top: -5px;
+        font-size: 15px;
+        top: -9px;
         left: 6px;
       }
     }
@@ -131,7 +135,7 @@
           @include transition(fill);
         }
         & > rect {
-          @include transitions((fill, stroke));
+          @include transition(stroke);
         }
       }
       &:hover,
@@ -139,12 +143,62 @@
       &:active {
         & svg {
           & > path {
-            fill: var(--beige);
+            fill: var(--blue);
           }
           & > rect {
             stroke: var(--blue);
-            fill: var(--blue);
           }
+        }
+      }
+    }
+  }
+  @media (max-width: 1000px) {
+    &__slider {
+      &-box-btn {
+        display: none;
+      }
+    }
+  }
+  @media (max-width: 700px) {
+    padding-right: 0 !important;
+    padding-bottom: 88px;
+    &__title {
+      padding-right: 20px;
+      margin-bottom: 41px !important;
+      letter-spacing: 0.9px !important;
+    }
+    &__slider {
+      padding-bottom: 45px;
+    }
+    &__product {
+      max-width: 335px;
+      &-box {
+        &-content {
+          min-height: 111px;
+        }
+        &-btn {
+          padding-top: 6px;
+        }
+      }
+      &-title {
+        & a {
+          font-size: 14px;
+          line-height: 17px;
+        }
+      }
+      &-desc {
+        font-size: 16px;
+      }
+      &-img {
+        position: relative;
+        left: 5px;
+        max-height: 275px;
+        margin: 40px auto 20px;
+      }
+      &-btn {
+        @include block-size(36px);
+        &:not(:last-child) {
+          margin-right: 9px;
         }
       }
     }

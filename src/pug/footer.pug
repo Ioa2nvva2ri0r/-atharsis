@@ -8,13 +8,13 @@ footer.footer
         a(href="#", aria-label="Логотип").footer__logo
           img(src="img/logo.svg", alt="Катарсис")
         p.footer__logo-desc Наша компания сотрудничает с&nbsp;дизайнерами, российскими и&nbsp;европейскими мебельными фабриками.
-        ul.socials__list
+        ul.footer__socials-list.socials__list
           //- Data socials
           - var socials = [{id: 'vkontakte', href: 'https://vk.com/'}, {id: 'whatsapp', href: 'https://www.whatsapp.com/'}, {id: 'telegram', href: 'https://t.me/NIK_NAME'}, {id: 'phone', href: 'tel:+89999999999'}]
 
           each objSocials in socials
-            li.socials__item 
-              a.socials__link(href= objSocials.href, aria-label=objSocials.id)
+            li.footer__socials-item.socials__item 
+              a.footer__socials-link.socials__link(href= objSocials.href, aria-label=objSocials.id)
                 +icon(objSocials.id)
       nav.footer__nav
           //- Data footer nav

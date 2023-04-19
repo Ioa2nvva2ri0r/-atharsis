@@ -15,3 +15,11 @@
   background-clip: text;
   text-fill-color: transparent;
 }
+
+@mixin background-text-reset() {
+  background: transparent !important;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
+  text-fill-color: initial;
+}
