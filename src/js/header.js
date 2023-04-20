@@ -1,7 +1,7 @@
 // Change Logo
 function changeLogo() {
   const logo = document.getElementById('logo');
-  if (window.screen.width <= 700) logo.src = 'img/logo-min.svg';
+  if (window.screen.width <= 768) logo.src = 'img/logo-min.svg';
   else logo.src = 'img/logo.svg';
 }
 

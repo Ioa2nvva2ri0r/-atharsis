@@ -18,17 +18,17 @@
   &__copyright,
   &__bottom-desc,
   &__developed-desc {
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: 400;
-    line-height: 140%;
+    line-height: 2.5rem;
   }
   &__container {
     &-top {
-      padding: 80px 0 77px 0;
+      padding: 7.9rem 0 7.6rem 0;
       background-color: var(--blue);
     }
     &-bottom {
-      padding: 25px 0;
+      padding: 2.5rem 0;
       background-color: var(--white);
     }
   }
@@ -48,12 +48,13 @@
     }
     &-logo {
       width: 100%;
-      max-width: 358px;
-      padding-top: 5px;
+      max-width: 35.8rem;
+      padding-top: 0.5rem;
     }
     &-mail {
-      padding-right: 80px;
-      padding-left: 40px;
+      padding-right: 8rem;
+      padding-left: 4rem;
+      margin-top: -0.1rem;
     }
     &-developed {
       position: relative;
@@ -62,55 +63,45 @@
   }
   &__logo {
     display: inline-block;
-    @include block-size(202px, 48px);
-    margin-left: -6px;
-    margin-bottom: 36px;
-    outline: 1px solid transparent;
-    @include transition(outline-color);
+    @include block-size(20.2rem, 4.8rem);
+    margin-left: -0.6rem;
+    margin-bottom: 3.2rem;
     & img {
       @include block-size(inherit);
     }
-    &:hover,
-    &:focus,
-    &:active {
-      outline-color: var(--beige);
-    }
     &-desc {
-      margin: 0 0 46px 0;
+      margin: 0 0 4.7rem 0;
+      letter-spacing: 0.005rem;
     }
   }
   &__nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
-    max-width: 586px;
+    max-width: 58.8rem;
     &-box {
-      margin-bottom: 4px;
+      margin-bottom: 0.6rem;
       &:first-child {
-        margin-right: 135px;
+        margin-right: 13.7rem;
       }
       &:last-child {
-        padding-right: 4px;
+        padding-right: 0.5rem;
       }
     }
     &-title {
       text-transform: uppercase;
-      margin: 0 0 25px 0;
-      font-size: 16px;
+      margin: 0 0 2.4rem 0;
+      font-size: 1.6rem;
       font-weight: 400;
-      line-height: 20px;
+      line-height: 2rem;
       letter-spacing: 0.15em;
-    }
-    &-list {
-      @include reset(li);
     }
     &-item {
       &:not(:last-child) {
-        margin-bottom: 15px;
+        margin-bottom: 1.5rem;
       }
     }
     &-link {
-      @include reset(link);
       @include transition(color);
       &:hover,
       &:focus,
@@ -121,17 +112,18 @@
   }
   &__top-desc {
     width: 100%;
-    max-width: 296px;
-    margin: 0 0 25px 0;
+    max-width: 29.6rem;
+    margin: 0 0 2.5rem 0;
   }
   &__link {
-    @include reset(link);
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
+    @include flex-center-y();
+    margin-bottom: 1.5rem;
     @include transition(color);
     & svg {
-      margin-right: 15px;
+      @include block-size(3rem);
+      position: relative;
+      top: 0.1rem;
+      margin-right: 1.5rem;
       & > path {
         @include transition(stroke);
       }
@@ -147,19 +139,19 @@
   }
   &__bottom-desc {
     margin: 0;
-    padding: 0 0 0 8px;
+    padding: 0 0 0 0.8rem;
   }
   &__developed {
     &-title {
       text-align: right;
-      margin-top: 3px;
-      padding-right: 57px;
-      font-size: 15px;
+      margin-top: 0.3rem;
+      padding-right: 5.7rem;
+      font-size: 1.5rem;
       font-weight: 500;
-      line-height: 16px;
+      line-height: 1.6rem;
     }
     &-desc {
-      padding-right: 56px;
+      padding-right: 5.6rem;
       font-weight: 400;
       color: #21252c;
       & span {
@@ -168,44 +160,33 @@
       &::after {
         position: absolute;
         content: '';
-        top: -17px;
-        right: -23px;
-        @include block-size(90px);
-        background-image: url('../../img/rhombus.png');
+        top: -1.8rem;
+        right: -2.2rem;
+        @include block-size(9rem);
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iODgiIHZpZXdCb3g9IjAgMCA4OCA4OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgZmlsdGVyPSJ1cmwoI2ZpbHRlcjBfZF85MzhfNzE2MikiPgo8cmVjdCB4PSIyMSIgeT0iNDAiIHdpZHRoPSIzMi41MjY5IiBoZWlnaHQ9IjMyLjUyNjkiIHJ4PSIzIiB0cmFuc2Zvcm09InJvdGF0ZSgtNDUgMjEgNDApIiBmaWxsPSIjMjEyNTJDIi8+CjwvZz4KPGVsbGlwc2UgY3g9IjQ0LjA1MTIiIGN5PSI0MCIgcng9IjEzLjE3MjMiIHJ5PSIxMy4xNzI0IiBmaWxsPSIjRkNGQ0ZDIi8+CjxyZWN0IHg9IjM1LjgxODQiIHk9IjMxLjc2NzEiIHdpZHRoPSIxNi41ODIzIiBoZWlnaHQ9IjE2LjU4MjMiIHJ4PSIzIiBmaWxsPSIjMjEyNTJDIi8+CjxlbGxpcHNlIGN4PSI0NC4wMjkxIiBjeT0iMzkuOTc3NiIgcng9IjUuNzQwMDUiIHJ5PSI1LjczOTc2IiBmaWxsPSIjRkNGQ0ZDIi8+CjxyZWN0IHdpZHRoPSIzLjcyMDY1IiBoZWlnaHQ9IjMuNzIwNjUiIHJ4PSIxIiB0cmFuc2Zvcm09Im1hdHJpeCgwLjcwNzA4MSAtMC43MDcxMzIgMC43MDcwODEgMC43MDcxMzIgNDEuNTgyIDQwKSIgZmlsbD0iIzIxMjUyQyIvPgo8ZGVmcz4KPGZpbHRlciBpZD0iZmlsdGVyMF9kXzkzOF83MTYyIiB4PSIwLjI0MjE4OCIgeT0iMC4yNDI2NzYiIHdpZHRoPSI4Ny41MTU2IiBoZWlnaHQ9Ijg3LjUxNDYiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj4KPGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiLz4KPGZlQ29sb3JNYXRyaXggaW49IlNvdXJjZUFscGhhIiB0eXBlPSJtYXRyaXgiIHZhbHVlcz0iMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMTI3IDAiIHJlc3VsdD0iaGFyZEFscGhhIi8+CjxmZU1vcnBob2xvZ3kgcmFkaXVzPSIyIiBvcGVyYXRvcj0iZGlsYXRlIiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0iZWZmZWN0MV9kcm9wU2hhZG93XzkzOF83MTYyIi8+CjxmZU9mZnNldCBkeT0iNCIvPgo8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxMCIvPgo8ZmVDb2xvck1hdHJpeCB0eXBlPSJtYXRyaXgiIHZhbHVlcz0iMCAwIDAgMCAwLjI3OTE2NyAwIDAgMCAwIDAuMjc5MTY3IDAgMCAwIDAgMC4yNzkxNjcgMCAwIDAgMC4yNSAwIi8+CjxmZUJsZW5kIG1vZGU9Im5vcm1hbCIgaW4yPSJCYWNrZ3JvdW5kSW1hZ2VGaXgiIHJlc3VsdD0iZWZmZWN0MV9kcm9wU2hhZG93XzkzOF83MTYyIi8+CjxmZUJsZW5kIG1vZGU9Im5vcm1hbCIgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iZWZmZWN0MV9kcm9wU2hhZG93XzkzOF83MTYyIiByZXN1bHQ9InNoYXBlIi8+CjwvZmlsdGVyPgo8L2RlZnM+Cjwvc3ZnPgo=');
         background-repeat: no-repeat;
+        background-size: 8.9rem;
+        background-position: center;
       }
     }
   }
-  @media (max-width: 1500px) {
-    &__box {
-      &-mail {
-        padding-right: 20px;
-      }
-      &-logo {
-        max-width: 275px;
-        padding-right: 15px;
-      }
-    }
-    &__nav-box:first-child {
-      margin-right: 50px;
-    }
-  }
-  @media (max-width: 1200px) {
+  @media (max-width: 48em) {
     &__logo-desc,
     &__nav-link,
     &__top-desc,
     &__link,
     &__bottom-desc,
     &__copyright {
-      font-size: 16px;
+      font-size: 3.2rem;
       font-weight: 500;
+      line-height: 4.4rem;
     }
     &__container {
       &-top {
-        padding: 39px 0 31px 0;
+        padding: 8.2rem 0 6.2rem 0;
       }
       &-bottom {
-        padding: 38px 0 43px 0;
+        padding: 8rem 0 8.6rem 0;
       }
     }
     &__box {
@@ -217,63 +198,85 @@
         flex-direction: column;
       }
       &-logo {
-        max-width: 358px;
-        padding-bottom: 38px;
+        max-width: 76.6rem;
+        padding-bottom: 7.7rem;
       }
       &-mail {
         padding: 0;
       }
     }
     &__logo {
-      margin-bottom: 22px;
+      @include block-size(40.4rem, 9.6rem);
+      margin-bottom: 4.1rem;
+      margin-left: -1.2rem;
       &-desc {
-        margin-bottom: 21px;
+        margin-bottom: 4.2rem;
       }
     }
     &__socials-item {
       &:not(:last-child) {
-        margin-right: 30px;
+        margin-right: 6rem;
       }
     }
     &__nav {
       justify-content: flex-start;
       max-width: inherit;
       &-box {
-        margin-right: 40px;
-        margin-bottom: 39px;
+        margin-bottom: 8rem;
         &:first-child {
-          margin-right: 40px;
+          margin-right: 0;
         }
       }
       &-title {
-        margin-bottom: 20px;
+        margin-bottom: 4rem;
         font-weight: 600;
-        font-size: 14px;
-        line-height: 17px;
+        font-size: 2.8rem;
+        line-height: 3.4rem;
       }
       &-item {
         &:not(:last-child) {
-          margin-bottom: 10px;
+          margin-bottom: 2rem;
         }
       }
     }
     &__top-desc {
-      margin: 0 0 20px;
+      max-width: 48.6rem;
+      margin: 0 0 4rem;
     }
     &__link {
-      margin-bottom: 10px;
+      margin-bottom: 2rem;
+      & svg {
+        @include block-size(6rem);
+        margin-right: 3.2rem;
+      }
     }
     &__copyright {
-      padding-right: 12px;
-      margin-bottom: 20px;
+      padding-right: 2.4rem;
+      margin-bottom: 4rem;
     }
     &__bottom-desc {
       text-align: center;
       padding: 0;
-      margin-bottom: 21px;
+      margin-bottom: 4rem;
     }
-    &__developed-desc::after {
-      right: -24px;
+    &__developed {
+      &-title {
+        margin-top: 0.6rem;
+        padding-right: 11.4rem;
+        font-size: 3rem;
+        line-height: 3.6rem;
+      }
+      &-desc {
+        padding-right: 11.2rem;
+        font-size: 3.6rem;
+        line-height: 4.4rem;
+        &::after {
+          top: -3.2rem;
+          right: -4.8rem;
+          @include block-size(18rem);
+          background-size: 18rem;
+        }
+      }
     }
   }
 }

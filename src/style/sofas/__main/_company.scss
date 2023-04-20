@@ -1,49 +1,45 @@
 .company {
-  padding-top: 180px;
-  padding-bottom: 180px;
+  padding-top: 18rem;
+  padding-bottom: 18rem;
   &__container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 95px 0 96px 137px;
+    padding: 9.5rem 0 9.6rem 13.6rem;
     background-image: linear-gradient(
       to right,
-      var(--white) 57.5%,
+      var(--white) 92.1rem,
       transparent 0%
     );
   }
   &__content {
     width: 100%;
-    max-width: 425px;
-    margin-right: 40px;
+    max-width: 42.5rem;
+    margin-right: 4rem;
+    padding-top: 10.6rem;
   }
   &__title {
-    letter-spacing: 0.5px !important;
+    letter-spacing: 0.05rem !important;
   }
   &__desc {
-    margin: 0 0 45px 0;
-    font-size: 18px;
-    line-height: 131%;
+    margin: 0 0 3.3rem 0;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
   }
   &__btn {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
+    @include flex-center-y();
     width: max-content;
-    border-radius: 43px;
-    padding: 15px 27px;
-    font-size: 18px;
+    border-radius: 4.3rem;
+    padding: 1.45rem 2.7rem 1.7rem 2.7rem;
+    font-size: 1.8rem;
     color: var(--white);
     background-color: var(--black);
     @include transition(color);
     & svg {
-      margin-left: 20px;
+      @include block-size(0.6rem, 1.1rem);
+      margin-left: 2rem;
       & > path {
         @include transition(stroke);
       }
-    }
-    &:focus {
-      outline: none;
     }
     &:hover,
     &:focus,
@@ -55,50 +51,48 @@
     }
   }
   &__img {
-    @include picture(100%, 629px);
+    @include picture(100%, 62.9rem);
   }
-  @media (max-width: 1500px) {
-    &__img {
-      object-position: 13% 50%;
-    }
-  }
-  @media (max-width: 1200px) {
-    padding-top: 90px;
-    padding-bottom: 91px;
+  @media (max-width: 48em) {
+    padding-top: 18rem !important;
+    padding-bottom: 18rem !important;
     &__container {
       flex-direction: column;
-      padding: 0 10px;
+      padding: 0 2rem;
       background-image: linear-gradient(
         to bottom,
-        var(--white) 57.5%,
+        var(--white) 133rem,
         transparent 0%
       );
     }
     &__content {
-      max-width: 525px;
+      max-width: 105rem;
       margin-right: 0;
-      padding: 40px 12px 40px 10px;
+      padding: 8rem 2.4rem 8rem 2.1rem;
     }
     &__title {
-      margin-bottom: 20px !important;
-      letter-spacing: 0.3px !important;
+      margin-bottom: 3.8rem !important;
+      letter-spacing: 0.06rem !important;
     }
     &__desc {
-      margin: 0 0 22px;
-      font-size: 16px;
-      line-height: 137%;
+      margin: 0 0 4.4rem;
+      font-size: 3.2rem;
+      line-height: 4.4rem;
     }
     &__btn {
-      padding: 16px 27px;
+      padding: 2.9rem 5.4rem 3.2rem;
       background-color: var(--blue);
+      border-radius: 8.6rem;
+      font-size: 3.6rem;
+      & svg {
+        @include block-size(1.2rem, 2.6rem);
+        margin-top: 0.7rem;
+        margin-left: 4rem;
+      }
     }
     &__img {
-      height: 500px;
-    }
-  }
-  @media (max-width: 700px) {
-    &__img {
-      height: 400px;
+      height: 80rem;
+      object-position: 12% 50%;
     }
   }
 }

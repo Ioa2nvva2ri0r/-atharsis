@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   z-index: 100;
-  padding: 30px;
+  padding: 3rem;
   opacity: 0;
   @include block-size(100%);
   background: rgba(0, 0, 0, 0.55);
@@ -25,36 +25,33 @@
     position: relative;
     flex-direction: column;
     width: 100%;
-    max-width: 785px;
-    padding: 120px 50px 87px 50px;
+    max-width: 78.5rem;
+    padding: 12rem 5rem 8.7rem 5rem;
     background-color: var(--white);
   }
   &__title {
-    margin-bottom: 15px !important;
+    margin-bottom: 1.5rem !important;
   }
   &__desc {
     text-align: center;
     width: 100%;
-    max-width: 518px;
-    margin: 0 0 45px 0;
-    font-size: 18px;
-    line-height: 140%;
+    max-width: 51.8rem;
+    margin: 0 0 4.4rem 0;
+    font-size: 1.8rem;
+    line-height: 2.6rem;
   }
   &__link {
-    text-decoration: none;
-    border-radius: 49px;
-    padding: 15px 28px;
-    font-size: 18px;
+    border-radius: 4.9rem;
+    padding: 1.5rem 2.8rem 1.6rem;
+    font-size: 1.8rem;
     background-color: var(--blue);
     @include transition(color, var(--white));
     & svg {
-      margin-left: 20px;
+      @include block-size(0.6rem, 1.1rem);
+      margin-left: 2rem;
       & > path {
         @include transition(stroke);
       }
-    }
-    &:focus {
-      outline: none;
     }
     &:hover,
     &:focus,
@@ -66,11 +63,10 @@
     }
   }
   &__close {
-    @include reset(btn);
     position: absolute;
-    top: 35px;
-    right: 35px;
-    @include block-size(21px);
+    top: 3.5rem;
+    right: 3.5rem;
+    @include block-size(2.1rem);
     & svg {
       @include block-size(inherit);
       & > path {
@@ -85,31 +81,41 @@
       }
     }
   }
-  @media (max-width: 700px) {
+  @media (max-width: 48em) {
+    padding: 4rem;
     &__box {
       justify-content: center;
-      max-width: 335px;
-      padding: 50px 17px;
+      max-width: 67rem;
+      padding: 10rem 3.4rem;
       height: 100%;
-      max-height: 555px;
+      max-height: 111rem;
     }
     &__title {
       text-align: center;
-      letter-spacing: 0.7px !important;
-      margin-bottom: 8px !important;
+      letter-spacing: 0.14rem !important;
+      margin-bottom: 1.8rem !important;
     }
     &__desc {
-      font-size: 16px;
+      max-width: initial;
+      margin-bottom: 8rem;
+      font-size: 3.2rem;
       font-weight: 500;
-      margin-bottom: 43px;
+      line-height: 4.4rem;
     }
     &__link {
-      padding: 16px 28px;
+      border-radius: 10rem;
+      padding: 3.1rem 5.6rem 3.3rem;
+      font-size: 3.6rem;
+      & svg {
+        @include block-size(1.2rem, 2.6rem);
+        margin-top: 0.7rem;
+        margin-left: 4rem;
+      }
     }
     &__close {
-      top: 17px;
-      right: 17px;
-      @include block-size(17px);
+      top: 3.4rem;
+      right: 3.4rem;
+      @include block-size(3.4rem);
     }
   }
 }

@@ -1,68 +1,41 @@
 .header {
-  padding: 21px 0 19px 0;
+  padding: 2.1rem 0 1.9rem 0;
   background-color: var(--blue);
-  &__nav-list {
-    @include reset(li);
-  }
   &__container,
   &__nav-list {
-    display: flex;
-    align-items: center;
-  }
-  &__logo,
-  &__nav-link,
-  &__btn {
-    @include reset(link);
+    @include flex-center-y();
   }
   &__container {
     justify-content: space-between;
   }
   &__logo {
-    @include block-size(202px, 48px);
-    margin-left: -7px;
-    outline: 1px solid transparent;
-    @include transition(outline-color);
+    @include block-size(20.2rem, 4.8rem);
+    margin-left: -0.7rem;
     & img {
-      margin-top: -1px;
       @include block-size(inherit);
-    }
-    &:hover,
-    &:focus,
-    &:active {
-      outline-color: var(--beige);
+      margin-top: -0.1rem;
     }
   }
   &__nav {
-    padding-bottom: 5px;
-    padding-right: 105px;
+    padding: 0 10.5rem 0.6rem 0;
     &-item {
       &:first-child,
       &:last-child {
         display: none;
       }
       &:nth-last-child(n + 3) {
-        margin-right: 81px;
+        margin-right: 8.1rem;
       }
     }
     &-link {
+      font-size: 1.8rem;
       @include background-text();
-      font-size: 18px;
-      @include transition(opacity, 1);
-      &:hover,
-      &:focus,
-      &:active {
-        opacity: 0.5;
-      }
+      @include opacity-effect();
     }
   }
   &__btn {
-    @include block-size(38px);
-    @include transition(opacity, 1);
-    &:hover,
-    &:focus,
-    &:active {
-      opacity: 0.5;
-    }
+    @include block-size(3.8rem);
+    @include opacity-effect();
     & svg {
       @include block-size(inherit);
       & > path {
@@ -73,49 +46,50 @@
       }
     }
     &:not(:last-child) {
-      margin-right: 15px;
+      margin-right: 1.5rem;
+    }
+    &-box {
+      &-close {
+        display: none;
+      }
     }
     &-menu,
     &-close {
-      @include reset(btn);
       display: none;
       & svg {
         @include block-size(inherit);
       }
     }
-    &-box {
-      padding-top: 4px;
-      &-close {
-        display: none;
+  }
+  @media (max-width: 48em) {
+    padding: 3.2rem 0 2.8rem 0;
+    &__logo {
+      @include block-size(11.4rem, 9.2rem);
+      margin-left: 1.4rem;
+      & img {
+        margin-top: -0.4rem;
       }
     }
-  }
-  @media (max-width: 1670px) {
-    &__nav {
-      padding: 0;
-    }
-  }
-  @media (max-width: 1200px) {
-    padding: 16px 0 14px 0;
     &__nav {
       position: absolute;
       top: 0;
       left: 0;
       z-index: 50;
       width: 100%;
+      padding: 0;
       opacity: 0;
       transform: translateY(-150%);
       @include transition((opacity, transform));
       &-list {
         flex-direction: column;
-        padding-top: 41px;
-        padding-bottom: 117px;
+        padding-top: 7.8rem;
+        padding-bottom: 23.5rem;
         background-color: var(--bg);
       }
       &-item {
         &:not(:last-child) {
           margin-right: 0;
-          margin-bottom: 40px;
+          margin-bottom: 7.4rem;
         }
         &:first-child,
         &:last-child {
@@ -124,9 +98,9 @@
       }
       &-link {
         font-family: 'Cormorant Garamond', serif;
-        font-size: 35px;
+        font-size: 7rem;
         font-weight: 400;
-        line-height: 110%;
+        letter-spacing: 0.06rem;
       }
       &.active {
         transform: translateY(0);
@@ -134,36 +108,26 @@
       }
     }
     &__btn {
-      @include block-size(36px);
+      @include block-size(7.2rem);
       &-menu,
       &-close {
         display: block;
       }
       &-close {
-        @include block-size(30px);
+        @include block-size(4.5rem);
         & svg > path {
           stroke: var(--beige);
         }
       }
       &-box-close {
-        display: flex;
-        align-items: center;
+        @include flex-center-y();
         justify-content: flex-end;
-        min-height: 75px;
-        padding: 0 20px;
+        min-height: 15rem;
+        padding: 0 5rem;
         background-color: var(--blue);
       }
       &.favorite {
         display: none;
-      }
-    }
-  }
-  @media (max-width: 700px) {
-    &__logo {
-      @include block-size(55px, 45px);
-      margin-left: 8px;
-      & img {
-        margin-top: -2px;
       }
     }
   }

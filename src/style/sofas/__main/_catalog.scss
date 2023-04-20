@@ -1,45 +1,37 @@
 .catalog {
-  padding-top: 80px;
-  padding-bottom: 176px;
-  &__title {
-    margin-bottom: 44px !important;
-  }
+  padding-top: 8rem;
+  padding-bottom: 18rem;
   &__content {
-    display: flex;
-    align-items: center;
-    gap: 30px;
+    @include flex-center-y();
+    gap: 3rem;
   }
   &__slider {
-    width: 99.2%;
     &-btn {
       position: absolute;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @include flex-center-center();
       top: 50%;
-      @include block-size(56px);
-      border: none;
-      border-radius: 100%;
-      padding: 0;
-      background-color: var(--white);
-      transform: translateY(-52%);
       z-index: 1;
       opacity: 0;
+      @include block-size(5.6rem);
+      border-radius: 100%;
+      transform: translateY(-50%);
+      background-color: var(--white);
       @include transitions((background-color, opacity));
       & svg {
+        @include block-size(0.6rem, 1.1rem);
         & > path {
           @include transition(stroke, var(--black));
         }
       }
       &-prev {
-        left: 40px;
+        left: 4rem;
         & svg {
           transform-origin: center center;
           transform: rotate(180deg);
         }
       }
       &-next {
-        right: 40px;
+        right: 4rem;
       }
       &:focus {
         outline: none;
@@ -60,24 +52,19 @@
       }
     }
   }
-  &__slide {
-    position: relative;
-  }
   &__list {
-    @include reset(li);
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
-    gap: 30px;
-    width: 48%;
-    min-width: 511px;
+    grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
+    gap: 3rem;
+    height: 100%;
+    min-width: 51.1rem;
   }
   &__label {
     position: relative;
-    @include reset(btn);
     overflow: visible;
-    @include block-size(20px);
-    &-box,
-    &-box-desc,
+    @include block-size(1.8rem);
+    &,
+    &-content,
     &::after {
       position: absolute;
     }
@@ -99,9 +86,9 @@
       left: 50%;
       opacity: 0.5;
       z-index: 1;
-      @include block-size(30px);
-      background-color: var(--blue);
+      @include block-size(3rem);
       transform: translate(-50%, -50%);
+      background-color: var(--blue);
       @include transitions((opacity, background-color));
     }
     &:hover,
@@ -115,62 +102,59 @@
         background-color: var(--white);
       }
     }
-    &-box {
-      &-1,
-      &-3 {
-        left: 210px;
-        bottom: 25%;
-      }
-      &-2,
-      &-4 {
-        left: 616px;
-        bottom: 18.4%;
-      }
-      &-desc {
-        visibility: hidden;
-        left: calc(100% + 26px);
-        bottom: -413%;
-        opacity: 0;
-        z-index: 5;
-        padding: 19px 16px 19px 15px;
-        background-color: var(--white);
-        @include transitions((visibility, opacity));
-      }
-      &-active {
+    &-1,
+    &-3 {
+      left: 21rem;
+      bottom: 19.9rem;
+    }
+    &-2,
+    &-4 {
+      left: 61.7rem;
+      bottom: 14.6rem;
+    }
+    &-content {
+      visibility: hidden;
+      height: max-content;
+      width: 100%;
+      max-width: 26.1rem;
+      opacity: 0;
+      z-index: 2;
+      padding: 1.9rem 1.6rem 1.9rem 1.5rem;
+      background-color: var(--white);
+      transform: translateY(12.85rem);
+      @include transitions((visibility, opacity));
+      &.active {
         visibility: visible;
         opacity: 1;
       }
     }
-    &-desc {
+    &-title {
       margin: 0;
-      font-size: 18px;
+      font-size: 1.8rem;
       font-weight: 400;
-      line-height: 140%;
+      line-height: 2.5rem;
     }
     &-img {
       position: relative;
-      @include picture(229px, 194px);
-      top: -8px;
-      left: -5px;
-      margin-bottom: 9px;
+      @include picture(22.9rem, 19.4rem);
+      top: -0.8rem;
+      left: -0.5rem;
+      margin-bottom: 0.9rem;
     }
     &-link {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      border-radius: 49px;
-      padding: 15px 26px 17px 27px;
-      font-size: 18px;
+      @include flex-center-y();
+      white-space: nowrap;
+      border-radius: 4.9rem;
+      padding: 1.5rem 2.6rem 1.7rem 2.7rem;
+      font-size: 1.8rem;
       background-color: var(--blue);
       @include transition(color, var(--white));
       & svg {
-        margin-left: 20px;
+        @include block-size(0.6rem, 1.1rem);
+        margin-left: 2rem;
         & > path {
           @include transition(stroke);
         }
-      }
-      &:focus {
-        outline: none;
       }
       &:hover,
       &:focus,
@@ -187,19 +171,17 @@
     &-img {
       @include picture(100%);
       position: relative;
-      max-height: 138px;
-      margin-bottom: 21px;
+      max-height: 13.8rem;
+      margin-bottom: 2.1rem;
       @include transition(transform, scale(1));
     }
     &-link {
-      @include reset(link);
-      display: flex;
-      align-items: center;
+      @include flex-center-y();
       justify-content: flex-end;
       flex-direction: column;
       overflow: hidden;
       height: 100%;
-      padding: 44px 5px 15px 5px;
+      padding: 4.7rem 0.5rem 1.5rem 0.5rem;
       @include transition(background-color);
       &:hover,
       &:focus,
@@ -216,135 +198,140 @@
     &-desc {
       position: relative;
       text-transform: uppercase;
-      top: -2px;
-      margin-inline-start: 3px;
+      top: -0.2rem;
+      margin-inline-start: 0.3rem;
       letter-spacing: 0.15em;
       @include transition(color, var(--black));
     }
   }
-  @media (max-width: 1670px) {
-    &__label {
-      &-box-desc {
-        left: 50%;
-        bottom: calc(100% + 26px);
-        transform: translateX(-50%);
-      }
-    }
-  }
-  @media (max-width: 1500px) {
+  @media (max-width: 48em) {
+    padding-top: 8.2rem !important;
+    padding-bottom: 18rem !important;
     &__content {
       flex-direction: column-reverse;
-      gap: 40px;
+      gap: 8rem;
     }
     &__slider {
       width: 100%;
-    }
-    &__img {
-      @include picture(100%);
-    }
-    &__label {
-      &-box-desc {
-        left: calc(100% + 26px);
-        bottom: -413%;
-        transform: translateX(0);
-      }
-    }
-    &__list {
-      width: 100%;
-      min-width: inherit;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    }
-  }
-  @media (max-width: 700px) {
-    padding-top: 41px;
-    padding-bottom: 90px;
-    &__title {
-      margin-bottom: 40px !important;
-    }
-    &__slider {
       &-btn {
-        @include block-size(45px);
-        transform: translateY(-49%);
+        @include block-size(9rem);
         & svg {
-          @include block-size(10px, 12px);
+          @include block-size(2rem, 2.4rem);
         }
         &-prev {
-          left: 9px;
+          left: 1.8rem;
         }
         &-next {
-          right: 9px;
+          right: 1.8rem;
         }
       }
     }
     &__label {
-      @include block-size(15px);
+      @include block-size(3rem);
       &::after {
-        @include block-size(25px);
+        @include block-size(5rem);
       }
-      &-box {
-        &-1,
-        &-3 {
-          left: 181px;
-          bottom: 93px;
+      &-1,
+      &-3 {
+        display: none;
+      }
+      &-2,
+      &-4 {
+        left: 36.5rem;
+        bottom: 19rem;
+      }
+      &-content {
+        @include flex-center-y();
+        flex-direction: column;
+        justify-content: flex-end;
+        max-width: initial;
+        height: 58.5rem;
+        bottom: 0;
+        left: 0;
+        padding: 4rem 2rem;
+        transform: translateY(0);
+      }
+      &-title {
+        margin-bottom: 5rem;
+        font-size: 3.2rem;
+        font-weight: 500;
+        line-height: 4.4rem;
+      }
+      &-img {
+        top: 0;
+        left: 0;
+        @include block-size(45.6rem, 27.8rem);
+        margin-bottom: 3rem;
+      }
+      &-link {
+        border-radius: 9.8rem;
+        padding: 2.8rem 5.7rem 3.2rem;
+        font-size: 3.6rem;
+        font-weight: 500;
+        line-height: 4.4rem;
+        & svg {
+          @include block-size(1.2rem, 2.6rem);
+          margin-top: 0.6rem;
+          margin-left: 4rem;
         }
       }
     }
     &__img {
-      height: 610px;
+      @include picture(100%, 122rem);
       object-position: 64% 50%;
     }
     &__list {
-      grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(auto-fill, minmax(31rem, 1fr));
+      gap: 2rem;
     }
     &__card {
       &:nth-child(1) {
         & .catalog__card-img {
-          height: 97px;
+          height: 19.4rem;
         }
       }
       &:nth-child(2) {
         & .catalog__card-img {
-          height: 80px;
+          height: 16rem;
         }
       }
       &:nth-child(4) {
         & .catalog__card-img {
-          top: 3px;
-          max-height: 107px;
+          top: 0.6rem;
+          max-height: 21.4rem;
         }
       }
       &:nth-child(5) {
         & .catalog__card-img {
-          top: 5px;
-          max-height: 95px;
+          top: 1rem;
+          max-height: 19rem;
         }
       }
       &:nth-child(6) {
         & .catalog__card-img {
-          top: 7px;
-          max-height: 86px;
+          top: 1.5rem;
+          max-height: 17.5rem;
         }
       }
       &:nth-child(5),
       &:nth-child(6) {
         & .catalog__card-img {
-          margin-bottom: 12px;
+          margin-bottom: 2.8rem;
         }
         & .catalog__card-link {
-          padding: 14px 5px 20px;
+          padding: 3rem 1rem 4.3rem;
         }
       }
       &-link {
-        padding: 14px 5px 22px;
+        padding: 2.8rem 1rem 4.4rem;
       }
       &-img {
-        max-height: 100px;
-        margin-bottom: 10px;
+        max-height: 20rem;
+        margin-bottom: 2.3rem;
       }
       &-desc {
-        top: 1px;
-        margin-inline-start: 1px;
+        top: 0.2rem;
+        margin-inline-start: 0.2rem;
         font-weight: 600;
       }
     }

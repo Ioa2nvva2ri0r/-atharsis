@@ -2,10 +2,10 @@
 include mixin.pug
 
 header.header
-  .header__container.container__inner
+  .header__container.container
     button.header__btn-menu#menu-open
       +icon('burger')
-    a(href="#", aria-label="Логотип").header__logo
+    a(href="index.html", aria-label="Логотип").header__logo
       img#logo(src="img/logo.svg", alt="Катарсис")
     nav.header__nav#menu
       .header__btn-box-close#menu-close

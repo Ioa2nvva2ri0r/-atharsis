@@ -1,5 +1,9 @@
 .hero {
-  background-image: linear-gradient(to bottom, var(--blue) 82%, transparent 0%);
+  background-image: linear-gradient(
+    to bottom,
+    var(--blue) 61.2rem,
+    transparent 0%
+  );
   &__title,
   &__desc,
   &__btn {
@@ -11,57 +15,51 @@
   }
   &__container {
     overflow: hidden;
-    padding-bottom: 255px;
+    min-height: 74.5rem;
   }
   &__content {
-    padding-top: 62px;
-    width: 100%;
-    max-width: 505px;
     z-index: 2;
+    width: 100%;
+    max-width: 50.5rem;
+    padding-top: 6.25rem;
   }
   &__title {
     letter-spacing: 0 !important;
     &::first-line {
-      letter-spacing: 1.7px;
+      letter-spacing: 0.17rem;
     }
   }
   &__desc {
-    margin: 0 0 45px 0;
-    font-size: 18px;
-    line-height: 140%;
-    letter-spacing: 0.05px;
+    margin: 0 0 4.4rem 0;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.005rem;
   }
   &__btn {
     text-decoration: none;
     width: max-content;
-    font-size: 18px;
-    @include transition(opacity, 1);
+    font-size: 1.8rem;
+    @include opacity-effect();
     &,
     & span {
-      display: flex;
-      align-items: center;
+      @include flex-center-y();
     }
     & span {
+      position: relative;
       justify-content: center;
-      @include block-size(56px);
-      margin-right: 20px;
+      top: 0.2rem;
+      @include block-size(5.6rem);
+      margin-right: 2rem;
       border-radius: 100%;
       background-color: var(--white);
       & svg {
+        @include block-size(0.6rem, 1.1rem);
         transform-origin: center center;
         transform: rotate(90deg);
         & > path {
           stroke: var(--black);
         }
       }
-    }
-    &:focus {
-      outline: none;
-    }
-    &:hover,
-    &:focus,
-    &:active {
-      opacity: 0.5;
     }
   }
   &__img {
@@ -74,112 +72,62 @@
       right: 0;
       z-index: 1;
       @include block-size(100%);
-      max-width: 1240px;
+      max-width: 124rem;
     }
     &-1 {
-      @include picture(400px);
-      bottom: 355px;
-      right: 41.1%;
+      @include picture(40rem);
+      bottom: 35.5rem;
+      right: 41rem;
     }
     &-2 {
-      @include picture(924px, 438px);
+      @include picture(92.4rem, 43.8rem);
       bottom: 0;
-      right: 26.5%;
+      right: 23rem;
     }
     &-3 {
-      @include picture(544px, 635px);
-      bottom: 6px;
-      right: 1.2%;
+      @include picture(54.4rem, 63.5rem);
+      bottom: 0.5rem;
+      right: -8.5rem;
     }
   }
-  @media (max-width: 1670px) {
-    &__img {
-      &-1 {
-        @include block-size(350px);
-        bottom: 317px;
-      }
-      &-2 {
-        @include block-size(824px, 338px);
-      }
-      &-3 {
-        @include block-size(444px, 535px);
-        right: 3.2%;
-      }
-    }
-  }
-  @media (max-width: 1500px) {
-    &__container {
-      padding-bottom: 220px;
-    }
-    &__img {
-      &-1 {
-        @include block-size(300px);
-        bottom: 279px;
-        right: 31.1%;
-      }
-      &-2 {
-        @include block-size(724px, 328px);
-        right: 15.5%;
-      }
-      &-3 {
-        @include block-size(344px, 435px);
-        right: 0;
-      }
-    }
-  }
-  @media (max-width: 1200px) {
-    &__container {
-      padding-bottom: 190px;
-    }
-    &__img {
-      &-1 {
-        @include block-size(250px);
-        bottom: 231px;
-        right: 26.1%;
-      }
-      &-2 {
-        @include block-size(600px, 258px);
-        bottom: 14px;
-        right: 9.5%;
-      }
-      &-3 {
-        @include block-size(244px, 382px);
-        right: -5%;
-      }
-    }
-  }
-  @media (max-width: 1000px) {
+  @media (max-width: 48em) {
+    background-image: linear-gradient(
+      to bottom,
+      var(--blue) 95%,
+      transparent 0%
+    );
     &__container {
       display: flex;
       flex-direction: column;
-      padding-bottom: 20px;
+      min-height: 125rem;
+      padding-bottom: 10rem;
     }
     &__content {
-      max-width: 350px;
-      padding-top: 24px;
+      max-width: 70rem;
+      padding-top: 4.8rem;
     }
     &__title {
-      margin-bottom: 20px !important;
+      margin-bottom: 3.8rem !important;
       &::first-line {
-        letter-spacing: 1px;
+        letter-spacing: 0.2rem;
       }
     }
     &__desc {
-      margin-bottom: 32px;
-      font-size: 16px;
-      line-height: 138%;
+      margin-bottom: 6.4rem;
+      font-size: 3.2rem;
+      line-height: 4.4rem;
     }
     &__btn {
-      font-size: 16px;
+      font-size: 3.2rem;
       @include background-text-reset();
       color: var(--white);
       & span {
-        @include block-size(20px);
-        margin-left: 13px;
-        margin-right: 32px;
+        @include block-size(4rem);
+        margin-left: 2.6rem;
+        margin-right: 6.4rem;
         background-color: transparent;
         & svg {
-          @include block-size(12px, 10px);
+          @include block-size(2.4rem, 2rem);
           & > path {
             stroke: var(--white);
           }
@@ -189,72 +137,22 @@
     &__img {
       &-container {
         position: relative;
-        @include block-size(100%, 335px);
+        @include block-size(100%, 49.6rem);
       }
       &-1 {
-        right: 22.1%;
+        @include block-size(25.4rem);
+        bottom: 13.8rem;
+        right: 19.7rem;
       }
       &-2 {
-        bottom: 25px;
-        right: 4.5%;
+        @include block-size(59.4rem, 28.2rem);
+        bottom: -10.3rem;
+        right: 8.4rem;
       }
       &-3 {
-        bottom: 15px;
-        right: -10%;
-      }
-    }
-  }
-  @media (max-width: 700px) {
-    &__img {
-      &-container {
-        height: 270px;
-      }
-      &-1 {
-        @include block-size(180px);
-        bottom: 157px;
-        right: 16.1%;
-      }
-      &-2 {
-        @include block-size(350px, 180px);
-        right: 5.5%;
-      }
-      &-3 {
-        @include block-size(173px, 226px);
-        bottom: 29px;
-        right: -10%;
-      }
-    }
-  }
-  @media (max-width: 450px) {
-    background-image: linear-gradient(
-      to bottom,
-      var(--blue) 95%,
-      transparent 0%
-    );
-    &__container {
-      padding-bottom: 50px;
-    }
-    &__content {
-      max-width: 400px;
-    }
-    &__img {
-      &-container {
-        height: 248px;
-      }
-      &-1 {
-        @include block-size(127px);
-        bottom: 70px;
-        right: 29.5%;
-      }
-      &-2 {
-        @include block-size(297px, 141px);
-        bottom: -52px;
-        right: 12.5%;
-      }
-      &-3 {
-        @include block-size(173px, 202px);
-        bottom: -42px;
-        right: -14.5%;
+        @include block-size(34.6rem, 40.4rem);
+        bottom: -8.4rem;
+        right: -9.8rem;
       }
     }
   }

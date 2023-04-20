@@ -1,65 +1,25 @@
-.container {
-  &__outer,
-  &__inner {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  &__outer {
-    max-width: 1920px;
-  }
-  &__inner {
-    max-width: 1800px;
-    padding-left: 100px;
-    padding-right: 100px;
-  }
-  @media (max-width: 1500px) {
-    &__inner {
-      padding-left: 80px;
-      padding-right: 80px;
-    }
-  }
-  @media (max-width: 1200px) {
-    &__inner {
-      padding-left: 50px;
-      padding-right: 50px;
-    }
-  }
-  @media (max-width: 700px) {
-    &__inner {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  }
-}
-
 .us-title {
   text-transform: uppercase;
-  margin: 0 0 45px 0;
+  margin: 0 0 4.5rem 0;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 55px;
+  font-size: 5.5rem;
   font-weight: 400;
   line-height: 110%;
-  letter-spacing: 1px;
-  @media (max-width: 1500px) {
-    font-size: 45px;
-  }
-  @media (max-width: 700px) {
-    font-size: 30px;
-    margin-bottom: 40px;
-    letter-spacing: 0.5px;
+  letter-spacing: 0.1rem;
+  @media (max-width: 48em) {
+    font-size: 6rem;
+    margin-bottom: 8rem;
   }
 }
 
 .socials {
   &__list {
-    @include reset(li);
     display: flex;
     align-items: center;
   }
   &__item {
     &:not(:last-child) {
-      margin-right: 30px;
+      margin-right: 3rem;
     }
     &:first-child,
     &:last-child {
@@ -98,7 +58,7 @@
   }
   &__link {
     display: block;
-    @include block-size(35px);
+    @include block-size(3.5rem);
     &:focus {
       outline: none;
     }
@@ -106,14 +66,14 @@
       @include block-size(inherit);
     }
   }
-  @media (max-width: 700px) {
+  @media (max-width: 48em) {
     &__item {
       &:not(:last-child) {
-        margin-right: 20px;
+        margin-right: 4rem;
       }
     }
     &__link {
-      @include block-size(35px);
+      @include block-size(7rem);
     }
   }
 }

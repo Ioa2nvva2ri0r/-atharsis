@@ -33,20 +33,15 @@ const swiperPopular = new Swiper('.popular__slider', {
   },
   speed: 1000,
   breakpoints: {
-    1500: {
+    1200: {
       slidesPerView: 4,
       slidesPerGroup: 4,
       spaceBetween: 29
     },
-    1200: {
+    768: {
       slidesPerView: 3,
       slidesPerGroup: 3,
-      spaceBetween: 20
-    },
-    700: {
-      slidesPerView: 2,
-      slidesPerGroup: 2,
-      spaceBetween: 20
+      spaceBetween: 29
     },
     320: {
       slidesPerView: 'auto',
@@ -57,25 +52,27 @@ const swiperPopular = new Swiper('.popular__slider', {
 });
 
 // Sofas -- Catalog -- popup-label
+const labelContent = document.getElementById('label-content');
+let elem = '';
+
 document.querySelectorAll('.catalog__label').forEach((el) => {
-  const label = (id) => document.querySelector(`[data-label='${id}']`);
-  const labelDesc = (id) => document.querySelector(`[data-descLabel='${id}']`);
-
-  let id = '';
-
   el.addEventListener('click', (e) => {
-    id = e.currentTarget.dataset.label;
-    labelDesc(id).classList.toggle('catalog__label-box-active');
-  });
+    elem = e.currentTarget;
 
-  document.body.addEventListener('click', (e) => {
-    if (
-      id &&
-      !label(id).contains(e.target) &&
-      !labelDesc(id).contains(e.target)
-    )
-      labelDesc(id).classList.remove('catalog__label-box-active');
+    if (screen.width > 768) {
+      labelContent.style.left = `${elem.offsetLeft + elem.offsetWidth + 29}px`;
+      labelContent.style.top = `${
+        elem.offsetTop - labelContent.offsetHeight
+      }px`;
+    }
+
+    labelContent.classList.add('active');
   });
+});
+
+document.body.addEventListener('click', (e) => {
+  if (!elem.contains(e.target) && !labelContent.contains(e.target) && window)
+    labelContent.classList.remove('active');
 });
 
 // Yandex-map
@@ -84,7 +81,7 @@ ymaps.ready(init);
 function init() {
   let myMap = new ymaps.Map('map', {
     center: [53.676347909629094, 23.828005242050153],
-    zoom: 17
+    zoom: 16
   });
 
   let myPlacemark = new ymaps.Placemark(

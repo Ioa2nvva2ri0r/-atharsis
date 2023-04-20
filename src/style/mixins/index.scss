@@ -1,7 +1,22 @@
-@import './reset';
 @import './block-size';
 @import './image';
 @import './animation';
+
+@mixin flex-center-y {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-center-x {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin flex-center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 @mixin background-text {
   background: linear-gradient(
@@ -16,10 +31,19 @@
   text-fill-color: transparent;
 }
 
-@mixin background-text-reset() {
+@mixin background-text-reset {
   background: transparent !important;
   -webkit-background-clip: initial;
   -webkit-text-fill-color: initial;
   background-clip: initial;
   text-fill-color: initial;
+}
+
+@mixin opacity-effect {
+  @include transition(opacity, 1);
+  &:hover,
+  &:focus,
+  &:active {
+    opacity: 0.5;
+  }
 }

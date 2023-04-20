@@ -1,0 +1,9 @@
+.banner {
+  width: 100% !important;
+  &__slider {
+    min-height: 92.2rem;
+  }
+  &__img {
+    @include picture(100%, 92.2rem);
+  }
+}

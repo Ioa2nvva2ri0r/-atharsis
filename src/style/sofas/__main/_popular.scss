@@ -1,15 +1,14 @@
 .popular {
-  padding-bottom: 176px;
+  padding-bottom: 17.6rem;
   &__title {
-    margin-bottom: 46px !important;
-    letter-spacing: 1.65px !important;
+    letter-spacing: 0.165rem !important;
     &-box {
       display: flex;
       justify-content: space-between;
     }
   }
   &__slider {
-    padding-bottom: 47px;
+    padding-bottom: 4.5rem;
     &-scrollbar {
       cursor: pointer;
       left: 0 !important;
@@ -19,30 +18,27 @@
       }
     }
     &-box-btn {
-      padding-top: 5px;
+      display: flex;
+      padding-top: 0.5rem;
     }
     &-btn {
-      @include block-size(56px);
-      border: 1px solid var(--black);
+      @include flex-center-center();
+      @include block-size(5.6rem);
+      border: 0.1rem solid var(--black);
       border-radius: 100%;
-      padding: 0;
-      background-color: transparent;
       @include transitions((border-color, background-color));
       & svg {
-        margin-top: 4px;
+        @include block-size(0.6rem, 1.1rem);
         & > path {
           @include transition(stroke, var(--black));
         }
       }
       &:first-child {
-        margin-right: 15px;
+        margin-right: 1.5rem;
         & svg {
           transform-origin: center center;
           transform: rotate(180deg);
         }
-      }
-      &:focus {
-        outline: none;
       }
       &:hover,
       &:focus,
@@ -62,23 +58,22 @@
         display: flex;
       }
       &-img {
-        min-height: 360px;
-        margin-bottom: 16px;
-        padding: 9px 5px 10px 5px;
+        max-height: 36rem;
+        margin-bottom: 1.95rem;
+        padding: 0.9rem 0.5rem 1.1rem 0.5rem;
         background-color: var(--white);
       }
       &-content {
         justify-content: space-between;
-        min-height: 113px;
+        min-height: 11.3rem;
       }
       &-btn {
         align-items: center;
-        padding-top: 10px;
+        padding-top: 0.4rem;
       }
     }
     &-img {
-      display: block;
-      @include picture();
+      @include picture(32rem, 34rem);
       margin: 0 auto;
     }
     &-content {
@@ -86,29 +81,23 @@
       flex-direction: column;
       justify-content: space-between;
       width: 100%;
-      max-width: 220px;
+      max-width: 22rem;
     }
     &-title {
-      margin: 0 0 9px 0;
+      margin: 0 0 1rem 0;
       & a {
-        @include reset(link);
         @include background-text();
         text-transform: uppercase;
-        font-size: 16px;
+        font-size: 1.6rem;
         font-weight: 400;
         letter-spacing: 0.15em;
-        @include transition(opacity, 1);
-      }
-      & a:hover,
-      & a:focus,
-      & a:active {
-        opacity: 0.5;
+        @include opacity-effect();
       }
     }
     &-desc {
-      margin: 0 0 4px 0;
-      font-size: 18px;
-      line-height: 140%;
+      margin: 0;
+      font-size: 1.8rem;
+      line-height: 2.5rem;
     }
     &-price {
       &,
@@ -116,18 +105,17 @@
         font-family: 'EB Garamond', serif;
         font-weight: 400;
       }
-      font-size: 25px;
-      line-height: 110%;
+      font-size: 2.5rem;
       & sup {
-        font-size: 15px;
-        top: -9px;
-        left: 6px;
+        position: relative;
+        font-size: 1.5rem;
+        left: 0.6rem;
       }
     }
     &-btn {
-      @include reset(btn);
+      @include block-size(3.8rem);
       &:not(:last-child) {
-        margin-right: 10px;
+        margin-right: 1rem;
       }
       & svg {
         @include block-size(inherit);
@@ -152,53 +140,64 @@
       }
     }
   }
-  @media (max-width: 1000px) {
+  @media (max-width: 48em) {
+    padding-right: 0 !important;
+    padding-bottom: 17.6rem !important;
+    &__title {
+      padding-right: 3rem;
+      margin-bottom: 8.2rem !important;
+      letter-spacing: 0.18rem !important;
+    }
     &__slider {
+      padding-bottom: 8.7rem;
       &-box-btn {
         display: none;
       }
     }
-  }
-  @media (max-width: 700px) {
-    padding-right: 0 !important;
-    padding-bottom: 88px;
-    &__title {
-      padding-right: 20px;
-      margin-bottom: 41px !important;
-      letter-spacing: 0.9px !important;
-    }
-    &__slider {
-      padding-bottom: 45px;
-    }
     &__product {
-      max-width: 335px;
+      max-width: 67rem;
       &-box {
         &-content {
-          min-height: 111px;
+          min-height: 22.2rem;
         }
-        &-btn {
-          padding-top: 6px;
+        &-img {
+          max-height: 73rem;
+          margin-bottom: 3.7rem;
         }
       }
+      &-content {
+        max-width: 37rem;
+      }
       &-title {
+        margin-bottom: 2.2rem;
         & a {
-          font-size: 14px;
-          line-height: 17px;
+          font-size: 2.8rem;
+          line-height: 3.4rem;
         }
       }
       &-desc {
-        font-size: 16px;
+        font-size: 3.2rem;
+        line-height: 4rem;
       }
       &-img {
         position: relative;
-        left: 5px;
-        max-height: 275px;
-        margin: 40px auto 20px;
+        @include block-size(51.4rem, 50.8rem);
+        left: 1rem;
+        margin: 10.8rem auto 8.2rem;
+      }
+      &-price {
+        font-size: 5.5rem;
+        letter-spacing: -0.2rem;
+        & sup {
+          font-size: 3rem;
+          left: 1.2rem;
+          top: -1.8rem;
+        }
       }
       &-btn {
-        @include block-size(36px);
+        @include block-size(7.2rem);
         &:not(:last-child) {
-          margin-right: 9px;
+          margin-right: 1.8rem;
         }
       }
     }
