@@ -1,0 +1,36 @@
+//- Mixins
+include mixin.pug
+
+.menu-catalog#catalog
+  .menu-catalog__container.container
+    ul.menu-catalog__list 
+      //- Data menu catalog
+      - var catalog = [{name: 'Дизайнерская мебель', href: `${PUBLIC_URL}view/pages/sofas.html`}, {name: 'Межкомнатные перегородки', href: '#'}, {name: 'Поиск проекта по фото', href: '#'}, {name: 'Услуги дизайнера интерьера', href: '#'}]
+
+      each section, index in catalog 
+        li.menu-catalog__item 
+          a(href= section.href).menu-catalog__link
+            = section.name
+            +icon('arrow-1')
+          .menu-catalog__tab(tabindex=0)
+            picture
+              source.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, srcset=`${PUBLIC_URL}img/menu-catalog/${index + 1}.png`)
+              img.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, src=`${PUBLIC_URL}img/menu-catalog/${index + 1}.png`, alt=`Изображение-${section.name}`)
+    .subsection-catalog
+      button.subsection-catalog__close#catalog-close(aria-label="Закрыть каталог")
+        +icon('close-2')
+      button.subsection-catalog__back#catalog-back
+        +icon('arrow-1')
+        | Вернуться назад
+      .subsection-catalog__container#catalog-tab 
+        h2.subsection-catalog__title.us-title Дизайнерская мебель 
+        ul.subsection-catalog__list 
+          //- Data subsection catalog
+          - var subsection = [{name: 'Спальня', href: '#'}, {name: 'Кухня', href: '#'}, {name: 'Гостиная', href: '#'}, {name: 'Офис и домашний офис', href: '#'}, {name: 'Прихожая', href: '#'}, {name: 'Публичные пространства', href: '#'}]
+
+          each section, index in subsection
+            li.subsection-catalog__item 
+              picture
+                source.subsection-catalog__img(srcset=`${PUBLIC_URL}img/menu-catalog/subsection/${index + 1}.png`)
+                img.subsection-catalog__img(src=`${PUBLIC_URL}img/menu-catalog/subsection/${index + 1}.png`, alt=`Изображение-${section.name}`)
+              a(href= section.href).subsection-catalog__link= section.name

@@ -1,0 +1,298 @@
+.menu-catalog {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100rem;
+  z-index: 100;
+  @include transition(visibility, hidden);
+  &__container {
+    display: flex;
+    width: 100% !important;
+  }
+  &__list {
+    display: grid;
+    grid-auto-rows: 25.1rem;
+    width: 64.9rem;
+    border-right: 0.1rem solid var(--white);
+    background-color: rgba(29, 53, 82, 0.45);
+    backdrop-filter: blur(5px);
+    @include transition(transform, translateY(-100%));
+  }
+  &__item,
+  &__link {
+    @include flex-center-y();
+  }
+  &__item {
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 0 4rem 0 6rem;
+    &:not(:last-child) {
+      border-bottom: 0.1rem solid var(--white);
+    }
+    & picture {
+      position: relative;
+    }
+  }
+  &__link {
+    border-bottom: 0.1rem solid var(--white);
+    padding-top: 0.1rem;
+    padding-bottom: 1rem;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    color: var(--white);
+    @include transitions((border-color, color));
+    & svg {
+      @include block-size(0.9rem, 1.2rem);
+      margin-left: 2rem;
+      & > path {
+        @include transition(stroke);
+      }
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: var(--beige);
+      color: var(--beige);
+      & svg > path {
+        stroke: var(--beige);
+      }
+    }
+  }
+  &__tab {
+    cursor: pointer;
+    @include transition(transform, rotate(0) scale(1));
+    &:focus {
+      outline: none;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      transform: rotate(10deg) scale(1.1);
+    }
+  }
+  &__img {
+    position: relative;
+    &-1 {
+      @include picture(24.5rem, 24.9rem);
+      right: 0.5rem;
+    }
+    &-2 {
+      @include picture(15.8rem, 21.3rem);
+      right: 4.8rem;
+      top: 0.3rem;
+    }
+    &-3,
+    &-4 {
+      @include picture(20.9rem, 20rem);
+      right: 0.8rem;
+      top: 0.15rem;
+    }
+  }
+  @media (max-width: 48em) {
+    top: 15.2rem;
+    height: 0;
+    &__container {
+      padding: 0;
+    }
+    &__list {
+      display: none; ////////
+      position: relative;
+      grid-auto-rows: 52.2rem 53.7rem 53.2rem 53rem;
+      width: 100%;
+      border: 0;
+      padding: 0 4rem;
+      padding-bottom: 10rem;
+      background: url('img/menu-catalog/background-menu.png') center center /
+        75rem 222rem no-repeat;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        @include block-size(100%);
+        background-color: rgba(29, 53, 82, 0.45);
+        backdrop-filter: blur(5px);
+      }
+    }
+    &__item {
+      position: relative;
+      flex-direction: column-reverse;
+      justify-content: flex-start;
+      border-bottom-width: 0.2rem;
+      padding: 0;
+      z-index: 2;
+      &:last-child {
+        border-bottom: 0.2rem solid var(--white);
+      }
+    }
+    &__link {
+      margin-bottom: 4.7rem;
+      padding-bottom: 2rem;
+      padding-left: 0.4rem;
+      font-size: 3.2rem;
+      line-height: 4.4rem;
+      & svg {
+        @include block-size(1.5rem, 2.5rem);
+        margin-top: -0.1rem;
+        margin-left: 4.5rem;
+      }
+    }
+    &__img {
+      margin-bottom: 2rem;
+      &-1 {
+        @include block-size(54.4rem, 31.8rem);
+        right: 0.1rem;
+      }
+      &-2 {
+        @include block-size(21.8rem, 30.3rem);
+        top: 0;
+        right: -0.2rem;
+      }
+      &-3,
+      &-4 {
+        @include block-size(33.9rem, 32rem);
+        top: 0;
+        right: 0;
+      }
+      &-4 {
+        margin-bottom: 1.8rem;
+      }
+    }
+  }
+}
+
+.subsection-catalog {
+  padding: 5rem 4rem;
+  background-color: rgba(29, 53, 82, 0.45);
+  width: 127.1rem;
+  backdrop-filter: blur(5px);
+  @include transition(transform, translateY(100%));
+  &__close {
+    @include block-size(2.5rem, 2.1rem);
+    margin-bottom: 6.2rem;
+    & svg {
+      @include block-size(inherit);
+      & > path {
+        @include transition(stroke);
+      }
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      & svg > path {
+        stroke: var(--beige);
+      }
+    }
+  }
+  &__back {
+    display: none;
+  }
+  &__container {
+    @include transition(transform, translateY(200%));
+    &.tab-active {
+      transition-delay: 1s;
+    }
+  }
+  &__title {
+    margin-bottom: 4rem;
+    font-size: 3.55rem !important;
+    letter-spacing: 0.05rem !important;
+    color: var(--white);
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    gap: 3.9rem 4rem;
+    max-width: 112rem;
+  }
+  &__img {
+    @include picture(25rem);
+    margin-bottom: 2.1rem;
+  }
+  &__link {
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+    @include transition(color, var(--white));
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--beige);
+    }
+  }
+  @media (max-width: 48em) {
+    // display: none;
+    position: relative;
+    width: 100%;
+    padding: 4.9rem 4rem 9rem;
+    background: url('../img/menu-catalog/background-tab.png') center center /
+      75rem 430rem no-repeat;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      @include block-size(100%);
+      background-color: rgba(29, 53, 82, 0.45);
+      backdrop-filter: blur(5px);
+    }
+    &__close {
+      display: none;
+    }
+    &__back,
+    &__container {
+      position: relative;
+      z-index: 2;
+    }
+    &__back {
+      display: block;
+      margin-bottom: 8rem;
+      border-bottom: 0.4rem solid var(--white);
+      padding-bottom: 1.7rem;
+      font-size: 3.2rem;
+      font-weight: 400;
+      line-height: 4.4rem;
+      color: var(--white);
+      & svg {
+        @include block-size(1.6rem, 2.6rem);
+        transform: rotateY(180deg);
+        margin-right: 5rem;
+      }
+    }
+    &__title {
+      margin-bottom: 8.1rem !important;
+      font-size: 6rem !important;
+      letter-spacing: 0.47rem !important;
+      &::first-line {
+        letter-spacing: 0.06rem !important;
+      }
+    }
+    &__list {
+      grid-template-columns: 1fr;
+      gap: 8.1rem;
+    }
+    &__img {
+      @include block-size(67rem, 50rem);
+    }
+    &__link {
+      font-size: 3.2rem;
+      line-height: 4.4rem;
+    }
+  }
+}
+
+.menu-catalog.active {
+  visibility: visible;
+  & .menu-catalog__list,
+  & .subsection-catalog,
+  & .subsection-catalog__container {
+    transform: translateY(0);
+  }
+  @media (max-width: 48em) {
+    height: auto;
+    @include transition(all);
+  }
+}

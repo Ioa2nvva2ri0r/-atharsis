@@ -6,8 +6,6 @@ const htmlmin = require('gulp-htmlmin');
 const sass = require('gulp-sass')(require('sass'));
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
-const babel = require('gulp-babel');
-const uglify = require('gulp-uglify-es').default;
 const notify = require('gulp-notify');
 const sourcemaps = require('gulp-sourcemaps');
 const del = require('del');
@@ -21,12 +19,38 @@ const fonts = () => {
   return src('src/fonts/**/*.{woff,woff2}').pipe(dest('build/fonts'));
 };
 
-const htmlMinify = () => {
+const htmlMinifyDev = () => {
   return src('src/**/*.pug')
     .pipe(
       pug({
         doctype: 'html',
         pretty: true,
+        locals: {
+          PUBLIC_URL: 'http://localhost:3000/',
+        },
+      })
+    )
+    .pipe(
+      htmlmin({
+        collapseWhitespace: true,
+        collapseInlineTagWhitespace: true,
+        removeComments: true,
+        minifyCSS: true,
+      })
+    )
+    .pipe(dest('build'))
+    .pipe(browserSync.stream());
+};
+
+const htmlMinifyBuild = () => {
+  return src('src/**/*.pug')
+    .pipe(
+      pug({
+        doctype: 'html',
+        pretty: true,
+        locals: {
+          PUBLIC_URL: 'https://ioa2nvva2ri0r.github.io/Сatharsis/',
+        },
       })
     )
     .pipe(
@@ -61,16 +85,9 @@ const sassMinify = () => {
     .pipe(browserSync.stream());
 };
 
-const scriptsMinify = () => {
+const scripts = () => {
   return src(['src/js/**/*.js'])
     .pipe(sourcemaps.init())
-    .pipe(concat('main.min.js'))
-    .pipe(
-      babel({
-        presets: ['@babel/env'],
-      })
-    )
-    .pipe(uglify().on('error', notify.onError()))
     .pipe(sourcemaps.write())
     .pipe(dest('build/js'))
     .pipe(browserSync.stream());
@@ -91,14 +108,14 @@ const watchFiles = () => {
     },
   });
 
-  watch('src/**/*.pug', htmlMinify);
+  watch('src/**/*.pug', htmlMinifyDev);
   watch('src/style/**/*.scss', sassMinify);
   watch('src/img/**/*.{png,svg,webp,ico,webmanifest,xml}', imgRest);
-  watch('src/js/**/*.js', scriptsMinify);
+  watch('src/js/**/*.js', scripts);
 };
 
 const projectBuild = (...view) =>
-  series(clean, fonts, htmlMinify, sassMinify, imgRest, scriptsMinify, ...view);
+  series(clean, fonts, sassMinify, imgRest, scripts, ...view);
 
-exports.dev = projectBuild(watchFiles);
-exports.build = projectBuild();
+exports.dev = projectBuild(htmlMinifyDev, watchFiles);
+exports.build = projectBuild(htmlMinifyBuild);

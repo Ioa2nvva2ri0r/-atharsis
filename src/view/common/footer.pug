@@ -6,7 +6,7 @@ footer.footer
     .footer__box-top.container
       .footer__box-logo 
         a(href="#", aria-label="Логотип").footer__logo
-          img(src="img/logo.svg", alt="Катарсис")
+          img(src=`${PUBLIC_URL}img/logo.svg`, alt="Катарсис")
         p.footer__logo-desc Наша компания сотрудничает с&nbsp;дизайнерами, российскими и&nbsp;европейскими мебельными фабриками.
         ul.footer__socials-list.socials__list
           //- Data socials
@@ -45,3 +45,6 @@ footer.footer
         strong.footer__developed-desc 
           span Request&nbsp;
           | Design
+
+//- Catalog menu
+include menu-catalog.pug
