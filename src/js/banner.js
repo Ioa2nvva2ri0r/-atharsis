@@ -3,14 +3,11 @@
 
 const swiperBanner = new Swiper('.banner__slider', {
   effect: 'fade',
-  fadeEffect: {
-    crossFade: true,
-  },
   loop: true,
   speed: 3000,
-  autoplay: {
-    delay: 5000,
-  },
+  // autoplay: {
+  //   delay: 5000,
+  // },
   navigation: {
     nextEl: '.banner__slider-btn-next',
     prevEl: '.banner__slider-btn-prev',
@@ -22,5 +19,15 @@ const swiperBanner = new Swiper('.banner__slider', {
   pagination: {
     el: '.banner__slider-pagination',
     type: 'fraction',
+  },
+  on: {
+    init() {
+      // this.el.addEventListener('mouseenter', () => {
+      //   this.autoplay.stop();
+      // });
+      // this.el.addEventListener('mouseleave', () => {
+      //   this.autoplay.start();
+      // });
+    },
   },
 });

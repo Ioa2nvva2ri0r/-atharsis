@@ -28,13 +28,11 @@ html(lang="en")
       section.banner.container 
         .banner__slider.swiper
           .swiper-wrapper
-            - for(var slide = 1; slide < 3; slide++)
+            - for(var slide = 1; slide < 5; slide++)
               .banner__slide.swiper-slide
                 - for(var img = 1; img < 4; img++)
                   .banner__img-box(class=`banner__img-box-${img}`)
-                    picture
-                      source.banner__img(srcset=`img/main/1.png`)
-                      img.banner__img(src=`img/main/1.png`, alt=`Интерьер-${img}`)
+                    img.banner__img(src=`img/main/${slide}.png`, alt=`Интерьер-${img}`)
                 .banner__content 
                   h2.banner__title.us-title Дизайнерская мебель
                   p.banner__desc В каталоге собрана оригинальная дизайнерская мебель от американских и европейских производителей. Стильная, необычная, удобная и практичная – она привлечет внимание и будет оценена по достоинству. Наши клиенты пользуются скидками до 80% от первоначальной стоимости, годовой гарантией, быстрой доставкой по России и СНГ.
