@@ -19,38 +19,12 @@ const fonts = () => {
   return src('src/fonts/**/*.{woff,woff2}').pipe(dest('build/fonts'));
 };
 
-const htmlMinifyDev = () => {
+const htmlMinify = () => {
   return src('src/**/*.pug')
     .pipe(
       pug({
         doctype: 'html',
         pretty: true,
-        locals: {
-          PUBLIC_URL: 'http://localhost:3000/',
-        },
-      })
-    )
-    .pipe(
-      htmlmin({
-        collapseWhitespace: true,
-        collapseInlineTagWhitespace: true,
-        removeComments: true,
-        minifyCSS: true,
-      })
-    )
-    .pipe(dest('build'))
-    .pipe(browserSync.stream());
-};
-
-const htmlMinifyBuild = () => {
-  return src('src/**/*.pug')
-    .pipe(
-      pug({
-        doctype: 'html',
-        pretty: true,
-        locals: {
-          PUBLIC_URL: '',
-        },
       })
     )
     .pipe(
@@ -108,14 +82,14 @@ const watchFiles = () => {
     },
   });
 
-  watch('src/**/*.pug', htmlMinifyDev);
+  watch('src/**/*.pug', htmlMinify);
   watch('src/style/**/*.scss', sassMinify);
   watch('src/img/**/*.{png,svg,webp,ico,webmanifest,xml}', imgRest);
   watch('src/js/**/*.js', scripts);
 };
 
 const projectBuild = (...view) =>
-  series(clean, fonts, sassMinify, imgRest, scripts, ...view);
+  series(clean, fonts, htmlMinify, sassMinify, imgRest, scripts, ...view);
 
-exports.dev = projectBuild(htmlMinifyDev, watchFiles);
-exports.build = projectBuild(htmlMinifyBuild);
+exports.dev = projectBuild(watchFiles);
+exports.build = projectBuild();
