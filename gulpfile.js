@@ -49,7 +49,7 @@ const htmlMinifyBuild = () => {
         doctype: 'html',
         pretty: true,
         locals: {
-          PUBLIC_URL: 'https://ioa2nvva2ri0r.github.io/Сatharsis/',
+          PUBLIC_URL: '',
         },
       })
     )

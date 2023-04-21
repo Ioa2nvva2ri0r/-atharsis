@@ -13,16 +13,16 @@ html(lang="en")
     //- Basic Styles
     link(rel="stylesheet", href="style/main.min.css")
     //- Basic JavaScript
-    script(src=`${PUBLIC_URL}js/header.js`, defer)
-    script(src=`${PUBLIC_URL}js/banner.js`, defer)
+    script(src=`js/header.js`, defer)
+    script(src=`js/banner.js`, defer)
 
   body
 
     //- Mixins
-    include view/common/mixin.pug
+    include common/mixin.pug
 
     //- Header
-    include view/common/header.pug
+    include common/header.pug
 
     main
       section.banner.container 
@@ -33,12 +33,12 @@ html(lang="en")
                 - for(var img = 1; img < 4; img++)
                   .banner__img-box(class=`banner__img-box-${img}`)
                     picture
-                      source.banner__img(srcset=`${PUBLIC_URL}img/main/1.png`)
-                      img.banner__img(src=`${PUBLIC_URL}img/main/1.png`, alt=`Интерьер-${img}`)
+                      source.banner__img(srcset=`img/main/1.png`)
+                      img.banner__img(src=`img/main/1.png`, alt=`Интерьер-${img}`)
                 .banner__content 
                   h2.banner__title.us-title Дизайнерская мебель
                   p.banner__desc В каталоге собрана оригинальная дизайнерская мебель от американских и европейских производителей. Стильная, необычная, удобная и практичная – она привлечет внимание и будет оценена по достоинству. Наши клиенты пользуются скидками до 80% от первоначальной стоимости, годовой гарантией, быстрой доставкой по России и СНГ.
-                  a(href=`${PUBLIC_URL}view/pages/sofas.html`).banner__link
+                  a(href=`sofas.html`).banner__link
                     | Узнать подробнее
                     +icon('arrow-2')  
           .banner__slider-pagination

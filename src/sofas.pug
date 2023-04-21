@@ -3,7 +3,7 @@ html(lang="ru")
   head
 
     //- Head
-    include ../common/head.pug
+    include common/head.pug
 
     title Катарсис - Дизайнерская мебель
 
@@ -13,19 +13,19 @@ html(lang="ru")
     //- Yandex-map
     script(src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&lang=ru_RU", type="text/javascript")
     //- Basic Styles
-    link(rel="stylesheet", href=`${PUBLIC_URL}style/main.min.css`)
+    link(rel="stylesheet", href=`style/main.min.css`)
     //- Basic JavaScript
-    script(src=`${PUBLIC_URL}js/header.js`, defer)
-    script(src=`${PUBLIC_URL}js/form-popup.js`, defer)
-    script(src=`${PUBLIC_URL}js/index.js`, defer)
+    script(src=`js/header.js`, defer)
+    script(src=`js/form-popup.js`, defer)
+    script(src=`js/index.js`, defer)
 
   body
 
     //- Mixins
-    include ../common/mixin.pug
+    include common/mixin.pug
 
     //- Header
-    include ../common/header.pug
+    include common/header.pug
 
     main
       section.hero 
@@ -40,8 +40,8 @@ html(lang="ru")
           .hero__img-container
             - for(var i = 1; i < 4; i++)
               picture
-                source(srcset=`${PUBLIC_URL}img/hero/${i}.png`, class=`hero__img-${i}`).hero__img
-                img(src=`${PUBLIC_URL}img/hero/${i}.png`, class=`hero__img-${i}`, alt=`Продукт-${i}`).hero__img
+                source(srcset=`img/hero/${i}.png`, class=`hero__img-${i}`).hero__img
+                img(src=`img/hero/${i}.png`, class=`hero__img-${i}`, alt=`Продукт-${i}`).hero__img
 
       section.catalog.container 
         h2.catalog__title.us-title Каталог
@@ -51,8 +51,8 @@ html(lang="ru")
               - for(var slide = 1; slide < 3; slide++)
                 .catalog__slide.swiper-slide 
                   picture
-                    source(srcset=`${PUBLIC_URL}img/catalog/main.png`).catalog__img
-                    img(src=`${PUBLIC_URL}img/catalog/main.png`, alt=`Гостиная-${slide}`).catalog__img
+                    source(srcset=`img/catalog/main.png`).catalog__img
+                    img(src=`img/catalog/main.png`, alt=`Гостиная-${slide}`).catalog__img
                   - for(var label = 1; label < 3; label++)
                     button.catalog__label(class=`catalog__label-${label}` aria-label= "Пуф")
                       span
@@ -63,8 +63,8 @@ html(lang="ru")
             .catalog__label-content#label-content
               h3.catalog__label-title Пуф круглый большой (велюр)
               picture
-                source(srcset=`${PUBLIC_URL}img/catalog/pouf.png`).catalog__label-img
-                img(src=`${PUBLIC_URL}img/catalog/pouf.png`, alt="Пуф").catalog__label-img
+                source(srcset=`img/catalog/pouf.png`).catalog__label-img
+                img(src=`img/catalog/pouf.png`, alt="Пуф").catalog__label-img
               a.catalog__label-link(href="#") 
                 | Перейти к товару
                 +icon('arrow-2') 
@@ -76,8 +76,8 @@ html(lang="ru")
               li.catalog__card 
                 a(href="#").catalog__card-link 
                   picture
-                    source(srcset=`${PUBLIC_URL}img/catalog/${index + 1}.png`).catalog__card-img
-                    img(src=`${PUBLIC_URL}img/catalog/${index + 1}.png`, alt=`Раздел-${index + 1}`).catalog__card-img
+                    source(srcset=`img/catalog/${index + 1}.png`).catalog__card-img
+                    img(src=`img/catalog/${index + 1}.png`, alt=`Раздел-${index + 1}`).catalog__card-img
                   span.catalog__card-desc= card
 
       section.popular.container  
@@ -94,8 +94,8 @@ html(lang="ru")
               .popular__product.swiper-slide
                 .popular__product-box-img
                   picture
-                    source(srcset=`${PUBLIC_URL}img/popular/${i}.png`).popular__product-img
-                    img(src=`${PUBLIC_URL}img/popular/${i}.png`, alt=`Продукт-${i}`).popular__product-img
+                    source(srcset=`img/popular/${i}.png`).popular__product-img
+                    img(src=`img/popular/${i}.png`, alt=`Продукт-${i}`).popular__product-img
                 .popular__product-box-content 
                   .popular__product-content
                     div 
@@ -122,8 +122,8 @@ html(lang="ru")
 
       section.application.container
         picture
-          source(srcset=`${PUBLIC_URL}img/application/1.png`).application__img
-          img(src=`${PUBLIC_URL}img/application/1.png`, alt="Спальня").application__img
+          source(srcset=`img/application/1.png`).application__img
+          img(src=`img/application/1.png`, alt="Спальня").application__img
         form.application__form#application
           .application__form-container
             h2.application__title.us-title оставьте заявку
@@ -153,8 +153,8 @@ html(lang="ru")
               | Подробнее
               +icon('arrow-2')
           picture
-            source(srcset=`${PUBLIC_URL}img/company/1.png`).company__img
-            img(src=`${PUBLIC_URL}img/company/1.png`, alt="Офис").company__img
+            source(srcset=`img/company/1.png`).company__img
+            img(src=`img/company/1.png`, alt="Офис").company__img
 
       section.contacts.container  
         .contacts__content 
@@ -188,9 +188,9 @@ html(lang="ru")
         .contacts__map#map
 
     //- Footer
-    include ../common/footer.pug
+    include common/footer.pug
 
     //- Popup
-    include ../common/popup.pug
+    include common/popup.pug
 
 

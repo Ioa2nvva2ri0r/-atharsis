@@ -1,7 +1,7 @@
 {
   "name": "catharsis",
   "private": true,
-  "homepage": "https://ioa2nvva2ri0r.github.io/Сatharsis/",
+  "homepage": "https://ioa2nvva2ri0r.github.io/Catharsis/",
   "scripts": {
     "start": "gulp dev",
     "build": "gulp build",

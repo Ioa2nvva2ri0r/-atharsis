@@ -5,7 +5,7 @@ include mixin.pug
   .menu-catalog__container.container
     ul.menu-catalog__list 
       //- Data menu catalog
-      - var catalog = [{name: 'Дизайнерская мебель', href: `${PUBLIC_URL}view/pages/sofas.html`}, {name: 'Межкомнатные перегородки', href: '#'}, {name: 'Поиск проекта по фото', href: '#'}, {name: 'Услуги дизайнера интерьера', href: '#'}]
+      - var catalog = [{name: 'Дизайнерская мебель', href: `sofas.html`}, {name: 'Межкомнатные перегородки', href: '#'}, {name: 'Поиск проекта по фото', href: '#'}, {name: 'Услуги дизайнера интерьера', href: '#'}]
 
       each section, index in catalog 
         li.menu-catalog__item 
@@ -14,8 +14,8 @@ include mixin.pug
             +icon('arrow-1')
           .menu-catalog__tab(tabindex=0)
             picture
-              source.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, srcset=`${PUBLIC_URL}img/menu-catalog/${index + 1}.png`)
-              img.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, src=`${PUBLIC_URL}img/menu-catalog/${index + 1}.png`, alt=`Изображение-${section.name}`)
+              source.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, srcset=`img/menu-catalog/${index + 1}.png`)
+              img.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, src=`img/menu-catalog/${index + 1}.png`, alt=`Изображение-${section.name}`)
     .subsection-catalog
       button.subsection-catalog__close#catalog-close(aria-label="Закрыть каталог")
         +icon('close-2')
@@ -31,6 +31,6 @@ include mixin.pug
           each section, index in subsection
             li.subsection-catalog__item 
               picture
-                source.subsection-catalog__img(srcset=`${PUBLIC_URL}img/menu-catalog/subsection/${index + 1}.png`)
-                img.subsection-catalog__img(src=`${PUBLIC_URL}img/menu-catalog/subsection/${index + 1}.png`, alt=`Изображение-${section.name}`)
+                source.subsection-catalog__img(srcset=`img/menu-catalog/subsection/${index + 1}.png`)
+                img.subsection-catalog__img(src=`img/menu-catalog/subsection/${index + 1}.png`, alt=`Изображение-${section.name}`)
               a(href= section.href).subsection-catalog__link= section.name
