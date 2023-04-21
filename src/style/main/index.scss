@@ -74,6 +74,10 @@
         transform: rotate(0);
       }
     }
+    &.swiper-slide-prev,
+    &.swiper-slide-next {
+      opacity: 0.5 !important;
+    }
     &.swiper-slide-prev {
       & .banner__img-box {
         &-1 {

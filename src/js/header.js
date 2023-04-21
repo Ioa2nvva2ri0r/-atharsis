@@ -1,10 +1,9 @@
 // Change Logo
 function changeLogo() {
   const logo = document.getElementById('logo');
-  const publicUrl = window.location.origin;
 
-  if (window.screen.width <= 768) logo.src = `${publicUrl}/img/logo-min.svg`;
-  else logo.src = `${publicUrl}/img/logo.svg`;
+  if (window.screen.width <= 768) logo.src = `img/logo-min.svg`;
+  else logo.src = `img/logo.svg`;
 }
 
 window.addEventListener('resize', changeLogo);
