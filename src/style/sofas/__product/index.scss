@@ -1,0 +1,690 @@
+.sofas-product {
+  padding-top: 8rem;
+  padding-bottom: 18rem;
+  &__title {
+    margin-bottom: 2rem !important;
+  }
+  &__box {
+    &-sliderChoice,
+    &-content,
+    &-desc {
+      display: flex;
+    }
+    &-sliderChoice {
+      gap: 3rem;
+      padding-bottom: 8rem;
+    }
+    &-content {
+      justify-content: space-between;
+    }
+    &-desc {
+      margin-top: -0.05rem;
+    }
+    &-contact {
+      width: 64.9rem;
+      border: 0.1rem solid rgb(144, 144, 144, 0.2);
+      padding: 3.4rem 2.9rem;
+    }
+  }
+  &__slider {
+    @include block-size(92.1rem, 65.6rem);
+    margin: 0;
+    background-color: var(--white);
+    &-btn {
+      position: absolute;
+      @include flex-center-center();
+      bottom: 4.4rem;
+      z-index: 2;
+      @include block-size(5.6rem);
+      border-radius: 100%;
+      @include transition(background-color, var(--blue));
+      & svg {
+        @include block-size(0.8rem, 1.2rem);
+        & > path {
+          @include transition(stroke, var(--white));
+        }
+      }
+      &-prev {
+        left: 4.5rem;
+        & svg {
+          transform-origin: center center;
+          transform: rotate(180deg);
+        }
+      }
+      &-next {
+        right: 4.5rem;
+      }
+      &:focus {
+        outline: none;
+      }
+      &:hover,
+      &:active {
+        background-color: var(--blue);
+        & svg > path {
+          stroke: var(--white);
+        }
+      }
+    }
+  }
+  &__slide {
+    @include flex-center-center();
+  }
+  &__img {
+    @include picture(48.4rem, 44.9rem);
+    position: relative;
+    top: 0.1rem;
+    left: 0.2rem;
+  }
+  &__choice {
+    width: 100%;
+    max-width: 64.9rem;
+    &-list {
+      width: 100%;
+      padding-bottom: 2.8rem;
+    }
+    &-item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      border-top: 0.1rem solid rgb(144, 144, 144, 0.2);
+      padding: 2rem 0;
+      &:last-child {
+        border-bottom: 0.1rem solid rgb(144, 144, 144, 0.2);
+      }
+      &-box {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    &-label {
+      text-transform: uppercase;
+      margin: 0.5rem 0 1rem;
+      font-weight: 600;
+      font-size: 1.6rem;
+      line-height: 2rem;
+      letter-spacing: 0.15em;
+    }
+    &-input {
+      cursor: initial;
+    }
+    &-input,
+    &-option strong {
+      font-size: 1.8rem;
+      line-height: 2.5rem;
+    }
+    &-select {
+      visibility: hidden;
+      overflow: hidden;
+      max-height: 0;
+      padding-bottom: 0;
+      @include transition(all);
+      &.active {
+        visibility: visible;
+        max-height: 20rem;
+        padding-top: 0.5rem;
+      }
+    }
+    &-option {
+      &:not(:last-child) {
+        margin-bottom: 0.5rem;
+      }
+      & strong {
+        cursor: pointer;
+        display: inline-block;
+        width: 100%;
+        font-weight: 400;
+        @include transition(color);
+        &:focus {
+          outline: none;
+        }
+        &:hover,
+        &:active {
+          color: var(--beige);
+        }
+      }
+    }
+    &-price {
+      display: block;
+      margin-bottom: 3.2rem;
+      font-size: 5.5rem;
+      line-height: 6.1rem;
+      &,
+      & * {
+        font-family: 'EB Garamond', serif;
+        font-weight: 400;
+      }
+      & sup {
+        position: relative;
+        top: -1.9rem;
+        left: 1.4rem;
+        font-size: 3.5rem;
+      }
+    }
+  }
+  &__basket {
+    &-container,
+    &-box {
+      @include flex-center-y();
+    }
+    &-box {
+      visibility: hidden;
+      opacity: 0;
+      @include transitions((visibility, opacity));
+      &.active {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+    &-count {
+      @include flex-center-center();
+      flex-direction: column;
+      margin: 0 1rem;
+      & span {
+        overflow: hidden;
+        @include block-size(0);
+        font-size: 0;
+      }
+      & input {
+        text-align: center;
+        width: 1.6rem;
+        font-size: 1.6rem;
+      }
+    }
+    &-away,
+    &-add {
+      @include flex-center-center();
+      @include block-size(4.2rem);
+      border-radius: 100%;
+      border: 0.075rem solid var(--grey);
+      @include transition(border-color);
+      & svg > path {
+        @include transition(stroke);
+      }
+      &:hover,
+      &:active {
+        border-color: var(--beige);
+        & svg > path {
+          stroke: var(--beige);
+        }
+      }
+    }
+    &-away {
+      & svg {
+        @include block-size(1.95rem, 0.1rem);
+      }
+    }
+    &-add {
+      & svg {
+        @include block-size(1.95rem);
+      }
+    }
+  }
+  &__tab {
+    &-list {
+      width: 100%;
+      max-width: 24.2rem;
+      margin-right: 3rem;
+    }
+    &-item {
+      &:not(:first-child) {
+        padding-top: 1.9rem;
+      }
+      &:not(:last-child) {
+        padding-bottom: 2rem;
+        border-bottom: 0.1rem solid rgb(144, 144, 144, 0.2);
+      }
+    }
+    &-btn {
+      text-transform: uppercase;
+      font-size: 1.6rem;
+      font-weight: 500;
+      line-height: 2rem;
+      letter-spacing: 0.15em;
+      @include transition(color, var(--grey));
+      &:hover,
+      &:active {
+        color: var(--black);
+      }
+      &.active {
+        color: var(--black);
+      }
+    }
+    &-container {
+      overflow: hidden;
+      width: 100%;
+      max-width: 68.8rem;
+      max-height: 50rem;
+    }
+    &-box {
+      visibility: hidden;
+      overflow: hidden;
+      opacity: 0;
+      max-height: 0;
+      @include transition(all);
+      &.active {
+        opacity: 1;
+        visibility: visible;
+        max-height: 100rem;
+      }
+    }
+    &-desc {
+      &-1,
+      &-2 {
+        max-width: 65rem;
+        margin: 0;
+      }
+      &-1 {
+        font-size: 1.8rem;
+        line-height: 2.5rem;
+      }
+    }
+  }
+  &__feature {
+    &-title,
+    &-desc {
+      margin: 0;
+    }
+    &-item {
+      @include flex-center-y();
+      justify-content: space-between;
+      padding: 1.9rem 0 2.02rem;
+      border-top: 0.1rem solid rgb(144, 144, 144, 0.2);
+      &:last-child {
+        border-bottom: 0.1rem solid rgb(144, 144, 144, 0.2);
+      }
+    }
+    &-title {
+      font-size: 1.8rem;
+      font-weight: 400;
+      line-height: 2.5rem;
+      color: var(--grey);
+    }
+    &-desc {
+      text-transform: uppercase;
+      font-size: 1.6rem;
+      font-weight: 500;
+      line-height: 2rem;
+      letter-spacing: 0.15em;
+    }
+  }
+  &__contact {
+    &-desc {
+      text-transform: uppercase;
+      font-size: 1.6rem;
+      font-weight: 500;
+      line-height: 2rem;
+      letter-spacing: 0.15em;
+      margin: 0 0 1.9rem 0;
+      &-2 {
+        font-size: 1.8rem;
+        max-width: 35rem;
+        margin: 2rem 0;
+        line-height: 2.5rem;
+      }
+    }
+    &-list {
+      width: 100%;
+      max-width: 25.5rem;
+      padding-bottom: 3rem;
+    }
+    &-item {
+      display: flex;
+      &:not(:last-child) {
+        margin-bottom: 1.21rem;
+      }
+      & * {
+        font-size: 1.8rem;
+        line-height: 2.5rem;
+        font-weight: 400;
+      }
+      & svg {
+        position: relative;
+        @include block-size(1.75rem, 1.2rem);
+        min-width: 1.75rem;
+        top: 0.15rem;
+        left: -0.1rem;
+        margin-right: 1.4rem;
+      }
+      &:first-child {
+        & svg {
+          top: 0.85rem;
+        }
+      }
+    }
+    &-link {
+      font-size: 1.8rem;
+      line-height: 2.5rem;
+      & span {
+        color: var(--beige);
+      }
+    }
+  }
+  &__btn {
+    &-favorite {
+      position: absolute;
+      top: 2.7rem;
+      right: 2.9rem;
+      z-index: 2;
+      @include block-size(6.5rem);
+      & svg {
+        @include block-size(inherit);
+        & > rect {
+          display: none;
+        }
+        & > path {
+          @include transition(fill);
+        }
+      }
+      &:hover,
+      &:active {
+        & svg > path {
+          fill: var(--blue);
+        }
+      }
+    }
+    &-hidden {
+      @include block-size(2.6rem);
+      & svg {
+        @include block-size(inherit);
+        & > path {
+          transform-origin: center center;
+          @include transitions((stroke, transform));
+        }
+      }
+      &.active {
+        & svg > path {
+          &:first-child {
+            transform: rotate(90deg);
+          }
+        }
+      }
+      &:hover,
+      &:active {
+        & svg > path {
+          stroke: var(--beige);
+        }
+      }
+    }
+    &-contact,
+    &-submit {
+      @include flex-center-y();
+      border-radius: 4.9rem;
+      padding: 1.45rem 2.8rem 1.75rem;
+      font-size: 1.8rem;
+      background-color: var(--blue);
+      @include transition(color, var(--white));
+      & svg {
+        @include block-size(0.6rem, 1.2rem);
+        margin-top: 0.2rem;
+        margin-left: 2rem;
+        & > path {
+          @include transition(stroke);
+        }
+      }
+      &:hover,
+      &:active {
+        color: var(--beige);
+        & svg > path {
+          stroke: var(--beige);
+        }
+      }
+    }
+    &-submit {
+      margin-right: 4.4rem;
+      &.active {
+        color: var(--beige);
+        & svg > path {
+          stroke: var(--beige);
+        }
+      }
+    }
+    &-contact {
+      margin-top: 2.1rem;
+    }
+  }
+  @media (max-width: 48em) {
+    padding-top: 7.6rem !important;
+    padding-bottom: 18rem !important;
+    &__title {
+      margin-bottom: 4rem !important;
+      letter-spacing: 0.15rem !important;
+    }
+    &__box {
+      &-sliderChoice,
+      &-content {
+        flex-direction: column;
+      }
+      &-sliderChoice {
+        gap: 8rem;
+        padding-bottom: 7.7rem;
+      }
+      &-desc {
+        padding-bottom: 8.5rem;
+      }
+      &-contact {
+        width: 100%;
+        border-width: 0.2rem;
+        padding: 4.4rem 4rem 5rem;
+      }
+    }
+    &__slider {
+      @include block-size(100%, 96rem);
+      &-btn {
+        bottom: 3.8rem;
+        @include block-size(9rem);
+        & svg {
+          @include block-size(2rem, 2.4rem);
+        }
+        &-prev {
+          left: 3.8rem;
+        }
+        &-next {
+          right: 3.8rem;
+        }
+      }
+    }
+    &__img {
+      @include block-size(61.6rem, 57.2rem);
+      top: -2.8rem;
+    }
+    &__choice {
+      max-width: initial;
+      &-list {
+        padding-bottom: 3.6rem;
+      }
+      &-item {
+        border-width: 0.2rem;
+        padding: 4rem 0;
+      }
+      &-label {
+        margin: 1.6rem 0 2rem;
+        font-size: 2.8rem;
+        line-height: 3.4rem;
+      }
+      &-input,
+      &-option strong {
+        font-size: 3.2rem;
+        line-height: 4.4rem;
+      }
+      &-select {
+        &.active {
+          max-height: 40rem;
+          padding-top: 1rem;
+        }
+      }
+      &-option {
+        &:not(:last-child) {
+          margin-bottom: 1rem;
+        }
+        & strong > sup {
+          top: -2.1rem;
+        }
+      }
+      &-price {
+        margin-bottom: 4.5rem;
+        font-size: 6rem;
+        line-height: 6.6rem;
+      }
+    }
+    &__basket {
+      &-container {
+        justify-content: space-between;
+      }
+      &-count {
+        margin: 0 1.8rem;
+        & input {
+          width: 3.6rem;
+          font-size: 3.2rem;
+          font-weight: 500;
+          line-height: 4rem;
+        }
+      }
+      &-away,
+      &-add {
+        @include block-size(7rem);
+        border-width: 0.125rem;
+      }
+      &-away {
+        & svg {
+          @include block-size(3.25rem, 0.2rem);
+        }
+      }
+      &-add {
+        & svg {
+          @include block-size(3.25rem);
+        }
+      }
+    }
+    &__tab {
+      &-container {
+        display: none;
+      }
+      &-list {
+        max-width: initial;
+        margin-right: 0;
+      }
+      &-item {
+        border-width: 0.2rem;
+        &:not(:first-child) {
+          padding-top: 3.8rem;
+        }
+        &:not(:last-child) {
+          padding-bottom: 4rem;
+        }
+      }
+      &-btn {
+        font-size: 2.8rem;
+        line-height: 3.4rem;
+      }
+      &-box {
+        &.active {
+          padding-top: 4rem;
+        }
+      }
+      &-desc {
+        &-1,
+        &-2 {
+          max-width: initial;
+          font-size: 3.2rem;
+          line-height: 4.4rem;
+        }
+        &-2 {
+          margin-bottom: 4rem;
+        }
+      }
+    }
+    &__feature {
+      &-title {
+        margin-bottom: 0.8rem;
+      }
+      &-item {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 0;
+        border: none;
+        &:last-child {
+          border: none;
+        }
+        &:not(:last-child) {
+          margin-bottom: 2rem;
+        }
+      }
+      &-title {
+        font-size: 3.2rem;
+        line-height: 4.4rem;
+      }
+      &-desc {
+        font-size: 2.8rem;
+        line-height: 3.4rem;
+      }
+    }
+    &__contact {
+      &-desc {
+        margin-bottom: 4rem;
+        font-size: 2.8rem;
+        line-height: 3.4rem;
+        &-2 {
+          max-width: 46rem;
+          margin: 4rem 0;
+          font-size: 3.2rem;
+          line-height: 4.4rem;
+        }
+      }
+      &-list {
+        max-width: 45rem;
+        padding-bottom: 5.9rem;
+      }
+      &-item {
+        &:not(:last-child) {
+          margin-bottom: 2.45rem;
+        }
+        & * {
+          font-size: 3.2rem;
+          line-height: 4.4rem;
+        }
+        & svg {
+          @include block-size(3.3rem, 2.3rem);
+          min-width: 3.3rem;
+          margin-right: 2.4rem;
+        }
+        &:first-child {
+          & svg {
+            top: 1.2rem;
+          }
+        }
+      }
+      &-link {
+        font-size: 3.2rem;
+        line-height: 4.4rem;
+      }
+    }
+    &__btn {
+      &-favorite {
+        top: 0.5rem;
+        right: 0.5rem;
+        @include block-size(13.2rem);
+      }
+      &-hidden {
+        @include block-size(5.2rem);
+      }
+      &-submit,
+      &-contact {
+        border-radius: 9.8rem;
+        padding: 3rem 5.6rem 3.4rem 5.6rem;
+        font-size: 3.6rem;
+        & svg {
+          @include block-size(1.2rem, 2.6rem);
+          margin-top: 0.7rem;
+          margin-left: 4rem;
+        }
+      }
+      &-submit {
+        white-space: nowrap;
+        margin-right: 1rem;
+      }
+      &-contact {
+        margin-top: 4rem;
+      }
+    }
+  }
+}

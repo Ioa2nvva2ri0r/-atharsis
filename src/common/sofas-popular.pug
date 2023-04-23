@@ -1,0 +1,22 @@
+//- Mixins
+include mixin.pug
+
+section.popular.container  
+  .popular__title-box 
+    h2.popular__title.us-title Популярные товары
+    .popular__slider-box-btn 
+      button.popular__slider-btn.popular__slider-btn-prev
+        +icon('arrow-1') 
+      button.popular__slider-btn.popular__slider-btn-next
+        +icon('arrow-1') 
+  .popular__slider.swiper
+    .swiper-wrapper
+      - for(var i = 1; i < 11; i++)
+
+        //- Product
+
+        - var cssClassProduct = 'swiper-slide'
+
+        include sofas-product.pug
+        
+    .popular__slider-scrollbar.swiper-scrollbar 

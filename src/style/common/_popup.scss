@@ -54,7 +54,6 @@
       }
     }
     &:hover,
-    &:focus,
     &:active {
       color: var(--beige);
       & svg > path {
@@ -74,7 +73,6 @@
       }
     }
     &:hover,
-    &:focus,
     &:active {
       & svg > path {
         stroke: var(--beige);

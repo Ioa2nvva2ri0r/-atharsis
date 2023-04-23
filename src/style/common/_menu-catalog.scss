@@ -1,12 +1,13 @@
 .menu-catalog {
   position: absolute;
+  visibility: hidden;
   overflow: hidden;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100rem;
+  max-height: 100rem;
   z-index: 100;
-  @include transition(visibility, hidden);
+  @include transition(all);
   &__container {
     display: flex;
     width: 100% !important;
@@ -21,13 +22,12 @@
     @include transition(transform, translateY(-100%));
   }
   &__item,
-  &__link {
+  &__link,
+  &__link-desc {
     @include flex-center-y();
   }
   &__item {
-    justify-content: space-between;
     overflow: hidden;
-    padding: 0 4rem 0 6rem;
     &:not(:last-child) {
       border-bottom: 0.1rem solid var(--white);
     }
@@ -36,44 +36,48 @@
     }
   }
   &__link {
-    border-bottom: 0.1rem solid var(--white);
-    padding-top: 0.1rem;
-    padding-bottom: 1rem;
-    font-size: 1.8rem;
-    line-height: 2.2rem;
-    color: var(--white);
-    @include transitions((border-color, color));
-    & svg {
-      @include block-size(0.9rem, 1.2rem);
-      margin-left: 2rem;
-      & > path {
-        @include transition(stroke);
+    cursor: pointer;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 4rem 0 6rem;
+    &.active {
+      & .menu-catalog__img {
+        transform: rotate(10deg) scale(1.1);
+      }
+    }
+    &-desc {
+      border-bottom: 0.1rem solid var(--white);
+      padding-top: 0.1rem;
+      padding-bottom: 1rem;
+      font-size: 1.8rem;
+      line-height: 2.2rem;
+      color: var(--white);
+      @include transitions((border-color, color));
+      & svg {
+        @include block-size(0.9rem, 1.2rem);
+        margin-left: 2rem;
+        & > path {
+          @include transition(stroke);
+        }
       }
     }
     &:hover,
-    &:focus,
     &:active {
-      border-color: var(--beige);
-      color: var(--beige);
+      & span {
+        border-color: var(--beige);
+        color: var(--beige);
+      }
+      & .menu-catalog__img {
+        transform: rotate(10deg) scale(1.1);
+      }
       & svg > path {
         stroke: var(--beige);
       }
     }
   }
-  &__tab {
-    cursor: pointer;
-    @include transition(transform, rotate(0) scale(1));
-    &:focus {
-      outline: none;
-    }
-    &:hover,
-    &:focus,
-    &:active {
-      transform: rotate(10deg) scale(1.1);
-    }
-  }
   &__img {
     position: relative;
+    @include transition(transform, rotate(0) scale(1));
     &-1 {
       @include picture(24.5rem, 24.9rem);
       right: 0.5rem;
@@ -92,19 +96,22 @@
   }
   @media (max-width: 48em) {
     top: 15.2rem;
-    height: 0;
+    max-height: 0;
     &__container {
       padding: 0;
+      flex-direction: column;
     }
     &__list {
-      display: none; ////////
       position: relative;
+      visibility: hidden;
+      overflow: hidden;
       grid-auto-rows: 52.2rem 53.7rem 53.2rem 53rem;
+      opacity: 0;
+      max-height: 0;
       width: 100%;
       border: 0;
-      padding: 0 4rem;
-      padding-bottom: 10rem;
-      background: url('img/menu-catalog/background-menu.png') center center /
+      padding: 0;
+      background: url('../img/menu-catalog/background-menu.png') center center /
         75rem 222rem no-repeat;
       &::after {
         content: '';
@@ -116,28 +123,36 @@
         background-color: rgba(29, 53, 82, 0.45);
         backdrop-filter: blur(5px);
       }
+      &.active {
+        visibility: visible;
+        max-height: 1000rem;
+        opacity: 1;
+        padding: 0 4rem 10rem 4rem;
+      }
     }
     &__item {
       position: relative;
-      flex-direction: column-reverse;
-      justify-content: flex-start;
       border-bottom-width: 0.2rem;
-      padding: 0;
       z-index: 2;
       &:last-child {
         border-bottom: 0.2rem solid var(--white);
       }
     }
     &__link {
-      margin-bottom: 4.7rem;
-      padding-bottom: 2rem;
-      padding-left: 0.4rem;
-      font-size: 3.2rem;
-      line-height: 4.4rem;
-      & svg {
-        @include block-size(1.5rem, 2.5rem);
-        margin-top: -0.1rem;
-        margin-left: 4.5rem;
+      flex-direction: column-reverse;
+      justify-content: flex-start;
+      padding: 0;
+      &-desc {
+        margin-bottom: 4.7rem;
+        padding-bottom: 2rem;
+        padding-left: 0.4rem;
+        font-size: 3.2rem;
+        line-height: 4.4rem;
+        & svg {
+          @include block-size(1.5rem, 2.5rem);
+          margin-top: -0.1rem;
+          margin-left: 4.5rem;
+        }
       }
     }
     &__img {
@@ -180,7 +195,6 @@
       }
     }
     &:hover,
-    &:focus,
     &:active {
       & svg > path {
         stroke: var(--beige);
@@ -191,9 +205,10 @@
     display: none;
   }
   &__container {
-    @include transition(transform, translateY(200%));
+    @include transition(transform, translateY(150%));
     &.tab-active {
-      transition-delay: 1s;
+      transform: translateY(0);
+      transition-delay: 0.5s;
     }
   }
   &__title {
@@ -217,18 +232,20 @@
     line-height: 2.1rem;
     @include transition(color, var(--white));
     &:hover,
-    &:focus,
     &:active {
       color: var(--beige);
     }
   }
   @media (max-width: 48em) {
-    // display: none;
-    position: relative;
+    visibility: hidden;
+    overflow: hidden;
     width: 100%;
-    padding: 4.9rem 4rem 9rem;
+    opacity: 0;
+    max-height: 0;
+    padding: 0;
     background: url('../img/menu-catalog/background-tab.png') center center /
       75rem 430rem no-repeat;
+    @include transition(all);
     &::after {
       content: '';
       position: absolute;
@@ -238,6 +255,12 @@
       @include block-size(100%);
       background-color: rgba(29, 53, 82, 0.45);
       backdrop-filter: blur(5px);
+    }
+    &.active {
+      visibility: visible;
+      max-height: 1000rem;
+      opacity: 1;
+      padding: 4.9rem 4rem 9rem;
     }
     &__close {
       display: none;
@@ -256,10 +279,22 @@
       font-weight: 400;
       line-height: 4.4rem;
       color: var(--white);
+      @include transitions((border-color, color));
       & svg {
         @include block-size(1.6rem, 2.6rem);
         transform: rotateY(180deg);
         margin-right: 5rem;
+        & > path {
+          @include transition(stroke);
+        }
+      }
+      &:hover,
+      &:active {
+        border-color: var(--beige);
+        color: var(--beige);
+        & svg > path {
+          stroke: var(--beige);
+        }
       }
     }
     &__title {
@@ -287,12 +322,10 @@
 .menu-catalog.active {
   visibility: visible;
   & .menu-catalog__list,
-  & .subsection-catalog,
-  & .subsection-catalog__container {
+  & .subsection-catalog {
     transform: translateY(0);
   }
   @media (max-width: 48em) {
-    height: auto;
-    @include transition(all);
+    max-height: 1000rem;
   }
 }

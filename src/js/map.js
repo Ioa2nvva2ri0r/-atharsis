@@ -1,87 +1,12 @@
-/* eslint-disable prettier/prettier */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 
-// Catalog -- Swiper-slider
-const swiperCatalog = new Swiper('.catalog__slider', {
-  loop: true,
-  navigation: {
-    nextEl: '.catalog__slider-btn-next',
-    prevEl: '.catalog__slider-btn-prev'
-  },
-  a11y: {
-    prevSlideMessage: 'Назад',
-    nextSlideMessage: 'Вперёд'
-  },
-  speed: 1000
-});
-
-// Popular -- Swiper-slider
-const swiperPopular = new Swiper('.popular__slider', {
-  loop: true,
-  navigation: {
-    nextEl: '.popular__slider-btn-next',
-    prevEl: '.popular__slider-btn-prev'
-  },
-  a11y: {
-    prevSlideMessage: 'Назад',
-    nextSlideMessage: 'Вперёд'
-  },
-  scrollbar: {
-    el: '.popular__slider-scrollbar',
-    draggable: true
-  },
-  speed: 1000,
-  breakpoints: {
-    1200: {
-      slidesPerView: 4,
-      slidesPerGroup: 4,
-      spaceBetween: 29
-    },
-    768: {
-      slidesPerView: 3,
-      slidesPerGroup: 3,
-      spaceBetween: 29
-    },
-    320: {
-      slidesPerView: 'auto',
-      slidesPerGroup: 1,
-      spaceBetween: 10
-    }
-  }
-});
-
-// Sofas -- Catalog -- popup-label
-const labelContent = document.getElementById('label-content');
-let elem = '';
-
-document.querySelectorAll('.catalog__label').forEach((el) => {
-  el.addEventListener('click', (e) => {
-    elem = e.currentTarget;
-
-    if (screen.width > 768) {
-      labelContent.style.left = `${elem.offsetLeft + elem.offsetWidth + 29}px`;
-      labelContent.style.top = `${
-        elem.offsetTop - labelContent.offsetHeight
-      }px`;
-    }
-
-    labelContent.classList.add('active');
-  });
-});
-
-document.body.addEventListener('click', (e) => {
-  if (!elem.contains(e.target) && !labelContent.contains(e.target))
-    labelContent.classList.remove('active');
-});
-
-// Yandex-map
 ymaps.ready(init);
 
 function init() {
   let myMap = new ymaps.Map('map', {
     center: [53.676347909629094, 23.828005242050153],
-    zoom: 16
+    zoom: 16,
   });
 
   let myPlacemark = new ymaps.Placemark(
@@ -93,7 +18,7 @@ function init() {
         "<svg width='55' height='70' viewBox='0 0 55 70' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M27.2996 70C28.7465 70 54.5993 42.3773 54.5993 27.3C54.5993 12.2226 42.3767 0 27.2996 0C12.2224 0 0 12.2226 0 27.3C0 42.3773 25.8528 70 27.2996 70ZM27.2997 40.9545C34.9438 40.9545 41.1406 34.7575 41.1406 27.1133C41.1406 19.469 34.9438 13.2722 27.2997 13.2722C19.6555 13.2722 13.4588 19.469 13.4588 27.1133C13.4588 34.7575 19.6555 40.9545 27.2997 40.9545Z' fill='#1D3552'/></svg>"
       )}`,
       iconImageSize: [54, 70],
-      iconImageOffset: [-3, -42]
+      iconImageOffset: [-3, -42],
     }
   );
 

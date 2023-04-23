@@ -113,6 +113,9 @@
       &-close {
         display: block;
       }
+      &-menu {
+        @include block-size(6rem, 4.2rem);
+      }
       &-close {
         @include block-size(4.5rem);
         & svg > path {

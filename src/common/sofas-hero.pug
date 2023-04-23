@@ -1,0 +1,17 @@
+//- Mixins
+include mixin.pug
+
+section.hero 
+  .hero__container.container
+    .hero__content
+      h1.hero__title.us-title Лучшая Дизайнерская Мебель
+      p.hero__desc Наша компания сотрудничает с дизайнерами, российскими и европейскими мебельными фабриками, чтобы вы могли купить оригинальную дизайнерскую мебель в Москве или заказать доставку в другие регионы.
+      a(href="#").hero__btn
+        span 
+          +icon('arrow-1') 
+        | Смотреть товары
+    .hero__img-container
+      - for(var i = 1; i < 4; i++)
+        picture
+          source(srcset=`img/hero/${i}.png`, class=`hero__img-${i}`).hero__img
+          img(src=`img/hero/${i}.png`, class=`hero__img-${i}`, alt=`Продукт-${i}`).hero__img

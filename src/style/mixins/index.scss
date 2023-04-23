@@ -42,7 +42,6 @@
 @mixin opacity-effect {
   @include transition(opacity, 1);
   &:hover,
-  &:focus,
   &:active {
     opacity: 0.5;
   }

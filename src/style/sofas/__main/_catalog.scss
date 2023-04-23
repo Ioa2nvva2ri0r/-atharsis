@@ -37,7 +37,6 @@
         outline: none;
       }
       &:hover,
-      &:focus,
       &:active {
         opacity: 1;
         background-color: var(--blue);
@@ -85,7 +84,6 @@
       @include transitions((opacity, background-color));
     }
     &:hover,
-    &:focus,
     &:active {
       & span {
         background-color: var(--blue);
@@ -150,7 +148,6 @@
         }
       }
       &:hover,
-      &:focus,
       &:active {
         color: var(--beige);
         & svg > path {
@@ -185,7 +182,6 @@
       padding: 4.7rem 0.5rem 1.5rem 0.5rem;
       @include transition(background-color);
       &:hover,
-      &:focus,
       &:active {
         background-color: var(--blue);
         & span {

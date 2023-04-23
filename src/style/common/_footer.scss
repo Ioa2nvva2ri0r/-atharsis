@@ -104,7 +104,6 @@
     &-link {
       @include transition(color);
       &:hover,
-      &:focus,
       &:active {
         color: var(--beige);
       }
@@ -129,7 +128,6 @@
       }
     }
     &:hover,
-    &:focus,
     &:active {
       color: var(--beige);
       & svg > path {

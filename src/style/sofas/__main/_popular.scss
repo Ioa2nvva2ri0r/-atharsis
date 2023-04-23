@@ -41,101 +41,11 @@
         }
       }
       &:hover,
-      &:focus,
       &:active {
         border-color: var(--blue);
         background-color: var(--blue);
         & svg > path {
           stroke: var(--white);
-        }
-      }
-    }
-  }
-  &__product {
-    &-box {
-      &-content,
-      &-btn {
-        display: flex;
-      }
-      &-img {
-        max-height: 36rem;
-        margin-bottom: 1.95rem;
-        padding: 0.9rem 0.5rem 1.1rem 0.5rem;
-        background-color: var(--white);
-      }
-      &-content {
-        justify-content: space-between;
-        min-height: 11.3rem;
-      }
-      &-btn {
-        align-items: center;
-        padding-top: 0.4rem;
-      }
-    }
-    &-img {
-      @include picture(32rem, 34rem);
-      margin: 0 auto;
-    }
-    &-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 100%;
-      max-width: 22rem;
-    }
-    &-title {
-      margin: 0 0 1rem 0;
-      & a {
-        @include background-text();
-        text-transform: uppercase;
-        font-size: 1.6rem;
-        font-weight: 400;
-        letter-spacing: 0.15em;
-        @include opacity-effect();
-      }
-    }
-    &-desc {
-      margin: 0;
-      font-size: 1.8rem;
-      line-height: 2.5rem;
-    }
-    &-price {
-      &,
-      & * {
-        font-family: 'EB Garamond', serif;
-        font-weight: 400;
-      }
-      font-size: 2.5rem;
-      & sup {
-        position: relative;
-        font-size: 1.5rem;
-        left: 0.6rem;
-      }
-    }
-    &-btn {
-      @include block-size(3.8rem);
-      &:not(:last-child) {
-        margin-right: 1rem;
-      }
-      & svg {
-        @include block-size(inherit);
-        & > path {
-          @include transition(fill);
-        }
-        & > rect {
-          @include transition(stroke);
-        }
-      }
-      &:hover,
-      &:focus,
-      &:active {
-        & svg {
-          & > path {
-            fill: var(--blue);
-          }
-          & > rect {
-            stroke: var(--blue);
-          }
         }
       }
     }
@@ -152,53 +62,6 @@
       padding-bottom: 8.7rem;
       &-box-btn {
         display: none;
-      }
-    }
-    &__product {
-      max-width: 67rem;
-      &-box {
-        &-content {
-          min-height: 22.2rem;
-        }
-        &-img {
-          max-height: 73rem;
-          margin-bottom: 3.7rem;
-        }
-      }
-      &-content {
-        max-width: 37rem;
-      }
-      &-title {
-        margin-bottom: 2.2rem;
-        & a {
-          font-size: 2.8rem;
-          line-height: 3.4rem;
-        }
-      }
-      &-desc {
-        font-size: 3.2rem;
-        line-height: 4rem;
-      }
-      &-img {
-        position: relative;
-        @include block-size(51.4rem, 50.8rem);
-        left: 1rem;
-        margin: 10.8rem auto 8.2rem;
-      }
-      &-price {
-        font-size: 5.5rem;
-        letter-spacing: -0.2rem;
-        & sup {
-          font-size: 3rem;
-          left: 1.2rem;
-          top: -1.8rem;
-        }
-      }
-      &-btn {
-        @include block-size(7.2rem);
-        &:not(:last-child) {
-          margin-right: 1.8rem;
-        }
       }
     }
   }

@@ -1,0 +1,51 @@
+doctype html
+html(lang="ru")
+  head
+
+    //- Head
+    include common/head.pug
+    
+    title Катарсис - Дизайнерская мебель - Каталог
+
+    //- Basic Styles
+    link(rel="stylesheet", href='style/main.min.css')
+
+  body
+
+    //- Mixins
+    include common/mixin.pug
+
+    - var catalogPath = 'sofas-catalog.html'
+
+    //- Header
+    include common/header.pug
+
+    main
+
+      //- Hero 
+      include common/sofas-hero.pug
+
+      section.catalog-sofas.container
+        nav.catalog-sofas__nav
+
+          //- Catalog-list
+          include common/sofas-list.pug
+
+          ul.catalog-sofas__nav-list
+            //- Data catalog
+            - var catalog = ['Диваны', 'кресла', 'кровати', 'светильники', 'тумбочки', 'все']
+
+            each link, index in catalog
+              li.catalog-sofas__nav-item 
+                button.catalog-sofas__nav-link(class=`${catalog.at(-1) === link ? 'active': ''}`)= link
+        ul.catalog-sofas__list
+
+           - for(var i = 1; i < 10; i++)
+              li.catalog-sofas__item
+                
+                //- Product
+                include common/sofas-product.pug
+
+    
+    //- Footer
+    include common/footer.pug

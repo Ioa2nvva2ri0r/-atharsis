@@ -1,5 +1,5 @@
 doctype html
-html(lang="en")
+html(lang="ru")
   head
 
     //- Head
@@ -21,19 +21,21 @@ html(lang="en")
     //- Mixins
     include common/mixin.pug
 
+    - var banner = true
+
     //- Header
     include common/header.pug
 
     main
       section.banner.container 
-        .banner__slider.swiper
+        .banner__slider.swiper#banner
           .swiper-wrapper
             - for(var slide = 1; slide < 5; slide++)
               .banner__slide.swiper-slide
                 - for(var img = 1; img < 4; img++)
                   .banner__img-box(class=`banner__img-box-${img}`)
                     img.banner__img(src=`img/main/${slide}.png`, alt=`Интерьер-${img}`)
-                .banner__content 
+                .banner__content
                   h2.banner__title.us-title Дизайнерская мебель
                   p.banner__desc В каталоге собрана оригинальная дизайнерская мебель от американских и европейских производителей. Стильная, необычная, удобная и практичная – она привлечет внимание и будет оценена по достоинству. Наши клиенты пользуются скидками до 80% от первоначальной стоимости, годовой гарантией, быстрой доставкой по России и СНГ.
                   a(href=`sofas.html`).banner__link
@@ -44,6 +46,19 @@ html(lang="en")
               +icon('arrow-1') 
           button.banner__slider-btn.banner__slider-btn-next
               +icon('arrow-1')
+          nav.banner__menu#menu-banner 
+            ul.banner__menu-list
+              //- Data nav
+              - var nav = [{id: 'catalog', name:'Каталог'}, {id: 'portfolio', name: 'Портфолио', href: 'index.html'}, {id: 'about', name: 'О компании', href: 'index.html'}, {id: 'contacts', name: 'Контакты', href: 'index.html'}]
+
+              each link in nav
+                li.banner__menu-item
+                  if link.id == 'catalog'
+                    button.banner__menu-link.catalog-open.us-title= link.name
+                  else
+                    a(href= link.href).banner__menu-link.us-title= link.name 
+
+
     
     //- Catalog menu
     include common/menu-catalog.pug

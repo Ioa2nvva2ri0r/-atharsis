@@ -18,7 +18,7 @@ footer.footer
                 +icon(objSocials.id)
       nav.footer__nav
           //- Data footer nav
-          - var footerNav = [{title: 'Информация', links: ['О компании', 'Портфолио', 'Контакты']}, {title: 'Услуги', links: ['Услуги дизайнера интерьера', 'Поиск проекта по фото']}, {title: 'Каталог', links: ['Межкомнатные перегородки', 'Дизайнерская мебель']}]
+          - var footerNav = [{title: 'Информация', links: [{name: 'О компании', href: 'index.html'}, {name: 'Портфолио', href: 'index.html'}, {name: 'Контакты', href: 'index.html'}]}, {title: 'Услуги', links: [{name: 'Услуги дизайнера интерьера', href: 'index.html'}, {name: 'Поиск проекта по фото', href: 'index.html'}]}, {title: 'Каталог', links: [{name: 'Межкомнатные перегородки', href: 'index.html'}, {name: 'Дизайнерская мебель', href: 'sofas.html'}]}]
 
           each objNav in footerNav
             div.footer__nav-box
@@ -27,7 +27,7 @@ footer.footer
 
                 each link in objNav.links
                   li.footer__nav-item 
-                    a.footer__nav-link(href="#")= link
+                    a.footer__nav-link(href= link.href)= link.name
       .footer__box-mail 
         p.footer__top-desc Если у вас есть вопросы, наши&nbsp;менеджеры помогут вам!
         a(href="mailto:mail@example.com").footer__link.footer__link-tel

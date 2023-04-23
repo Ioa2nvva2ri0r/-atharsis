@@ -79,7 +79,6 @@
         line-height: 2rem;
       }
       &:hover,
-      &:focus,
       &:active {
         border-color: var(--beige);
       }
@@ -100,7 +99,6 @@
         }
       }
       &:hover,
-      &:focus,
       &:active {
         color: var(--beige);
         & svg > path {
@@ -120,7 +118,6 @@
         font-size: inherit;
         @include transitions((border-color, color));
         &:hover,
-        &:focus,
         &:active {
           color: var(--beige);
           border-color: var(--beige);

@@ -17,31 +17,23 @@ html(lang="ru")
     //- Basic JavaScript
     script(src=`js/header.js`, defer)
     script(src=`js/form-popup.js`, defer)
-    script(src=`js/index.js`, defer)
+    script(src=`js/sofas-main.js`, defer)
+    script(src=`js/map.js`, defer)
 
   body
 
     //- Mixins
     include common/mixin.pug
 
+    - var catalogPath = 'sofas-catalog.html'
+
     //- Header
     include common/header.pug
 
     main
-      section.hero 
-        .hero__container.container
-          .hero__content
-            h1.hero__title.us-title Лучшая Дизайнерская Мебель
-            p.hero__desc Наша компания сотрудничает с дизайнерами, российскими и европейскими мебельными фабриками, чтобы вы могли купить оригинальную дизайнерскую мебель в Москве или заказать доставку в другие регионы.
-            a(href="#").hero__btn
-              span 
-                +icon('arrow-1') 
-              | Смотреть товары
-          .hero__img-container
-            - for(var i = 1; i < 4; i++)
-              picture
-                source(srcset=`img/hero/${i}.png`, class=`hero__img-${i}`).hero__img
-                img(src=`img/hero/${i}.png`, class=`hero__img-${i}`, alt=`Продукт-${i}`).hero__img
+
+      //- Hero 
+      include common/sofas-hero.pug
 
       section.catalog.container 
         h2.catalog__title.us-title Каталог
@@ -67,58 +59,13 @@ html(lang="ru")
                 img(src=`img/catalog/pouf.png`, alt="Пуф").catalog__label-img
               a.catalog__label-link(href="#") 
                 | Перейти к товару
-                +icon('arrow-2') 
-          ul.catalog__list 
-            //- Data catalog
-            - var catalog = ['Диваны', 'кресла', 'светильники', 'кровати', 'тумбочки', 'все']
+                +icon('arrow-2')
 
-            each card, index in catalog
-              li.catalog__card 
-                a(href="#").catalog__card-link 
-                  picture
-                    source(srcset=`img/catalog/${index + 1}.png`).catalog__card-img
-                    img(src=`img/catalog/${index + 1}.png`, alt=`Раздел-${index + 1}`).catalog__card-img
-                  span.catalog__card-desc= card
+          //- Catalog list
+          include common/sofas-list.pug 
 
-      section.popular.container  
-        .popular__title-box 
-          h2.popular__title.us-title Популярные товары
-          .popular__slider-box-btn 
-            button.popular__slider-btn.popular__slider-btn-prev
-              +icon('arrow-1') 
-            button.popular__slider-btn.popular__slider-btn-next
-              +icon('arrow-1') 
-        .popular__slider.swiper
-          .swiper-wrapper
-            - for(var i = 1; i < 11; i++)
-              .popular__product.swiper-slide
-                .popular__product-box-img
-                  picture
-                    source(srcset=`img/popular/${i}.png`).popular__product-img
-                    img(src=`img/popular/${i}.png`, alt=`Продукт-${i}`).popular__product-img
-                .popular__product-box-content 
-                  .popular__product-content
-                    div 
-                      h3.popular__product-title
-                        a(href="")
-                          if i === 1
-                            | Кресло SILLA NEGRA
-                          else
-                            | Кресло
-                      p.popular__product-desc 
-                        if i === 1
-                          | Кресло SILLA NEGRA
-                        else
-                          | Кресло SILLA NEGRA black edition
-                    strong.popular__product-price 
-                      | 7 000 
-                      sup ₽
-                  .popular__product-box-btn 
-                    button.popular__product-btn(aria-label="Корзина")
-                      +icon('basket')
-                    button.popular__product-btn(aria-label="Избранные")
-                      +icon('favorite')
-          .popular__slider-scrollbar.swiper-scrollbar     
+      //- Popular
+      include common/sofas-popular.pug    
 
       section.application.container
         picture
