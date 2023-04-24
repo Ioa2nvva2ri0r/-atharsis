@@ -1,0 +1,15 @@
+//- Mixins
+include mixin.pug
+
+section.about.container
+  .about__container  
+    .about__content 
+      h2.about__title.us-title О компании
+      p.about__desc 
+        | Наша компания сотрудничает с дизайнерами, российскими и европейскими мебельными фабриками, чтобы вы могли купить оригинальную дизайнерскую мебель в Москве или заказать доставку в другие регионы. Наша компания сотрудничает с дизайнерами, российскими и европейскими мебельными фабриками, чтобы вы могли купить оригинальную дизайнерскую мебель в Москве или заказать доставку в другие.
+      a(href="company.html").about__btn 
+        | Подробнее
+        +icon("arrow-2")
+    picture
+      source(srcset="img/about/1.png").about__img
+      img(src="img/about/1.png", alt="Офис").about__img

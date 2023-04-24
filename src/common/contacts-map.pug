@@ -1,0 +1,38 @@
+//- Mixins
+include mixin.pug
+
+section.contacts-map.container  
+  .contacts-map__content 
+    h2.contacts-map__title.us-title Наши контакты 
+    ul.contacts-map__list
+      li.contacts-map__item
+        h3.contacts-map__subtitle Адрес
+        address.contacts-map__desc г. Москва, ул. Расточная, 24 А
+      li.contacts-map__item
+        h3.contacts-map__subtitle Режим
+        p.contacts-map__desc Пн-Пт: 10-20 / Сб&#8209;Вс:&nbsp;&nbsp;10&#8209;15
+      li.contacts-map__item
+        h3.contacts-map__subtitle Метро
+        strong.contacts-map__desc Любинская
+      li.contacts-map__item
+        h3.contacts-map__subtitle Телефон
+        a(href="tel:+89999999999").contacts-map__desc 8 (999) 999-99-99
+      li.contacts-map__item
+        h3.contacts-map__subtitle Почта
+        a(href="mailto:mail@example.com").contacts-map__desc mail@example.com
+      li.contacts-map__item
+        h3.contacts-map__subtitle Соц.сети
+        ul.socials__list.contacts-map__socials-list
+          //- Data socials
+          - var socials = [{id: 'vkontakte', href: 'https://vk.com/'}, {id: 'whatsapp', href: 'https://www.whatsapp.com/'}, {id: 'telegram', href: 'https://t.me/NIK_NAME'}, {id: 'phone', href: 'tel:+89999999999'}]
+
+          each objSocials in socials
+            li.socials__item.contacts-map__socials-item 
+              a.socials__link.contacts-map__socials-link(href= objSocials.href, aria-label=objSocials.id)
+                +icon(objSocials.id)
+  .contacts-map__map#map
+
+  //- Yandex-map
+  script(src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&lang=ru_RU", type="text/javascript")
+  //- Yandex-map -- init
+  script(src='js/map.js')

@@ -1,11 +1,11 @@
 //- Mixins
 include mixin.pug
 
-.product(class=`${cssClassProduct ? cssClassProduct : ''}`)
+.product(class=`${cssClassProduct ? cssClassProduct : ""}`)
   .product__box-img
     picture
       source(srcset=`img/popular/${i ? i : 1}.png`).product__img
-      img(src=`img/popular/${i ? i : 1}.png`, alt=`Продукт-${i ? i : 1}`).product__img
+      img(src=`img/popular/${i ? i : 1}.png`, alt=`Изображение-${i ? i : 1}`).product__img
   .product__box-content 
     .product__content
       div 
@@ -24,7 +24,7 @@ include mixin.pug
         | 7 000 
         sup ₽
     .product__box-btn 
-      button.product__btn(class=`${i === 3 ? 'add' : ''}`, aria-label="Корзина")
-        +icon('basket')
-      button.product__btn(class=`${i === 3 ? 'add' : ''}`, aria-label="Избранные")
-        +icon('favorite')
+      button.product__btn(class=`${i === 3 ? "add" : ""}`, aria-label="Корзина")
+        +icon("basket")
+      button.product__btn(class=`${i === 3 ? "add" : ""}`, aria-label="Избранные")
+        +icon("favorite")

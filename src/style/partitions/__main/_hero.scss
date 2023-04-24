@@ -1,0 +1,5 @@
+.partitions-hero {
+  &__img-1 {
+    @include block-size(94.9rem, 60.1rem);
+  }
+}

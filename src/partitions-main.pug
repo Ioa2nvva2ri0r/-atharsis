@@ -1,0 +1,81 @@
+doctype html
+html(lang="en")
+  head
+     
+    //- Head
+    include common/head.pug
+    
+    title Катарсис - Межкомнатные перегородки
+
+    //- Swiper-Slider
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css")
+    script(src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js")
+    //- Basic Styles
+    link(rel="stylesheet", href='style/main.min.css')
+    //- Basic JavaScript
+    script(src="js/partitions-main.js", defer)
+
+  body
+
+    //- Mixins
+    include common/mixin.pug
+
+    //- Header
+    include common/header.pug
+
+    main
+
+      //- Hero
+      - var titleHero = 'Межкомнатные перегородки' 
+      - var descHero = 'Наша компания производит раздвижные системы для зонирования пространства в современном интерьере.'
+      - var countImgHero = 1
+      - var cssClassHero = 'partitions-hero'
+
+      include common/hero.pug
+
+      section.partitions-portfolio.container
+        .partitions-portfolio__box 
+          h2.partitions-portfolio__title.us-title Реализованные проекты
+          a(href="#").partitions-portfolio__btn 
+            | Портфолио
+            +icon('arrow-2')
+        .partitions-portfolio__slider.swiper 
+          .swiper-wrapper
+            - for(var slide = 1; slide < 3; slide++)
+              .partitions-portfolio__slide.swiper-slide
+                picture
+                  source(srcset="img/partitions-portfolio/1.png").partitions-portfolio__img
+                  img(src="img/partitions-portfolio/1.png", alt=`Изображение-${slide}`).partitions-portfolio__img
+          button.partitions-portfolio__slider-btn.partitions-portfolio__slider-btn-prev
+            +icon('arrow-1') 
+          button.partitions-portfolio__slider-btn.partitions-portfolio__slider-btn-next
+            +icon('arrow-1')
+
+      section.kinds.container 
+        ol.kinds__list
+          - var kinds = ['перегородки для офиса', 'Межкомнатные перегородки', 'перегородки для Ванной комнаты', 'перегородки для Гардеробной', 'перегородки для Зонирования пространства', 'перегородки для гостинной', 'перегородки для Столовой зоны', 'перегородки для Столовой зоны']
+
+          each title, index in kinds
+            li.kinds__item
+              .kinds__item-box 
+                strong.kinds__count
+                picture
+                  source(srcset=`img/partitions-kinds/${index + 1}.png`).kinds__img
+                  img(src=`img/partitions-kinds/${index + 1}.png`, alt=`Изображение-${index + 1}`).kinds__img
+                h3.kinds__title.us-title= title
+              a(href="#").kinds__btn
+                | Заказать расчёт
+                +icon('arrow-2') 
+
+      
+      //- Application
+      include common/application.pug    
+
+      //- About
+      include common/about.pug 
+
+      //- Contacts-map
+      include common/contacts-map.pug 
+
+    //- Footer
+    include common/footer.pug 

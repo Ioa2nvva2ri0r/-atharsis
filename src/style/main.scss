@@ -7,10 +7,11 @@
 @import './sofas/__main/catalog';
 @import './sofas/__main/popular';
 @import './sofas/__main/product';
-@import './sofas/__main/application';
-@import './sofas/__main/company';
-@import './sofas/__main/contacts';
 // Sofas -- Catalog
 @import './sofas/__catalog';
 // Sofas -- Product
 @import './sofas/__product';
+//
+@import './partitions/__main/hero';
+@import './partitions/__main/portfolio';
+@import './partitions/__main/kinds';

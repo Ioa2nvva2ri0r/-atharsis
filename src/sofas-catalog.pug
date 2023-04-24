@@ -22,8 +22,13 @@ html(lang="ru")
 
     main
 
-      //- Hero 
-      include common/sofas-hero.pug
+      //- Hero
+      - var titleHero = 'Лучшая Дизайнерская Мебель' 
+      - var descHero = 'Наша компания сотрудничает с дизайнерами, российскими и европейскими мебельными фабриками, чтобы вы могли купить оригинальную дизайнерскую мебель в Москве или заказать доставку в другие регионы.'
+      - var countImgHero = 3
+      - var cssClassHero = 'sofas-hero'
+
+      include common/hero.pug
 
       section.catalog-sofas.container
         nav.catalog-sofas__nav

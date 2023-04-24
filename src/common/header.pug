@@ -1,28 +1,30 @@
 //- Mixins
 include mixin.pug
 
-header.header
+header.header(id=banner && 'header-banner')
   .header__container.container
     button.header__btn-menu#menu-open
-      +icon('burger')
-    a(href='index.html', aria-label="Логотип").header__logo
-      img(src='img/logo.svg', alt="Катарсис")#logo
+      +icon("burger")
+    a(href="index.html", aria-label="Логотип").header__logo
+      img(src="img/logo.svg", alt="Катарсис")#logo
     nav.header__nav#menu
       .header__btn-box-close#menu-close
         button.header__btn-close
-          +icon('close')
+          +icon("close")
       ul.header__nav-list 
         //- Data nav
-        - var nav = [{id: 'main', name: 'Главная', href: 'index.html'}, {id: 'catalog', name:'Каталог', href: catalogPath ? catalogPath : 'index.html'}, {id: 'portfolio', name: 'Портфолио', href: 'index.html'}, {id: 'about', name: 'О компании', href: 'index.html'}, {id: 'contacts', name: 'Контакты', href: 'index.html'}, {id: 'favorite', name: 'Избранное', href: 'index.html'}]
+        - var nav = [{id: "main", name: "Главная", href: "index.html"}, {id: "catalog", name:"Каталог", href: catalogPath ? catalogPath : "index.html"}, {id: "portfolio", name: "Портфолио", href: "index.html"}, {id: "about", name: "О компании", href: "about.html"}, {id: "contacts", name: "Контакты", href: "contacts.html"}, {id: "favorite", name: "Избранное", href: "favorite.html"}]
 
         each link in nav
           li.header__nav-item
-            if link.id == 'catalog' && banner
+            if link.id == "catalog" && banner
               button.header__nav-link.catalog-open= link.name
             else
               a(href= link.href).header__nav-link= link.name
     .header__btn-box 
-      a(href="#", aria-label="Избранные").header__btn.favorite
-        +icon('favorite')
-      a(href="#", aria-label="Корзина").header__btn.basket
-        +icon('basket')
+      a(href="favorite.html", aria-label="Избранные").header__btn.favorite
+        +icon("favorite")
+      a(href="basket.html", aria-label="Корзина").header__btn.basket
+        +icon("basket")
+
+  script(src="js/header.js")

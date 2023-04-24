@@ -13,7 +13,6 @@ html(lang="ru")
     //- Basic Styles
     link(rel="stylesheet", href="style/main.min.css")
     //- Basic JavaScript
-    script(src=`js/header.js`, defer)
     script(src=`js/banner.js`, defer)
 
   body
@@ -30,15 +29,17 @@ html(lang="ru")
       section.banner.container 
         .banner__slider.swiper#banner
           .swiper-wrapper
-            - for(var slide = 1; slide < 5; slide++)
+            - var sections = [{title: 'Дизайнерская мебель', desc: 'В каталоге собрана оригинальная дизайнерская мебель от американских и европейских производителей. Стильная, необычная, удобная и практичная – она привлечет внимание и будет оценена по достоинству. Наши клиенты пользуются скидками до 80% от первоначальной стоимости, годовой гарантией, быстрой доставкой по России и СНГ.', href: "sofas-main.html"}, {title: 'Межкомнатные перегородки', desc: 'В каталоге собрана оригинальная дизайнерская мебель от американских и европейских производителей. Стильная, необычная, удобная и практичная – она привлечет внимание и будет оценена по достоинству. Наши клиенты пользуются скидками до 80% от первоначальной стоимости, годовой гарантией, быстрой доставкой по России и СНГ.', href: 'partitions-main.html'}, {title: 'Дизайнерская мебель', desc: 'В каталоге собрана оригинальная дизайнерская мебель от американских и европейских производителей. Стильная, необычная, удобная и практичная – она привлечет внимание и будет оценена по достоинству. Наши клиенты пользуются скидками до 80% от первоначальной стоимости, годовой гарантией, быстрой доставкой по России и СНГ.', href: "sofas-main.html"}, {title: 'Межкомнатные перегородки', desc: 'В каталоге собрана оригинальная дизайнерская мебель от американских и европейских производителей. Стильная, необычная, удобная и практичная – она привлечет внимание и будет оценена по достоинству. Наши клиенты пользуются скидками до 80% от первоначальной стоимости, годовой гарантией, быстрой доставкой по России и СНГ.', href: 'partitions-main.html'}]
+
+            each section, index in sections
               .banner__slide.swiper-slide
                 - for(var img = 1; img < 4; img++)
                   .banner__img-box(class=`banner__img-box-${img}`)
-                    img.banner__img(src=`img/main/${slide}.png`, alt=`Интерьер-${img}`)
+                    img.banner__img(src=`img/main/${index + 1}.png`, alt=`Интерьер-${img}`)
                 .banner__content
-                  h2.banner__title.us-title Дизайнерская мебель
-                  p.banner__desc В каталоге собрана оригинальная дизайнерская мебель от американских и европейских производителей. Стильная, необычная, удобная и практичная – она привлечет внимание и будет оценена по достоинству. Наши клиенты пользуются скидками до 80% от первоначальной стоимости, годовой гарантией, быстрой доставкой по России и СНГ.
-                  a(href=`sofas.html`).banner__link
+                  h2.banner__title.us-title= section.title
+                  p.banner__desc= section.desc
+                  a(href= section.href).banner__link
                     | Узнать подробнее
                     +icon('arrow-2')  
           .banner__slider-pagination
@@ -61,4 +62,45 @@ html(lang="ru")
 
     
     //- Catalog menu
-    include common/menu-catalog.pug
+    .menu-catalog#catalog
+      .menu-catalog__container.container
+        ul.menu-catalog__list#catalog-tabs 
+          //- Data menu catalog
+          - var catalog = [{tab: true, id: 'sofas', name: 'Дизайнерская мебель', href: "sofas-main.html"}, {tab: true, id: 'partitions', name: 'Межкомнатные перегородки', href: 'partitions-main.html'}, {name: 'Поиск проекта по фото', href: '#'}, {name: 'Услуги дизайнера интерьера', href: '#'}]
+
+          each section, index in catalog 
+            li.menu-catalog__item
+              if section.tab 
+                .menu-catalog__link.catalog-tab(data-tab= section.id)
+                  span.menu-catalog__link-desc
+                    = section.name
+                    +icon('arrow-1')
+                  picture
+                    source.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, srcset=`img/menu-catalog/${index + 1}.png`)
+                    img.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, src=`img/menu-catalog/${index + 1}.png`, alt=`Изображение-${section.name}`)
+              else
+                a(href= section.href).menu-catalog__link
+                  span.menu-catalog__link-desc
+                    = section.name
+                    +icon('arrow-1')
+                  picture
+                    source.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, srcset=`img/menu-catalog/${index + 1}.png`)
+                    img.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, src=`img/menu-catalog/${index + 1}.png`, alt=`Изображение-${section.name}`)
+        .subsection-catalog#catalog-content
+          button.subsection-catalog__close#catalog-close(aria-label="Закрыть каталог")
+            +icon('close-2')
+          button.subsection-catalog__back#catalog-back
+            +icon('arrow-1')
+            | Вернуться назад
+          .subsection-catalog__container#catalog-tab-content 
+            h2.subsection-catalog__title.us-title Дизайнерская мебель 
+            ul.subsection-catalog__list 
+              //- Data subsection catalog
+              - var subsection = [{name: 'Спальня', href: '#'}, {name: 'Кухня', href: '#'}, {name: 'Гостиная', href: '#'}, {name: 'Офис и домашний офис', href: '#'}, {name: 'Прихожая', href: '#'}, {name: 'Публичные пространства', href: '#'}]
+
+              each section, index in subsection
+                li.subsection-catalog__item 
+                  picture
+                    source.subsection-catalog__img(srcset=`img/menu-catalog/subsection/${index + 1}.png`)
+                    img.subsection-catalog__img(src=`img/menu-catalog/subsection/${index + 1}.png`, alt=`Изображение-${section.name}`)
+                  a(href= section.href).subsection-catalog__link= section.name

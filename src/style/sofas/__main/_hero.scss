@@ -1,79 +1,5 @@
-.hero {
-  background-image: linear-gradient(
-    to bottom,
-    var(--blue) 61.2rem,
-    transparent 0%
-  );
-  &__title,
-  &__desc,
-  &__btn {
-    @include background-text();
-  }
-  &__content,
-  &__container {
-    position: relative;
-  }
-  &__container {
-    overflow: hidden;
-    min-height: 74.5rem;
-  }
-  &__content {
-    z-index: 2;
-    width: 100%;
-    max-width: 50.5rem;
-    padding-top: 6.25rem;
-  }
-  &__title {
-    letter-spacing: 0 !important;
-    &::first-line {
-      letter-spacing: 0.17rem;
-    }
-  }
-  &__desc {
-    margin: 0 0 4.4rem 0;
-    font-size: 1.8rem;
-    line-height: 2.5rem;
-    letter-spacing: 0.005rem;
-  }
-  &__btn {
-    text-decoration: none;
-    width: max-content;
-    font-size: 1.8rem;
-    @include opacity-effect();
-    &,
-    & span {
-      @include flex-center-y();
-    }
-    & span {
-      position: relative;
-      justify-content: center;
-      top: 0.2rem;
-      @include block-size(5.6rem);
-      margin-right: 2rem;
-      border-radius: 100%;
-      background-color: var(--white);
-      & svg {
-        @include block-size(0.6rem, 1.1rem);
-        transform-origin: center center;
-        transform: rotate(90deg);
-        & > path {
-          stroke: var(--black);
-        }
-      }
-    }
-  }
+.sofas-hero {
   &__img {
-    &,
-    &-container {
-      position: absolute;
-    }
-    &-container {
-      top: 0;
-      right: 0;
-      z-index: 1;
-      @include block-size(100%);
-      max-width: 124rem;
-    }
     &-1 {
       @include picture(40rem);
       bottom: 35.5rem;
@@ -91,54 +17,7 @@
     }
   }
   @media (max-width: 48em) {
-    background-image: linear-gradient(
-      to bottom,
-      var(--blue) 95%,
-      transparent 0%
-    );
-    &__container {
-      display: flex;
-      flex-direction: column;
-      min-height: 125rem;
-      padding-bottom: 10rem;
-    }
-    &__content {
-      max-width: 70rem;
-      padding-top: 4.8rem;
-    }
-    &__title {
-      margin-bottom: 3.8rem !important;
-      &::first-line {
-        letter-spacing: 0.2rem;
-      }
-    }
-    &__desc {
-      margin-bottom: 6.4rem;
-      font-size: 3.2rem;
-      line-height: 4.4rem;
-    }
-    &__btn {
-      font-size: 3.2rem;
-      @include background-text-reset();
-      color: var(--white);
-      & span {
-        @include block-size(4rem);
-        margin-left: 2.6rem;
-        margin-right: 6.4rem;
-        background-color: transparent;
-        & svg {
-          @include block-size(2.4rem, 2rem);
-          & > path {
-            stroke: var(--white);
-          }
-        }
-      }
-    }
     &__img {
-      &-container {
-        position: relative;
-        @include block-size(100%, 49.6rem);
-      }
       &-1 {
         @include block-size(25.4rem);
         bottom: 13.8rem;

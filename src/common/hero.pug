@@ -1,0 +1,17 @@
+//- Mixins
+include mixin.pug
+
+section.hero 
+  .hero__container.container
+    .hero__content
+      h1.hero__title.us-title= titleHero
+      p.hero__desc= descHero
+      a(href="#").hero__btn
+        span 
+          +icon("arrow-1") 
+        | Смотреть товары
+    .hero__img-container
+      - for(var img = 0; img < countImgHero; img++)
+        picture
+          source(srcset=`img/${cssClassHero}/${img + 1}.png`, class=`${cssClassHero}__img-${img + 1}`).hero__img
+          img(src=`img/${cssClassHero}/${img + 1}.png`, class=`${cssClassHero}__img-${img + 1}`, alt=`Изображение-${img + 1}`).hero__img
