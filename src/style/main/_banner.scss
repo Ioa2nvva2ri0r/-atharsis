@@ -1,0 +1,369 @@
+@import '../mixins';
+
+.banner {
+  width: 100% !important;
+  height: 91.2rem;
+  &__slider {
+    height: 100%;
+    &-pagination {
+      position: absolute;
+      visibility: visible;
+      top: initial;
+      bottom: 5.1rem;
+      opacity: 1;
+      z-index: 2;
+      @include transitions((visibility, opacity));
+      &,
+      & span {
+        text-align: center;
+        font-family: 'Garamond', serif;
+        font-size: 2.5rem;
+        font-weight: 400;
+        line-height: 2.8rem;
+        letter-spacing: -0.3rem;
+        color: var(--white) !important;
+      }
+      & span.swiper-pagination-current {
+        font-size: 5.5rem;
+        line-height: 6.2rem;
+      }
+    }
+    &-btn {
+      position: absolute;
+      visibility: visible;
+      @include flex-center-center();
+      bottom: 5.1rem;
+      z-index: 2;
+      opacity: 1;
+      @include block-size(5.6rem);
+      border-radius: 100%;
+      background-color: var(--white);
+      @include transitions((background-color, visibility, opacity));
+      & svg {
+        @include block-size(0.8rem, 1.2rem);
+        & > path {
+          @include transition(stroke, var(--black));
+        }
+      }
+      &-prev {
+        left: 29.4rem;
+        & svg {
+          transform-origin: center center;
+          transform: rotate(180deg);
+        }
+      }
+      &-next {
+        right: 29.4rem;
+      }
+      &:focus {
+        outline: none;
+      }
+      &:hover,
+      &:active {
+        background-color: var(--blue);
+        & svg > path {
+          stroke: var(--white);
+        }
+      }
+    }
+  }
+  &__slide {
+    overflow: hidden;
+    @include flex-center-center();
+    &.swiper-slide-active {
+      z-index: 10;
+      & .banner__img-box {
+        transform: rotate(0);
+      }
+    }
+    &.swiper-slide-prev {
+      & .banner__img-box {
+        opacity: 0;
+      }
+      & .banner__img-box {
+        &-1 {
+          transform: rotate(5deg);
+        }
+        &-2 {
+          transform: rotate(20deg);
+        }
+        &-3 {
+          transform: rotate(120deg);
+        }
+      }
+    }
+    &.swiper-slide-next {
+      & .banner__img-box {
+        opacity: 1;
+      }
+      & .banner__img-box {
+        &-1 {
+          transform: rotate(-5deg);
+        }
+        &-2 {
+          transform: rotate(-20deg);
+        }
+        &-3 {
+          transform: rotate(-120deg);
+        }
+      }
+    }
+  }
+  &__img {
+    @include picture(192rem, 100rem);
+    object-fit: initial;
+    &-box {
+      position: absolute;
+      @include flex-center-center();
+      opacity: 1;
+      transform: rotate(0deg);
+      transform-origin: center center;
+      transition: transform 3000ms cubic-bezier(0.42, -0.6, 0.53, 1.43),
+        opacity 3000ms ease-in-out;
+      &-2,
+      &-3 {
+        overflow: hidden;
+        border-radius: 100%;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 5;
+          @include block-size(100%);
+          border-radius: inherit;
+        }
+      }
+      &-1 {
+        z-index: 1;
+        @include block-size(192rem, 100rem);
+      }
+      &-2 {
+        z-index: 2;
+        @include block-size(150rem);
+        &::after {
+          background-color: rgba(29, 53, 82, 0.55);
+        }
+      }
+      &-3 {
+        z-index: 3;
+        animation-delay: 2.1s;
+        @include block-size(75rem);
+        &::after {
+          background-color: rgba(29, 53, 82, 0.8);
+        }
+      }
+    }
+  }
+  &__content {
+    @include flex-center-y();
+    flex-direction: column;
+    position: relative;
+    visibility: visible;
+    opacity: 1;
+    z-index: 5;
+    width: 100%;
+    max-width: 60rem;
+    padding-top: 7.4rem;
+    @include transitions((visibility, opacity));
+    & * {
+      color: var(--white);
+    }
+  }
+  &__title,
+  &__desc {
+    text-align: center;
+  }
+  &__desc,
+  &__link {
+    font-size: 1.8rem;
+  }
+  &__title,
+  &__link {
+    border-bottom: 0.15rem solid var(--white);
+  }
+  &__title {
+    margin-bottom: 2.85rem !important;
+    padding-bottom: 3rem;
+    line-height: 6.2rem !important;
+    letter-spacing: 0.4rem !important;
+    &::first-line {
+      letter-spacing: 0.05rem;
+    }
+  }
+  &__desc {
+    width: 56.9rem;
+    margin: 0 0 2.45rem 0;
+    line-height: 2.5rem;
+  }
+  &__link {
+    position: relative;
+    padding-bottom: 0 0 1rem 0.4rem;
+    line-height: 2.2rem;
+    @include transitions((border-color, color));
+    &::after {
+      position: absolute;
+      content: '';
+      top: 1.1rem;
+      right: 0.2rem;
+      @include block-size(2rem, 0.15rem);
+      @include transition(background-color, var(--white));
+    }
+    & svg {
+      @include block-size(0.9rem, 1.3rem);
+      margin-bottom: -0.1rem;
+      margin-left: 2.5rem;
+      & > path {
+        @include transition(stroke);
+      }
+    }
+    &:hover,
+    &:active {
+      border-color: var(--beige);
+      color: var(--beige);
+      & svg > path {
+        stroke: var(--beige);
+      }
+      &::after {
+        background-color: var(--beige);
+      }
+    }
+  }
+  &__menu {
+    display: none;
+  }
+  @media (max-width: 48em) {
+    height: 147.4rem;
+    padding: 0 !important;
+    &__slider {
+      &-pagination {
+        bottom: 7.9rem;
+        left: -0.4rem;
+        &.hidden {
+          visibility: hidden;
+          opacity: 0;
+        }
+        &,
+        & span {
+          font-size: 5rem;
+          line-height: 5.6rem;
+          letter-spacing: -0.6rem;
+        }
+        & span.swiper-pagination-current {
+          font-size: 11rem;
+          line-height: 12.4rem;
+        }
+      }
+      &-btn {
+        bottom: 8.1rem;
+        @include block-size(11.2rem);
+        &.hidden {
+          visibility: hidden;
+          opacity: 0;
+        }
+        & svg {
+          @include block-size(1.9rem, 2.5rem);
+        }
+        &-prev {
+          left: 4rem;
+        }
+        &-next {
+          right: 4rem;
+        }
+      }
+    }
+    &__img {
+      @include block-size(75rem, 147.4rem);
+      object-fit: cover;
+      &-box {
+        &-1 {
+          @include block-size(75rem, 147.4rem);
+        }
+        &-2 {
+          @include block-size(153.4rem);
+        }
+        &-3 {
+          @include block-size(100rem);
+        }
+      }
+    }
+    &__content {
+      max-width: 66.4rem;
+      padding-top: 0;
+      padding-bottom: 5.5rem;
+      &.hidden {
+        visibility: hidden;
+        opacity: 0;
+      }
+    }
+    &__title,
+    &__link {
+      border-bottom-width: 0.4rem;
+    }
+    &__desc,
+    &__link {
+      font-size: 3.2rem;
+      line-height: 4.4rem;
+    }
+    &__title {
+      margin-bottom: 3.85rem !important;
+      padding-right: 2rem;
+      padding-bottom: 3.8rem;
+      line-height: 6.7rem !important;
+      letter-spacing: 0.4rem !important;
+      &::first-line {
+        letter-spacing: 0;
+      }
+    }
+    &__desc {
+      width: 60.9rem;
+      margin-bottom: 4rem;
+    }
+    &__link {
+      margin-left: 1.8rem;
+      padding-bottom: 2rem;
+      padding-left: 0;
+      &::after {
+        top: 2rem;
+        right: 0.8rem;
+        @include block-size(4.2rem, 0.3rem);
+      }
+      & svg {
+        @include block-size(2.7rem, 2.9rem);
+        margin-bottom: -0.4rem;
+        margin-left: 8rem;
+      }
+    }
+    &__menu {
+      position: absolute;
+      visibility: hidden;
+      @include flex-center-center();
+      top: 0;
+      left: 0;
+      z-index: 50;
+      opacity: 0;
+      @include block-size(100%);
+      @include transitions((visibility, opacity));
+      &.active {
+        visibility: visible;
+        opacity: 1;
+      }
+      & * {
+        color: var(--white);
+      }
+      &-list {
+        @include flex-center-y();
+        flex-direction: column;
+      }
+      &-item {
+        &:not(:last-child) {
+          margin-bottom: 8rem;
+        }
+      }
+      &-link {
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+}

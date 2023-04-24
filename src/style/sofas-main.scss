@@ -1,0 +1,11 @@
+@import './mixins';
+// Common block
+@import './common';
+@import './common/hero';
+@import './common/application';
+@import './common/about';
+@import './common/contacts-map';
+@import './common/popup';
+// Main block
+@import './sofas/__common';
+@import './sofas/__main';

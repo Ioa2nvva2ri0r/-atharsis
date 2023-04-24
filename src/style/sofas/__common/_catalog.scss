@@ -1,0 +1,104 @@
+.catalog {
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
+    gap: 3rem;
+    height: 100%;
+    min-width: 51.1rem;
+  }
+  &__card {
+    background-color: var(--white);
+    &-img {
+      @include picture(100%);
+      position: relative;
+      max-height: 13.8rem;
+      margin-bottom: 2.1rem;
+      @include transition(transform, scale(1));
+    }
+    &-link {
+      @include flex-center-y();
+      justify-content: flex-end;
+      flex-direction: column;
+      overflow: hidden;
+      height: 100%;
+      min-height: 24rem;
+      padding: 4.7rem 0.5rem 1.5rem 0.5rem;
+      @include transition(background-color);
+      &:hover,
+      &:active {
+        background-color: var(--blue);
+        & span {
+          color: var(--beige);
+        }
+        & img {
+          transform: scale(1.25);
+        }
+      }
+    }
+    &-desc {
+      position: relative;
+      text-transform: uppercase;
+      top: -0.2rem;
+      margin-inline-start: 0.3rem;
+      letter-spacing: 0.15em;
+      @include transition(color, var(--black));
+    }
+  }
+  @media (max-width: 48em) {
+    &__list {
+      grid-template-columns: repeat(auto-fill, minmax(31rem, 1fr));
+      gap: 2rem;
+    }
+    &__card {
+      &:nth-child(1) {
+        & .catalog__card-img {
+          height: 19.4rem;
+        }
+      }
+      &:nth-child(2) {
+        & .catalog__card-img {
+          height: 16rem;
+        }
+      }
+      &:nth-child(4) {
+        & .catalog__card-img {
+          top: 0.6rem;
+          max-height: 21.4rem;
+        }
+      }
+      &:nth-child(5) {
+        & .catalog__card-img {
+          top: 1rem;
+          max-height: 19rem;
+        }
+      }
+      &:nth-child(6) {
+        & .catalog__card-img {
+          top: 1.5rem;
+          max-height: 17.5rem;
+        }
+      }
+      &:nth-child(5),
+      &:nth-child(6) {
+        & .catalog__card-img {
+          margin-bottom: 2.8rem;
+        }
+        & .catalog__card-link {
+          padding: 3rem 1rem 4.3rem;
+        }
+      }
+      &-link {
+        padding: 2.8rem 1rem 4.4rem;
+      }
+      &-img {
+        max-height: 20rem;
+        margin-bottom: 2.3rem;
+      }
+      &-desc {
+        top: 0.2rem;
+        margin-inline-start: 0.2rem;
+        font-weight: 600;
+      }
+    }
+  }
+}

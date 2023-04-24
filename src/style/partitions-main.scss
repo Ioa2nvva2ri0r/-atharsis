@@ -1,0 +1,6 @@
+@import './mixins';
+// Common block
+@import './common';
+@import './common/hero';
+// Main block
+@import './partitions/__main';

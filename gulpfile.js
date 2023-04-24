@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 const { src, dest, series, watch } = require('gulp');
-const concat = require('gulp-concat');
+// const concat = require('gulp-concat');
 const pug = require('gulp-pug');
 const htmlmin = require('gulp-htmlmin');
 const sass = require('gulp-sass')(require('sass'));
@@ -43,7 +43,6 @@ const sassMinify = () => {
   return src('src/style/**/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', notify.onError()))
-    .pipe(concat('main.min.css'))
     .pipe(
       autoprefixer({
         cascade: false,
