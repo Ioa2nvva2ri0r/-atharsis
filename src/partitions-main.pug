@@ -1,5 +1,5 @@
 doctype html
-html(lang="en")
+html(lang="ru")
   head
      
     //- Head
@@ -12,8 +12,6 @@ html(lang="en")
     script(src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js")
     //- Basic Styles
     link(rel="stylesheet", href='style/partitions-main.css')
-    //- Basic JavaScript
-    script(src="js/partitions-main.js", defer)
 
   body
 
@@ -28,7 +26,7 @@ html(lang="en")
       //- Hero
       - var titleHero = 'Межкомнатные перегородки' 
       - var descHero = 'Наша компания производит раздвижные системы для зонирования пространства в современном интерьере.'
-      - var countImgHero = 1
+      - var countImgHero = 3
       - var cssClassHero = 'partitions-hero'
 
       include common/hero.pug
@@ -39,31 +37,24 @@ html(lang="en")
           a(href="#").partitions-portfolio__btn 
             | Портфолио
             +icon('arrow-2')
-        .partitions-portfolio__slider.swiper 
-          .swiper-wrapper
-            - for(var slide = 1; slide < 3; slide++)
-              .partitions-portfolio__slide.swiper-slide
-                picture
-                  source(srcset="img/partitions-portfolio/1.png").partitions-portfolio__img
-                  img(src="img/partitions-portfolio/1.png", alt=`Изображение-${slide}`).partitions-portfolio__img
-          button.partitions-portfolio__slider-btn.partitions-portfolio__slider-btn-prev
-            +icon('arrow-1') 
-          button.partitions-portfolio__slider-btn.partitions-portfolio__slider-btn-next
-            +icon('arrow-1')
+
+        //- Slider
+        include common/partitions-slider.pug
 
       section.kinds.container 
         ol.kinds__list
-          - var kinds = ['перегородки для офиса', 'Межкомнатные перегородки', 'перегородки для Ванной комнаты', 'перегородки для Гардеробной', 'перегородки для Зонирования пространства', 'перегородки для гостинной', 'перегородки для Столовой зоны', 'перегородки для Столовой зоны']
+          - var kinds = ['перегородки для\u00A0офиса', 'Межкомнатные перегородки', 'перегородки для Ванной комнаты', 'перегородки для\u00A0Гардеробной', 'перегородки для\u00A0Зонирования пространства', 'перегородки для\u00A0гостинной', 'перегородки для\u00A0Столовой зоны', 'перегородки для\u00A0Столовой зоны']
 
           each title, index in kinds
             li.kinds__item
               .kinds__item-box 
-                strong.kinds__count
-                picture
+                strong.kinds__count.us-title= (index + 1).toString().padStart(2,0)
+                picture.kinds__img-box
                   source(srcset=`img/partitions-kinds/${index + 1}.png`).kinds__img
                   img(src=`img/partitions-kinds/${index + 1}.png`, alt=`Изображение-${index + 1}`).kinds__img
+                .kinds__img-duplicate(style=`background-image: url('img/partitions-kinds/${index + 1}.png')`)
                 h3.kinds__title.us-title= title
-              a(href="#").kinds__btn
+              a(href="partitions-order.html").kinds__btn
                 | Заказать расчёт
                 +icon('arrow-2') 
 

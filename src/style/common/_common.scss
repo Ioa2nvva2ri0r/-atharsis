@@ -21,35 +21,19 @@
     &:not(:last-child) {
       margin-right: 3rem;
     }
-    &:first-child,
-    &:last-child {
-      & a {
-        & svg > path,
-        & svg > mask {
-          @include transition(fill);
-        }
-      }
-      & a:hover,
-      & a:active {
-        & svg > path,
-        & svg > mask {
-          fill: var(--beige);
-        }
+    & a {
+      & svg > path {
+        @include transitions((fill, stroke));
       }
     }
-    &:nth-child(2),
-    &:nth-child(3) {
-      & a {
-        & svg > path,
-        & svg > mask {
-          @include transition(stroke);
+    & a:hover,
+    & a:active {
+      & svg > path {
+        &:first-child {
+          fill: var(--beige-light);
         }
-      }
-      & a:hover,
-      & a:active {
-        & svg > path,
-        & svg > mask {
-          stroke: var(--beige);
+        &:last-child {
+          stroke: var(--beige-light);
         }
       }
     }

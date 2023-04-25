@@ -220,13 +220,13 @@
     }
     &:hover,
     &:active {
-      border-color: var(--beige);
-      color: var(--beige);
+      border-color: var(--beige-light);
+      color: var(--beige-light);
       & svg > path {
-        stroke: var(--beige);
+        stroke: var(--beige-light);
       }
       &::after {
-        background-color: var(--beige);
+        background-color: var(--beige-light);
       }
     }
   }

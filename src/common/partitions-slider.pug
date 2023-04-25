@@ -1,0 +1,16 @@
+//- Mixins
+include mixin.pug
+
+.partitions__slider.swiper 
+  .swiper-wrapper
+    - for(var slide = 1; slide < 3; slide++)
+      .partitions__slide.swiper-slide
+        picture
+          source(srcset=`img/${imagePath ? imagePath : 'partitions-portfolio'}/1.png`).partitions__img
+          img(src=`img/${imagePath ? imagePath : 'partitions-portfolio'}/1.png`, alt=`Изображение-${slide}`).partitions__img
+  button.partitions__slider-btn.partitions__slider-btn-prev
+    +icon('arrow-1') 
+  button.partitions__slider-btn.partitions__slider-btn-next
+    +icon('arrow-1')
+
+script(src="js/partitions-slider.js") 

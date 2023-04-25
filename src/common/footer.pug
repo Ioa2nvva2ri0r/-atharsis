@@ -5,7 +5,7 @@ footer.footer
   .footer__container-top
     .footer__box-top.container
       .footer__box-logo 
-        a(href="index.html", aria-label="Логотип").footer__logo
+        a(href="main.html", aria-label="Логотип").footer__logo
           img(src="img/logo.svg", alt="Катарсис")
         p.footer__logo-desc Наша компания сотрудничает с&nbsp;дизайнерами, российскими и&nbsp;европейскими мебельными фабриками.
         ul.footer__socials-list.socials__list
@@ -18,7 +18,7 @@ footer.footer
                 +icon(objSocials.id)
       nav.footer__nav
           //- Data footer nav
-          - var footerNav = [{title: 'Информация', links: [{name: 'О компании', href: 'index.html'}, {name: 'Портфолио', href: 'index.html'}, {name: 'Контакты', href: 'index.html'}]}, {title: 'Услуги', links: [{name: 'Услуги дизайнера интерьера', href: 'index.html'}, {name: 'Поиск проекта по фото', href: 'index.html'}]}, {title: 'Каталог', links: [{name: 'Межкомнатные перегородки', href: 'index.html'}, {name: 'Дизайнерская мебель', href: "sofas-main.html"}]}]
+          - var footerNav = [{title: 'Информация', links: [{name: 'О компании', href: 'main.html'}, {name: 'Портфолио', href: 'main.html'}, {name: 'Контакты', href: 'main.html'}]}, {title: 'Услуги', links: [{name: 'Услуги дизайнера интерьера', href: 'main.html'}, {name: 'Поиск проекта по фото', href: 'main.html'}]}, {title: 'Каталог', links: [{name: 'Межкомнатные перегородки', href: 'main.html'}, {name: 'Дизайнерская мебель', href: "sofas-main.html"}]}]
 
           each objNav in footerNav
             div.footer__nav-box

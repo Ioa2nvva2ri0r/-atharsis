@@ -69,6 +69,7 @@ document.querySelectorAll('.catalog__label').forEach((el) => {
   });
 });
 document.body.addEventListener('click', (e) => {
-  if (!elem.contains(e.target) && !labelContent.contains(e.target))
-    labelContent.classList.remove('active');
+  if (elem)
+    if (!elem.contains(e.target) && !labelContent.contains(e.target))
+      labelContent.classList.remove('active');
 });

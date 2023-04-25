@@ -1,0 +1,245 @@
+.order-slider {
+  padding-top: 7.5rem;
+  padding-bottom: 18rem;
+  &__title {
+    letter-spacing: 0.08rem !important;
+  }
+  & .partitions__slider {
+    height: 70rem;
+    &-btn-prev {
+      left: 4.5rem;
+    }
+    &-btn-next {
+      right: 4.5rem;
+    }
+  }
+}
+
+.order {
+  padding-bottom: 18rem;
+  &__form {
+    width: 100%;
+    max-width: 105.7rem;
+    margin: 0 auto;
+  }
+  &__title {
+    margin-bottom: 4.6rem !important;
+    letter-spacing: 0.08rem !important;
+  }
+  &-type__title,
+  &-color__title,
+  &-profile__title,
+  &-opening__title,
+  &__input-title {
+    font-family: 'Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 3.9rem;
+    letter-spacing: 0.01rem;
+  }
+  &-type,
+  &-color,
+  &-profile {
+    &__box {
+      padding-bottom: 8.13rem;
+    }
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(20.6rem, 1fr));
+      gap: 3rem;
+    }
+    &__item {
+      position: relative;
+    }
+    &__title {
+      margin: 0 0 4.45rem 0;
+    }
+    &__input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      @include block-size(100%);
+      background-color: transparent;
+      &:checked + span {
+        opacity: 1;
+      }
+    }
+    &__check {
+      position: absolute;
+      @include flex-center-center();
+      top: -19px;
+      left: -20px;
+      @include block-size(5.6rem);
+      border-radius: 100%;
+      background-color: var(--blue);
+      @include transition(opacity, 0);
+      & svg {
+        @include block-size(1.85rem, 1.3rem);
+      }
+    }
+    &__img {
+      margin-bottom: 1.95rem;
+    }
+    &__label {
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 1.6rem;
+      line-height: 2rem;
+      letter-spacing: 0.15em;
+      color: var(--grey);
+    }
+    &__desc {
+      max-width: 21.5rem;
+      margin: 1rem 0 0 0;
+      font-size: 1.8rem;
+      line-height: 2.5rem;
+    }
+  }
+  &-type,
+  &-profile {
+    &__img {
+      @include picture(100%, 20.6rem);
+    }
+  }
+  &-color__img {
+    @include block-size(100%, 20.6rem);
+  }
+  &-opening {
+    &__box {
+      padding-bottom: 11.4rem;
+    }
+    &__title {
+      margin: 0px 0px 9rem;
+    }
+    &__slider {
+      &.noUi-horizontal {
+        cursor: pointer;
+        height: 0.5rem;
+        border-radius: 0;
+        border: 0;
+        background: rgb(144, 144, 144, 0.2);
+      }
+      &.noUi-horizontal .noUi-handle {
+        cursor: pointer;
+        top: -8px;
+        @include block-size(2rem);
+        border-radius: 100%;
+        background: var(--black);
+        box-shadow: none;
+        border: 0;
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+      & .noUi-connect {
+        background: var(--black);
+      }
+      & .noUi-tooltip {
+        bottom: 2.75rem;
+        border: 0;
+        border-radius: 0;
+        padding: 0.2rem 1.2rem;
+        font-size: 1.8rem;
+        font-weight: 500;
+        line-height: 2.5rem;
+        background: var(--white);
+        color: var(--black);
+      }
+    }
+    &__label {
+      display: block;
+      overflow: hidden;
+      visibility: hidden;
+      opacity: 0;
+      @include block-size(0);
+    }
+  }
+  &__desc {
+    margin: 0 0 4.7rem 0;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 2.5rem;
+  }
+  &__list {
+    padding-bottom: 7.95rem;
+  }
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 8.1rem;
+    }
+  }
+  &__label {
+    & span {
+      overflow: hidden;
+      opacity: 0;
+      @include block-size(0);
+      font-size: 0;
+    }
+  }
+  &__input {
+    width: 100%;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e3e3e3;
+    @include transition(border-color);
+    &,
+    &::placeholder {
+      text-transform: uppercase;
+      font-size: 1.6rem;
+      line-height: 2rem;
+      letter-spacing: 0.15em;
+      color: var(--grey);
+    }
+    &:hover,
+    &:active {
+      border-color: var(--beige-light);
+    }
+    &-title {
+      margin: 0 0 4.35rem 0;
+    }
+  }
+  &__box-btn {
+    @include flex-center-y();
+  }
+  &__btn {
+    @include flex-center-y();
+    margin-right: 5.7rem;
+    border-radius: 4.9rem;
+    padding: 1.4rem 2.8rem 1.7rem 2.8rem;
+    font-size: 1.8rem;
+    background-color: var(--blue);
+    @include transition(color, var(--white));
+    & svg {
+      @include block-size(0.6rem, 1.1rem);
+      margin-top: 0.3rem;
+      margin-left: 2rem;
+      & > path {
+        @include transition(stroke);
+      }
+    }
+    &:hover,
+    &:active {
+      color: var(--beige-light);
+      & svg > path {
+        stroke: var(--beige-light);
+      }
+    }
+    &-desc {
+      margin-top: -0.2rem;
+      font-size: 1.8rem;
+      font-weight: 500;
+      line-height: 2.5rem;
+      & a {
+        border-bottom: 0.05rem solid var(--black);
+        font-size: inherit;
+        @include transitions((border-color, color));
+        &:hover,
+        &:active {
+          color: var(--beige-light);
+          border-color: var(--beige-light);
+        }
+      }
+    }
+  }
+}

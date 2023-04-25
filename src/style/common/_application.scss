@@ -80,7 +80,7 @@
       }
       &:hover,
       &:active {
-        border-color: var(--beige);
+        border-color: var(--beige-light);
       }
     }
     &-btn {
@@ -100,9 +100,9 @@
       }
       &:hover,
       &:active {
-        color: var(--beige);
+        color: var(--beige-light);
         & svg > path {
-          stroke: var(--beige);
+          stroke: var(--beige-light);
         }
       }
     }
@@ -119,8 +119,8 @@
         @include transitions((border-color, color));
         &:hover,
         &:active {
-          color: var(--beige);
-          border-color: var(--beige);
+          color: var(--beige-light);
+          border-color: var(--beige-light);
         }
       }
     }

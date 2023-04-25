@@ -1,5 +1,137 @@
 .partitions-hero {
-  &__img-1 {
-    @include block-size(94.9rem, 60.1rem);
+  &__title {
+    letter-spacing: 0.25rem !important;
+  }
+  &__content {
+    padding-top: 14rem;
+  }
+  &__img {
+    &-1,
+    &-3 {
+      top: 4.7rem;
+      z-index: 2;
+      animation-delay: 2s;
+      animation-duration: 6s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+    &-1 {
+      @include block-size(42.3rem, 61rem);
+      left: 27.5rem;
+      animation-name: shift-right;
+      @keyframes shift-right {
+        0% {
+          transform: translateX(0);
+        }
+        20% {
+          transform: translateX(9rem);
+        }
+        40% {
+          transform: translateX(9rem);
+        }
+        60% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+    }
+    &-2 {
+      @include block-size(40.6rem, 52.9rem);
+      top: 8.3rem;
+      left: 56.5rem;
+    }
+    &-3 {
+      @include block-size(36.4rem, 61rem);
+      right: 0.6rem;
+      transform: translateX(0);
+      animation-name: shift-left;
+      @keyframes shift-left {
+        0% {
+          transform: translateX(0);
+        }
+        20% {
+          transform: translateX(-9rem);
+        }
+        40% {
+          transform: translateX(-9rem);
+        }
+        60% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+  @media (max-width: 48em) {
+    &__container {
+      min-height: 118.7rem;
+    }
+    &__content {
+      padding-top: 14.8rem;
+    }
+    &__desc {
+      margin-bottom: 7.6rem;
+    }
+    &__btn span {
+      margin-left: 3.6rem;
+      margin-right: 7.5rem;
+    }
+    &__img {
+      &-1,
+      &-3 {
+        top: 18rem;
+        height: 42.5rem;
+      }
+      &-1 {
+        left: -0.5rem;
+        width: 29.6rem;
+        @keyframes shift-right {
+          0% {
+            transform: translateX(0);
+          }
+          20% {
+            transform: translateX(6rem);
+          }
+          40% {
+            transform: translateX(6rem);
+          }
+          60% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+      }
+      &-2 {
+        top: 20.3rem;
+        left: 19.5rem;
+        @include block-size(28.2rem, 36.8rem);
+      }
+      &-3 {
+        width: 25.8rem;
+        @keyframes shift-left {
+          0% {
+            transform: translateX(0);
+          }
+          20% {
+            transform: translateX(-6rem);
+          }
+          40% {
+            transform: translateX(-6rem);
+          }
+          60% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+      }
+    }
   }
 }

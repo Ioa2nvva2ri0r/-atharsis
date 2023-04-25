@@ -1,0 +1,116 @@
+doctype html
+html(lang="ru")
+  head
+
+    //- Head
+    include common/head.pug
+    
+    title Катарсис - Межкомнатные перегородки
+
+    //- Swiper-Slider
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css")
+    script(src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js")
+    //- Range Slider
+    style 
+      include style/nouislider.min.css
+    //- Basic Styles
+    link(rel="stylesheet", href='style/partitions-order.css')
+    //- Range Slider
+    script(src="js/nouislider.min.js", defer)
+    script(src="js/partitions-order.js", defer)  
+
+  body
+
+    //- Mixins
+    include common/mixin.pug
+
+    //- Header
+    include common/header.pug
+
+    main
+
+      section.order-slider.container
+        h2.order-slider__title.us-title перегородки для офиса
+
+        //- Slider
+        - var imagePath = 'partitions-order'
+
+        include common/partitions-slider.pug 
+
+      section.order.container 
+        form.order__form
+          h2.order__title.us-title Создай свой дизайн перегородки
+          .order-type__box 
+            h3.order-type__title Выберите тип стекла
+            ul.order-type__list 
+
+              - for(var i = 1; i < 6; i++)
+                li.order-type__item 
+                  input(id=`type-${i}`, type="radio", name="type", value=`№${i}`, checked=(i === 1)).order-type__input
+                  span.order-type__check
+                    +icon('check-2')
+                  picture
+                    source(srcset="img/partitions-order/type/1.png").order-type__img
+                    img(src="img/partitions-order/type/1.png", alt=`Изображение-${i}`).order-type__img
+                  label(for=`type-${i}`).order-type__label Бесцветное стекло
+                  p.order-type__desc Позволяет обозначить функциональные зоны, не ограничивает распространение света.
+          .order-color__box 
+            h3.order-color__title Выберите цвет
+            ul.order-color__list
+              //- Data check color
+              - var colors = [{name: 'Серый', color: '#6A6A6A'}, {name: 'Чёрный', color: '#000000'}, {name: 'Коричневый', color: '#3C2A12'}]
+
+              each item, index in colors
+                li.order-color__item 
+                  input(id=`color-${index + 1}`, type="radio", name="color", value= item.name, checked=(index + 1 === 1)).order-color__input
+                  span.order-color__check
+                    +icon('check-2')
+                  .order-color__img(style= ("background-color: " + item.color))
+                  label(for=`color-${index + 1}`).order-color__label= item.name
+          .order-profile__box 
+            h3.order-profile__title Выберите профиль
+            ul.order-profile__list
+              //- Data check profile
+              - var profiles = ["анодированный профиль", "профиль, окрашенный по каталогу RAL", "ламинированный профиль"]
+
+              each profile, index in profiles
+                li.order-profile__item 
+                  input(id=`profile-${index + 1}`, type="radio", name="profile", value= profile, checked=(index + 1 === 1)).order-profile__input
+                  span.order-profile__check
+                    +icon('check-2')
+                  picture
+                    source(srcset=`img/partitions-order/profile/${index + 1}.png`).order-profile__img
+                    img(src=`img/partitions-order/profile/${index + 1}.png`, alt=`Изображение-${index + 1}`).order-profile__img
+                  label(for=`profile-${index + 1}`).order-profile__label= profile
+          //- Data opening dimensions
+          - var dimensions = [{id: "height", title: "Выберите высоту проёма"}, {id: "width", title: "Выберите ширину проёма"}]
+
+          each item in dimensions
+            .order-opening__box 
+              h3.order-opening__title= item.title
+              .order-opening__slider(id=`slider-${item.id}`)
+              label(for=`opening-${item.id}`).order-opening__label
+                input(id=`opening-${item.id}` type="number", name=`opening-${item.id}`).order-opening__input
+          p.order__desc *&nbsp;&nbsp;Дополнительные вариации исполнения по запросу
+          ul.order__list
+            //- Data input
+            - var formData = [{title: 'Введите имя', inputName: 'name', inputType: 'text', inputPlaceholder: 'Имя'}, {title: 'Введите e-mail', inputName: 'email', inputType: 'email', inputPlaceholder: 'E-mail'}, {title: 'Введите телефон', inputName: 'tel', inputType: 'tel', inputPlaceholder: 'Номер телефона'}]
+
+            each item in formData
+              li.order__item 
+                h3.order__input-title= item.title
+                label(for= "order-" + item.inputName).order__label
+                  span= item.inputPlaceholder
+                  input(id= "order-" + item.inputName, type= item.inputType, name= item.inputName, placeholder= item.inputPlaceholder).order__input 
+
+          .order__box-btn 
+            button.order__btn 
+              | Заказать
+              +icon('arrow-2')
+            p.order__btn-desc
+              | Отправляя форму, вы соглашаетесь с&nbsp;
+              a(href="#") политикой&nbsp;конфиденциальности
+
+    
+    //- Footer
+    include common/footer.pug 

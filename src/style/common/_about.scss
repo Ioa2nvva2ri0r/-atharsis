@@ -43,9 +43,9 @@
     }
     &:hover,
     &:active {
-      color: var(--beige);
+      color: var(--beige-light);
       & svg > path {
-        stroke: var(--beige);
+        stroke: var(--beige-light);
       }
     }
   }

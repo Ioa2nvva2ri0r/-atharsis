@@ -64,14 +64,14 @@
     &:hover,
     &:active {
       & span {
-        border-color: var(--beige);
-        color: var(--beige);
+        border-color: var(--beige-light);
+        color: var(--beige-light);
       }
       & .menu-catalog__img {
         transform: rotate(10deg) scale(1.1);
       }
       & svg > path {
-        stroke: var(--beige);
+        stroke: var(--beige-light);
       }
     }
   }
@@ -197,7 +197,7 @@
     &:hover,
     &:active {
       & svg > path {
-        stroke: var(--beige);
+        stroke: var(--beige-light);
       }
     }
   }
@@ -233,7 +233,7 @@
     @include transition(color, var(--white));
     &:hover,
     &:active {
-      color: var(--beige);
+      color: var(--beige-light);
     }
   }
   @media (max-width: 48em) {
@@ -290,10 +290,10 @@
       }
       &:hover,
       &:active {
-        border-color: var(--beige);
-        color: var(--beige);
+        border-color: var(--beige-light);
+        color: var(--beige-light);
         & svg > path {
-          stroke: var(--beige);
+          stroke: var(--beige-light);
         }
       }
     }

@@ -66,28 +66,24 @@
     }
     & svg {
       @include block-size(inherit);
-      & > path {
-        @include transition(fill);
-      }
+      & > path,
       & > rect {
-        @include transition(stroke);
+        stroke: var(--grey);
+        @include transitions((fill, stroke));
       }
     }
     &.add {
-      & svg {
-        & > path {
-          fill: var(--beige);
-        }
-        & > rect {
-          stroke: var(--blue);
-          fill: var(--blue);
-        }
-      }
       &:hover,
-      &:active {
+      &:active,
+      & {
         & svg {
           & > path {
-            fill: var(--beige);
+            stroke: var(--beige-light);
+            fill: var(--beige-light);
+          }
+          & > rect {
+            stroke: var(--blue);
+            fill: var(--blue);
           }
         }
       }
@@ -95,9 +91,7 @@
     &:hover,
     &:active {
       & svg {
-        & > path {
-          fill: var(--blue);
-        }
+        & > path,
         & > rect {
           stroke: var(--blue);
         }

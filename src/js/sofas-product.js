@@ -96,15 +96,6 @@ function activeTab(tab, elemDesc) {
   );
 }
 
-tabs.forEach((btn) => {
-  btn.addEventListener('click', (e) => {
-    const thisEl = e.currentTarget;
-
-    activeTab(thisEl, tabDesc);
-  });
-});
-
-// 768px ->
 function transferTabDesc() {
   if (window.screen.width <= 768) {
     [...tabs, ...tabDesc].forEach((el) => el.classList.remove('active'));
@@ -119,14 +110,25 @@ function transferTabDesc() {
       btn.addEventListener('click', (e) => {
         const thisEl = e.currentTarget;
 
-        activeTab(thisEl, document.querySelectorAll('[data-tabdesc]'));
+        if (thisEl.classList.contains('active')) {
+          [thisEl, ...document.querySelectorAll('[data-tabdesc]')].forEach(
+            (el) => el.classList.remove('active')
+          );
+        } else activeTab(thisEl, document.querySelectorAll('[data-tabdesc]'));
       });
     });
 
     document.querySelector('.sofas-product__tab-container').remove();
+  } else {
+    tabs.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const thisEl = e.currentTarget;
+
+        activeTab(thisEl, tabDesc);
+      });
+    });
   }
 }
-// <-
 
 window.addEventListener('load', transferTabDesc);
 window.addEventListener('resize', transferTabDesc);

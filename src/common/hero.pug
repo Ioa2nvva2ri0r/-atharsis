@@ -1,17 +1,17 @@
 //- Mixins
 include mixin.pug
 
-section.hero 
-  .hero__container.container
-    .hero__content
-      h1.hero__title.us-title= titleHero
-      p.hero__desc= descHero
-      a(href="#").hero__btn
+section(class=`${cssClassHero && cssClassHero}`).hero 
+  .hero__container.container(class=`${cssClassHero && cssClassHero + '__container'}`)
+    .hero__content(class=`${cssClassHero && cssClassHero + '__content'}`)
+      h1(class=`${cssClassHero && cssClassHero + '__title'}`).hero__title.us-title= titleHero
+      p(class=`${cssClassHero && cssClassHero + '__desc'}`).hero__desc= descHero
+      a(href="#", class=`${cssClassHero && cssClassHero + '__btn'}`).hero__btn
         span 
           +icon("arrow-1") 
         | Смотреть товары
-    .hero__img-container
+    .hero__img-container(class=`${cssClassHero && cssClassHero + '__img-container'}`)
       - for(var img = 0; img < countImgHero; img++)
         picture
-          source(srcset=`img/${cssClassHero}/${img + 1}.png`, class=`${cssClassHero}__img-${img + 1}`).hero__img
-          img(src=`img/${cssClassHero}/${img + 1}.png`, class=`${cssClassHero}__img-${img + 1}`, alt=`Изображение-${img + 1}`).hero__img
+          source(srcset=`img/${cssClassHero}/${img + 1}.png`, class=`${cssClassHero && cssClassHero + '__img'} ${cssClassHero}__img-${img + 1}`).hero__img
+          img(src=`img/${cssClassHero}/${img + 1}.png`, class=`${cssClassHero && cssClassHero + '__img'} ${cssClassHero}__img-${img + 1}`, alt=`Изображение-${img + 1}`).hero__img

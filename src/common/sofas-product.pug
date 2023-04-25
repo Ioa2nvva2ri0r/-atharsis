@@ -24,7 +24,7 @@ include mixin.pug
         | 7 000 
         sup ₽
     .product__box-btn 
-      button.product__btn(class=`${i === 3 ? "add" : ""}`, aria-label="Корзина")
+      button.product__btn(aria-label="Корзина")
         +icon("basket")
-      button.product__btn(class=`${i === 3 ? "add" : ""}`, aria-label="Избранные")
+      button.product__btn(aria-label="Избранные")
         +icon("favorite")

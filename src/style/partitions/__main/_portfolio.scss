@@ -1,10 +1,20 @@
 .partitions-portfolio {
+  padding-top: 4.7rem;
+  padding-bottom: 17.9rem;
+  &__title {
+    margin-bottom: 0 !important;
+    letter-spacing: 0.18rem !important;
+  }
+  &__box {
+    @include flex-center-y();
+    justify-content: space-between;
+    padding-bottom: 4.6rem;
+  }
   &__btn {
     @include flex-center-y();
     border-radius: 4.9rem;
-    padding: 1.5rem 2.8rem 1.7rem 2.8rem;
+    padding: 1.45rem 2.7rem 1.65rem;
     font-size: 1.8rem;
-    margin-right: 1.5rem;
     background-color: var(--blue);
     @include transition(color, var(--white));
     & svg {
@@ -16,55 +26,47 @@
     }
     &:hover,
     &:active {
-      color: var(--beige);
+      color: var(--beige-light);
       & svg > path {
-        stroke: var(--beige);
+        stroke: var(--beige-light);
       }
     }
   }
-  &__slider {
-    @include block-size(100%, 78rem);
-    &-btn {
-      position: absolute;
-      @include flex-center-center();
-      top: 50%;
-      z-index: 1;
-      opacity: 0;
-      @include block-size(5.6rem);
-      border-radius: 100%;
-      transform: translateY(-50%);
-      background-color: var(--white);
-      @include transitions((background-color, opacity));
+  @media (max-width: 48em) {
+    padding-top: 5.5rem;
+    padding-bottom: 18rem;
+    &__box {
+      align-items: flex-start;
+      flex-direction: column;
+      padding-bottom: 4rem;
+    }
+    &__title {
+      margin-bottom: 8rem !important;
+    }
+    &__btn {
+      border-radius: 9.8rem;
+      padding: 3rem 5.6rem 3.4rem 5.6rem;
+      font-size: 3.6rem;
       & svg {
-        @include block-size(0.6rem, 1.1rem);
-        & > path {
-          @include transition(stroke, var(--black));
-        }
+        @include block-size(1.2rem, 2.6rem);
+        margin-top: 0.7rem;
+        margin-left: 4rem;
       }
-      &-prev {
-        left: 4rem;
+    }
+    &__slider {
+      height: 80rem;
+      &-btn {
+        @include block-size(9rem);
         & svg {
-          transform-origin: center center;
-          transform: rotate(180deg);
+          @include block-size(2rem, 2.4rem);
         }
-      }
-      &-next {
-        right: 4rem;
-      }
-      &:focus {
-        outline: none;
-      }
-      &:hover,
-      &:active {
-        opacity: 1;
-        background-color: var(--blue);
-        & svg > path {
-          stroke: var(--white);
+        &-prev {
+          left: 1.8rem;
+        }
+        &-next {
+          right: 1.8rem;
         }
       }
     }
-  }
-  &__img {
-    @include picture(100%);
   }
 }

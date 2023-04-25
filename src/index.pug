@@ -1,106 +1,32 @@
 doctype html
 html(lang="ru")
   head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="description", content="another website")
 
-    //- Head
-    include common/head.pug
+    title Страницы
+    
+    link(rel="stylesheet", href="style/common/index.css")
 
-    title Катарсис
-
-    //- Swiper-Slider
-    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css")
-    script(src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js")
-    //- Basic Styles
-    link(rel="stylesheet", href="style/main.css")
-    //- Basic JavaScript
-    script(src=`js/banner.js`, defer)
+    style 
+      include style/index.css
 
   body
+    .index
+      .index__bg
+          .animation-wrapper
+              .stagger-visualizer
+                  .dots-wrapper
 
-    //- Mixins
-    include common/mixin.pug
+      - var links = [{name: 'Главная', href: 'main'}, {name: 'Дизайнерская Мебель - Главная', href: 'sofas-main'}, {name: 'Дизайнерская Мебель - Каталог', href: 'sofas-catalog'}, {name: 'Дизайнерская Мебель - Карточка товара', href: 'sofas-product'}, {name: 'Межкомнатные перегородки - Главная', href: 'partitions-main'}, {name: 'Межкомнатные перегородки - Заказ', href: 'partitions-order'}]
 
-    - var banner = true
+      each link in links 
+        a(href=`${link.href}.html`, target="blank").index__item= link.name  
 
-    //- Header
-    include common/header.pug
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js")
+    script
+      include js/index.js
 
-    main
-      section.banner.container 
-        .banner__slider.swiper#banner
-          .swiper-wrapper
-            - var sections = [{title: 'Дизайнерская мебель', desc: 'В каталоге собрана оригинальная дизайнерская мебель от американских и европейских производителей. Стильная, необычная, удобная и практичная – она привлечет внимание и будет оценена по достоинству. Наши клиенты пользуются скидками до 80% от первоначальной стоимости, годовой гарантией, быстрой доставкой по России и СНГ.', href: "sofas-main.html"}, {title: 'Межкомнатные перегородки', desc: 'В каталоге собрана оригинальная дизайнерская мебель от американских и европейских производителей. Стильная, необычная, удобная и практичная – она привлечет внимание и будет оценена по достоинству. Наши клиенты пользуются скидками до 80% от первоначальной стоимости, годовой гарантией, быстрой доставкой по России и СНГ.', href: 'partitions-main.html'}, {title: 'Дизайнерская мебель', desc: 'В каталоге собрана оригинальная дизайнерская мебель от американских и европейских производителей. Стильная, необычная, удобная и практичная – она привлечет внимание и будет оценена по достоинству. Наши клиенты пользуются скидками до 80% от первоначальной стоимости, годовой гарантией, быстрой доставкой по России и СНГ.', href: "sofas-main.html"}, {title: 'Межкомнатные перегородки', desc: 'В каталоге собрана оригинальная дизайнерская мебель от американских и европейских производителей. Стильная, необычная, удобная и практичная – она привлечет внимание и будет оценена по достоинству. Наши клиенты пользуются скидками до 80% от первоначальной стоимости, годовой гарантией, быстрой доставкой по России и СНГ.', href: 'partitions-main.html'}]
-
-            each section, index in sections
-              .banner__slide.swiper-slide
-                - for(var img = 1; img < 4; img++)
-                  .banner__img-box(class=`banner__img-box-${img}`)
-                    img.banner__img(src=`img/main/${index + 1}.png`, alt=`Интерьер-${img}`)
-                .banner__content
-                  h2.banner__title.us-title= section.title
-                  p.banner__desc= section.desc
-                  a(href= section.href).banner__link
-                    | Узнать подробнее
-                    +icon('arrow-2')  
-          .banner__slider-pagination
-          button.banner__slider-btn.banner__slider-btn-prev
-              +icon('arrow-1') 
-          button.banner__slider-btn.banner__slider-btn-next
-              +icon('arrow-1')
-          nav.banner__menu#menu-banner 
-            ul.banner__menu-list
-              //- Data nav
-              - var nav = [{id: 'catalog', name:'Каталог'}, {id: 'portfolio', name: 'Портфолио', href: 'index.html'}, {id: 'about', name: 'О компании', href: 'index.html'}, {id: 'contacts', name: 'Контакты', href: 'index.html'}]
-
-              each link in nav
-                li.banner__menu-item
-                  if link.id == 'catalog'
-                    button.banner__menu-link.catalog-open.us-title= link.name
-                  else
-                    a(href= link.href).banner__menu-link.us-title= link.name 
-
-
-    
-    //- Catalog menu
-    .menu-catalog#catalog
-      .menu-catalog__container.container
-        ul.menu-catalog__list#catalog-tabs 
-          //- Data menu catalog
-          - var catalog = [{tab: true, id: 'sofas', name: 'Дизайнерская мебель', href: "sofas-main.html"}, {tab: true, id: 'partitions', name: 'Межкомнатные перегородки', href: 'partitions-main.html'}, {name: 'Поиск проекта по фото', href: '#'}, {name: 'Услуги дизайнера интерьера', href: '#'}]
-
-          each section, index in catalog 
-            li.menu-catalog__item
-              if section.tab 
-                .menu-catalog__link.catalog-tab(data-tab= section.id)
-                  span.menu-catalog__link-desc
-                    = section.name
-                    +icon('arrow-1')
-                  picture
-                    source.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, srcset=`img/menu-catalog/${index + 1}.png`)
-                    img.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, src=`img/menu-catalog/${index + 1}.png`, alt=`Изображение-${section.name}`)
-              else
-                a(href= section.href).menu-catalog__link
-                  span.menu-catalog__link-desc
-                    = section.name
-                    +icon('arrow-1')
-                  picture
-                    source.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, srcset=`img/menu-catalog/${index + 1}.png`)
-                    img.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, src=`img/menu-catalog/${index + 1}.png`, alt=`Изображение-${section.name}`)
-        .subsection-catalog#catalog-content
-          button.subsection-catalog__close#catalog-close(aria-label="Закрыть каталог")
-            +icon('close-2')
-          button.subsection-catalog__back#catalog-back
-            +icon('arrow-1')
-            | Вернуться назад
-          .subsection-catalog__container#catalog-tab-content 
-            h2.subsection-catalog__title.us-title Дизайнерская мебель 
-            ul.subsection-catalog__list 
-              //- Data subsection catalog
-              - var subsection = [{name: 'Спальня', href: '#'}, {name: 'Кухня', href: '#'}, {name: 'Гостиная', href: '#'}, {name: 'Офис и домашний офис', href: '#'}, {name: 'Прихожая', href: '#'}, {name: 'Публичные пространства', href: '#'}]
-
-              each section, index in subsection
-                li.subsection-catalog__item 
-                  picture
-                    source.subsection-catalog__img(srcset=`img/menu-catalog/subsection/${index + 1}.png`)
-                    img.subsection-catalog__img(src=`img/menu-catalog/subsection/${index + 1}.png`, alt=`Изображение-${section.name}`)
-                  a(href= section.href).subsection-catalog__link= section.name

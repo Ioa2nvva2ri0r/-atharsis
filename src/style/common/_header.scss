@@ -38,11 +38,9 @@
     @include opacity-effect();
     & svg {
       @include block-size(inherit);
-      & > path {
-        fill: var(--beige);
-      }
+      & > path,
       & > rect {
-        stroke: var(--beige);
+        stroke: var(--beige-light);
       }
     }
     &:not(:last-child) {
@@ -114,12 +112,14 @@
         display: block;
       }
       &-menu {
+        position: relative;
+        top: -0.2rem;
         @include block-size(6rem, 4.2rem);
       }
       &-close {
         @include block-size(4.5rem);
         & svg > path {
-          stroke: var(--beige);
+          stroke: var(--beige-light);
         }
       }
       &-box-close {
