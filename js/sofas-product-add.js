@@ -1,0 +1,5 @@
+document.querySelectorAll('.product__btn').forEach((el) => {
+  el.addEventListener('click', (e) => e.currentTarget.classList.toggle('add'));
+});
+
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiIiwic291cmNlcyI6WyJzb2Zhcy1wcm9kdWN0LWFkZC5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyJkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCcucHJvZHVjdF9fYnRuJykuZm9yRWFjaCgoZWwpID0+IHtcclxuICBlbC5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIChlKSA9PiBlLmN1cnJlbnRUYXJnZXQuY2xhc3NMaXN0LnRvZ2dsZSgnYWRkJykpO1xyXG59KTtcclxuIl0sImZpbGUiOiJzb2Zhcy1wcm9kdWN0LWFkZC5qcyJ9
