@@ -1,0 +1,18 @@
+//- Mixins
+include mixin.pug
+
+section.portfolio.container(class=`${cssClassPortfolio || 'portfolio-main'}`) 
+  ul.portfolio__list(class=`${cssClassPortfolio || 'portfolio-main'}__list`)
+
+    each item, index in contentList || []
+      li.portfolio__item(class=`${cssClassPortfolio || 'portfolio-main'}__item`)
+        .portfolio__item-box(class=`${cssClassPortfolio || 'portfolio-main'}__item-box`) 
+          strong.portfolio__subtitle.us-title(class=`${cssClassPortfolio || 'portfolio-main'}__subtitle`)= item.subtitle || (index + 1).toString().padStart(2,0)
+          picture.portfolio__img-box(class=`${cssClassPortfolio || 'portfolio-main'}__img-box`)
+            source(class=`${cssClassPortfolio || 'portfolio-main'}__img`, srcset=`img/${imagePath}/${index + 1}.png`).portfolio__img
+            img(class=`${cssClassPortfolio || 'portfolio-main'}__img`, src=`img/${imagePath}/${index + 1}.png`, alt=`Изображение-${index + 1}`).portfolio__img
+          .portfolio__img-duplicate(class=`${cssClassPortfolio || 'portfolio-main'}__img-duplicate`, style=`background-image: url("img/${imagePath}/${index + 1}.png")`)
+          h3.portfolio__title.us-title(class=`${cssClassPortfolio || 'portfolio-main'}__title`)= item.title
+        a(class=`${cssClassPortfolio || 'portfolio-main'}__btn`, href= item.href).portfolio__btn
+          = descLink
+          +icon("arrow-2") 

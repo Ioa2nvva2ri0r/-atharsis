@@ -1,0 +1,70 @@
+.common-slider {
+  padding-bottom: 17.6rem;
+  &__box {
+    &-title {
+      display: flex;
+      justify-content: space-between;
+    }
+    &-btn {
+      display: flex;
+      padding-top: 0.5rem;
+    }
+  }
+  &__title {
+    letter-spacing: 0.165rem !important;
+  }
+  &__slider {
+    padding-bottom: 4.5rem;
+  }
+  &__scrollbar {
+    cursor: pointer;
+    left: 0 !important;
+    width: 100% !important;
+    & > .swiper-scrollbar-drag {
+      background: var(--grey) !important;
+    }
+  }
+  &__btn {
+    @include flex-center-center();
+    @include block-size(5.6rem);
+    border: 0.1rem solid var(--black);
+    border-radius: 100%;
+    @include transitions((border-color, background-color));
+    & svg {
+      @include block-size(0.6rem, 1.1rem);
+      & > path {
+        @include transition(stroke, var(--black));
+      }
+    }
+    &:first-child {
+      margin-right: 1.5rem;
+      & svg {
+        transform-origin: center center;
+        transform: rotate(180deg);
+      }
+    }
+    &:hover,
+    &:active {
+      border-color: var(--blue);
+      background-color: var(--blue);
+      & svg > path {
+        stroke: var(--white);
+      }
+    }
+  }
+  @media (max-width: 48em) {
+    padding-right: 0 !important;
+    padding-bottom: 17.6rem !important;
+    &__title {
+      padding-right: 3rem;
+      margin-bottom: 8.2rem !important;
+      letter-spacing: 0.18rem !important;
+    }
+    &__slider {
+      padding-bottom: 8.7rem;
+    }
+    &__box-btn {
+      display: none;
+    }
+  }
+}

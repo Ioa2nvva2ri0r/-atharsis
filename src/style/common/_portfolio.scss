@@ -1,0 +1,181 @@
+.portfolio {
+  &__item {
+    position: relative;
+    justify-content: space-between;
+    height: 37rem;
+    border-top: 0.1rem solid var(--grey);
+    padding: 0 4.5rem;
+    &:last-child {
+      border-bottom: 0.1rem solid var(--grey);
+    }
+    &,
+    &-box {
+      @include flex-center-y();
+    }
+    &:nth-child(2) {
+      & .portfolio__title {
+        letter-spacing: 0.2rem !important;
+      }
+    }
+    &:hover,
+    &:active {
+      & .portfolio__subtitle,
+      & .portfolio__title {
+        color: var(--white);
+      }
+      & .portfolio__img {
+        width: 0;
+        &-box {
+          margin-right: 0;
+        }
+      }
+      & .portfolio__img-duplicate {
+        opacity: 1;
+      }
+    }
+  }
+  &__subtitle,
+  &__title,
+  &__btn {
+    position: relative;
+    z-index: 2;
+  }
+  &__subtitle,
+  &__img-box {
+    margin-right: 3.35rem;
+  }
+  &__subtitle,
+  &__title {
+    margin-bottom: 0 !important;
+    @include transition(color);
+  }
+  &__subtitle,
+  &__title {
+    font-family: 'Garamond', serif;
+    font-weight: 400;
+  }
+  &__title {
+    &::first-line {
+      letter-spacing: 0.2rem;
+    }
+  }
+  &__img {
+    display: initial;
+    @include picture(58rem, 28rem);
+    &,
+    &-duplicate {
+      @include transition(all);
+    }
+    &-duplicate {
+      opacity: 0;
+      z-index: 1;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      &,
+      &::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include block-size(100%);
+      }
+      &::after {
+        content: '';
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+  &__title {
+    max-width: 55rem;
+  }
+  &__btn {
+    @include flex-center-y();
+    white-space: nowrap;
+    border-radius: 4.9rem;
+    padding: 1.5rem 2.8rem 1.7rem 2.8rem;
+    font-size: 1.8rem;
+    background-color: var(--blue);
+    @include transition(color, var(--white));
+    & svg {
+      @include block-size(0.6rem, 1.1rem);
+      margin-left: 2rem;
+      & > path {
+        @include transition(stroke);
+      }
+    }
+    &:hover,
+    &:active {
+      color: var(--beige-light);
+      & svg > path {
+        stroke: var(--beige-light);
+      }
+    }
+  }
+  @media (max-width: 48em) {
+    padding-bottom: 18.3rem;
+    &__item {
+      height: auto;
+      padding: 4rem 0;
+      &,
+      &-box {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+      &:first-child {
+        padding: 8rem 0;
+      }
+      &:nth-child(2) {
+        border-top: 0.2rem solid var(--grey);
+        & .portfolio__title {
+          letter-spacing: 0.2rem !important;
+        }
+      }
+      &:hover,
+      &:active {
+        & .portfolio__subtitle,
+        & .portfolio__title {
+          color: var(--black);
+        }
+        & .portfolio__img {
+          width: 100%;
+        }
+      }
+    }
+    &__img {
+      @include block-size(100%, 34rem);
+      &-box {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 3.9rem;
+      }
+      &-duplicate {
+        display: none;
+      }
+    }
+    &__subtitle {
+      order: -2;
+      margin-bottom: 1.9rem !important;
+    }
+    &__title {
+      order: -1;
+      max-width: initial;
+      margin-bottom: 4rem !important;
+      line-height: 6.55rem !important;
+      letter-spacing: 0.05rem !important;
+      &::first-line {
+        letter-spacing: 0.2rem !important;
+      }
+    }
+    &__btn {
+      border-radius: 9.8rem;
+      padding: 3rem 5.6rem 3.4rem 5.6rem;
+      font-size: 3.6rem;
+      & svg {
+        @include block-size(1.2rem, 2.6rem);
+        margin-top: 0.7rem;
+        margin-left: 4rem;
+      }
+    }
+  }
+}

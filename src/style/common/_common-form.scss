@@ -1,0 +1,302 @@
+.common-form {
+  width: 100% !important;
+  &,
+  &__form {
+    position: relative;
+  }
+  &__title,
+  &__desc,
+  &__btn-desc,
+  &__btn-desc a,
+  &__input,
+  &__input::placeholder,
+  &__btn {
+    color: var(--white);
+  }
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include picture(100%);
+    z-index: 1;
+  }
+  &__title {
+    letter-spacing: 0.185rem !important;
+    margin-bottom: 1.6rem !important;
+  }
+  &__desc {
+    margin: 0 0 4.6rem 0;
+    font-size: 1.8rem;
+    letter-spacing: 0.01rem;
+  }
+  &__form {
+    width: 83.9rem;
+    padding: 8rem 7rem 8rem 7rem;
+    z-index: 2;
+    background-color: rgba(29, 53, 82, 0.65);
+  }
+  &__container {
+    width: 100%;
+    max-width: 60.9rem;
+    margin-left: auto;
+  }
+  &__box {
+    &-input,
+    &-btn {
+      display: flex;
+    }
+    &-input {
+      flex-direction: column;
+    }
+    &-btn {
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  &__label {
+    cursor: pointer;
+    & span {
+      overflow: hidden;
+      font-size: 0;
+      @include block-size(0);
+    }
+    &:not(:last-child) {
+      margin-bottom: 3.8rem;
+    }
+    &:last-child {
+      margin-bottom: 4.5rem;
+    }
+  }
+  &__input {
+    width: 100%;
+    padding: 0 0 2.1rem 0;
+    border-bottom: 0.1rem solid var(--grey);
+    background-color: transparent;
+    @include transition(border-color);
+    &,
+    &::placeholder {
+      text-transform: uppercase;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      line-height: 2rem;
+    }
+    &:hover,
+    &:active {
+      border-color: var(--beige-light);
+    }
+  }
+  &__btn {
+    @include flex-center-y();
+    border-radius: 4.9rem;
+    padding: 1.5rem 2.8rem 1.7rem 2.8rem;
+    font-size: 1.8rem;
+    margin-right: 1.5rem;
+    background-color: var(--blue);
+    @include transition(color);
+    & svg {
+      @include block-size(0.6rem, 1.1rem);
+      margin-left: 2rem;
+      & > path {
+        @include transition(stroke);
+      }
+    }
+    &:hover,
+    &:active {
+      color: var(--beige-light);
+      & svg > path {
+        stroke: var(--beige-light);
+      }
+    }
+    &-desc {
+      width: 100%;
+      max-width: 40.7rem;
+      margin: -0.3rem 0 0 0;
+      font-size: 1.8rem;
+      line-height: 2.5rem;
+      letter-spacing: 0.005rem;
+      & a {
+        border-bottom: 0.05rem solid var(--white);
+        font-size: inherit;
+        @include transitions((border-color, color));
+        &:hover,
+        &:active {
+          color: var(--beige-light);
+          border-color: var(--beige-light);
+        }
+      }
+    }
+  }
+  @media (max-width: 48em) {
+    padding: 0 !important;
+    &__title {
+      margin-bottom: 2rem !important;
+      letter-spacing: 0.2rem !important;
+    }
+    &__desc {
+      margin: 0 0 8.5rem;
+      font-size: 3.2rem;
+    }
+    &__form {
+      width: 100%;
+      padding: 7.7rem 4rem 8.3rem;
+      backdrop-filter: blur(1rem);
+    }
+    &__container {
+      max-width: initial;
+      margin: 0;
+    }
+    &__box-btn {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    &__label {
+      &:not(:last-child) {
+        margin-bottom: 7.8rem;
+      }
+      &:last-child {
+        margin-bottom: 8rem;
+      }
+    }
+    &__input {
+      padding: 0 0 4rem;
+    }
+    &__btn {
+      margin-right: 0;
+      margin-bottom: 3rem;
+      border-radius: 9.8rem;
+      padding: 3rem 5.6rem 3.4rem 5.6rem;
+      font-size: 3.6rem;
+      & svg {
+        @include block-size(1.2rem, 2.6rem);
+        margin-top: 0.7rem;
+        margin-left: 4rem;
+      }
+      &-desc {
+        max-width: 54.7rem;
+        margin-bottom: 0;
+        font-size: 3.2rem;
+        line-height: 4.4rem;
+      }
+    }
+  }
+}
+
+.popup {
+  position: fixed;
+  justify-content: center;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 3rem;
+  opacity: 0;
+  @include block-size(100%);
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(7.5px);
+  @include transitions((opacity, visibility));
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+  &,
+  &__box,
+  &__link {
+    display: flex;
+    align-items: center;
+  }
+  &__box {
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    max-width: 78.5rem;
+    padding: 12rem 5rem 8.7rem 5rem;
+    background-color: var(--white);
+  }
+  &__title {
+    margin-bottom: 1.5rem !important;
+  }
+  &__desc {
+    text-align: center;
+    width: 100%;
+    max-width: 51.8rem;
+    margin: 0 0 4.4rem 0;
+    font-size: 1.8rem;
+    line-height: 2.6rem;
+  }
+  &__link {
+    border-radius: 4.9rem;
+    padding: 1.5rem 2.8rem 1.6rem;
+    font-size: 1.8rem;
+    background-color: var(--blue);
+    @include transition(color, var(--white));
+    & svg {
+      @include block-size(0.6rem, 1.1rem);
+      margin-left: 2rem;
+      & > path {
+        @include transition(stroke);
+      }
+    }
+    &:hover,
+    &:active {
+      color: var(--beige-light);
+      & svg > path {
+        stroke: var(--beige-light);
+      }
+    }
+  }
+  &__close {
+    position: absolute;
+    top: 3.5rem;
+    right: 3.5rem;
+    @include block-size(2.1rem);
+    & svg {
+      @include block-size(inherit);
+      & > path {
+        @include transition(stroke);
+      }
+    }
+    &:hover,
+    &:active {
+      & svg > path {
+        stroke: var(--beige-light);
+      }
+    }
+  }
+  @media (max-width: 48em) {
+    padding: 4rem;
+    &__box {
+      justify-content: center;
+      max-width: 67rem;
+      padding: 10rem 3.4rem;
+      height: 100%;
+      max-height: 111rem;
+    }
+    &__title {
+      text-align: center;
+      letter-spacing: 0.14rem !important;
+      margin-bottom: 1.8rem !important;
+    }
+    &__desc {
+      max-width: initial;
+      margin-bottom: 8rem;
+      font-size: 3.2rem;
+      font-weight: 500;
+      line-height: 4.4rem;
+    }
+    &__link {
+      border-radius: 10rem;
+      padding: 3.1rem 5.6rem 3.3rem;
+      font-size: 3.6rem;
+      & svg {
+        @include block-size(1.2rem, 2.6rem);
+        margin-top: 0.7rem;
+        margin-left: 4rem;
+      }
+    }
+    &__close {
+      top: 3.4rem;
+      right: 3.4rem;
+      @include block-size(3.4rem);
+    }
+  }
+}

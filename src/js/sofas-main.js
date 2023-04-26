@@ -15,41 +15,6 @@ const swiperCatalog = new Swiper('.catalog__slider', {
   speed: 1000,
 });
 
-// Popular -- Swiper-slider
-const swiperPopular = new Swiper('.popular__slider', {
-  loop: true,
-  navigation: {
-    nextEl: '.popular__slider-btn-next',
-    prevEl: '.popular__slider-btn-prev',
-  },
-  a11y: {
-    prevSlideMessage: 'Назад',
-    nextSlideMessage: 'Вперёд',
-  },
-  scrollbar: {
-    el: '.popular__slider-scrollbar',
-    draggable: true,
-  },
-  speed: 1000,
-  breakpoints: {
-    1200: {
-      slidesPerView: 4,
-      slidesPerGroup: 4,
-      spaceBetween: 29,
-    },
-    768: {
-      slidesPerView: 3,
-      slidesPerGroup: 3,
-      spaceBetween: 29,
-    },
-    320: {
-      slidesPerView: 'auto',
-      slidesPerGroup: 1,
-      spaceBetween: 10,
-    },
-  },
-});
-
 // Catalog -- Popup-label
 const labelContent = document.getElementById('label-content');
 let elem = '';

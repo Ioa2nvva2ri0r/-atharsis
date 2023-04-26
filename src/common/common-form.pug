@@ -1,0 +1,36 @@
+//- Mixins
+include mixin.pug
+
+section.common-form.container
+  picture
+    source(class=`${cssClassForm || "application"}__img` srcset=`img/${imageForm || "application"}/1.png`).common-form__img
+    img(class=`${cssClassForm || "application"}__img` src=`img/${imageForm || "application"}/1.png`, alt="Изображение формы").common-form__img
+  form.common-form__form#common-form(class=`${cssClassForm || "application"}__form`)
+    .common-form__container(class=`${cssClassForm || "application"}__container`)
+      h2.common-form__title.us-title(class=`${cssClassForm || "application"}__title`)= titleForm || "оставьте заявку"
+      p.common-form__desc(class=`${cssClassForm || "application"}__desc`)= descForm || "Наши менеджеры помогут вам!"
+      .common-form__box-input(class=`${cssClassForm || "application"}__box-input`)
+
+        each item in (dataInput || [{id: 'name', name: 'name', placeholder: 'Имя', type: 'text'}, {id: 'tel', name: 'tel', placeholder: 'Номер телефона', type: 'tel'}])
+          label(for= item.id).common-form__label(class=`${cssClassForm || "application"}__label`)
+            span= item.placeholder
+            input(class=`${cssClassForm || "application"}__input`, id= item.id, type= item.type, name= item.name, placeholder= item.placeholder).common-form__input
+      .common-form__box-btn(class=`${cssClassForm || "application"}__box-btn`)
+        button.common-form__btn(class=`${cssClassForm || "application"}__btn`) 
+          | Отправить
+          +icon('arrow-2')
+        p.common-form__btn-desc(class=`${cssClassForm || "application"}__btn-desc`)
+          | Отправляя форму, вы соглашаетесь с&nbsp;
+          a(href="#") политикой&nbsp;конфиденциальности
+
+.popup#popup
+  .popup__box#popup-box
+    h2.popup__title.us-title Заявка отправлена
+    p.popup__desc Ваша заявка была успешно отправлена. Наши менеджеры свяжутся с Вами в ближайшее время
+    a.popup__link(href="index.html")
+      | На главную
+      +icon("arrow-2")
+    button.popup__close#popup-close(aria-label="Закрыть")
+      +icon("close")
+
+script(src="js/form-popup.js")

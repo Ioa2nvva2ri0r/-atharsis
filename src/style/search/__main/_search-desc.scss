@@ -1,0 +1,11 @@
+.search-desc {
+  padding-top: 18rem;
+  padding-bottom: 18rem;
+  @media (max-width: 48em) {
+    padding-top: 18.1rem;
+    padding-bottom: 11rem;
+    &__desc-1 {
+      padding-right: 0;
+    }
+  }
+}

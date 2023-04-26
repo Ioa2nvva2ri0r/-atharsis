@@ -1,0 +1,40 @@
+.services-form {
+  &__form {
+    padding-top: 15.35rem;
+    padding-bottom: 13.4rem;
+  }
+  &__title {
+    letter-spacing: 0.11rem !important;
+  }
+  &__desc {
+    margin-bottom: 4.7rem;
+    letter-spacing: 0.005rem;
+  }
+  &__img {
+    object-position: 50% 100%;
+  }
+  @media (max-width: 48em) {
+    &__form {
+      padding-top: 7.7rem;
+      padding-bottom: 8rem;
+    }
+    &__desc {
+      margin-bottom: 8.5rem;
+    }
+    &__label {
+      &:not(:last-child) {
+        margin-bottom: 8rem;
+      }
+    }
+    &__input {
+      &,
+      &::placeholder {
+        font-size: 3.2rem;
+      }
+    }
+    &__btn {
+      margin-bottom: 4rem;
+      font-size: 3.2rem;
+    }
+  }
+}

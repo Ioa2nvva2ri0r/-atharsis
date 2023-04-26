@@ -1,0 +1,56 @@
+doctype html
+html(lang="ru")
+  head
+   
+    //- Head
+    include common/head.pug
+    
+    title Катарсис - Поиск по фото
+
+    //- Swiper-Slider
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css")
+    script(src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js")
+    //- Basic Styles
+    link(rel="stylesheet", href='style/search.css')
+
+  body
+
+    //- Mixins
+    include common/mixin.pug
+
+    //- Header
+    include common/header.pug
+
+    main
+
+      //- Common-form
+      - var cssClassForm = 'search-form'
+      - var imageForm = 'search'
+      - var titleForm = 'Изготовим мебель'
+      - var descForm = 'Изготовим абсолютно любую мебель по\u00A0вашему фото!'
+      - var dataInput = [{id: 'name', name: 'name', placeholder: 'Имя', type: 'text'}, {id: 'email', name: 'email', placeholder: 'E-mail', type: 'email'}, {id: 'tel', name: 'tel', placeholder: 'Номер телефона', type: 'tel'}, {id: 'file', name: 'file', placeholder: 'Загрузите фото', type: 'file'}]
+
+      include common/common-form.pug
+
+      //- Common-desc
+      - var cssClassDesc = 'search'
+      - var imageDesc = 'search/2.png'
+      - var desc1 = 'Наша компания производит оригинальную мебель на заказ для дома и\u00A0офиса или в квартиру. У нас можно заказать кухни, гостиные, гардеробные, спальни, мебель в детскую, ванные гарнитуры, офисную мебель, стойки ресепшен и многое другое.'
+      - var desc2 = 'Все изделия выполняются по индивидуальному проекту, по любым размерам с уникальным дизайном. Наши дизайнеры при создании 3D-проекта\u00A0учтут все Ваши пожелания и особенности геометрии стен помещения.'
+
+      include common/common-desc.pug
+
+      //- Common-slider
+      - var titleSlider = "Наши работы"
+      - var cssClassSlider = "search-slider"
+      - var cardSlider = "search"
+
+      include common/common-slider.pug   
+
+      //- Advantages
+      - var cssClassAdvantages = 'search'
+
+      include common/advantages.pug     
+
+    //- Footer
+    include common/footer.pug

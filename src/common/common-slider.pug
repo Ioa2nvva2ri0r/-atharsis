@@ -1,0 +1,43 @@
+//- Mixins
+include mixin.pug
+
+section.common-slider.container(class=`${cssClassSlider || ''}`)  
+  .common-slider__box-title(class=`${cssClassSlider || ''}__box-title`) 
+    h2.common-slider__title.us-title(class=`${cssClassSlider || ''}__title`)= titleSlider
+    .common-slider__box-btn(class=`${cssClassSlider || ''}__box-btn`) 
+      button.common-slider__btn.common-slider__btn-prev(class=`${cssClassSlider || ''}__btn`)
+        +icon("arrow-1") 
+      button.common-slider__btn.common-slider__btn-next(class=`${cssClassSlider || ''}__btn`)
+        +icon("arrow-1") 
+  .common-slider__slider.swiper(class=`${cssClassSlider || ''}__slider`)
+    .swiper-wrapper
+      - for(var i = 1; i < 11; i++)
+
+        if cardSlider === 'sofas'
+          //- Sofas-product 
+          - var cssClassProduct = "swiper-slide"
+
+          include sofas-product.pug
+
+        else if cardSlider === 'services'
+          //- Work-card
+          - var subtitleCard = 'Спальня'
+          - var titleCard = 'Мастер-спальня'
+          - var hrefCard = '#'
+
+          include work-card.pug
+        
+        else if cardSlider === 'search'
+          //- Work-card
+          - var subtitleCard = 'Кресло'
+          - var titleCard = 'SILLA NEGRA black edition'
+          - var hrefCard = '#'
+          - var cssClassCard = cardSlider
+          - var imageCard = 'search/card/1.png'
+
+          include work-card.pug
+
+        
+    .common-slider__scrollbar.swiper-scrollbar(class=`${cssClassSlider || ''}__scrollbar`)
+
+script(src="js/common-slider.js")  

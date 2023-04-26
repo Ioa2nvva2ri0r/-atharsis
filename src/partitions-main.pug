@@ -40,27 +40,17 @@ html(lang="ru")
 
         //- Slider
         include common/partitions-slider.pug
-
-      section.kinds.container 
-        ol.kinds__list
-          - var kinds = ['перегородки для\u00A0офиса', 'Межкомнатные перегородки', 'перегородки для Ванной комнаты', 'перегородки для\u00A0Гардеробной', 'перегородки для\u00A0Зонирования пространства', 'перегородки для\u00A0гостинной', 'перегородки для\u00A0Столовой зоны', 'перегородки для\u00A0Столовой зоны']
-
-          each title, index in kinds
-            li.kinds__item
-              .kinds__item-box 
-                strong.kinds__count.us-title= (index + 1).toString().padStart(2,0)
-                picture.kinds__img-box
-                  source(srcset=`img/partitions-kinds/${index + 1}.png`).kinds__img
-                  img(src=`img/partitions-kinds/${index + 1}.png`, alt=`Изображение-${index + 1}`).kinds__img
-                .kinds__img-duplicate(style=`background-image: url('img/partitions-kinds/${index + 1}.png')`)
-                h3.kinds__title.us-title= title
-              a(href="partitions-order.html").kinds__btn
-                | Заказать расчёт
-                +icon('arrow-2') 
-
       
-      //- Application
-      include common/application.pug    
+      //- Portfolio
+      - var cssClassPortfolio = "kinds"
+      - var imagePath = "partitions-kinds"
+      - var descLink = "Заказать расчёт"
+      - var contentList = [{title: "перегородки для\u00A0офиса", href: "partitions-order.html"}, {title: "Межкомнатные перегородки", href: "partitions-order.html"}, {title: "перегородки для Ванной комнаты", href: "partitions-order.html"}, {title: "перегородки для\u00A0Гардеробной", href: "partitions-order.html"}, {title: "перегородки для\u00A0Зонирования пространства", href: "partitions-order.html"}, {title: "перегородки для\u00A0гостинной", href: "partitions-order.html"}, {title: "перегородки для\u00A0Столовой зоны", href: "partitions-order.html"}, {title: "перегородки для\u00A0Столовой зоны", href: "partitions-order.html"}]
+
+      include common/portfolio-list.pug
+
+      //- Common-form
+      include common/common-form.pug       
 
       //- About
       include common/about.pug 

@@ -1,0 +1,37 @@
+doctype html
+html(lang="ru")
+  head
+    
+    //- Head
+    include common/head.pug
+    
+    title Катарсис - Поиск по фото
+
+    //- Basic Styles
+    link(rel="stylesheet", href='style/portfolio.css')
+
+  body
+
+    //- Mixins
+    include common/mixin.pug
+
+    //- Header
+    include common/header.pug
+
+    main
+
+      h1.portfolio-main__main-title.us-title.container Портфолио
+      
+      //- Portfolio
+      - var imagePath = "portfolio"
+      - var descLink = "Посмотреть проект"
+      - var contentList = [{subtitle: "Спальня", title: "Мастер-спальня", href: "project.html"}, {subtitle: "Кухня", title: "Кухня-гостиная", href: "project.html"}, {subtitle: "Детская", title: "Детская", href: "project.html"}, {subtitle: "Спальня", title: "Спальня", href: "project.html"}, {subtitle: "Спальня", title: "Мастер-спальня", href: "project.html"}, {subtitle: "Кухня", title: "Кухня-гостиная", href: "project.html"}, {subtitle: "Детская", title: "Детская", href: "project.html"}, {subtitle: "Спальня", title: "Спальня", href: "project.html"}]
+
+      include common/portfolio-list.pug
+
+      button.portfolio-main__btn
+        | Показать ещё
+        +icon("arrow-1")
+
+    //- Footer
+    include common/footer.pug

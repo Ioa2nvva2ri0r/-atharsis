@@ -1,0 +1,40 @@
+// Common block
+@import './common';
+@import './common/portfolio';
+
+.portfolio-main {
+  &__main-title {
+    margin: 8rem auto 4.5rem;
+    letter-spacing: 0;
+  }
+  &__item {
+    &,
+    &:last-child {
+      border-color: var(--white);
+    }
+  }
+  &__subtitle {
+    text-transform: initial;
+    width: 15rem;
+    margin-right: 1.5rem;
+    font-size: 3.5rem;
+    line-height: 3.9rem;
+    letter-spacing: 0;
+  }
+  &__img {
+    width: 52rem;
+    &-box {
+      margin-right: 1.4rem;
+    }
+  }
+  &__title {
+    &,
+    &::first-line {
+      letter-spacing: 0;
+    }
+  }
+  &__btn {
+    display: block;
+    margin: 0 auto;
+  }
+}

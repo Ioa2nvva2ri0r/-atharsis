@@ -1,0 +1,61 @@
+.advantages {
+  padding-bottom: 19.15rem;
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(37.7rem, 1fr));
+    gap: 3rem;
+  }
+  &__desc,
+  &__card-title {
+    font-weight: 500;
+  }
+  &__item {
+    & svg {
+      @include block-size(5rem);
+      position: relative;
+      top: 0.15rem;
+      margin-bottom: 1.6rem;
+    }
+  }
+  &__card-title {
+    text-transform: uppercase;
+    margin: 0 0 2rem;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    letter-spacing: 0.15em;
+  }
+  &__desc {
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+  }
+  @media (max-width: 48em) {
+    padding-bottom: 18rem;
+    &__list {
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+    &__item {
+      min-height: 47.6rem;
+      & svg {
+        @include block-size(10rem);
+        margin-bottom: 1.2rem;
+      }
+      &:nth-child(2) {
+        & svg {
+          margin-bottom: 3.3rem;
+        }
+        & .advantages__card-title {
+          margin-bottom: 4rem;
+        }
+      }
+    }
+    &__card-title {
+      font-size: 2.8rem;
+      line-height: 3.4rem;
+    }
+    &__desc {
+      font-size: 3.2rem;
+      line-height: 4.4rem;
+    }
+  }
+}

@@ -1,0 +1,77 @@
+.search-slider {
+  width: 100%;
+  padding: 0 0 13rem 16rem;
+  &__box-title {
+    padding-right: 16rem;
+  }
+  &__title {
+    margin-bottom: 4.6rem !important;
+    letter-spacing: 0.1rem !important;
+  }
+  &__slider {
+    padding: 0 16rem 4.9rem 0;
+  }
+  &__scrollbar {
+    overflow: hidden;
+    width: 160rem !important;
+  }
+  @media (max-width: 48em) {
+    padding: 0 4rem 17rem 4rem !important;
+    &__box-title {
+      padding-right: 0;
+    }
+    &__title {
+      margin-bottom: 7.8rem !important;
+    }
+    &__slider {
+      padding: 0 0 8.8rem 0;
+    }
+    &__scrollbar {
+      width: 100% !important;
+    }
+  }
+}
+
+.search-card {
+  &::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    @include block-size(100%);
+    background: linear-gradient(
+      0deg,
+      rgba(29, 53, 82, 0.55),
+      rgba(29, 53, 82, 0.55)
+    );
+    @include transition(opacity, 0);
+  }
+  &:hover,
+  &:active {
+    &::after {
+      opacity: 1;
+    }
+  }
+  &__content {
+    padding-top: 1.5rem;
+  }
+  &__subtitle {
+    margin-bottom: 2.6rem;
+  }
+  &__title {
+    margin-bottom: 2.4rem;
+    padding: 0 0 2.3rem 0;
+  }
+  @media (max-width: 48em) {
+    &__content {
+      padding: 0 1.3rem 6rem 0;
+    }
+    &__subtitle {
+      margin-bottom: 4.9rem;
+    }
+    &__title {
+      margin-bottom: 4.7rem;
+      padding: 0 5rem 4.5rem 0;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+doctype html
+html(lang="ru")
+  head
+   
+    //- Head
+    include common/head.pug
+    
+    title Катарсис - Услуги Дизайнера
+
+    //- Swiper-Slider
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css")
+    script(src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js")
+    //- Basic Styles
+    link(rel="stylesheet", href='style/services.css')
+
+  body
+
+    //- Mixins
+    include common/mixin.pug
+
+    //- Header
+    include common/header.pug
+
+    main
+
+      //- Common-form
+      - var cssClassForm = 'services-form'
+      - var imageForm = 'services'
+      - var titleForm = 'Услуги дизайнера'
+      - var descForm = 'Закажите услуги дизайнера прямо сейчас!'
+      - var dataInput = [{id: 'name', name: 'name', placeholder: 'Имя', type: 'text'}, {id: 'email', name: 'email', placeholder: 'E-mail', type: 'email'}, {id: 'tel', name: 'tel', placeholder: 'Номер телефона', type: 'tel'}, {id: 'comment', name: 'comment', placeholder: 'Комментарий', type: 'text'}]
+
+      include common/common-form.pug
+
+      //- Common-desc
+      - var imageDesc = 'services/2.png'
+      - var desc1 = 'В каждом созданном интерьере мы видим историю людей, для которых он создаётся. Характер, увлечения и философию жизни. Мы продумываем каждую деталь и\u00A0это характеризует нас, как компанию с\u00A0высоким уровнем подхода к оказываемым нами услугам.'
+      - var desc2 = 'Полный дизайн-проект подразумевает создание трёх вариантов планировочных решений интерьера, создание визуального ряда, разработку документации и спецификаций для воплощения проекта, а\u00A0также авторский контроль и сопровождение реализации.'
+
+      include common/common-desc.pug
+
+      //- Common-slider
+      - var titleSlider = "Наши работы"
+      - var cssClassSlider = "services-slider"
+      - var cardSlider = "services"
+
+      include common/common-slider.pug   
+
+      //- Advantages
+      include common/advantages.pug     
+
+    //- Footer
+    include common/footer.pug

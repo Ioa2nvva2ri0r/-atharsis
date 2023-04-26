@@ -20,10 +20,10 @@ html(lang="ru")
               .stagger-visualizer
                   .dots-wrapper
 
-      - var links = [{name: 'Главная', href: 'main'}, {name: 'Дизайнерская Мебель - Главная', href: 'sofas-main'}, {name: 'Дизайнерская Мебель - Каталог', href: 'sofas-catalog'}, {name: 'Дизайнерская Мебель - Карточка товара', href: 'sofas-product'}, {name: 'Межкомнатные перегородки - Главная', href: 'partitions-main'}, {name: 'Межкомнатные перегородки - Заказ', href: 'partitions-order'}]
+      - var links = [{name: "Главная", href: "main"}, {name: "Дизайнерская Мебель - Главная", href: "sofas-main"}, {name: "Дизайнерская Мебель - Каталог", href: "sofas-catalog"}, {name: "Дизайнерская Мебель - Карточка товара", href: "sofas-product"}, {name: "Межкомнатные перегородки - Главная", href: "partitions-main"}, {name: "Межкомнатные перегородки - Заказ", href: "partitions-order"}, {name: "Услуги Дизайнера", href: "services"}, {name: "Поиск по фото", href: "search"}, {name: "Портфолио", href: "portfolio"}]
 
       each link in links 
-        a(href=`${link.href}.html`, target="blank").index__item= link.name  
+        a(href=`${link.href}.html`, target="_blank").index__item= link.name  
 
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js")

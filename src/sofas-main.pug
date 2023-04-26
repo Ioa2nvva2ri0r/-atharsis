@@ -13,7 +13,6 @@ html(lang="ru")
     //- Basic Styles
     link(rel="stylesheet", href="style/sofas-main.css")
     //- Basic JavaScript
-    script(src="js/form-popup.js", defer)
     script(src="js/sofas-main.js", defer)
     script(src="js/sofas-product-add.js", defer) 
 
@@ -22,7 +21,7 @@ html(lang="ru")
     //- Mixins
     include common/mixin.pug
 
-    - var catalogPath = 'sofas-catalog.html'
+    - var catalogPath = "sofas-catalog.html"
 
     //- Header
     include common/header.pug
@@ -30,10 +29,10 @@ html(lang="ru")
     main
 
       //- Hero
-      - var titleHero = 'Лучшая Дизайнерская Мебель' 
-      - var descHero = 'Наша компания сотрудничает с дизайнерами, российскими и европейскими мебельными фабриками, чтобы вы могли купить оригинальную дизайнерскую мебель в Москве или заказать доставку в другие регионы.'
+      - var titleHero = "Лучшая Дизайнерская Мебель" 
+      - var descHero = "Наша компания сотрудничает с дизайнерами, российскими и европейскими мебельными фабриками, чтобы вы могли купить оригинальную дизайнерскую мебель в Москве или заказать доставку в другие регионы."
       - var countImgHero = 3
-      - var cssClassHero = 'sofas-hero'
+      - var cssClassHero = "sofas-hero"
 
       include common/hero.pug
 
@@ -51,9 +50,9 @@ html(lang="ru")
                     button.catalog__label(class=`catalog__label-${label}` aria-label= "Пуф")
                       span
             button.catalog__slider-btn.catalog__slider-btn-prev
-              +icon('arrow-1') 
+              +icon("arrow-1") 
             button.catalog__slider-btn.catalog__slider-btn-next
-              +icon('arrow-1')
+              +icon("arrow-1")
             .catalog__label-content#label-content
               h3.catalog__label-title Пуф круглый большой (велюр)
               picture
@@ -61,16 +60,19 @@ html(lang="ru")
                 img(src=`img/catalog/pouf.png`, alt="Пуф").catalog__label-img
               a.catalog__label-link(href="#") 
                 | Перейти к товару
-                +icon('arrow-2')
+                +icon("arrow-2")
 
           //- Catalog list
           include common/sofas-list.pug 
 
       //- Popular
-      include common/sofas-popular.pug    
+      - var titleSlider = "Популярные товары"
+      - var cardSlider = "sofas"
 
-      //- Application
-      include common/application.pug    
+      include common/common-slider.pug    
+
+      //- Common-form
+      include common/common-form.pug    
 
       //- About
       include common/about.pug 
@@ -80,8 +82,5 @@ html(lang="ru")
 
     //- Footer
     include common/footer.pug
-
-    //- Popup
-    include common/popup.pug
 
 

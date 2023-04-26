@@ -11,9 +11,8 @@ html(lang="ru")
     link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css")
     script(src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js")
     //- Basic Styles
-    link(rel="stylesheet", href='style/sofas-product.css')
+    link(rel="stylesheet", href="style/sofas-product.css")
     //- Basic JavaScript
-    script(src=`js/sofas-main.js`, defer)
     script(src=`js/sofas-product.js`, defer)
     script(src="js/sofas-product-add.js", defer) 
     
@@ -23,7 +22,7 @@ html(lang="ru")
     //- Mixins
     include common/mixin.pug
 
-    - var catalogPath = 'sofas-catalog.html'
+    - var catalogPath = "sofas-catalog.html"
 
     //- Header
     include common/header.pug
@@ -41,21 +40,21 @@ html(lang="ru")
                     source(srcset=`img/product/${i}.png`).sofas-product__img
                     img(src=`img/product/${i}.png`, alt=`Изображение-${i}`).sofas-product__img
             button.sofas-product__btn-favorite
-              +icon('favorite')
+              +icon("favorite")
             button.sofas-product__slider-btn.sofas-product__slider-btn-next
-              +icon('arrow-1')
+              +icon("arrow-1")
             button.sofas-product__slider-btn.sofas-product__slider-btn-prev
-              +icon('arrow-1')
+              +icon("arrow-1")
           form.sofas-product__choice
             ul.sofas-product__choice-list
               //- Data choice
-              - var selection = [{id: 'color', name: 'Цвет', values: ['Чёрный', 'Красный', 'Синий', 'Жёлтый']}, {id: 'texture', name: 'Фактура материала', values: ['Гладкая', 'Рельефная', 'Блестящая']}, {id: 'textile', name: 'Ткань', values: ['Хлопок']}, {id: 'material', name: 'Материал', values: ['Дерево']}]
+              - var selection = [{id: "color", name: "Цвет", values: ["Чёрный", "Красный", "Синий", "Жёлтый"]}, {id: "texture", name: "Фактура материала", values: ["Гладкая", "Рельефная", "Блестящая"]}, {id: "textile", name: "Ткань", values: ["Хлопок"]}, {id: "material", name: "Материал", values: ["Дерево"]}]
 
               each choice in selection
                 li.sofas-product__choice-item 
                   div.sofas-product__choice-item-box
                     label(for= choice.id).sofas-product__choice-label= choice.name
-                    input(id= choice.id, value=choice.values[0], type='text', readonly).sofas-product__choice-input
+                    input(id= choice.id, value=choice.values[0], type="text", readonly).sofas-product__choice-input
                     ul.sofas-product__choice-select(data-select= choice.id) 
 
                       each option, index in choice.values
@@ -63,45 +62,45 @@ html(lang="ru")
                           li.sofas-product__choice-option   
                             strong(tabindex=0)= option
                   button.sofas-product__btn-hidden(data-choice= choice.id, type="button")
-                    +icon('plus')
+                    +icon("plus")
             strong.sofas-product__choice-price 
               | 7 000 
               sup ₽
             div.sofas-product__basket-container
               button.sofas-product__btn-submit#basket-add(type="button") 
                 span Добавить в корзину
-                +icon('arrow-2')
+                +icon("arrow-2")
               div.sofas-product__basket-box#basket-box-count
                 button.sofas-product__basket-away#basket-minus(type="button", aria-label="Отнять")
-                  +icon('minus')
+                  +icon("minus")
                 label(for="basket-count").sofas-product__basket-count
                   span Количество
                   input(id="basket-count", type="number", value="0")
                 button.sofas-product__basket-add#basket-plus(type="button", aria-label="Добавить")
-                  +icon('plus')
+                  +icon("plus")
                 
         .sofas-product__box-content 
           .sofas-product__box-desc
             ul.sofas-product__tab-list
               //- Data tabs
-              - var tabs = [{id: 'desc', desc: 'Описание'}, {id: 'feature', desc: 'Характеристики'}, {id: 'delivery', desc: 'Доставка и оплата'}]
+              - var tabs = [{id: "desc", desc: "Описание"}, {id: "feature", desc: "Характеристики"}, {id: "delivery", desc: "Доставка и оплата"}]
 
               each tab, index in tabs
                 li.sofas-product__tab-item
-                  button.sofas-product__tab-btn(class=`${index === 0 ? 'active' : ''}`, data-tab= tab.id)= tab.desc
+                  button.sofas-product__tab-btn(class=`${index === 0 ? "active" : ""}`, data-tab= tab.id)= tab.desc
             .sofas-product__tab-container
-              .sofas-product__tab-box.active(data-tabDesc='desc')
+              .sofas-product__tab-box.active(data-tabDesc="desc")
                 p.sofas-product__tab-desc-1 Такая модель несомненно подойдет для городской гостиной, как в качестве самостоятельного предмета мебели в одном экземпляре или в паре, так и в комплекте с диваном из той же коллекции. Такая модель несомненно подойдет для городской гостиной, как в качестве самостоятельного предмета мебели в одном экземпляре или паре, так&nbsp;и&nbsp;в&nbsp;комплекте с диваном из той же коллекции. Такая модель несомненно подойдет для городской гостиной, как в качестве самостоятельного предмета мебели в одном экземпляре или в паре, так и в комплекте с диваном из той же коллекции. Такая модель несомненно подойдет для городской гостиной, как в качестве самостоятельного предмета мебели в одном экземпляре или в паре, так&nbsp;и&nbsp;в&nbsp;комплекте с диваном из той же коллекции.
-              .sofas-product__tab-box(data-tabDesc='feature')
+              .sofas-product__tab-box(data-tabDesc="feature")
                 ul.sofas-product__feature-list
                   //- Data feature
-                  - var feature = [{title: 'Артикул', desc: 'MNR-ST-2L/56-BEJ'}, {title: 'Габариты (Д × Ш × В)', desc: '76 x 96 x 99 см'}, {title: 'Ширина подлокотника', desc: '10 см'}, {title: 'Материал каркаса', desc: 'Березовая фанера'}, {title: 'Материал опор', desc: 'Массив дуба'}, {title: 'Глубина сиденья', desc: '57 см'}]
+                  - var feature = [{title: "Артикул", desc: "MNR-ST-2L/56-BEJ"}, {title: "Габариты (Д × Ш × В)", desc: "76 x 96 x 99 см"}, {title: "Ширина подлокотника", desc: "10 см"}, {title: "Материал каркаса", desc: "Березовая фанера"}, {title: "Материал опор", desc: "Массив дуба"}, {title: "Глубина сиденья", desc: "57 см"}]
 
                   each item in feature
                     li.sofas-product__feature-item
                       h3.sofas-product__feature-title= item.title 
                       p.sofas-product__feature-desc= item.desc 
-              .sofas-product__tab-box(data-tabDesc='delivery')
+              .sofas-product__tab-box(data-tabDesc="delivery")
                 p.sofas-product__tab-desc-2 Мы осуществляем курьерскую доставку по России. Стоимость будет рассчитана автоматически при оформлении заказа в корзине (при стоимости заказа от 1500 рублей доставка по Москве бесплатная)
                 p.sofas-product__tab-desc-2 Мы осуществляем курьерскую доставку по России. Стоимость будет рассчитана автоматически при оформлении заказа в корзине (при стоимости заказа от 1500 рублей доставка по Москве бесплатная)
 
@@ -110,20 +109,20 @@ html(lang="ru")
             p.sofas-product__contact-desc Если у вас есть вопросы, свяжитесь с нами
             ul.sofas-product__contact-list  
               li.sofas-product__contact-item 
-                +icon('check') 
+                +icon("check") 
                 strong Работаем с 9:00 до 21:00
               li.sofas-product__contact-item 
-                +icon('check') 
+                +icon("check") 
                 a.sofas-product__contact-link(href="tel:+71234567890") 
                   | Звоните&nbsp;
                   span +7-123-456-78-90 
               li.sofas-product__contact-item 
-                +icon('check') 
+                +icon("check") 
                 a.sofas-product__contact-link(href="https://api.whatsapp.com/send/?phone=+71234567890", target="blank", rel="nofollow")  
                   | Пишите&nbsp;
                   span WhatsApp 
               li.sofas-product__contact-item 
-                +icon('check') 
+                +icon("check") 
                 p Закажите услуги наших дизайнеров 
             p.sofas-product__contact-desc У вас есть готовый дизайн проект?
             p.sofas-product__contact-desc-2 Наши дизайнеры помогут вам воплотить ваши мечты в жизнь
@@ -132,14 +131,13 @@ html(lang="ru")
               span info@mail.ru
             button.sofas-product__btn-contact
               | Оставить контакты
-              +icon('arrow-2') 
-
-
-
-
+              +icon("arrow-2") 
 
       //- Popular
-      include common/sofas-popular.pug
+      - var titleSlider = "Популярные товары"
+      - var cardSlider = "sofas"
+
+      include common/common-slider.pug   
 
     //- Footer
     include common/footer.pug

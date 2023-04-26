@@ -1,0 +1,13 @@
+//- Mixins
+include mixin.pug
+
+.work-card.swiper-slide(class=`${cssClassCard || "services"}-card`)
+  .work-card__content(class=`${cssClassCard || "services"}-card__content`)
+    strong.work-card__subtitle(class=`${cssClassCard || "services"}-card__subtitle`)= subtitleCard 
+    h3.work-card__title(class=`${cssClassCard || "services"}-card__title`)= titleCard 
+    a(href= hrefCard).work-card__link(class=`${cssClassCard || "services"}-card__link`)
+      | Посмотреть проект
+      +icon("arrow-1") 
+  picture
+    source(class=`${cssClassCard || "services"}-card__img`, srcset=`img/${imageCard || "services/card/1.png"}`).work-card__img
+    img(class=`${cssClassCard || "services"}-card__img`, src=`img/${imageCard || "services/card/1.png"}`, alt="Изображение карточки").work-card__img

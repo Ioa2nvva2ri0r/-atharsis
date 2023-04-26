@@ -1,0 +1,33 @@
+.services-slider {
+  width: 100%;
+  padding: 0 0 18.5rem 16rem;
+  &__box-title {
+    padding-right: 16rem;
+  }
+  &__title {
+    margin-bottom: 4.6rem !important;
+    letter-spacing: 0.1rem !important;
+  }
+  &__slider {
+    padding: 0 16rem 4.9rem 0;
+  }
+  &__scrollbar {
+    overflow: hidden;
+    width: 160rem !important;
+  }
+  @media (max-width: 48em) {
+    padding: 0 4rem 17rem 4rem !important;
+    &__box-title {
+      padding-right: 0;
+    }
+    &__title {
+      margin-bottom: 7.9rem !important;
+    }
+    &__slider {
+      padding: 0 0 8.8rem 0;
+    }
+    &__scrollbar {
+      width: 100% !important;
+    }
+  }
+}

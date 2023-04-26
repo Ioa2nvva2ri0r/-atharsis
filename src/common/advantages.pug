@@ -1,0 +1,15 @@
+//- Mixins
+include mixin.pug
+
+section.advantages.container(class=`${cssClassAdvantages || 'services'}-advantages`) 
+  h2.advantages__title.us-title(class=`${cssClassAdvantages || 'services'}-advantages__title`) Наши преимущества
+  ul.advantages__list(class=`${cssClassAdvantages || 'services'}-advantages__list`) 
+    //- Data advantages
+    - var dataAdvantages = [{id: "quality", title: "Качество", desc: "Мы не экономим на качестве, поэтому выбираем материалы проверенные производителей и надежных поставщиков, с которыми работаем со дня основания компании. Мы не экономим на качестве, поэтому выбираем материалы."},  {id: "experience", title: "Большой опыт работы", desc: "Мы не экономим на качестве, поэтому выбираем материалы проверенные производителей и надежных поставщиков, с которыми работаем со дня основания компании."}, {id: "prices", title: "Гибкие цены", desc: "Мы не экономим на качестве, поэтому выбираем материалы проверенные производителей и надежных поставщиков, с которыми работаем со дня основания компании. Мы не экономим на качестве, поэтому выбираем материалы."}, {id: "selection", title: "Подбор мебели и материалов", desc: "Мы не экономим на качестве, поэтому выбираем материалы проверенные производителей и надежных поставщиков, с которыми работаем со дня основания компании."},]
+
+    each item in dataAdvantages
+      li.advantages__item(class=`${cssClassAdvantages || 'services'}-advantages__item`) 
+        +icon(item.id)
+        h3.advantages__card-title(class=`${cssClassAdvantages || 'services'}-advantages__card-title`)= item.title
+        p.advantages__desc(class=`${cssClassAdvantages || 'services'}-advantages__desc`)= item.desc
+

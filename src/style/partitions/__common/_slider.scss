@@ -1,3 +1,5 @@
+@import '../../mixins';
+
 .partitions {
   &__slider {
     @include block-size(100%, 78rem);

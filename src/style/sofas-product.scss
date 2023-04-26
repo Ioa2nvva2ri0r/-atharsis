@@ -1,7 +1,6 @@
-@import './mixins';
 // Common block
 @import './common';
+@import './common/common-slider';
 // Main block
 @import './sofas/__product';
-@import './sofas/__common/popular';
 @import './sofas/__common/product';

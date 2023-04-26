@@ -1,0 +1,95 @@
+@import '../../mixins';
+
+.search-form {
+  &__form {
+    padding-top: 13.1rem;
+    padding-bottom: 13.1rem;
+  }
+  &__title {
+    letter-spacing: 0.2rem !important;
+  }
+  &__desc {
+    margin-bottom: 4.7rem;
+    letter-spacing: 0.005rem;
+  }
+  &__img {
+    object-position: 50% 100%;
+  }
+  &__label {
+    &:last-child {
+      position: relative;
+      padding: 2.6rem 0 1.6rem;
+      border-bottom: 0.1rem solid var(--grey);
+      margin-bottom: 4.45rem;
+      & span {
+        text-transform: uppercase;
+        font-size: 1.6rem;
+        font-weight: 400;
+        line-height: 2rem;
+        letter-spacing: 0.15em;
+        color: var(--white);
+      }
+      &::after {
+        position: absolute;
+        content: '';
+        right: 1rem;
+        bottom: 2.8rem;
+        @include block-size(3rem, 3.85rem);
+        background-image: url("data:image/svg+xml,%3Csvg width='31' height='38' viewBox='0 0 31 38' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.4777 0.293684C20.3034 0.110141 20.0646 0 19.817 0H4.99329C2.25781 0 0 2.24883 0 4.98394V33.0158C0 35.7511 2.25788 38 4.99321 38H25.1129C27.8483 38 30.1062 35.7512 30.1062 33.0158V10.7573C30.1062 10.5187 29.9959 10.2894 29.84 10.1148L20.4777 0.293684ZM20.7438 3.24017L27.013 9.82122H22.9377C21.7261 9.82122 20.7438 8.84821 20.7438 7.63674V3.24017ZM25.1129 36.1643H4.99321C3.27691 36.1643 1.83573 34.7416 1.83573 33.0158V4.98394C1.83573 3.26763 3.26763 1.83573 4.99321 1.83573H18.9081V7.63666C18.9081 9.86701 20.7073 11.6569 22.9377 11.6569H28.2704V33.0158C28.2704 34.7416 26.8385 36.1643 25.1129 36.1643Z' fill='white'/%3E%3Cpath d='M22.6081 29.8313H7.49989C6.99521 29.8313 6.58203 30.2441 6.58203 30.7491C6.58203 31.2538 6.99513 31.667 7.49989 31.667H22.6174C23.122 31.667 23.5352 31.2539 23.5352 30.7491C23.5352 30.2441 23.122 29.8313 22.6081 29.8313ZM14.384 26.536C14.5585 26.7196 14.7971 26.8297 15.054 26.8297C15.3111 26.8297 15.5497 26.7196 15.724 26.536L21.1028 20.7626C21.4516 20.3952 21.424 19.8079 21.057 19.4685C20.6896 19.1196 20.1023 19.1469 19.7628 19.5143L15.9718 23.5803V13.5573C15.9718 13.0523 15.5587 12.6395 15.054 12.6395C14.5493 12.6395 14.1361 13.0523 14.1361 13.5573V23.5803L10.3544 19.5143C10.0056 19.1472 9.42728 19.1196 9.0602 19.4685C8.69318 19.8172 8.66565 20.3956 9.0144 20.7626L14.384 26.536Z' fill='white'/%3E%3C/svg%3E%0A");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+      }
+    }
+  }
+  &__input {
+    &[type='file'] {
+      overflow: hidden;
+      @include block-size(0);
+      font-size: 0;
+    }
+  }
+  &__btn-desc {
+    margin-top: 0.2rem;
+  }
+  @media (max-width: 48em) {
+    &__form {
+      padding-top: 7.5rem;
+      padding-bottom: 8rem;
+    }
+    &__title {
+      letter-spacing: 0.2rem !important;
+    }
+    &__desc {
+      margin-bottom: 7.9rem;
+      line-height: 4.4rem;
+    }
+    &__label {
+      &:not(:last-child) {
+        margin-bottom: 8rem;
+      }
+      &:last-child {
+        margin-bottom: 7.9rem;
+        padding: 5.4rem 0 2.4rem;
+        & span {
+          font-size: 3.2rem;
+        }
+        &::after {
+          right: 2rem;
+          bottom: 5.5rem;
+          @include block-size(6rem, 7.6rem);
+        }
+      }
+    }
+    &__input {
+      &,
+      &::placeholder {
+        font-size: 3.2rem;
+      }
+    }
+    &__btn {
+      margin-bottom: 3.4rem;
+      font-size: 3.2rem;
+    }
+  }
+}
