@@ -12,9 +12,7 @@
   &__item {
     & svg {
       @include block-size(5rem);
-      position: relative;
-      top: 0.15rem;
-      margin-bottom: 1.6rem;
+      margin-bottom: 1.5rem;
     }
   }
   &__card-title {

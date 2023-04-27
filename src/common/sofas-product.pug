@@ -26,5 +26,5 @@ include mixin.pug
     .product__box-btn 
       button.product__btn(aria-label="Корзина")
         +icon("basket")
-      button.product__btn(aria-label="Избранные")
+      button.product__btn(class= favorite ? "add" : "", aria-label="Избранные")
         +icon("favorite")

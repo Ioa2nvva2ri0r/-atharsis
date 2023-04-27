@@ -1,16 +1,17 @@
 //- Mixins
 include mixin.pug
 
-section.contacts-map.container  
-  .contacts-map__content 
-    h2.contacts-map__title.us-title Наши контакты 
+section.contacts-map.container(class=`${cssClassContactsMap}`)  
+  .contacts-map__content
+    if !contactTitle 
+      h2.contacts-map__title.us-title Наши контакты 
     ul.contacts-map__list
       li.contacts-map__item
         h3.contacts-map__subtitle Адрес
         address.contacts-map__desc г. Москва, ул. Расточная, 24 А
       li.contacts-map__item
         h3.contacts-map__subtitle Режим
-        p.contacts-map__desc Пн-Пт: 10-20 / Сб&#8209;Вс:&nbsp;&nbsp;10&#8209;15
+        p.contacts-map__desc Пн-Пт: 10-20 / Сб-Вс: 10-15
       li.contacts-map__item
         h3.contacts-map__subtitle Метро
         strong.contacts-map__desc Любинская

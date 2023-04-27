@@ -1,7 +1,7 @@
 @import '../mixins';
 
 .banner {
-  width: 100% !important;
+  width: 100%;
   height: 91.2rem;
   &__slider {
     height: 100%;
@@ -21,7 +21,7 @@
         font-weight: 400;
         line-height: 2.8rem;
         letter-spacing: -0.3rem;
-        color: var(--white) !important;
+        color: var(--white);
       }
       & span.swiper-pagination-current {
         font-size: 5.5rem;
@@ -184,13 +184,9 @@
     border-bottom: 0.15rem solid var(--white);
   }
   &__title {
-    margin-bottom: 2.85rem !important;
+    margin-bottom: 2.85rem;
     padding-bottom: 3rem;
-    line-height: 6.2rem !important;
-    letter-spacing: 0.4rem !important;
-    &::first-line {
-      letter-spacing: 0.05rem;
-    }
+    line-height: 6.2rem;
   }
   &__desc {
     width: 56.9rem;
@@ -199,7 +195,7 @@
   }
   &__link {
     position: relative;
-    padding-bottom: 0 0 1rem 0.4rem;
+    padding: 0 0 1rem 0.4rem;
     line-height: 2.2rem;
     @include transitions((border-color, color));
     &::after {
@@ -235,7 +231,7 @@
   }
   @media (max-width: 48em) {
     height: 147.4rem;
-    padding: 0 !important;
+    padding: 0;
     &__slider {
       &-pagination {
         bottom: 7.9rem;
@@ -307,14 +303,10 @@
       line-height: 4.4rem;
     }
     &__title {
-      margin-bottom: 3.85rem !important;
+      margin-bottom: 3.85rem;
       padding-right: 2rem;
       padding-bottom: 3.8rem;
-      line-height: 6.7rem !important;
-      letter-spacing: 0.4rem !important;
-      &::first-line {
-        letter-spacing: 0;
-      }
+      line-height: 6.7rem;
     }
     &__desc {
       width: 60.9rem;
@@ -362,7 +354,7 @@
         }
       }
       &-link {
-        margin-bottom: 0 !important;
+        margin-bottom: 0;
       }
     }
   }

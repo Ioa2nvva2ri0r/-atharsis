@@ -20,7 +20,7 @@
   &__developed-desc {
     font-size: 1.8rem;
     font-weight: 400;
-    line-height: 2.5rem;
+    line-height: 140%;
   }
   &__container {
     &-top {
@@ -54,7 +54,6 @@
     &-mail {
       padding-right: 8rem;
       padding-left: 4rem;
-      margin-top: -0.1rem;
     }
     &-developed {
       position: relative;
@@ -65,7 +64,7 @@
     display: inline-block;
     @include block-size(20.2rem, 4.8rem);
     margin-left: -0.6rem;
-    margin-bottom: 3.2rem;
+    margin-bottom: 3.35rem;
     & img {
       @include block-size(inherit);
     }
@@ -80,7 +79,7 @@
     justify-content: flex-end;
     max-width: 58.8rem;
     &-box {
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
       &:first-child {
         margin-right: 13.7rem;
       }
@@ -90,7 +89,7 @@
     }
     &-title {
       text-transform: uppercase;
-      margin: 0 0 2.4rem 0;
+      margin: 0 0 2.45rem 0;
       font-size: 1.6rem;
       font-weight: 400;
       line-height: 2rem;
@@ -112,7 +111,7 @@
   &__top-desc {
     width: 100%;
     max-width: 29.6rem;
-    margin: 0 0 2.5rem 0;
+    margin: 0 0 2.45rem 0;
   }
   &__link {
     @include flex-center-y();
@@ -150,7 +149,6 @@
     }
     &-desc {
       padding-right: 5.6rem;
-      font-weight: 400;
       color: #21252c;
       & span {
         font-weight: 700;
@@ -197,7 +195,7 @@
       }
       &-logo {
         max-width: 76.6rem;
-        padding-bottom: 7.7rem;
+        padding-bottom: 7.75rem;
       }
       &-mail {
         padding: 0;
@@ -239,7 +237,7 @@
     }
     &__top-desc {
       max-width: 48.6rem;
-      margin: 0 0 4rem;
+      margin: 0 0 4.1rem;
     }
     &__link {
       margin-bottom: 2rem;
@@ -269,7 +267,7 @@
         font-size: 3.6rem;
         line-height: 4.4rem;
         &::after {
-          top: -3.2rem;
+          top: -3.5rem;
           right: -4.8rem;
           @include block-size(18rem);
           background-size: 18rem;

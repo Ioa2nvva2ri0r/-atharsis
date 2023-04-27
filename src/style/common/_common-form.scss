@@ -1,5 +1,5 @@
 .common-form {
-  width: 100% !important;
+  width: 100%;
   &,
   &__form {
     position: relative;
@@ -9,29 +9,27 @@
   &__btn-desc,
   &__btn-desc a,
   &__input,
-  &__input::placeholder,
-  &__btn {
+  &__input::placeholder {
     color: var(--white);
   }
   &__img {
     position: absolute;
     top: 0;
     left: 0;
-    @include picture(100%);
     z-index: 1;
+    @include picture(100%);
   }
   &__title {
-    letter-spacing: 0.185rem !important;
-    margin-bottom: 1.6rem !important;
+    margin-bottom: 1.75rem;
   }
   &__desc {
-    margin: 0 0 4.6rem 0;
+    margin: 0 0 4.8rem 0;
     font-size: 1.8rem;
     letter-spacing: 0.01rem;
   }
   &__form {
     width: 83.9rem;
-    padding: 8rem 7rem 8rem 7rem;
+    padding: 8rem 7rem 8.1rem;
     z-index: 2;
     background-color: rgba(29, 53, 82, 0.65);
   }
@@ -64,7 +62,7 @@
       margin-bottom: 3.8rem;
     }
     &:last-child {
-      margin-bottom: 4.5rem;
+      margin-bottom: 4.45rem;
     }
   }
   &__input {
@@ -77,8 +75,8 @@
     &::placeholder {
       text-transform: uppercase;
       font-weight: 400;
-      letter-spacing: 0.15em;
       line-height: 2rem;
+      letter-spacing: 0.15em;
     }
     &:hover,
     &:active {
@@ -86,33 +84,12 @@
     }
   }
   &__btn {
-    @include flex-center-y();
-    border-radius: 4.9rem;
-    padding: 1.5rem 2.8rem 1.7rem 2.8rem;
-    font-size: 1.8rem;
     margin-right: 1.5rem;
-    background-color: var(--blue);
-    @include transition(color);
-    & svg {
-      @include block-size(0.6rem, 1.1rem);
-      margin-left: 2rem;
-      & > path {
-        @include transition(stroke);
-      }
-    }
-    &:hover,
-    &:active {
-      color: var(--beige-light);
-      & svg > path {
-        stroke: var(--beige-light);
-      }
-    }
     &-desc {
       width: 100%;
       max-width: 40.7rem;
-      margin: -0.3rem 0 0 0;
       font-size: 1.8rem;
-      line-height: 2.5rem;
+      line-height: 140%;
       letter-spacing: 0.005rem;
       & a {
         border-bottom: 0.05rem solid var(--white);
@@ -127,18 +104,17 @@
     }
   }
   @media (max-width: 48em) {
-    padding: 0 !important;
+    padding: 0;
     &__title {
-      margin-bottom: 2rem !important;
-      letter-spacing: 0.2rem !important;
+      margin-bottom: 2rem;
     }
     &__desc {
-      margin: 0 0 8.5rem;
+      margin: 0 0 8.8rem;
       font-size: 3.2rem;
     }
     &__form {
       width: 100%;
-      padding: 7.7rem 4rem 8.3rem;
+      padding: 8rem 4rem 8.3rem;
       backdrop-filter: blur(1rem);
     }
     &__container {
@@ -154,7 +130,7 @@
         margin-bottom: 7.8rem;
       }
       &:last-child {
-        margin-bottom: 8rem;
+        margin-bottom: 8.3rem;
       }
     }
     &__input {
@@ -163,14 +139,6 @@
     &__btn {
       margin-right: 0;
       margin-bottom: 3rem;
-      border-radius: 9.8rem;
-      padding: 3rem 5.6rem 3.4rem 5.6rem;
-      font-size: 3.6rem;
-      & svg {
-        @include block-size(1.2rem, 2.6rem);
-        margin-top: 0.7rem;
-        margin-left: 4rem;
-      }
       &-desc {
         max-width: 54.7rem;
         margin-bottom: 0;
@@ -209,40 +177,19 @@
     flex-direction: column;
     width: 100%;
     max-width: 78.5rem;
-    padding: 12rem 5rem 8.7rem 5rem;
+    padding: 12.1rem 5rem 8.7rem 5rem;
     background-color: var(--white);
   }
   &__title {
-    margin-bottom: 1.5rem !important;
+    margin-bottom: 1.3rem;
   }
   &__desc {
     text-align: center;
     width: 100%;
     max-width: 51.8rem;
-    margin: 0 0 4.4rem 0;
+    margin: 0 0 4.5rem 0;
     font-size: 1.8rem;
-    line-height: 2.6rem;
-  }
-  &__link {
-    border-radius: 4.9rem;
-    padding: 1.5rem 2.8rem 1.6rem;
-    font-size: 1.8rem;
-    background-color: var(--blue);
-    @include transition(color, var(--white));
-    & svg {
-      @include block-size(0.6rem, 1.1rem);
-      margin-left: 2rem;
-      & > path {
-        @include transition(stroke);
-      }
-    }
-    &:hover,
-    &:active {
-      color: var(--beige-light);
-      & svg > path {
-        stroke: var(--beige-light);
-      }
-    }
+    line-height: 140%;
   }
   &__close {
     position: absolute;
@@ -273,30 +220,18 @@
     }
     &__title {
       text-align: center;
-      letter-spacing: 0.14rem !important;
-      margin-bottom: 1.8rem !important;
+      margin-bottom: 1.8rem;
     }
     &__desc {
       max-width: initial;
       margin-bottom: 8rem;
       font-size: 3.2rem;
       font-weight: 500;
-      line-height: 4.4rem;
-    }
-    &__link {
-      border-radius: 10rem;
-      padding: 3.1rem 5.6rem 3.3rem;
-      font-size: 3.6rem;
-      & svg {
-        @include block-size(1.2rem, 2.6rem);
-        margin-top: 0.7rem;
-        margin-left: 4rem;
-      }
     }
     &__close {
-      top: 3.4rem;
-      right: 3.4rem;
-      @include block-size(3.4rem);
+      top: 4rem;
+      right: 3.5rem;
+      @include block-size(3rem);
     }
   }
 }

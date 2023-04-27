@@ -80,14 +80,14 @@
       @include transition((opacity, transform));
       &-list {
         flex-direction: column;
-        padding-top: 7.8rem;
-        padding-bottom: 23.5rem;
+        padding-top: 10.4rem;
+        padding-bottom: 24.3rem;
         background-color: var(--bg);
       }
       &-item {
         &:not(:last-child) {
           margin-right: 0;
-          margin-bottom: 7.4rem;
+          margin-bottom: 11.75rem;
         }
         &:first-child,
         &:last-child {
@@ -95,7 +95,7 @@
         }
       }
       &-link {
-        font-family: 'Cormorant Garamond', serif;
+        font-family: 'Garamond', serif;
         font-size: 7rem;
         font-weight: 400;
         letter-spacing: 0.06rem;

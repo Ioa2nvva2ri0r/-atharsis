@@ -12,49 +12,31 @@
     );
   }
   &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     width: 100%;
     max-width: 42.5rem;
     margin-right: 4rem;
-    padding-top: 10.6rem;
+    padding-top: 10.8rem;
   }
   &__title {
-    letter-spacing: 0.05rem !important;
+    margin-bottom: 4.3rem;
   }
   &__desc {
-    margin: 0 0 3.3rem 0;
+    margin: 0 0 3.15rem 0;
     font-size: 1.8rem;
-    line-height: 2.5rem;
+    line-height: 140%;
   }
   &__btn {
-    @include flex-center-y();
-    width: max-content;
-    border-radius: 4.3rem;
-    padding: 1.45rem 2.7rem 1.7rem 2.7rem;
-    font-size: 1.8rem;
-    color: var(--white);
     background-color: var(--black);
-    @include transition(color);
-    & svg {
-      @include block-size(0.6rem, 1.1rem);
-      margin-left: 2rem;
-      & > path {
-        @include transition(stroke);
-      }
-    }
-    &:hover,
-    &:active {
-      color: var(--beige-light);
-      & svg > path {
-        stroke: var(--beige-light);
-      }
-    }
   }
   &__img {
     @include picture(100%, 62.9rem);
   }
   @media (max-width: 48em) {
-    padding-top: 18rem !important;
-    padding-bottom: 18rem !important;
+    padding-top: 18rem;
+    padding-bottom: 18rem;
     &__container {
       flex-direction: column;
       padding: 0 2rem;
@@ -67,27 +49,19 @@
     &__content {
       max-width: 105rem;
       margin-right: 0;
-      padding: 8rem 2.4rem 8rem 2.1rem;
+      padding: 8rem 2.4rem 8.25rem 2.1rem;
     }
     &__title {
-      margin-bottom: 3.8rem !important;
-      letter-spacing: 0.06rem !important;
+      margin-bottom: 3.8rem;
     }
     &__desc {
-      margin: 0 0 4.4rem;
+      margin: 0 0 4.3rem;
       font-size: 3.2rem;
       line-height: 4.4rem;
     }
     &__btn {
-      padding: 2.9rem 5.4rem 3.2rem;
+      padding: 3.4rem 5.5rem 3.6rem;
       background-color: var(--blue);
-      border-radius: 8.6rem;
-      font-size: 3.6rem;
-      & svg {
-        @include block-size(1.2rem, 2.6rem);
-        margin-top: 0.7rem;
-        margin-left: 4rem;
-      }
     }
     &__img {
       height: 80rem;

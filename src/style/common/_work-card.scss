@@ -41,7 +41,7 @@
   &__link {
     font-size: 1.8rem;
     font-weight: 500;
-    line-height: 2.5rem;
+    line-height: 140%;
   }
   &__subtitle,
   &__title {
@@ -54,7 +54,7 @@
     font-family: 'Garamond', serif;
     font-size: 3.5rem;
     font-weight: 400;
-    line-height: 3.9rem;
+    line-height: 110%;
   }
   &__link {
     @include flex-center-y();
@@ -95,7 +95,6 @@
     &__subtitle,
     &__link {
       font-size: 3.2rem;
-      line-height: 4.4rem;
     }
     &__subtitle,
     &__title {

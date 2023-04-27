@@ -1,9 +1,6 @@
 @import '../../mixins';
 
 .partitions-hero {
-  &__title {
-    letter-spacing: 0.25rem !important;
-  }
   &__content {
     padding-top: 14rem;
   }
@@ -74,6 +71,9 @@
     }
     &__content {
       padding-top: 14.8rem;
+    }
+    &__title {
+      margin-bottom: 3.5rem;
     }
     &__desc {
       margin-bottom: 7.6rem;

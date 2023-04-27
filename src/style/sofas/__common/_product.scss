@@ -8,7 +8,7 @@
     }
     &-img {
       max-height: 36rem;
-      margin-bottom: 1.95rem;
+      margin-bottom: 2rem;
       padding: 0.9rem 0.5rem 1.1rem 0.5rem;
       background-color: var(--white);
     }
@@ -18,7 +18,6 @@
     }
     &-btn {
       align-items: center;
-      padding-top: 0.4rem;
     }
   }
   &__img {
@@ -33,7 +32,7 @@
     max-width: 22rem;
   }
   &__title {
-    margin: 0 0 1rem 0;
+    margin: 0 0 1.1rem 0;
     & a {
       @include background-text();
       text-transform: uppercase;
@@ -46,19 +45,21 @@
   &__desc {
     margin: 0;
     font-size: 1.8rem;
-    line-height: 2.5rem;
+    line-height: 140%;
   }
   &__price {
     &,
     & * {
-      font-family: 'EB Garamond', serif;
+      font-family: 'Garamond', serif;
       font-weight: 400;
     }
     font-size: 2.5rem;
+    padding-bottom: 0.6rem;
     & sup {
       position: relative;
       font-size: 1.5rem;
-      left: 0.6rem;
+      top: -0.8rem;
+      left: 0.7rem;
     }
   }
   &__btn {
@@ -108,22 +109,20 @@
       }
       &-img {
         max-height: 73rem;
-        margin-bottom: 3.7rem;
+        margin-bottom: 3.8rem;
       }
     }
     &__content {
       max-width: 37rem;
     }
     &__title {
-      margin-bottom: 2.2rem;
+      margin-bottom: 2rem;
       & a {
         font-size: 2.8rem;
-        line-height: 3.4rem;
       }
     }
     &__desc {
       font-size: 3.2rem;
-      line-height: 4rem;
     }
     &__img {
       position: relative;
@@ -132,12 +131,12 @@
       margin: 10.8rem auto 8.2rem;
     }
     &__price {
-      font-size: 5.5rem;
-      letter-spacing: -0.2rem;
+      font-size: 5rem;
+      padding-bottom: 1.7rem;
       & sup {
         font-size: 3rem;
-        left: 1.2rem;
-        top: -1.8rem;
+        top: -1.6rem;
+        left: 1.4rem;
       }
     }
     &__btn {

@@ -1,0 +1,35 @@
+doctype html
+html(lang="ru")
+  head
+    //- Head
+    include common/head.pug
+    
+    title Катарсис - Избранное
+
+    //- Basic Styles
+    link(rel="stylesheet", href='style/favorite.css')
+
+  body
+
+    //- Mixins
+    include common/mixin.pug
+
+    //- Header
+    include common/header.pug
+
+    main
+
+      section.favorite.container 
+        h1.favorite__title.us-title Избранное
+        ul.favorite__list
+
+          - for(var i = 1; i < 13; i++)
+              li.catalog-sofas__item
+                
+                //- Product
+                - var favorite = true
+
+                include common/sofas-product.pug
+
+    //- Footer
+    include common/footer.pug 

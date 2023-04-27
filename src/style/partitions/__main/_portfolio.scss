@@ -1,41 +1,21 @@
 @import '../../mixins';
 
 .partitions-portfolio {
-  padding-top: 4.7rem;
-  padding-bottom: 17.9rem;
+  padding-top: 4.75rem;
+  padding-bottom: 18rem;
   &__title {
-    margin-bottom: 0 !important;
-    letter-spacing: 0.18rem !important;
+    margin-bottom: 0;
+  }
+  &__btn {
+    padding: 1.75rem 2.65rem;
   }
   &__box {
     @include flex-center-y();
     justify-content: space-between;
-    padding-bottom: 4.6rem;
-  }
-  &__btn {
-    @include flex-center-y();
-    border-radius: 4.9rem;
-    padding: 1.45rem 2.7rem 1.65rem;
-    font-size: 1.8rem;
-    background-color: var(--blue);
-    @include transition(color, var(--white));
-    & svg {
-      @include block-size(0.6rem, 1.1rem);
-      margin-left: 2rem;
-      & > path {
-        @include transition(stroke);
-      }
-    }
-    &:hover,
-    &:active {
-      color: var(--beige-light);
-      & svg > path {
-        stroke: var(--beige-light);
-      }
-    }
+    padding-bottom: 4.5rem;
   }
   @media (max-width: 48em) {
-    padding-top: 5.5rem;
+    padding-top: 5.7rem;
     padding-bottom: 18rem;
     &__box {
       align-items: flex-start;
@@ -43,17 +23,10 @@
       padding-bottom: 4rem;
     }
     &__title {
-      margin-bottom: 8rem !important;
+      margin-bottom: 8rem;
     }
     &__btn {
-      border-radius: 9.8rem;
-      padding: 3rem 5.6rem 3.4rem 5.6rem;
-      font-size: 3.6rem;
-      & svg {
-        @include block-size(1.2rem, 2.6rem);
-        margin-top: 0.7rem;
-        margin-left: 4rem;
-      }
+      padding: 3.65rem 5.4rem;
     }
     &__slider {
       height: 80rem;

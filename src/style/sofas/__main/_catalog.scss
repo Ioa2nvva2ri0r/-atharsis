@@ -109,10 +109,10 @@
       visibility: hidden;
       height: max-content;
       width: 100%;
-      max-width: 26.1rem;
+      max-width: 26rem;
       opacity: 0;
       z-index: 2;
-      padding: 1.9rem 1.6rem 1.9rem 1.5rem;
+      padding: 1.9rem 1.6rem 2.1rem 1.5rem;
       background-color: var(--white);
       transform: translateY(12.85rem);
       @include transitions((visibility, opacity));
@@ -125,42 +125,19 @@
       margin: 0;
       font-size: 1.8rem;
       font-weight: 400;
-      line-height: 2.5rem;
+      line-height: 140%;
     }
     &-img {
       position: relative;
       @include picture(22.9rem, 19.4rem);
       top: -0.8rem;
       left: -0.5rem;
-      margin-bottom: 0.9rem;
-    }
-    &-link {
-      @include flex-center-y();
-      white-space: nowrap;
-      border-radius: 4.9rem;
-      padding: 1.5rem 2.6rem 1.7rem 2.7rem;
-      font-size: 1.8rem;
-      background-color: var(--blue);
-      @include transition(color, var(--white));
-      & svg {
-        @include block-size(0.6rem, 1.1rem);
-        margin-left: 2rem;
-        & > path {
-          @include transition(stroke);
-        }
-      }
-      &:hover,
-      &:active {
-        color: var(--beige-light);
-        & svg > path {
-          stroke: var(--beige-light);
-        }
-      }
+      margin-bottom: 0.8rem;
     }
   }
   @media (max-width: 48em) {
-    padding-top: 8.2rem !important;
-    padding-bottom: 18rem !important;
+    padding-top: 8.2rem;
+    padding-bottom: 18.2rem;
     &__content {
       flex-direction: column-reverse;
       gap: 8rem;
@@ -192,7 +169,7 @@
       &-2,
       &-4 {
         left: 36.5rem;
-        bottom: 19rem;
+        bottom: 19.5rem;
       }
       &-content {
         @include flex-center-y();
@@ -209,7 +186,6 @@
         margin-bottom: 5rem;
         font-size: 3.2rem;
         font-weight: 500;
-        line-height: 4.4rem;
       }
       &-img {
         top: 0;

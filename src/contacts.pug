@@ -1,0 +1,61 @@
+doctype html
+html(lang="ru")
+  head
+    //- Head
+    include common/head.pug
+    
+    title Катарсис - Контакты
+
+    //- Swiper-Slider
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css")
+    script(src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js")
+    //- Basic Styles
+    link(rel="stylesheet", href='style/contacts.css')
+    //- Basic JavaScript
+    script(src="js/contacts.js", defer) 
+
+  body
+
+    //- Mixins
+    include common/mixin.pug
+
+    //- Header
+    include common/header.pug
+
+    main
+
+      section.contacts-banner.container
+        h1.contacts-banner__title.us-title Наши контакты
+        .contacts-banner__img
+
+      section.contacts-slider.container
+        .contacts-slider__box-title 
+          h2.contacts-slider__title.us-title Магазины на карте
+          .contacts-slider__box-btn
+            button.contacts-slider__btn.contacts-slider__btn-prev
+              +icon("arrow-1") 
+            button.contacts-slider__btn.contacts-slider__btn-next
+              +icon("arrow-1")
+        .contacts-slider__slider.swiper
+          .swiper-wrapper
+            //- Data addresses
+            - var addresses = ["Расточная, 24 А", "Новинский бульвар, 18с1", "ул. Таганская, 26 А", "ул. Расточная, 24 А", "Расточная, 24 А", "ул. Таганская, 26 А"]
+
+            each address in addresses
+              button.contacts-slider__address.swiper-slide
+                span= address
+
+
+      //- Contacts-map
+      - var contactTitle = true
+      - var cssClassContactsMap = "contacts-main"
+
+      include common/contacts-map.pug 
+
+      //- Common-form
+      - var cssClassForm = "contacts-form"
+
+      include common/common-form.pug  
+
+    //- Footer
+    include common/footer.pug 

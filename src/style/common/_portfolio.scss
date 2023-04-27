@@ -12,11 +12,6 @@
     &-box {
       @include flex-center-y();
     }
-    &:nth-child(2) {
-      & .portfolio__title {
-        letter-spacing: 0.2rem !important;
-      }
-    }
     &:hover,
     &:active {
       & .portfolio__subtitle,
@@ -42,22 +37,12 @@
   }
   &__subtitle,
   &__img-box {
-    margin-right: 3.35rem;
+    margin-right: 3.55rem;
   }
   &__subtitle,
   &__title {
-    margin-bottom: 0 !important;
+    margin-bottom: 0;
     @include transition(color);
-  }
-  &__subtitle,
-  &__title {
-    font-family: 'Garamond', serif;
-    font-weight: 400;
-  }
-  &__title {
-    &::first-line {
-      letter-spacing: 0.2rem;
-    }
   }
   &__img {
     display: initial;
@@ -88,31 +73,8 @@
   &__title {
     max-width: 55rem;
   }
-  &__btn {
-    @include flex-center-y();
-    white-space: nowrap;
-    border-radius: 4.9rem;
-    padding: 1.5rem 2.8rem 1.7rem 2.8rem;
-    font-size: 1.8rem;
-    background-color: var(--blue);
-    @include transition(color, var(--white));
-    & svg {
-      @include block-size(0.6rem, 1.1rem);
-      margin-left: 2rem;
-      & > path {
-        @include transition(stroke);
-      }
-    }
-    &:hover,
-    &:active {
-      color: var(--beige-light);
-      & svg > path {
-        stroke: var(--beige-light);
-      }
-    }
-  }
   @media (max-width: 48em) {
-    padding-bottom: 18.3rem;
+    padding-bottom: 18.4rem;
     &__item {
       height: auto;
       padding: 4rem 0;
@@ -127,9 +89,6 @@
       }
       &:nth-child(2) {
         border-top: 0.2rem solid var(--grey);
-        & .portfolio__title {
-          letter-spacing: 0.2rem !important;
-        }
       }
       &:hover,
       &:active {
@@ -147,7 +106,7 @@
       &-box {
         width: 100%;
         margin-right: 0;
-        margin-bottom: 3.9rem;
+        margin-bottom: 4.1rem;
       }
       &-duplicate {
         display: none;
@@ -155,27 +114,12 @@
     }
     &__subtitle {
       order: -2;
-      margin-bottom: 1.9rem !important;
+      margin-bottom: 1.95rem;
     }
     &__title {
       order: -1;
       max-width: initial;
-      margin-bottom: 4rem !important;
-      line-height: 6.55rem !important;
-      letter-spacing: 0.05rem !important;
-      &::first-line {
-        letter-spacing: 0.2rem !important;
-      }
-    }
-    &__btn {
-      border-radius: 9.8rem;
-      padding: 3rem 5.6rem 3.4rem 5.6rem;
-      font-size: 3.6rem;
-      & svg {
-        @include block-size(1.2rem, 2.6rem);
-        margin-top: 0.7rem;
-        margin-left: 4rem;
-      }
+      margin-bottom: 4rem;
     }
   }
 }

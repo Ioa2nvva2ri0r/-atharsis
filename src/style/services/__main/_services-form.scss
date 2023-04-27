@@ -1,13 +1,13 @@
 .services-form {
   &__form {
-    padding-top: 15.35rem;
+    padding-top: 15.4rem;
     padding-bottom: 13.4rem;
   }
   &__title {
-    letter-spacing: 0.11rem !important;
+    margin-bottom: 1.8rem;
   }
   &__desc {
-    margin-bottom: 4.7rem;
+    margin-bottom: 4.85rem;
     letter-spacing: 0.005rem;
   }
   &__img {
@@ -15,15 +15,21 @@
   }
   @media (max-width: 48em) {
     &__form {
-      padding-top: 7.7rem;
+      padding-top: 7.8rem;
       padding-bottom: 8rem;
     }
+    &__title {
+      margin-bottom: 2.4rem;
+    }
     &__desc {
-      margin-bottom: 8.5rem;
+      margin-bottom: 8.8rem;
     }
     &__label {
       &:not(:last-child) {
         margin-bottom: 8rem;
+      }
+      &:last-child {
+        margin-bottom: 7.8rem;
       }
     }
     &__input {
@@ -33,7 +39,7 @@
       }
     }
     &__btn {
-      margin-bottom: 4rem;
+      margin-bottom: 3.7rem;
       font-size: 3.2rem;
     }
   }

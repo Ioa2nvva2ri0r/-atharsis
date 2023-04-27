@@ -3,13 +3,13 @@
 .search-form {
   &__form {
     padding-top: 13.1rem;
-    padding-bottom: 13.1rem;
+    padding-bottom: 13.2rem;
   }
   &__title {
-    letter-spacing: 0.2rem !important;
+    margin-bottom: 1.8rem;
   }
   &__desc {
-    margin-bottom: 4.7rem;
+    margin-bottom: 4.9rem;
     letter-spacing: 0.005rem;
   }
   &__img {
@@ -54,11 +54,8 @@
   }
   @media (max-width: 48em) {
     &__form {
-      padding-top: 7.5rem;
-      padding-bottom: 8rem;
-    }
-    &__title {
-      letter-spacing: 0.2rem !important;
+      padding-top: 7.7rem;
+      padding-bottom: 8.2rem;
     }
     &__desc {
       margin-bottom: 7.9rem;

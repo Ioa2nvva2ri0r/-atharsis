@@ -1,7 +1,7 @@
 //- Mixins
 include mixin.pug
 
-section.common-form.container
+section.common-form.container(class=`${cssClassForm || "application"}`)
   picture
     source(class=`${cssClassForm || "application"}__img` srcset=`img/${imageForm || "application"}/1.png`).common-form__img
     img(class=`${cssClassForm || "application"}__img` src=`img/${imageForm || "application"}/1.png`, alt="Изображение формы").common-form__img
@@ -16,7 +16,7 @@ section.common-form.container
             span= item.placeholder
             input(class=`${cssClassForm || "application"}__input`, id= item.id, type= item.type, name= item.name, placeholder= item.placeholder).common-form__input
       .common-form__box-btn(class=`${cssClassForm || "application"}__box-btn`)
-        button.common-form__btn(class=`${cssClassForm || "application"}__btn`) 
+        button.common-form__btn.us-btn(class=`${cssClassForm || "application"}__btn`) 
           | Отправить
           +icon('arrow-2')
         p.common-form__btn-desc(class=`${cssClassForm || "application"}__btn-desc`)
@@ -27,7 +27,7 @@ section.common-form.container
   .popup__box#popup-box
     h2.popup__title.us-title Заявка отправлена
     p.popup__desc Ваша заявка была успешно отправлена. Наши менеджеры свяжутся с Вами в ближайшее время
-    a.popup__link(href="index.html")
+    a.popup__link.us-btn(href="index.html")
       | На главную
       +icon("arrow-2")
     button.popup__close#popup-close(aria-label="Закрыть")

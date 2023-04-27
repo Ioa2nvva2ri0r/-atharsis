@@ -13,6 +13,6 @@ section.portfolio.container(class=`${cssClassPortfolio || 'portfolio-main'}`)
             img(class=`${cssClassPortfolio || 'portfolio-main'}__img`, src=`img/${imagePath}/${index + 1}.png`, alt=`Изображение-${index + 1}`).portfolio__img
           .portfolio__img-duplicate(class=`${cssClassPortfolio || 'portfolio-main'}__img-duplicate`, style=`background-image: url("img/${imagePath}/${index + 1}.png")`)
           h3.portfolio__title.us-title(class=`${cssClassPortfolio || 'portfolio-main'}__title`)= item.title
-        a(class=`${cssClassPortfolio || 'portfolio-main'}__btn`, href= item.href).portfolio__btn
+        a(class=`${cssClassPortfolio || 'portfolio-main'}__btn`, href= item.href).portfolio__btn.us-btn
           = descLink
           +icon("arrow-2") 

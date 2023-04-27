@@ -23,16 +23,10 @@
     max-width: 50.5rem;
     padding-top: 6.25rem;
   }
-  &__title {
-    letter-spacing: 0 !important;
-    &::first-line {
-      letter-spacing: 0.17rem;
-    }
-  }
   &__desc {
     margin: 0 0 4.4rem 0;
     font-size: 1.8rem;
-    line-height: 2.5rem;
+    line-height: 140%;
     letter-spacing: 0.005rem;
   }
   &__btn {
@@ -92,15 +86,11 @@
       padding-top: 4.8rem;
     }
     &__title {
-      margin-bottom: 3.8rem !important;
-      &::first-line {
-        letter-spacing: 0.2rem;
-      }
+      margin-bottom: 3.4rem;
     }
     &__desc {
       margin-bottom: 6.4rem;
       font-size: 3.2rem;
-      line-height: 4.4rem;
     }
     &__btn {
       font-size: 3.2rem;

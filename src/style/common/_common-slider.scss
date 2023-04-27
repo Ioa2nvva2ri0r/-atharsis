@@ -10,9 +10,6 @@
       padding-top: 0.5rem;
     }
   }
-  &__title {
-    letter-spacing: 0.165rem !important;
-  }
   &__slider {
     padding-bottom: 4.5rem;
   }
@@ -53,15 +50,13 @@
     }
   }
   @media (max-width: 48em) {
-    padding-right: 0 !important;
-    padding-bottom: 17.6rem !important;
+    padding-right: 0;
+    padding-bottom: 17.5rem;
     &__title {
       padding-right: 3rem;
-      margin-bottom: 8.2rem !important;
-      letter-spacing: 0.18rem !important;
     }
     &__slider {
-      padding-bottom: 8.7rem;
+      padding-bottom: 8.6rem;
     }
     &__box-btn {
       display: none;

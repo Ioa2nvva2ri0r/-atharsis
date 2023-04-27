@@ -1,0 +1,29 @@
+doctype html
+html(lang="ru")
+  head
+    //- Head
+    include common/head.pug
+    
+    title Катарсис - Ошибка
+
+    //- Basic Styles
+    link(rel="stylesheet", href='style/404.css')
+
+  body
+
+    //- Mixins
+    include common/mixin.pug
+
+    //- Header
+    include common/header.pug
+
+    main
+
+      section.error.container 
+        .error__img 
+        .error__content 
+          h1.error__title.us-title Ошибка 404
+          p.error__desc Кажется что-то пошло не так! Страница, которую вы&nbsp;запрашиваете, не существует. Возможно она устарела, была удалена, или был введен неверный адрес в адресной строке.
+          a(href="main.html").error__btn.us-btn
+            | Перейти на главную
+            +icon("arrow-2")  

@@ -1,0 +1,55 @@
+// Common block
+@import './common';
+
+.error {
+  position: relative;
+  padding-top: 1.9rem;
+  @include flex-center-y();
+  &__img {
+    @include block-size(81.9rem, 75.2rem);
+    margin-left: -4rem;
+    background-image: url('../img/error/1.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  &__content {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    max-width: 59rem;
+    font-weight: 500;
+    padding-bottom: 6.8rem;
+    padding-left: 3.6rem;
+  }
+  &__title {
+    margin-bottom: 4.4rem;
+  }
+  &__desc {
+    margin: 0 0 4.6rem;
+    font-size: 1.8rem;
+    line-height: 140%;
+  }
+  @media (max-width: 48em) {
+    align-items: flex-start;
+    min-height: 147rem;
+    &__img {
+      position: absolute;
+      top: -4.2rem;
+      @include block-size(75rem, 151.4rem);
+      background-image: url('../img/error/2.png');
+    }
+    &__content {
+      max-width: 57rem;
+      padding: 41.2rem 0 0 0;
+    }
+    &__title {
+      margin-bottom: 5.5rem;
+    }
+    &__desc {
+      margin-bottom: 6rem;
+      font-size: 3.2rem;
+    }
+  }
+}

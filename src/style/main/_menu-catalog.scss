@@ -10,7 +10,7 @@
   @include transition(all);
   &__container {
     display: flex;
-    width: 100% !important;
+    width: 100%;
   }
   &__list {
     display: grid;
@@ -213,8 +213,7 @@
   }
   &__title {
     margin-bottom: 4rem;
-    font-size: 3.55rem !important;
-    letter-spacing: 0.05rem !important;
+    font-size: 3.5rem;
     color: var(--white);
   }
   &__list {
@@ -260,7 +259,7 @@
       visibility: visible;
       max-height: 1000rem;
       opacity: 1;
-      padding: 4.9rem 4rem 9rem;
+      padding: 4.85rem 4rem 9rem;
     }
     &__close {
       display: none;
@@ -298,19 +297,16 @@
       }
     }
     &__title {
-      margin-bottom: 8.1rem !important;
-      font-size: 6rem !important;
-      letter-spacing: 0.47rem !important;
-      &::first-line {
-        letter-spacing: 0.06rem !important;
-      }
+      margin-bottom: 8.1rem;
+      font-size: 6rem;
     }
     &__list {
       grid-template-columns: 1fr;
-      gap: 8.1rem;
+      gap: 8.45rem;
     }
     &__img {
       @include block-size(67rem, 50rem);
+      margin-bottom: 1.5rem;
     }
     &__link {
       font-size: 3.2rem;

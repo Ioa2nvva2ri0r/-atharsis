@@ -5,16 +5,14 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
     gap: 3rem;
-    height: 100%;
     min-width: 51.1rem;
   }
   &__card {
     background-color: var(--white);
     &-img {
-      @include picture(100%);
+      @include picture(100%, 13.8rem);
       position: relative;
-      max-height: 13.8rem;
-      margin-bottom: 2.1rem;
+      margin-bottom: 2.2rem;
       @include transition(transform, scale(1));
     }
     &-link {
@@ -24,7 +22,7 @@
       overflow: hidden;
       height: 100%;
       min-height: 24rem;
-      padding: 4.7rem 0.5rem 1.5rem 0.5rem;
+      padding: 4.2rem 1.2rem 1.5rem;
       @include transition(background-color);
       &:hover,
       &:active {
@@ -40,8 +38,9 @@
     &-desc {
       position: relative;
       text-transform: uppercase;
-      top: -0.2rem;
+      top: -0.1rem;
       margin-inline-start: 0.3rem;
+      line-height: 2rem;
       letter-spacing: 0.15em;
       @include transition(color, var(--black));
     }
@@ -62,22 +61,29 @@
           height: 16rem;
         }
       }
+      &:nth-child(3) {
+        & .catalog__card-img {
+          top: 0.4rem;
+          margin-bottom: 1.95rem;
+        }
+      }
       &:nth-child(4) {
         & .catalog__card-img {
           top: 0.6rem;
-          max-height: 21.4rem;
+          height: 21.4rem;
+          margin-bottom: 0;
         }
       }
       &:nth-child(5) {
         & .catalog__card-img {
           top: 1rem;
-          max-height: 19rem;
+          height: 19rem;
         }
       }
       &:nth-child(6) {
         & .catalog__card-img {
           top: 1.5rem;
-          max-height: 17.5rem;
+          height: 17.5rem;
         }
       }
       &:nth-child(5),
@@ -90,16 +96,17 @@
         }
       }
       &-link {
-        padding: 2.8rem 1rem 4.4rem;
+        padding: 2.65rem 1rem 4.4rem;
       }
       &-img {
-        max-height: 20rem;
+        height: 20rem;
         margin-bottom: 2.3rem;
       }
       &-desc {
         top: 0.2rem;
         margin-inline-start: 0.2rem;
         font-weight: 600;
+        line-height: 3.4rem;
       }
     }
   }
