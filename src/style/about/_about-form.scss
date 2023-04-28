@@ -1,0 +1,134 @@
+@import '../mixins';
+
+.about-form {
+  margin-bottom: 18rem;
+  &__form {
+    width: 94.5rem;
+  }
+  &__container {
+    max-width: 71.5rem;
+  }
+  &__desc {
+    margin-bottom: 4.9rem;
+  }
+  &__label {
+    &[for='review'] {
+      padding-bottom: 1.15rem;
+      border-bottom: 0.1rem solid var(--white);
+    }
+    &[for='stars'] {
+      cursor: initial;
+      @include flex-center-y();
+      padding-top: 0.25rem;
+      margin-bottom: 6.55rem;
+      & span {
+        display: block;
+        text-transform: uppercase;
+        @include block-size(initial);
+        margin-right: 12.5rem;
+        font-size: 1.6rem;
+        line-height: 2rem;
+        letter-spacing: 0.15em;
+        color: var(--white);
+      }
+      & .about-form__label-box {
+        top: 0.3rem;
+        & label {
+          position: relative;
+          cursor: pointer;
+        }
+        & input {
+          position: absolute;
+          overflow: hidden;
+          z-index: -1;
+          @include block-size(0);
+        }
+        & svg {
+          @include block-size(1.78rem, 1.72rem);
+          margin-right: 0.4rem;
+          & > path {
+            @include transition(fill);
+          }
+        }
+        & label.active {
+          & svg > path {
+            fill: url('#paint0_linear_1300_790');
+          }
+        }
+      }
+    }
+  }
+  &__input {
+    border-color: var(--white);
+    &[id='review'] {
+      overflow: hidden;
+      overflow-y: scroll;
+      resize: none;
+      height: 2rem;
+      border: 0;
+      padding: 0 2rem 0 0;
+      @include transition(all);
+      &::-webkit-scrollbar {
+        width: 0.4rem;
+      }
+      &::-webkit-scrollbar-track,
+      &::-webkit-scrollbar-thumb {
+        @include transition(background-color, transparent);
+      }
+      &.active-height {
+        height: 12rem;
+      }
+      &.active-scroll {
+        &::-webkit-scrollbar-track {
+          background-color: var(--white);
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: var(--grey);
+        }
+      }
+    }
+  }
+  &__box-btn {
+    justify-content: flex-start;
+  }
+  &__btn {
+    margin-right: 3rem;
+  }
+  @media (max-width: 48em) {
+    &__form {
+      width: 100%;
+    }
+    &__title {
+      margin-bottom: 2.6rem;
+    }
+    &__desc {
+      margin-bottom: 8.5rem;
+    }
+    &__label {
+      &[for='review'] {
+        padding-bottom: 2.5rem;
+        border-width: 0.2rem;
+      }
+      &:last-child {
+        display: none;
+      }
+    }
+    &__input {
+      &[id='review'] {
+        height: 4rem;
+        padding: 0.1rem 1rem 0 0;
+        line-height: 3.3rem;
+        & {
+          font-size: 2.8rem;
+          line-height: 3.4rem;
+        }
+        &::-webkit-scrollbar {
+          width: 0.8rem;
+        }
+        &.active-height {
+          height: 40.8rem;
+        }
+      }
+    }
+  }
+}

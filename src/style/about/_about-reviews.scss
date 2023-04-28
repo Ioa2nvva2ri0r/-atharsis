@@ -1,0 +1,163 @@
+@import '../mixins';
+
+.about-reviews {
+  padding-bottom: 17.6rem;
+  &__box {
+    &-title {
+      display: flex;
+      justify-content: space-between;
+    }
+    &-btn {
+      display: flex;
+      padding-top: 0.5rem;
+    }
+  }
+  &__title {
+    margin-bottom: 4.3rem;
+  }
+  &__slider {
+    padding-bottom: 5rem;
+  }
+  &__scrollbar {
+    cursor: pointer;
+    left: 0 !important;
+    width: 100% !important;
+    & > .swiper-scrollbar-drag {
+      background: var(--grey) !important;
+    }
+  }
+  &__btn {
+    @include flex-center-center();
+    @include block-size(5.6rem);
+    border: 0.1rem solid var(--black);
+    border-radius: 100%;
+    @include transitions((border-color, background-color));
+    & svg {
+      @include block-size(0.6rem, 1.1rem);
+      & > path {
+        @include transition(stroke, var(--black));
+      }
+    }
+    &:first-child {
+      margin-right: 1.5rem;
+      & svg {
+        transform-origin: center center;
+        transform: rotate(180deg);
+      }
+    }
+    &:hover,
+    &:active {
+      border-color: var(--blue);
+      background-color: var(--blue);
+      & svg > path {
+        stroke: var(--white);
+      }
+    }
+  }
+  &__user {
+    &-card {
+      display: flex;
+      width: 100%;
+      max-width: 78.5rem;
+    }
+    &-img {
+      @include picture(8rem);
+      min-width: 8rem;
+      &-box {
+        margin: 0.2rem 3rem 0 0;
+      }
+    }
+    &-desc,
+    &-name {
+      font-weight: 500;
+      font-size: 1.8rem;
+      line-height: 140%;
+    }
+    &-desc {
+      margin: 0 0 1.95rem;
+    }
+    &-box {
+      display: flex;
+      flex-direction: column;
+      & div {
+        @include flex-center-y();
+      }
+    }
+    &-name {
+      display: block;
+      margin-bottom: 0.7rem;
+      color: var(--grey);
+    }
+    &-date {
+      text-transform: uppercase;
+      margin-right: 1rem;
+      font-size: 1.6rem;
+      font-weight: 600;
+      line-height: 2rem;
+      letter-spacing: 0.15em;
+    }
+    &-rating {
+      position: relative;
+      display: block;
+      top: 0.15rem;
+      & svg {
+        @include block-size(1.78rem, 1.72rem);
+        &:not(:last-child) {
+          margin-right: 0.4rem;
+        }
+      }
+      & svg.active-star > path {
+        fill: url('#paint0_linear_1300_790');
+      }
+    }
+  }
+  @media (max-width: 48em) {
+    padding-bottom: 17.1rem;
+    &__box-btn {
+      display: none;
+    }
+    &__title {
+      margin-bottom: 8.1rem;
+    }
+    &__slider {
+      padding-bottom: 10.6rem;
+    }
+    &__user {
+      &-card {
+        display: flex;
+        flex-direction: column;
+      }
+      &-img {
+        @include picture(16rem);
+        min-width: 16rem;
+        &-box {
+          margin: 0 0 3.6rem;
+        }
+      }
+      &-desc,
+      &-name {
+        font-size: 3.6rem;
+      }
+      &-desc {
+        margin-bottom: 3.7rem;
+      }
+      &-name {
+        margin-bottom: 1.4rem;
+      }
+      &-date {
+        margin-right: 2rem;
+        font-size: 3.2rem;
+        line-height: 4rem;
+      }
+      &-rating {
+        top: 0.3rem;
+        & svg {
+          @include block-size(3.56rem, 3.44rem);
+          &:not(:last-child) {
+            margin-right: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}

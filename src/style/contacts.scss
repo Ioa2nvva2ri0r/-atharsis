@@ -98,7 +98,7 @@
     overflow: hidden;
     width: 100%;
     max-width: 37.8rem;
-    padding: 1.5rem 4rem 1.7rem;
+    padding: 1.5rem 4rem 1rem;
     font-size: 1.8rem;
     font-weight: 500;
     line-height: 140%;
@@ -141,13 +141,26 @@
 
 .contacts-main {
   & .contacts-map {
-    min-height: 49.5rem;
     &__content {
+      overflow: hidden;
+      height: 49.5rem;
       max-width: 51.3rem;
-      padding: 7.85rem 4rem 7.3rem;
+      padding: 7.85rem 4rem 4rem;
     }
     &__map {
       height: 49.5rem;
+    }
+  }
+  &__tab {
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+    @include transition(all);
+    &.active {
+      visibility: visible;
+      opacity: 1;
+      max-height: 100rem;
     }
   }
   @media (max-width: 48em) {
@@ -156,6 +169,7 @@
     }
     & .contacts-map {
       &__content {
+        height: 73.8rem;
         max-width: initial;
         padding: 7.55rem 5rem 8.1rem 4rem;
       }

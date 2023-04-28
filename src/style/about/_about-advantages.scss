@@ -1,0 +1,83 @@
+@import '../mixins';
+
+.about-advantages {
+  padding-top: 5.8rem;
+  padding-bottom: 18.1rem;
+  &__content {
+    max-width: 80rem;
+    padding-bottom: 4.5rem;
+  }
+  &__title {
+    margin-bottom: 4.3rem;
+  }
+  &__desc {
+    padding-right: 0.1rem;
+    &,
+    &-main {
+      font-size: 1.8rem;
+      line-height: 140%;
+    }
+    &-main {
+      position: relative;
+      max-width: 55rem;
+      margin-bottom: 0;
+      padding-bottom: 4.6rem;
+      &::after {
+        position: absolute;
+        content: '';
+        left: 0;
+        bottom: 0;
+        @include block-size(10rem, 0.1rem);
+        background: linear-gradient(
+          135deg,
+          var(--beige) 0%,
+          var(--beige-light) 52.4%,
+          var(--beige) 100%
+        );
+      }
+    }
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(51.3rem, 1fr));
+    gap: 3rem;
+  }
+  &__item {
+    & svg {
+      @include block-size(5rem);
+      margin-bottom: 1.6rem;
+    }
+  }
+  @media (max-width: 48em) {
+    padding-top: 18.1rem;
+    &__content {
+      padding-bottom: 8.2rem;
+    }
+    &__title {
+      margin-bottom: 7.6rem;
+    }
+    &__desc {
+      &,
+      &-main {
+        font-size: 3.2rem;
+      }
+      &-main {
+        max-width: initial;
+        padding-bottom: 8rem;
+        &::after {
+          @include block-size(20rem, 0.2rem);
+        }
+      }
+    }
+    &__list {
+      grid-template-columns: 1fr;
+      gap: 8.4rem;
+    }
+    &__item {
+      & svg {
+        @include block-size(9.7rem);
+        margin-bottom: 0.9rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+doctype html
+html(lang="ru")
+  head
+
+    //- Head
+    include common/head.pug
+    
+    title Катарсис - Корзина
+
+    //- Swiper-Slider
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css")
+    script(src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js")
+    //- Basic Styles
+    link(rel="stylesheet", href='style/basket.css')
+
+  body
+
+    //- Mixins
+    include common/mixin.pug
+
+    //- Header
+    include common/header.pug
+
+    main
+
+      section.basket.container 
+        h1.basket__title.us-title Корзина
+        .basket__header
+
+          each title, index in ["Товар", "Количество", "Стоимость"] 
+            h3(class=`basket__header-title-${index + 1}`).basket__header-title= title
+        form.basket__form
+          ul.basket__list 
+
+            - for(var product = 1; product < 5; product++)
+              li.basket__card 
+                picture.basket__card-box-img
+                  source(srcset=`img/popular/${product}.png`).basket__card-img
+                  img(src=`img/popular/${product}.png`, alt=`Продукт-${product}`).basket__card-img
+                .basket__card-content 
+                  .basket__card-box-title 
+                    h4.basket__card-title
+                      a(href="sofas-product.html") Кресло
+                    p.basket__card-desc Кресло SILLA NEGRA black edition
+                  .basket__card-box-btn
+                    button.basket__card-btn-away.sofas-product__basket-away(type="button", aria-label="Отнять")
+                      +icon("minus")
+                    label(for="basket-count").basket__card-count.sofas-product__basket-count
+                      span Количество
+                      input(id="basket-count", type="number", value="1")
+                    button.basket__card-btn-add.sofas-product__basket-add(type="button", aria-label="Добавить")
+                      +icon("plus")
+                  strong.basket__card-price 
+                    | 7 000 
+                    sup ₽
+                  button.basket__card-btn-delete
+                    +icon("close")
+          .basket__total-box 
+            strong.basket__total
+              | Сумма вашего заказа:
+              span.basket__total-price
+                | 28 000
+                sup ₽
+            a(href="order.html").basket__total-btn.us-btn
+              | Оформить заказ
+              +icon("arrow-2") 
+
+
+      //- Popular
+      - var titleSlider = "Популярные товары"
+      - var cardSlider = "sofas"
+
+      include common/common-slider.pug  
+
+
+    //- Footer
+    include common/footer.pug 

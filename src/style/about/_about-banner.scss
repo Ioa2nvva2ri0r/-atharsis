@@ -1,0 +1,141 @@
+@import '../mixins';
+
+.about {
+  &,
+  &__container {
+    position: relative;
+  }
+  &__title,
+  &__desc-main,
+  &__desc-1,
+  &__desc-2 {
+    color: var(--white);
+  }
+  &__container {
+    z-index: 2;
+  }
+  &__img {
+    @include picture(51.3rem, 52.7rem);
+    bottom: -162.8px;
+    right: 0;
+    &,
+    &-background {
+      position: absolute;
+    }
+    &-background {
+      top: 0;
+      left: 0;
+      z-index: 1;
+      @include block-size(100%, 71.2rem);
+      background-image: url('../../img/about/main.png');
+      background-position: center 100%;
+      background-size: cover;
+    }
+  }
+  &__content {
+    &-1 {
+      padding-top: 18rem;
+      max-width: 75rem;
+    }
+    &-2 {
+      position: relative;
+      top: -12.3rem;
+      width: 100%;
+      max-width: 81.5rem;
+      padding: 8.5rem 8rem 8.6rem;
+      background-color: var(--blue);
+    }
+  }
+  &__title {
+    margin-bottom: 1.4rem;
+  }
+  &__desc {
+    &-main,
+    &-2 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      line-height: 2.5rem;
+    }
+    &-main {
+      width: 100%;
+      max-width: 55rem;
+    }
+    &-1 {
+      margin: 0 0 4.3rem;
+      padding-right: 1rem;
+      font-family: 'Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 400;
+      line-height: 3.91rem;
+    }
+    &-2 {
+      margin-bottom: 0;
+    }
+  }
+  &__socials {
+    &-list {
+      padding-top: 28.3rem;
+      justify-content: flex-end;
+    }
+    &-item {
+      &:not(:last-child) {
+        margin-right: 4.55rem;
+      }
+    }
+    &-link {
+      @include block-size(4.55rem);
+    }
+  }
+  @media (max-width: 48em) {
+    &__img {
+      &-background {
+        height: 105rem;
+        background-position: -44% 100%;
+      }
+    }
+    &__content {
+      &-1 {
+        max-width: initial;
+        padding-top: 8rem;
+      }
+      &-2 {
+        top: 0;
+        margin-bottom: 8rem;
+        padding: 8rem 4rem;
+      }
+    }
+    &__title {
+      margin-bottom: 1.6rem;
+    }
+    &__desc {
+      &-main,
+      &-2 {
+        font-size: 3.2rem;
+        font-weight: 400;
+        line-height: 4.4rem;
+      }
+      &-main {
+        max-width: 64rem;
+      }
+      &-1 {
+        margin-bottom: 3.8rem;
+        padding-right: 0;
+        font-size: 5rem;
+        line-height: 5.6rem;
+      }
+    }
+    &__socials {
+      &-list {
+        justify-content: space-between;
+        padding: 37.7rem 0 4.5rem;
+      }
+      &-link {
+        @include block-size(8.5rem);
+      }
+    }
+    &__img {
+      position: static;
+      @include block-size(100%, 67rem);
+    }
+  }
+}

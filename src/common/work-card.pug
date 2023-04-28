@@ -5,7 +5,7 @@ include mixin.pug
   .work-card__content(class=`${cssClassCard || "services"}-card__content`)
     strong.work-card__subtitle(class=`${cssClassCard || "services"}-card__subtitle`)= subtitleCard 
     h3.work-card__title(class=`${cssClassCard || "services"}-card__title`)= titleCard 
-    a(href= hrefCard).work-card__link(class=`${cssClassCard || "services"}-card__link`)
+    a(href= hrefCard class=`${cssClassCard || "services"}-card__link`).work-card__link
       | Посмотреть проект
       +icon("arrow-1") 
   picture

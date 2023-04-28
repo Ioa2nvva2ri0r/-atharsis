@@ -4,8 +4,8 @@ include mixin.pug
 section.common-desc.container(class=`${cssClassDesc || "services"}-desc`)
   .common-desc__container(class=`${cssClassDesc || "services"}-desc__container`)  
     picture
-      source(srcset=`img/${imageDesc}`).common-desc__img(class=`${cssClassDesc || "services"}-desc__img`)
-      img(src=`img/${imageDesc}`, alt="Изображение").common-desc__img(class=`${cssClassDesc || "services"}-desc__img`)
+      source(class=`${cssClassDesc || "services"}-desc__img`, srcset=`img/${imageDesc}`).common-desc__img
+      img(class=`${cssClassDesc || "services"}-desc__img`, src=`img/${imageDesc}`, alt="Изображение").common-desc__img
     .common-desc__content(class=`${cssClassDesc || "services"}-desc__content`)
       p.common-desc__desc-1(class=`${cssClassDesc || "services"}-desc__desc-1`)= desc1
       p.common-desc__desc-2(class=`${cssClassDesc || "services"}-desc__desc-2`)= desc2

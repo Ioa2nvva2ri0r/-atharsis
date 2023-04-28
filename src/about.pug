@@ -1,0 +1,105 @@
+doctype html
+html(lang="ru")
+  head
+
+    //- Head
+    include common/head.pug
+    
+    title Катарсис - О компании
+
+    //- Swiper-Slider
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css")
+    script(src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js")
+    //- Basic Styles
+    link(rel="stylesheet", href='style/about.css')
+    //- Basic JavaScript
+    script(src="js/about.js", defer) 
+
+  body
+
+    //- Mixins
+    include common/mixin.pug
+
+    //- Header
+    include common/header.pug
+
+    main
+
+      section.about
+        .about__img-background
+        .about__container.container
+          .about__content-1 
+            h1.about__title.us-title Название компании
+            p.about__desc-main Наша компания сотрудничает с дизайнерами, российскими и&nbsp;европейскими мебельными фабриками.
+          ul.socials__list.about__socials-list
+            //- Data socials
+            - var socials = [{id: 'vkontakte', href: 'https://vk.com/'}, {id: 'whatsapp', href: 'https://www.whatsapp.com/'}, {id: 'telegram', href: 'https://t.me/NIK_NAME'}, {id: 'phone', href: 'tel:+89999999999'}]
+
+            each objSocials in socials
+              li.socials__item.about__socials-item 
+                a.socials__link.about__socials-link(href= objSocials.href, aria-label=objSocials.id)
+                  +icon(objSocials.id)
+          .about__content-2
+            p.about__desc-1 Наша компания сотрудничает с&nbsp;дизайнерами, российскими и европейскими мебельными фабриками, чтобы вы могли купить оригинальную дизайнерскую мебель в Москве или заказать доставку в другие регионы. 
+            p.about__desc-2 Наша компания сотрудничает с дизайнерами, российскими и европейскими мебельными фабриками, чтобы вы могли купить оригинальную дизайнерскую мебель в Москве или заказать доставку в другие регионы. Наша компания сотрудничает с дизайнерами, российскими и европейскими мебельными фабриками, чтобы вы могли купить оригинальную дизайнерскую мебель в Москве или заказать доставку в другие регионы.
+          picture
+            source.about__img(srcset="img/about/2.png")
+            img.about__img(src="img/about/2.png", alt="Изображение")
+      
+      section.about-advantages.container
+        .about-advantages__content
+          h2.about-advantages__title.us-title Наши преимущества
+          p.about-advantages__desc-main Наша компания сотрудничает с дизайнерами, российскими и&nbsp;европейскими мебельными фабриками, чтобы вы могли купить оригинальную дизайнерскую мебель.
+        ul.about-advantages__list
+
+          //- Data advantages
+          - var dataAdvantages = [{id: "quality", desc: "Мы не экономим на качестве, поэтому выбираем материалы проверенные производителей и надежных поставщиков, с которыми работаем со дня основания компании. Мы не экономим на качестве, поэтому выбираем."}, {id: "experience", desc: "Мы не экономим на качестве, поэтому выбираем материалы проверенные производителей и надежных поставщиков, с которыми работаем со дня основания компании. Мы не экономим на качестве, поэтому выбираем."}, {id: "selection", desc: "Мы не экономим на качестве, поэтому выбираем материалы проверенные производителей и надежных поставщиков, с которыми работаем со дня основания компании. Мы не экономим на качестве, поэтому выбираем."}]
+
+          each item in dataAdvantages
+            li.about-advantages__item 
+              +icon(item.id)
+              p.about-advantages__desc= item.desc
+
+      section.about-reviews.container 
+        .about-reviews__box-title 
+          h2.about-reviews__title.us-title Отзывы
+          .about-reviews__box-btn
+            button.about-reviews__btn.about-reviews__btn-prev
+              +icon("arrow-1") 
+            button.about-reviews__btn.about-reviews__btn-next
+              +icon("arrow-1")
+        .about-reviews__slider.swiper
+          .swiper-wrapper
+
+            each desc in ["Долго искали где заказать. Нужно было экономично и хорошо. Остановились на Вереск. Очень слаженная работа на всех этапах. Сначала хотели сделать по индивидуальным меркам сделать. В итоге оказалось что почти то, что мы хотим могут сделать из готовых вариантов. Все по срокам. Приехал замерщик, все померил, показал какие есть текстуры.", "Долго искали где заказать. Нужно было экономично и хорошо. Остановились на Вереск. Очень слаженная работа на всех этапах. Сначала хотели сделать по индивидуальным меркам сделать.", "Долго искали где заказать. Нужно было экономично и хорошо. Остановились на Вереск. Очень слаженная работа на всех этапах. Сначала хотели сделать по индивидуальным меркам сделать. В итоге оказалось что почти то, что мы хотим могут сделать из готовых вариантов. Все по срокам. Приехал замерщик, все померил, показал какие есть текстуры.", "Долго искали где заказать. Нужно было экономично и хорошо. Остановились на Вереск. Очень слаженная работа на всех этапах. Сначала хотели сделать по индивидуальным меркам сделать."]
+              .about-reviews__user-card.swiper-slide
+                picture.about-reviews__user-img-box
+                  source.about-reviews__user-img(srcset="img/about/user.png")
+                  img.about-reviews__user-img(src="img/about/user.png", alt="Пользователь")
+                .about-reviews__user-content
+                  p.about-reviews__user-desc= desc
+                  .about-reviews__user-box 
+                    strong.about-reviews__user-name Ирина К.
+                    div 
+                      time.about-reviews__user-date 03.04.23
+                      span.about-reviews__user-rating(data-star="4")
+                        - for(var i = 0; i < 5; i++)
+                          +icon("star")(class= i < 4 && "active-star")
+
+          
+          .about-reviews__scrollbar.swiper-scrollbar
+
+
+      //- Common-form
+      - var cssClassForm = "about-form"
+      - var titleForm = 'Оставьте отзыв'
+      - var descForm = 'Поделитесь своими впечатлениями!'
+      - var dataInput = [{id: 'name', name: 'name', placeholder: 'Имя', type: 'text'}, {id: 'review', name: 'review', placeholder: 'Отзыв', type: 'text', view: 'textarea'}, {id: 'stars', placeholder: 'Оценка'}]
+
+      include common/common-form.pug 
+
+      //- Contacts-map
+      include common/contacts-map.pug   
+
+    //- Footer
+    include common/footer.pug

@@ -1,0 +1,62 @@
+doctype html
+html(lang="ru")
+  head
+    head
+
+    //- Head
+    include common/head.pug
+    
+    title Катарсис - Оформление заказа
+
+    //- Basic Styles
+    link(rel="stylesheet", href='style/order.css')
+    //- Basic JavaScript
+    script(src="js/order.js")
+
+
+  body
+
+    //- Mixins
+    include common/mixin.pug
+
+    //- Header
+    include common/header.pug
+
+    main
+
+      mixin input(id, type, name, placeholder)
+        label(for= id).order__form-label
+          span= placeholder
+          input(id= id, type= type, name= name, placeholder= placeholder).order__form-input 
+
+      section.order
+        .order__background
+        .order__container.container
+          .order__aside-left
+            .order__content 
+              h1.order__title Оформление заказа
+              a(href="order.html").order__btn-back.us-btn
+                | Вернуться в корзину
+                +icon("arrow-2")
+              .order__img
+            form.order__form
+              h2.order__form-title Контактная информация
+              .order__form-box-input 
+                +input('name', 'text', 'name', 'Имя')
+                +input('first-name', 'text', 'firstName', 'фамилия')
+                +input('tel', 'tel', 'tel', 'Номер телефона')
+                +input('email', 'email', 'email', 'E-mail')
+              .order__form-select
+                select
+                  option(value="Москва") Москва
+                button.order__form-select-value 
+              .order__form-box-input 
+                +input('city', 'text', 'city', 'город')
+                +input('index', 'number', 'index', 'индекс')
+              +input('comment', 'text', 'comment', 'Комментарий ')
+
+
+          .order__aside-right
+
+    //- Footer
+    include common/footer.pug 

@@ -13,11 +13,6 @@ document.body.addEventListener('click', (e) => {
     popup.classList.remove('active');
 });
 
-// $('.common-form__input input[type=file]').on('change', function () {
-//   let file = this.files[0];
-//   $(this).closest('.input-file').find('.input-file-text').html(file.name);
-// });
-
 const labelDescFile = document.querySelector(
   '.common-form__label[for=file] span'
 );

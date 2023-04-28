@@ -12,9 +12,18 @@ section.common-form.container(class=`${cssClassForm || "application"}`)
       .common-form__box-input(class=`${cssClassForm || "application"}__box-input`)
 
         each item in (dataInput || [{id: 'name', name: 'name', placeholder: 'Имя', type: 'text'}, {id: 'tel', name: 'tel', placeholder: 'Номер телефона', type: 'tel'}])
-          label(for= item.id).common-form__label(class=`${cssClassForm || "application"}__label`)
+          label(for= item.id class=`${cssClassForm || "application"}__label`).common-form__label
             span= item.placeholder
-            input(class=`${cssClassForm || "application"}__input`, id= item.id, type= item.type, name= item.name, placeholder= item.placeholder).common-form__input
+            if item.view === 'textarea'
+              textarea(class=`${cssClassForm || "application"}__input`, id= item.id, type= item.type, name= item.name, placeholder= item.placeholder).common-form__input
+            else if item.id === 'stars'
+              div(class=`${cssClassForm}__label-box`)
+                - for(var i = 1; i < 6; i++)
+                  label(for=`${item.id}-${i}`) 
+                    input(class=`${cssClassForm || "application"}__radio`, id=`${item.id}-${i}`, type="radio", name= item.id, value=i)
+                    +icon('star')
+            else
+              input(class=`${cssClassForm || "application"}__input`, id= item.id, type= item.type, name= item.name, placeholder= item.placeholder).common-form__input
       .common-form__box-btn(class=`${cssClassForm || "application"}__box-btn`)
         button.common-form__btn.us-btn(class=`${cssClassForm || "application"}__btn`) 
           | Отправить

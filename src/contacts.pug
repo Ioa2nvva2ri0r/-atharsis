@@ -39,16 +39,17 @@ html(lang="ru")
         .contacts-slider__slider.swiper
           .swiper-wrapper
             //- Data addresses
-            - var addresses = ["Расточная, 24 А", "Новинский бульвар, 18с1", "ул. Таганская, 26 А", "ул. Расточная, 24 А", "Расточная, 24 А", "ул. Таганская, 26 А"]
+            - var addresses = [{id: "tab-1", name: "Расточная, 24 А"}, {id: "tab-2", name: "Новинский бульвар, 18с1"}, {id: "tab-3", name: "ул. Таганская, 26 А"}, {id: "tab-4", name: "ул. Расточная, 24 А"}, {id: "tab-5", name: "Расточная, 24 А"}, {id: "tab-6", name: "ул. Таганская, 26 А"}]
 
-            each address in addresses
-              button.contacts-slider__address.swiper-slide
-                span= address
+            each address, index in addresses
+              button.contacts-slider__address.swiper-slide(class=`${index === 2 && 'active'}`, data-tab= address.id)
+                span= address.name
 
 
       //- Contacts-map
       - var contactTitle = true
       - var cssClassContactsMap = "contacts-main"
+      - var addresses = [{id: "tab-1", name: "г. Москва, Расточная, 24 А"}, {id: "tab-2", name: "г. Москва, Новинский бульвар, 18с1"}, {id: "tab-3", name: "г. Москва, ул. Таганская, 26 А"}, {id: "tab-4", name: "г. Москва, ул. Расточная, 24 А"}, {id: "tab-5", name: "г. Москва, Расточная, 24 А"}, {id: "tab-6", name: "г. Москва, ул. Таганская, 26 А"}]
 
       include common/contacts-map.pug 
 

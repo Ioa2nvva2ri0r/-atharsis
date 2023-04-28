@@ -30,3 +30,21 @@ const swiperContacts = new Swiper('.contacts-slider__slider', {
     },
   },
 });
+
+const tabContacts = document.querySelectorAll('[data-tab]');
+const tabItemContacts = document.querySelectorAll('[data-itemtab]');
+
+tabContacts.forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    const thisEl = e.currentTarget;
+
+    [...tabContacts, ...tabItemContacts].forEach((el) =>
+      el.classList.remove('active')
+    );
+
+    [
+      thisEl,
+      document.querySelector(`[data-itemtab='${thisEl.dataset.tab}']`),
+    ].forEach((el) => el.classList.toggle('active'));
+  });
+});
