@@ -89,84 +89,37 @@
   }
 }
 
-// .error-valid,
-// .success {
-//   &__message {
-//     overflow: hidden;
-//     text-align: center;
-//     width: 100%;
-//     max-height: 0;
-//     padding-top: 0;
-//     font-size: 0.8em;
-//     line-height: 100%;
-//     font-weight: 600;
-//     transition: padding-top 0.3s ease, max-height 0.3s cubic-bezier(0, 1, 0, 1);
-//     &-active {
-//       max-height: 1000px;
-//       padding-top: 8px;
-//       transition: padding-top 0.3s ease,
-//         max-height 0.3s cubic-bezier(1, 0, 1, 0);
-//     }
-//   }
-// }
-// .error-valid {
-//   &__input {
-//     border-color: red !important;
-//   }
-//   &__message {
-//     color: red;
-//   }
-// }
-// .success__message {
-//   color: greenyellow;
-// }
-
-// .swiper {
-//   &-3d &-slide-shadow-left {
-//     background-image: linear-gradient(
-//       to left,
-//       #33aaff59,
-//       rgba(0, 0, 0, 0)
-//     ) !important;
-//   }
-//   &-3d &-slide-shadow-right {
-//     background-image: linear-gradient(
-//       to right,
-//       #33aaff59,
-//       rgba(0, 0, 0, 0)
-//     ) !important;
-//   }
-//   &-pagination {
-//     &-bullet {
-//       @include block-size(5px !important);
-//       opacity: 1 !important;
-//       margin: 0 5px !important;
-//       background: #d0d0d0 !important;
-//       &-active {
-//         @include block-size(8px !important);
-//         background: var(--black) !important;
-//       }
-//     }
-//     &-bullets {
-//       display: flex;
-//       align-items: center;
-//       left: initial !important;
-//       top: initial !important;
-//       right: 35px;
-//       bottom: 116px !important;
-//       width: initial !important;
-//     }
-//     @media (max-width: 500px) {
-//       &-bullet {
-//         @include block-size(3px !important);
-//         &-active {
-//           @include block-size(5px !important);
-//         }
-//       }
-//       &-bullets {
-//         right: 98px;
-//         bottom: 11px !important;
-//       }
-//     }
-//   }
-// }
+.error-valid {
+  &__input {
+    border-color: red !important;
+    &::placeholder {
+      color: red !important;
+    }
+  }
+  &__message {
+    position: absolute;
+    overflow: hidden;
+    top: 60%;
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    padding-bottom: 0;
+    font-size: 1.6rem;
+    line-height: 100%;
+    font-weight: 500;
+    color: red;
+    transition: padding-bottom 0.3s ease,
+      max-height 0.3s cubic-bezier(0, 1, 0, 1);
+    &-active {
+      max-height: 1000px;
+      padding-bottom: 8px;
+      transition: padding-bottom 0.3s ease,
+        max-height 0.3s cubic-bezier(1, 0, 1, 0);
+    }
+  }
+  @media (max-width: 48em) {
+    &__message {
+      font-size: 3.2rem;
+    }
+  }
+}

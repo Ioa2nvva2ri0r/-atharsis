@@ -11,7 +11,7 @@ html(lang="ru")
     //- Basic Styles
     link(rel="stylesheet", href='style/order.css')
     //- Basic JavaScript
-    script(src="js/order.js")
+    script(src="js/order.js", defer)
 
 
   body
@@ -25,38 +25,94 @@ html(lang="ru")
     main
 
       mixin input(id, type, name, placeholder)
-        label(for= id).order__form-label
+        label(for= id).order__input-label
           span= placeholder
-          input(id= id, type= type, name= name, placeholder= placeholder).order__form-input 
+          input(id= id, type= type, name= name, placeholder= placeholder, required).order__input
+
+      mixin radio(id, name, value, placeholder, desc, checked = false)
+        label(for= id).order__radio-label
+          input(id= id, type='radio', name= name, value= value, checked= checked).order__radio
+          span.order__radio-icon
+          strong.order__radio-value
+            span= placeholder
+            span= desc
 
       section.order
         .order__background
-        .order__container.container
+        form.order__container.container#order-form
           .order__aside-left
-            .order__content 
-              h1.order__title Оформление заказа
-              a(href="order.html").order__btn-back.us-btn
-                | Вернуться в корзину
-                +icon("arrow-2")
+            .order__content
+              div 
+                h1.order__title.us-title Оформление заказа
+                a(href="basket.html").order__btn-back.us-btn
+                  | Вернуться в корзину
+                  +icon("arrow-2")
               .order__img
-            form.order__form
-              h2.order__form-title Контактная информация
-              .order__form-box-input 
+            .order__form-container
+              h2.order__title-form.us-title Контактная информация
+              .order__box-input.order__box-input-1 
                 +input('name', 'text', 'name', 'Имя')
                 +input('first-name', 'text', 'firstName', 'фамилия')
                 +input('tel', 'tel', 'tel', 'Номер телефона')
                 +input('email', 'email', 'email', 'E-mail')
-              .order__form-select
-                select
-                  option(value="Москва") Москва
-                button.order__form-select-value 
-              .order__form-box-input 
+              .order__select#select-box
+                select(name="country")#select
+                  option(value="Россия") Россия
+                  option(value="Беларусь") Беларусь
+                button(type="button")#select-value.order__select-value 
+                  span страна
+                  +icon("arrow-1")
+                ul.order__select-dropdown#select-dropdown 
+                  li Россия
+                  li Беларусь
+              .order__box-input.order__box-input-2 
                 +input('city', 'text', 'city', 'город')
                 +input('index', 'number', 'index', 'индекс')
-              +input('comment', 'text', 'comment', 'Комментарий ')
+              +input('street', 'text', 'street', 'Улица')
+              +input('comment', 'text', 'comment', 'Комментарий')
+              .order__box-radio.order__box-radio-1 
+                h3.order__title-radio.us-title Доставка
+                +radio('delivery-1', 'delivery', 'pickup', 'Самовывоз', 'Бесплатно', true)
+                +radio('delivery-2', 'delivery', 'courier', 'Курьером', 'Стоимость доставки зависит от выбранного адреса')
+              .order__box-radio.order__box-radio-2  
+                h3.order__title-radio.us-title Оплата
+                +radio('payment-1', 'payment', 'receipt', 'При получении', 'Возможен в городах, где расположены наши магазины.', true)
+                +radio('payment-2', 'payment', 'bank transfer', 'Безналичный расчёт', 'Счет будет выслан на указанный e-mail после подтверждения заказа менеджером.')
+          .order__aside-right.order-popup
+            h2.order-popup__title.us-title Ваш заказ
+            ul.order-popup__list 
+
+              - for(var product = 1; product < 4; product++)
+                li.order-popup__card 
+                  picture.order-popup__card-box-img
+                    source(srcset=`img/popular/${product}.png`).order-popup__card-img
+                    img(src=`img/popular/${product}.png`, alt=`Продукт-${product}`).order-popup__card-img
+                  .order-popup__card-content
+                    .order-popup__card-box-title 
+                      h3.order-popup__card-title Кресло
+                      p.order-popup__card-desc Кресло SILLA NEGRA black edition
+                    strong.order-popup__card-amount x2 
+            .order-popup__price-box 
+              strong.order-popup__price.order-popup__price-interim 
+                | Промежуточная цена
+                span
+                  | 7 000
+                  sup ₽
+              strong.order-popup__price.order-popup__price-delivery
+                | Доставка
+                span
+                  | 3 000
+                  sup ₽
+            strong.order-popup__price.order-popup__price-interim 
+                | Итого
+                span
+                  | 10 000
+                  sup ₽
+            button.order-popup__btn.us-btn#order-submit(type="button")
+              | Подтвердить заказ
+              +icon("arrow-2")
 
 
-          .order__aside-right
 
     //- Footer
     include common/footer.pug 

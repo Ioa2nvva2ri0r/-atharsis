@@ -33,4 +33,16 @@ const swiperCommon = new Swiper('.common-slider__slider', {
       spaceBetween: 10,
     },
   },
+  on: {
+    init: function () {
+      const last = this.slides[this.loopedSlides];
+      last.style.opacity = '0.2';
+    },
+    slideChange: function () {
+      const first = this.slides[this.activeIndex];
+      const last = this.slides[this.activeIndex + this.loopedSlides];
+      first.style.opacity = '1';
+      last.style.opacity = '0.2';
+    },
+  },
 });

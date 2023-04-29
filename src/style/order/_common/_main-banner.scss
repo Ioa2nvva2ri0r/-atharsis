@@ -1,0 +1,81 @@
+@import '../../mixins';
+
+.order {
+  position: relative;
+  margin-top: 8rem;
+  padding-bottom: 18.1rem;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  &__aside-left {
+    width: 100%;
+    max-width: 92.2rem;
+  }
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    @include block-size(100rem, 43.7rem);
+    background-color: var(--white);
+  }
+  &__content {
+    @include flex-center-y();
+    position: relative;
+    justify-content: space-between;
+    z-index: 2;
+    width: 100%;
+    max-width: 92.1rem;
+    & div {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      padding-top: 0.2rem;
+    }
+  }
+  &__img {
+    @include block-size(37.8rem, 43.7rem);
+    background-image: url('../img/order/1.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+  @media (max-width: 48em) {
+    &__aside {
+      &-left {
+        margin-bottom: 18rem;
+      }
+      &-right {
+        margin: 0 auto;
+      }
+    }
+    &__container,
+    &__content {
+      flex-direction: column;
+    }
+    &__container {
+      padding: 0;
+    }
+    &__content {
+      & div {
+        align-items: center;
+        padding: 8rem 3.8rem;
+      }
+    }
+    &__background {
+      width: 100%;
+    }
+    &__title {
+      margin-bottom: 4rem;
+    }
+    &__btn-back {
+      padding: 3.4rem 5.6rem;
+      font-size: 3.2rem;
+    }
+    &__img {
+      @include block-size(100%, 75rem);
+    }
+  }
+}

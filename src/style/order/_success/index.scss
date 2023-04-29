@@ -1,0 +1,205 @@
+@import '../../mixins';
+
+.order-success {
+  display: flex;
+  flex-direction: column;
+  @include block-size(100%, 43.7rem);
+  max-width: 64.9rem;
+  &__title {
+    text-transform: initial;
+    font-size: 3.5rem;
+  }
+  &__container,
+  &__item {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__container {
+    height: 100%;
+    flex-direction: column;
+  }
+  &__item {
+    align-items: flex-end;
+    &:not(:last-child) {
+      margin-bottom: 4.5rem;
+    }
+  }
+  &__content {
+    width: 100%;
+    max-width: 60rem;
+  }
+  &__product {
+    &-title {
+      text-transform: uppercase;
+      margin: 0 0 0.9rem 0;
+      font-weight: 600;
+      font-size: 1.6rem;
+      line-height: 2rem;
+      letter-spacing: 0.15em;
+      @include background-text();
+    }
+    &-desc {
+      font-size: 1.8rem;
+      font-weight: 500;
+      line-height: 140%;
+    }
+    &-amount {
+      position: relative;
+      bottom: -0.1rem;
+      font-family: 'Garamond';
+      font-size: 2.5rem;
+      font-weight: 400;
+      line-height: 110%;
+    }
+  }
+  &__interim {
+    @include flex-center-y();
+    justify-content: space-between;
+    border-top: 0.1rem solid rgb(144, 144, 144, 0.2);
+    padding: 2.3rem 0 0.2rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 140%;
+    & span {
+      position: relative;
+      top: 0.1rem;
+      font-family: 'Garamond';
+      font-weight: 400;
+      font-size: 2.5rem;
+      line-height: 110%;
+      & sup {
+        padding-left: 0.7rem;
+        font-size: 1.6rem;
+      }
+    }
+  }
+  &__btn-more {
+    @include flex-center-y();
+    display: none;
+    margin-bottom: 2.5rem;
+    padding: 0 0 1rem 0.2rem;
+    border-bottom: 0.15rem solid var(--black);
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 140%;
+    @include transitions((border-color, color));
+    & svg {
+      @include block-size(0.8rem, 1.4rem);
+      margin-left: 2.5rem;
+      & > path {
+        @include transition(stroke, var(--black));
+      }
+    }
+    &:hover,
+    &:active {
+      border-color: var(--beige-light);
+      color: var(--beige-light);
+      & svg > path {
+        stroke: var(--beige-light);
+      }
+    }
+  }
+  &__modal {
+    @include flex-center-center();
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    padding: 3rem;
+    opacity: 0;
+    @include block-size(100%);
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(7.5px);
+    @include transitions((opacity, visibility));
+    &.active {
+      visibility: visible;
+      opacity: 1;
+    }
+    &-close {
+      position: absolute;
+      top: 5.3rem;
+      right: 4.7rem;
+      @include block-size(1.5rem);
+      & svg {
+        @include block-size(inherit);
+      }
+    }
+    & .order-popup {
+      height: 100%;
+      overflow-y: auto;
+      &::-webkit-scrollbar {
+        width: 1rem;
+      }
+      &::-webkit-scrollbar-track {
+        background-color: var(--white);
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--grey);
+      }
+    }
+  }
+  @media (max-width: 48em) {
+    height: 75.7rem;
+    max-width: initial;
+    padding: 0 4rem;
+    &__title {
+      margin-bottom: 7.7rem;
+      font-size: 5rem;
+    }
+    &__item {
+      &:not(:last-child) {
+        margin-bottom: 8.8rem;
+      }
+    }
+    &__product {
+      &-title {
+        margin-bottom: 2rem;
+        font-size: 2.8rem;
+        line-height: 3.4rem;
+      }
+      &-desc {
+        font-size: 3.2rem;
+      }
+      &-amount {
+        font-size: 5rem;
+      }
+    }
+    &__interim {
+      padding-top: 3.9rem;
+      border-width: 0.2rem;
+      font-size: 3.2rem;
+      & span {
+        top: 0.3rem;
+        font-size: 5rem;
+        & sup {
+          padding-left: 1.4rem;
+          font-size: 3.2rem;
+        }
+      }
+    }
+    &__btn-more {
+      margin-bottom: 8.5rem;
+      border-width: 0.3rem;
+      padding-bottom: 2rem;
+      font-size: 3.2rem;
+      & svg {
+        @include block-size(1.4rem, 2.6rem);
+        margin-left: 5rem;
+      }
+    }
+    &__modal {
+      padding: 4rem;
+      &-close {
+        top: 3.6rem;
+        right: 3.4rem;
+        @include block-size(3rem);
+      }
+      & .order-popup {
+        &::-webkit-scrollbar {
+          width: 2rem;
+        }
+      }
+    }
+  }
+}

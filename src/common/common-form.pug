@@ -32,14 +32,5 @@ section.common-form.container(class=`${cssClassForm || "application"}`)
           | Отправляя форму, вы соглашаетесь с&nbsp;
           a(href="#") политикой&nbsp;конфиденциальности
 
-.popup#popup
-  .popup__box#popup-box
-    h2.popup__title.us-title Заявка отправлена
-    p.popup__desc Ваша заявка была успешно отправлена. Наши менеджеры свяжутся с Вами в ближайшее время
-    a.popup__link.us-btn(href="index.html")
-      | На главную
-      +icon("arrow-2")
-    button.popup__close#popup-close(aria-label="Закрыть")
-      +icon("close")
-
-script(src="js/form-popup.js")
+//- Popup
+include popup.pug

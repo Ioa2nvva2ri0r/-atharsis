@@ -1,0 +1,103 @@
+doctype html
+html(lang="ru")
+  head
+
+    //- Head
+    include common/head.pug
+    
+    title Катарсис - Спасибо за заказ!
+
+    //- Swiper-Slider
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css")
+    script(src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js")
+    //- Basic Styles
+    link(rel="stylesheet", href='style/order-success.css')
+    //- Basic JavaScript
+    script(src="js/order-success.js", defer)
+
+
+  body
+
+    //- Mixins
+    include common/mixin.pug
+
+    //- Header
+    include common/header.pug
+
+    main
+
+      section.order
+        .order__background
+        .order__container.container
+          .order__aside-left
+            .order__content
+              div 
+                h1.order__title.us-title Спасибо за&nbsp;заказ!
+                a(href="sofas-catalog.html").order__btn-back.us-btn
+                  | Перейти в каталог
+                  +icon("arrow-2")
+              .order__img
+          .order__aside-right.order-success
+            h2.order-success__title.us-title Ваш заказ
+            .order-success__container
+              ul.order-success__list 
+
+                - for(var product = 1; product < 4; product++)
+                  li.order-success__item 
+                    .order-success__content
+                      h3.order-success__product-title Кресло
+                      p.order-success__product-desc Кресло SILLA NEGRA black edition
+                    strong.order-success__product-amount х2
+              .order-success__interim-box 
+                button.order-success__btn-more#order-more
+                  | Показать полностью
+                  +icon("arrow-1") 
+                strong.order-success__interim
+                  | Итого
+                  span 
+                    | 10 000
+                    sup ₽
+
+
+      //- Popular
+      - var titleSlider = "Продолжить покупки"
+      - var cardSlider = "sofas"
+
+      include common/common-slider.pug 
+
+    //- Footer
+    include common/footer.pug
+
+    .order-success__modal#success-modal
+      .order-popup#success-modal-box
+        button.order-success__modal-close#success-modal-close(aria-label="Закрыть")
+          +icon("close")
+        h2.order-popup__title.us-title Ваш заказ
+        ul.order-popup__list 
+
+          - for(var product = 1; product < 5; product++)
+            li.order-popup__card 
+              picture.order-popup__card-box-img
+                source(srcset=`img/popular/${product}.png`).order-popup__card-img
+                img(src=`img/popular/${product}.png`, alt=`Продукт-${product}`).order-popup__card-img
+              .order-popup__card-content
+                .order-popup__card-box-title 
+                  h3.order-popup__card-title Кресло
+                  p.order-popup__card-desc Кресло SILLA NEGRA black edition
+                strong.order-popup__card-amount x2 
+        .order-popup__price-box 
+          strong.order-popup__price.order-popup__price-interim 
+            | Промежуточная цена
+            span
+              | 7 000
+              sup ₽
+          strong.order-popup__price.order-popup__price-delivery
+            | Доставка
+            span
+              | 3 000
+              sup ₽
+        strong.order-popup__price.order-popup__price-interim 
+            | Итого
+            span
+              | 10 000
+              sup ₽

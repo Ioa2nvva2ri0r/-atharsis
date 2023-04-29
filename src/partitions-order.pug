@@ -38,7 +38,7 @@ html(lang="ru")
         include common/partitions-slider.pug 
 
       section.order.container 
-        form.order__form
+        form.order__form#common-form
           h2.order__title.us-title Создай свой дизайн перегородки
           .order-type__box 
             h3.order-type__title Выберите тип стекла
@@ -116,4 +116,7 @@ html(lang="ru")
 
     
     //- Footer
-    include common/footer.pug 
+    include common/footer.pug
+
+    //- Popup
+    include common/popup.pug 

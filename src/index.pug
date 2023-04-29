@@ -6,7 +6,7 @@ html(lang="ru")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(name="description", content="another website")
 
-    title Страницы
+    title MMExpert
     
     link(rel="stylesheet", href="style/common/index.css")
 
@@ -20,7 +20,7 @@ html(lang="ru")
               .stagger-visualizer
                   .dots-wrapper
 
-      - var links = [{name: "Главная", href: "main"}, {name: "Дизайнерская Мебель - Главная", href: "sofas-main"}, {name: "Дизайнерская Мебель - Каталог", href: "sofas-catalog"}, {name: "Дизайнерская Мебель - Карточка товара", href: "sofas-product"}, {name: "Межкомнатные перегородки - Главная", href: "partitions-main"}, {name: "Межкомнатные перегородки - Заказ", href: "partitions-order"}, {name: "Услуги Дизайнера", href: "services"}, {name: "Поиск по фото", href: "search"}, {name: "О компании", href: "about"}, {name: "Портфолио", href: "portfolio"}, {name: "О проекте", href: "project"}, {name: "Избранное", href: "favorite"}, {name: "Корзина", href: "basket"}, {name: "Оформление заказа", href: "order"}, {name: "Контакты", href: "contacts"}, {name: "404", href: '404'}]
+      - var links = [{name: "Главная", href: "main"}, {name: "Дизайнерская Мебель - Главная", href: "sofas-main"}, {name: "Дизайнерская Мебель - Каталог", href: "sofas-catalog"}, {name: "Дизайнерская Мебель - Карточка товара", href: "sofas-product"}, {name: "Межкомнатные перегородки - Главная", href: "partitions-main"}, {name: "Межкомнатные перегородки - Заказ", href: "partitions-order"}, {name: "Услуги Дизайнера", href: "services"}, {name: "Поиск по фото", href: "search"}, {name: "О компании", href: "about"}, {name: "Портфолио", href: "portfolio"}, {name: "О проекте", href: "project"}, {name: "Избранное", href: "favorite"}, {name: "Корзина", href: "basket"}, {name: "Оформление заказа", href: "order"}, {name: "Спасибо за заказ", href: "order-success"}, {name: "Контакты", href: "contacts"}, {name: "404", href: '404'}]
 
       each link in links 
         a(href=`${link.href}.html`, target="_blank").index__item= link.name  

@@ -23,6 +23,11 @@ function init() {
   );
 
   myMap.geoObjects.add(myPlacemark);
+  myMap
+    .panTo([53.67669826968073, 23.830183195770243], { flying: true })
+    .then(function () {
+      myMap.setZoom(18);
+    });
 
   myMap.controls.remove('zoomControl');
   myMap.controls.remove('rulerControl');

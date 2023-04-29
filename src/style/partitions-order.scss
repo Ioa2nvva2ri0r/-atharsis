@@ -1,6 +1,6 @@
-@import './mixins';
 // Common block
 @import './common';
+@import './common/common-form';
 // Main block
 @import './partitions/__common/slider';
 @import './partitions/__order';
