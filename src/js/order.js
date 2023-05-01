@@ -171,3 +171,11 @@ selectDropdown.addEventListener('click', (e) => {
     }
   });
 });
+
+document.body.addEventListener('click', (e) => {
+  if (
+    !selectContainer.contains(e.target) &&
+    selectDropdown.classList.contains('active')
+  )
+    selectDropdown.classList.remove('active');
+});

@@ -35,7 +35,7 @@ html(lang="ru")
               .banner__slide.swiper-slide
                 - for(var img = 1; img < 4; img++)
                   .banner__img-box(class=`banner__img-box-${img}`)
-                    img.banner__img(src=`img/main/${index + 1}.png`, alt=`Интерьер-${img}`)
+                    img.banner__img(src=`img/main/${index + 1}.webp`, alt=`Интерьер-${img}`)
                 .banner__content
                   h2.banner__title.us-title= section.title
                   p.banner__desc= section.desc
@@ -76,16 +76,16 @@ html(lang="ru")
                     = section.name
                     +icon('arrow-1')
                   picture
-                    source.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, srcset=`img/menu-catalog/${index + 1}.png`)
-                    img.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, src=`img/menu-catalog/${index + 1}.png`, alt=`Изображение-${section.name}`)
+                    source.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, srcset=`img/menu-catalog/${index + 1}.webp`)
+                    img.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, src=`img/menu-catalog/${index + 1}.webp`, alt=`Изображение-${section.name}`)
               else
                 a(href= section.href).menu-catalog__link
                   span.menu-catalog__link-desc
                     = section.name
                     +icon('arrow-1')
                   picture
-                    source.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, srcset=`img/menu-catalog/${index + 1}.png`)
-                    img.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, src=`img/menu-catalog/${index + 1}.png`, alt=`Изображение-${section.name}`)
+                    source.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, srcset=`img/menu-catalog/${index + 1}.webp`)
+                    img.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, src=`img/menu-catalog/${index + 1}.webp`, alt=`Изображение-${section.name}`)
         .subsection-catalog#catalog-content
           button.subsection-catalog__close#catalog-close(aria-label="Закрыть каталог")
             +icon('close-2')
@@ -101,6 +101,6 @@ html(lang="ru")
               each section, index in subsection
                 li.subsection-catalog__item 
                   picture
-                    source.subsection-catalog__img(srcset=`img/menu-catalog/subsection/${index + 1}.png`)
-                    img.subsection-catalog__img(src=`img/menu-catalog/subsection/${index + 1}.png`, alt=`Изображение-${section.name}`)
+                    source.subsection-catalog__img(srcset=`img/menu-catalog/subsection/${index + 1}.webp`)
+                    img.subsection-catalog__img(src=`img/menu-catalog/subsection/${index + 1}.webp`, alt=`Изображение-${section.name}`)
                   a(href= section.href).subsection-catalog__link= section.name

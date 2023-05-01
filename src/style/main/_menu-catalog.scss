@@ -111,7 +111,7 @@
       width: 100%;
       border: 0;
       padding: 0;
-      background: url('../img/menu-catalog/background-menu.png') center center /
+      background: url('../img/menu-catalog/background-menu.webp') center center /
         75rem 222rem no-repeat;
       &::after {
         content: '';
@@ -242,7 +242,7 @@
     opacity: 0;
     max-height: 0;
     padding: 0;
-    background: url('../img/menu-catalog/background-tab.png') center center /
+    background: url('../img/menu-catalog/background-tab.webp') center center /
       75rem 430rem no-repeat;
     @include transition(all);
     &::after {

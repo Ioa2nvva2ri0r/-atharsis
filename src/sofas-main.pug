@@ -43,8 +43,8 @@ html(lang="ru")
               - for(var slide = 1; slide < 3; slide++)
                 .catalog__slide.swiper-slide 
                   picture
-                    source(srcset=`img/catalog/main.png`).catalog__img
-                    img(src=`img/catalog/main.png`, alt=`Гостиная-${slide}`).catalog__img
+                    source(srcset=`img/catalog/main.webp`).catalog__img
+                    img(src=`img/catalog/main.webp`, alt=`Гостиная-${slide}`).catalog__img
                   - for(var label = 1; label < 3; label++)
                     button.catalog__label(class=`catalog__label-${label}` aria-label= "Пуф")
                       span
@@ -55,8 +55,8 @@ html(lang="ru")
             .catalog__label-content#label-content
               h3.catalog__label-title Пуф круглый большой (велюр)
               picture
-                source(srcset=`img/catalog/pouf.png`).catalog__label-img
-                img(src=`img/catalog/pouf.png`, alt="Пуф").catalog__label-img
+                source(srcset=`img/catalog/pouf.webp`).catalog__label-img
+                img(src=`img/catalog/pouf.webp`, alt="Пуф").catalog__label-img
               a(href="sofas-product.html").catalog__label-link.us-btn
                 | Перейти к товару
                 +icon("arrow-2")

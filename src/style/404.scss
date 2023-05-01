@@ -8,7 +8,7 @@
   &__img {
     @include block-size(81.9rem, 75.2rem);
     margin-left: -4rem;
-    background-image: url('../img/error/1.png');
+    background-image: url('../img/error/1.webp');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -38,7 +38,7 @@
       position: absolute;
       top: -4.2rem;
       @include block-size(75rem, 151.4rem);
-      background-image: url('../img/error/2.png');
+      background-image: url('../img/error/2.webp');
     }
     &__content {
       max-width: 57rem;
