@@ -14,6 +14,13 @@ const swiperProduct = new Swiper('.sofas-product__slider', {
   speed: 1000,
 });
 
+// Add favorite
+document
+  .querySelector('.sofas-product__btn-favorite')
+  .addEventListener('click', (e) => {
+    e.currentTarget.classList.toggle('add');
+  });
+
 // Choice product
 const select = document.querySelectorAll('[data-select]');
 const btnChoice = document.querySelectorAll('[data-choice]');

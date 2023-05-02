@@ -389,13 +389,19 @@
           display: none;
         }
         & > path {
-          @include transition(stroke);
+          @include transitions((stroke, fill));
         }
       }
       &:hover,
       &:active {
         & svg > path {
           stroke: var(--blue);
+        }
+      }
+      &.add {
+        & svg > path {
+          stroke: var(--blue);
+          fill: var(--blue);
         }
       }
     }

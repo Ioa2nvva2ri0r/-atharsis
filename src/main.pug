@@ -99,8 +99,9 @@ html(lang="ru")
               - var subsection = [{name: 'Спальня', href: 'sofas-main.html'}, {name: 'Кухня', href: 'sofas-main.html'}, {name: 'Гостиная', href: 'sofas-main.html'}, {name: 'Офис и домашний офис', href: 'sofas-main.html'}, {name: 'Прихожая', href: 'sofas-main.html'}, {name: 'Публичные пространства', href: 'sofas-main.html'}]
 
               each section, index in subsection
-                li.subsection-catalog__item 
+                li.subsection-catalog__item
+                  a(href= section.href).subsection-catalog__link 
                   picture
                     source.subsection-catalog__img(srcset=`img/menu-catalog/subsection/${index + 1}.webp`)
                     img.subsection-catalog__img(src=`img/menu-catalog/subsection/${index + 1}.webp`, alt=`Изображение-${section.name}`)
-                  a(href= section.href).subsection-catalog__link= section.name
+                  h3.subsection-catalog__subtitle= section.name

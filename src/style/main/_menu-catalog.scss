@@ -222,18 +222,29 @@
     gap: 3.9rem 4rem;
     max-width: 112rem;
   }
+  &__item {
+    position: relative;
+    &:hover,
+    &:active {
+      & h3 {
+        color: var(--beige-light);
+      }
+    }
+  }
   &__img {
     @include picture(25rem);
     margin-bottom: 2.1rem;
   }
   &__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include block-size(100%);
+  }
+  &__subtitle {
     font-size: 1.8rem;
     line-height: 2.1rem;
     @include transition(color, var(--white));
-    &:hover,
-    &:active {
-      color: var(--beige-light);
-    }
   }
   @media (max-width: 48em) {
     visibility: hidden;

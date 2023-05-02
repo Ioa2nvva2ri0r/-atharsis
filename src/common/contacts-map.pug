@@ -1,13 +1,13 @@
 //- Mixins
 include mixin.pug
 
-section.contacts-map.container(class=`${cssClassContactsMap}`)  
+section.contacts-map.container(class=`${cssClassContactsMap || ''}`)  
   .contacts-map__content
     if !contactTitle 
       h2.contacts-map__title.us-title Наши контакты
     if Array.isArray(addresses)
       each item, index in addresses 
-        ul.contacts-map__list(class=`${cssClassContactsMap}__tab ${index === 2 && "active"}` data-itemtab= item.id)
+        ul.contacts-map__list(class=`${cssClassContactsMap || ''}__tab ${index === 2 && "active"}` data-itemtab= item.id)
           li.contacts-map__item
             h3.contacts-map__subtitle Адрес
             address.contacts-map__desc= item.name

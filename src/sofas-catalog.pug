@@ -10,7 +10,7 @@ html(lang="ru")
     //- Basic Styles
     link(rel="stylesheet", href='style/sofas-catalog.css')
     //- Basic JavaScript
-    script(src="js/sofas-product-add.js", defer) 
+    script(src="js/sofas-catalog.js", defer) 
 
   body
 
@@ -47,7 +47,7 @@ html(lang="ru")
                 button.catalog-sofas__nav-link(class=`${catalog.at(-1) === link ? 'active': ''}`)= link
         ul.catalog-sofas__list
 
-           - for(var i = 1; i < 10; i++)
+          - for(var i = 1; i < 10; i++)
               li.catalog-sofas__item
                 
                 //- Product
