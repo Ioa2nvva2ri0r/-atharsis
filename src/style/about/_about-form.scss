@@ -9,11 +9,12 @@
     max-width: 71.5rem;
   }
   &__desc {
-    margin-bottom: 4.9rem;
+    margin-bottom: 4.4rem;
   }
   &__label {
     &[for='review'] {
-      padding-bottom: 1.15rem;
+      padding-top: 0.5rem;
+      padding-bottom: 1rem;
       border-bottom: 0.1rem solid var(--white);
     }
     &[for='stars'] {
@@ -56,6 +57,9 @@
           }
         }
       }
+    }
+    &:not(:last-child) {
+      margin-bottom: 3.6rem;
     }
   }
   &__input {
@@ -102,15 +106,22 @@
       margin-bottom: 2.6rem;
     }
     &__desc {
-      margin-bottom: 8.5rem;
+      margin-bottom: 7.7rem;
     }
     &__label {
       &[for='review'] {
-        padding-bottom: 2.5rem;
+        padding-top: 1rem;
+        padding-bottom: 2rem;
         border-width: 0.2rem;
       }
       &:last-child {
         display: none;
+      }
+      &:not(:nth-last-child(2)) {
+        margin-bottom: 7.2rem;
+      }
+      &:nth-last-child(2) {
+        margin-bottom: 8.1rem;
       }
     }
     &__input {

@@ -7,7 +7,7 @@
     margin-bottom: 1.8rem;
   }
   &__desc {
-    margin-bottom: 4.85rem;
+    margin-bottom: 4.15rem;
     letter-spacing: 0.005rem;
   }
   &__img {
@@ -22,12 +22,9 @@
       margin-bottom: 2.4rem;
     }
     &__desc {
-      margin-bottom: 8.8rem;
+      margin-bottom: 7.8rem;
     }
     &__label {
-      &:not(:last-child) {
-        margin-bottom: 8rem;
-      }
       &:last-child {
         margin-bottom: 7.8rem;
       }

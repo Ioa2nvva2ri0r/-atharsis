@@ -23,7 +23,7 @@
     margin-bottom: 1.75rem;
   }
   &__desc {
-    margin: 0 0 4.8rem 0;
+    margin: 0 0 4.4rem 0;
     font-size: 1.8rem;
     letter-spacing: 0.01rem;
   }
@@ -59,15 +59,15 @@
       @include block-size(0);
     }
     &:not(:last-child) {
-      margin-bottom: 3.8rem;
+      margin-bottom: 3.4rem;
     }
     &:last-child {
-      margin-bottom: 4.45rem;
+      margin-bottom: 4.4rem;
     }
   }
   &__input {
     width: 100%;
-    padding: 0.1rem 0 2.1rem 0;
+    padding: 0.5rem 0 2.1rem 0;
     border-bottom: 0.1rem solid var(--grey);
     background-color: transparent;
     @include transition(border-color);
@@ -109,7 +109,7 @@
       margin-bottom: 2rem;
     }
     &__desc {
-      margin: 0 0 8.8rem;
+      margin: 0 0 8rem;
       font-size: 3.2rem;
     }
     &__form {
@@ -127,14 +127,14 @@
     }
     &__label {
       &:not(:last-child) {
-        margin-bottom: 7.8rem;
+        margin-bottom: 7rem;
       }
       &:last-child {
-        margin-bottom: 8.3rem;
+        margin-bottom: 8rem;
       }
     }
     &__input {
-      padding: 0.3rem 0 3.7rem;
+      padding: 1rem 0 4rem;
     }
     &__btn {
       margin-right: 0;

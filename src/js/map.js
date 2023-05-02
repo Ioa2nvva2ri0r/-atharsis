@@ -59,7 +59,7 @@ function init() {
   myMap
     .panTo([53.67669826968073, 23.830183195770243], { flying: true })
     .then(function () {
-      myMap.setZoom(18);
+      myMap.setZoom(17);
     });
 
   myMap.controls.remove('zoomControl');
