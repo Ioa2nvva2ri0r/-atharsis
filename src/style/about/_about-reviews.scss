@@ -60,13 +60,6 @@
       width: 100%;
       max-width: 78.5rem;
     }
-    &-img {
-      @include picture(8rem);
-      min-width: 8rem;
-      &-box {
-        margin: 0.2rem 3rem 0 0;
-      }
-    }
     &-desc,
     &-name {
       font-weight: 500;
@@ -126,13 +119,6 @@
       &-card {
         display: flex;
         flex-direction: column;
-      }
-      &-img {
-        @include picture(16rem);
-        min-width: 16rem;
-        &-box {
-          margin: 0 0 3.6rem;
-        }
       }
       &-desc,
       &-name {
