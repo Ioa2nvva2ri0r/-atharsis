@@ -69,6 +69,7 @@
     width: 100%;
     padding: 0.5rem 0 2.1rem 0;
     border-bottom: 0.1rem solid var(--grey);
+    border-radius: 0;
     background-color: transparent;
     @include transition(border-color);
     &,
