@@ -110,8 +110,11 @@
     }
   }
   &__img {
-    @include picture(192rem, calc(100vh - 8.8rem));
-    object-fit: initial;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @include picture(100vw, calc(100vh - 8.8rem));
+    transform: translate(-50%, -50%);
     &-box {
       position: absolute;
       @include flex-center-center();
@@ -137,11 +140,11 @@
       }
       &-1 {
         z-index: 1;
-        @include block-size(192rem, 100rem);
+        @include block-size(100%, calc(100vh - 8.8rem));
       }
       &-2 {
         z-index: 2;
-        @include block-size(150rem);
+        @include block-size(calc(100vw - 21rem * 2));
         &::after {
           background-color: rgba(29, 53, 82, 0.55);
         }
@@ -149,7 +152,7 @@
       &-3 {
         z-index: 3;
         animation-delay: 2.1s;
-        @include block-size(75rem);
+        @include block-size(calc(100vw - 58.5rem * 2));
         &::after {
           background-color: rgba(29, 53, 82, 0.8);
         }
@@ -304,7 +307,6 @@
     }
     &__title {
       margin-bottom: 3.85rem;
-      padding-right: 2rem;
       padding-bottom: 3.8rem;
       line-height: 6.7rem;
     }
