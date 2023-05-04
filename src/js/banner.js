@@ -93,7 +93,7 @@ document.body.addEventListener('click', (e) => {
 const swiperBanner = new Swiper('.banner__slider', {
   effect: 'fade',
   loop: true,
-  speed: 3000,
+  speed: 2000,
   autoplay: {
     delay: 5000,
   },
