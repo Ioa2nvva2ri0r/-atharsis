@@ -5,7 +5,7 @@ section.common-form.container(class=`${cssClassForm || "application"}`)
   picture
     source(class=`${cssClassForm || "application"}__img` srcset=`img/${imageForm || "application"}/1.webp`).common-form__img
     img(class=`${cssClassForm || "application"}__img` src=`img/${imageForm || "application"}/1.webp`, alt="Изображение формы").common-form__img
-  form.common-form__form#common-form(class=`${cssClassForm || "application"}__form`)
+  form.common-form__form(id= cssClassForm || "common-form" class=`${cssClassForm || "application"}__form`)
     .common-form__container(class=`${cssClassForm || "application"}__container`)
       h2.common-form__title.us-title(class=`${cssClassForm || "application"}__title`)= titleForm || "оставьте заявку"
       p.common-form__desc(class=`${cssClassForm || "application"}__desc`)= descForm || "Наши менеджеры помогут вам!"
@@ -32,5 +32,6 @@ section.common-form.container(class=`${cssClassForm || "application"}`)
           | Отправляя форму, вы соглашаетесь с&nbsp;
           a(href="#") политикой&nbsp;конфиденциальности
 
-//- Popup
-include popup.pug
+if popup
+  //- Popup
+  include popup.pug

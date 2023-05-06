@@ -34,46 +34,59 @@ document.body.addEventListener('click', (e) => {
 const menuCatalog = document.getElementById('catalog');
 const openMenuCatalog = document.querySelectorAll('.catalog-open');
 const closeMenuCatalog = document.getElementById('catalog-close');
-const contentCatalog = document.getElementById('catalog-content');
-const tabContentCatalog = document.getElementById('catalog-tab-content');
-const btnBackCatalog = document.getElementById('catalog-back');
 const boxTabCatalog = document.getElementById('catalog-tabs');
+const contentCatalog = document.getElementById('catalog-content');
 const tabsCatalog = document.querySelectorAll('.catalog-tab');
+const tabContentCatalog = document.querySelectorAll('[data-tabDesc]');
+
+const btnBackCatalog = document.getElementById('catalog-back');
 
 function closeCatalog() {
-  menuCatalog.classList.remove('active');
-  contentCatalog.classList.remove('active');
-  tabContentCatalog.classList.remove('tab-active');
-  tabsCatalog.forEach((elem) => elem.classList.remove('active'));
+  [
+    menuCatalog,
+    contentCatalog,
+    boxTabCatalog,
+    ...tabContentCatalog,
+    ...tabsCatalog,
+  ].forEach((el) => el.classList.remove('active'));
+  if (window.screen.width <= 768) document.body.style.overflowY = '';
 }
 
-openMenuCatalog.forEach((el) =>
-  el.addEventListener('click', () => {
-    menuCatalog.classList.add('active');
-    tabContentCatalog.classList.add('tab-active');
-    setTimeout(() => {
-      tabsCatalog[0].classList.add('active');
-    }, 400);
-
-    if (window.screen.width <= 768) boxTabCatalog.classList.add('active');
+openMenuCatalog.forEach((btn) =>
+  btn.addEventListener('click', () => {
+    [
+      menuCatalog,
+      window.screen.width > 768 && contentCatalog,
+      boxTabCatalog,
+      window.screen.width > 768 && tabContentCatalog[0],
+      window.screen.width > 768 && tabsCatalog[0],
+    ]
+      .filter((el) => el)
+      .forEach((el) => el.classList.add('active'));
+    if (window.screen.width <= 768) document.body.style.overflowY = 'hidden';
   })
 );
 closeMenuCatalog.addEventListener('click', () => {
   closeCatalog();
 });
 tabsCatalog.forEach((el, _, arr) => {
-  el.addEventListener('click', () => {
-    arr.forEach((elem) => elem.classList.remove('active'));
-    el.classList.add('active');
+  el.addEventListener('click', (e) => {
+    const thisEl = e.currentTarget;
+    const tabDesc = document.querySelector(
+      `[data-tabDesc='${thisEl.dataset.tab}']`
+    );
+
+    [...tabContentCatalog, ...arr].forEach((elem) =>
+      elem.classList.remove('active')
+    );
 
     if (window.screen.width <= 768) {
-      boxTabCatalog.classList.remove('active');
       contentCatalog.classList.add('active');
+      tabDesc.classList.add('active');
+      boxTabCatalog.classList.remove('active');
     } else {
-      tabContentCatalog.classList.remove('tab-active');
-      setTimeout(() => {
-        tabContentCatalog.classList.add('tab-active');
-      }, 500);
+      thisEl.classList.add('active');
+      setTimeout(() => tabDesc.classList.add('active'), 500);
     }
   });
 });

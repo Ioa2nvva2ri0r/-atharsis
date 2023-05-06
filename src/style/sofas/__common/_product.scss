@@ -1,6 +1,12 @@
 @import '../../mixins';
 
 .product {
+  &:hover,
+  &:active {
+    & .product__img {
+      transform: scale(1.15);
+    }
+  }
   &__box {
     &-content,
     &-btn {
@@ -23,6 +29,7 @@
   &__img {
     @include picture(32rem, 34rem);
     margin: 0 auto;
+    @include transition(transform, scale(1));
   }
   &__content {
     display: flex;

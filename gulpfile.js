@@ -1,11 +1,8 @@
 /* eslint-disable no-undef */
 const { src, dest, series, watch } = require('gulp');
-// const concat = require('gulp-concat');
 const pug = require('gulp-pug');
-const htmlmin = require('gulp-htmlmin');
 const sass = require('gulp-sass')(require('sass'));
 const autoprefixer = require('gulp-autoprefixer');
-const cleanCSS = require('gulp-clean-css');
 const notify = require('gulp-notify');
 const sourcemaps = require('gulp-sourcemaps');
 const del = require('del');
@@ -27,14 +24,6 @@ const htmlMinify = () => {
         pretty: true,
       })
     )
-    .pipe(
-      htmlmin({
-        collapseWhitespace: true,
-        collapseInlineTagWhitespace: true,
-        removeComments: true,
-        minifyCSS: true,
-      })
-    )
     .pipe(dest('build'))
     .pipe(browserSync.stream());
 };
@@ -46,11 +35,6 @@ const sassMinify = () => {
     .pipe(
       autoprefixer({
         cascade: false,
-      })
-    )
-    .pipe(
-      cleanCSS({
-        level: 2,
       })
     )
     .pipe(sourcemaps.write())

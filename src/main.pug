@@ -50,7 +50,7 @@ html(lang="ru")
           nav.banner__menu#menu-banner 
             ul.banner__menu-list
               //- Data nav
-              - var nav = [{id: 'catalog', name:'Каталог'}, {id: 'portfolio', name: 'Портфолио', href: 'index.html'}, {id: 'about', name: 'О компании', href: 'index.html'}, {id: 'contacts', name: 'Контакты', href: 'index.html'}]
+              - var nav = [{id: 'catalog', name:'Каталог'}, {id: 'portfolio', name: 'Портфолио', href: 'portfolio.html'}, {id: 'about', name: 'О компании', href: 'about.html'}, {id: 'contacts', name: 'Контакты', href: 'contacts.html'}]
 
               each link in nav
                 li.banner__menu-item
@@ -66,42 +66,59 @@ html(lang="ru")
       .menu-catalog__container.container
         ul.menu-catalog__list#catalog-tabs 
           //- Data menu catalog
-          - var catalog = [{tab: true, id: 'sofas', name: 'Дизайнерская мебель', href: "sofas-main.html"}, {tab: true, id: 'partitions', name: 'Межкомнатные перегородки', href: 'partitions-main.html'}, {name: 'Поиск проекта по фото', href: 'search.html'}, {name: 'Услуги дизайнера интерьера', href: 'services.html'}]
+          - var catalog = [{id: 'sofas', name: 'Дизайнерская мебель', href: "sofas-main.html"}, {id: 'partitions', name: 'Межкомнатные перегородки', href: 'partitions-main.html'}, {id: 'search', name: 'Поиск проекта по фото', href: 'search.html'}, {id: 'service', name: 'Услуги дизайнера интерьера', href: 'services.html'}]
 
           each section, index in catalog 
             li.menu-catalog__item
-              if section.tab 
-                .menu-catalog__link.catalog-tab(data-tab= section.id)
-                  span.menu-catalog__link-desc
-                    = section.name
-                    +icon('arrow-1')
-                  picture
-                    source.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, srcset=`img/menu-catalog/${index + 1}.webp`)
-                    img.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, src=`img/menu-catalog/${index + 1}.webp`, alt=`Изображение-${section.name}`)
-              else
-                a(href= section.href).menu-catalog__link
-                  span.menu-catalog__link-desc
-                    = section.name
-                    +icon('arrow-1')
-                  picture
-                    source.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, srcset=`img/menu-catalog/${index + 1}.webp`)
-                    img.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, src=`img/menu-catalog/${index + 1}.webp`, alt=`Изображение-${section.name}`)
+              .menu-catalog__link.catalog-tab(data-tab= section.id)
+                span.menu-catalog__link-desc
+                  = section.name
+                  +icon('arrow-1')
+                picture
+                  source.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, srcset=`img/menu-catalog/${index + 1}.webp`)
+                  img.menu-catalog__img(class=`menu-catalog__img-${index + 1}`, src=`img/menu-catalog/${index + 1}.webp`, alt=`Изображение-${section.name}`)
         .subsection-catalog#catalog-content
           button.subsection-catalog__close#catalog-close(aria-label="Закрыть каталог")
             +icon('close-2')
           button.subsection-catalog__back#catalog-back
             +icon('arrow-1')
             | Вернуться назад
-          .subsection-catalog__container#catalog-tab-content 
-            h2.subsection-catalog__title.us-title Дизайнерская мебель 
-            ul.subsection-catalog__list 
-              //- Data subsection catalog
-              - var subsection = [{name: 'Спальня', href: 'sofas-main.html'}, {name: 'Кухня', href: 'sofas-main.html'}, {name: 'Гостиная', href: 'sofas-main.html'}, {name: 'Офис и домашний офис', href: 'sofas-main.html'}, {name: 'Прихожая', href: 'sofas-main.html'}, {name: 'Публичные пространства', href: 'sofas-main.html'}]
 
-              each section, index in subsection
-                li.subsection-catalog__item
-                  a(href= section.href).subsection-catalog__link 
-                  picture
-                    source.subsection-catalog__img(srcset=`img/menu-catalog/subsection/${index + 1}.webp`)
-                    img.subsection-catalog__img(src=`img/menu-catalog/subsection/${index + 1}.webp`, alt=`Изображение-${section.name}`)
-                  h3.subsection-catalog__subtitle= section.name
+          each tab in ['sofas', 'partitions', 'search', 'service']
+            .subsection-catalog__container(data-tabDesc= tab)
+              if tab === 'sofas' || tab === 'partitions'
+                h2.subsection-catalog__title.us-title Дизайнерская мебель 
+                ul.subsection-catalog__list 
+                  //- Data subsection catalog
+                  - var subsection = [{name: 'Спальня', href: 'sofas-main.html'}, {name: 'Кухня', href: 'sofas-main.html'}, {name: 'Гостиная', href: 'sofas-main.html'}, {name: 'Офис и домашний офис', href: 'sofas-main.html'}, {name: 'Прихожая', href: 'sofas-main.html'}, {name: 'Публичные пространства', href: 'sofas-main.html'}]
+
+                  each section, index in subsection
+                    li.subsection-catalog__item
+                      a(href= section.href).subsection-catalog__link 
+                      picture
+                        source.subsection-catalog__img(srcset=`img/menu-catalog/subsection/${index + 1}.webp`)
+                        img.subsection-catalog__img(src=`img/menu-catalog/subsection/${index + 1}.webp`, alt=`Изображение-${section.name}`)
+                      h3.subsection-catalog__subtitle= section.name
+              else if tab === 'search'
+
+                //- Common-form
+                - var cssClassForm = 'search-form'
+                - var imageForm = 'search'
+                - var titleForm = 'Изготовим мебель'
+                - var descForm = 'Изготовим абсолютно любую мебель по\u00A0вашему фото!'
+                - var dataInput = [{id: 'name', name: 'name', placeholder: 'Имя', type: 'text'}, {id: 'email', name: 'email', placeholder: 'E-mail', type: 'email'}, {id: 'tel', name: 'tel', placeholder: 'Номер телефона', type: 'tel'}, {id: 'file', name: 'file', placeholder: 'Загрузите фото', type: 'file'}]
+
+                include common/common-form.pug
+              else if tab === 'service'
+
+                //- Common-form
+                - var cssClassForm = 'services-form'
+                - var imageForm = 'services'
+                - var titleForm = 'Услуги дизайнера'
+                - var descForm = 'Закажите услуги дизайнера прямо сейчас!'
+                - var dataInput = [{id: 'name', name: 'name', placeholder: 'Имя', type: 'text'}, {id: 'email', name: 'email', placeholder: 'E-mail', type: 'email'}, {id: 'tel', name: 'tel', placeholder: 'Номер телефона', type: 'tel'}, {id: 'comment', name: 'comment', placeholder: 'Комментарий', type: 'text'}]
+
+                include common/common-form.pug
+
+    //- Popup
+    include common/popup.pug

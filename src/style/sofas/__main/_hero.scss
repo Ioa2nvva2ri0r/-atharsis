@@ -2,6 +2,14 @@
 
 .sofas-hero {
   &__img {
+    &-container {
+      &:hover,
+      &:active {
+        & .sofas-hero__img-3::after {
+          opacity: 1;
+        }
+      }
+    }
     &-1 {
       @include picture(40rem);
       bottom: 35.5rem;
@@ -16,6 +24,19 @@
       @include picture(54.4rem, 63.5rem);
       bottom: 0.5rem;
       right: -8.5rem;
+      &::after {
+        position: absolute;
+        content: '';
+        top: 11.8rem;
+        left: -1.5rem;
+        @include block-size(24rem, 39rem);
+        background-image: url('../../../img/sofas-hero/4.webp');
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: blur(4px);
+        transform: rotate(358deg);
+        @include transition(opacity, 0);
+      }
     }
   }
   @media (max-width: 48em) {
