@@ -63,7 +63,10 @@ openMenuCatalog.forEach((btn) =>
     ]
       .filter((el) => el)
       .forEach((el) => el.classList.add('active'));
-    if (window.screen.width <= 768) document.body.style.overflowY = 'hidden';
+    if (window.screen.width <= 768) {
+      window.scrollTo({ top: 0 });
+      document.body.style.overflowY = 'hidden';
+    }
   })
 );
 closeMenuCatalog.addEventListener('click', () => {
