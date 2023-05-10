@@ -1,6 +1,13 @@
 .about {
+  overflow: hidden;
   padding-top: 18rem;
   padding-bottom: 18rem;
+  &.active {
+    & .about__container,
+    & .about__img {
+      transform: translateX(0);
+    }
+  }
   &__container {
     display: flex;
     justify-content: space-between;
@@ -10,6 +17,8 @@
       var(--white) 92.1rem,
       transparent 0%
     );
+    @include transition(transform, translateX(30rem));
+    transition-duration: 1.2s;
   }
   &__content {
     display: flex;
@@ -28,15 +37,18 @@
     font-size: 1.8rem;
     line-height: 140%;
   }
-  &__btn {
-    background-color: var(--black);
-  }
   &__img {
     @include picture(100%, 62.9rem);
+    @include transition(transform, translateX(-68rem));
+    transition-duration: 1.2s;
   }
   @media (max-width: 48em) {
     padding-top: 18rem;
     padding-bottom: 18rem;
+    & .about__container,
+    & .about__img {
+      transform: translateX(0);
+    }
     &__container {
       flex-direction: column;
       padding: 0 2rem;
@@ -61,7 +73,6 @@
     }
     &__btn {
       padding: 3.4rem 5.5rem 3.6rem;
-      background-color: var(--blue);
     }
     &__img {
       height: 80rem;

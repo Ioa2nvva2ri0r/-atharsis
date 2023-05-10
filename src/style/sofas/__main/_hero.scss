@@ -55,6 +55,12 @@
         @include block-size(34.6rem, 40.4rem);
         bottom: -8.4rem;
         right: -9.8rem;
+        &::after {
+          top: 8.5rem;
+          left: 1.5rem;
+          @include block-size(13rem, 21rem);
+          transform: rotate(353deg);
+        }
       }
     }
   }

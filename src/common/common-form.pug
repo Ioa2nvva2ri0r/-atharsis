@@ -5,6 +5,7 @@ section.common-form.container(class=`${cssClassForm || "application"}`)
   picture
     source(class=`${cssClassForm || "application"}__img` srcset=`img/${imageForm || "application"}/1.webp`).common-form__img
     img(class=`${cssClassForm || "application"}__img` src=`img/${imageForm || "application"}/1.webp`, alt="Изображение формы").common-form__img
+
   form.common-form__form(id= cssClassForm || "common-form" class=`${cssClassForm || "application"}__form`)
     .common-form__container(class=`${cssClassForm || "application"}__container`)
       h2.common-form__title.us-title(class=`${cssClassForm || "application"}__title`)= titleForm || "оставьте заявку"
@@ -31,6 +32,9 @@ section.common-form.container(class=`${cssClassForm || "application"}`)
         p.common-form__btn-desc(class=`${cssClassForm || "application"}__btn-desc`)
           | Отправляя форму, вы соглашаетесь с&nbsp;
           a(href="#") политикой&nbsp;конфиденциальности
+
+if scale 
+  script(src="js/scale-img.js" defer) 
 
 if popup
   //- Popup
