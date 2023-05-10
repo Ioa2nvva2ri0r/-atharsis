@@ -17,7 +17,7 @@ const fonts = () => {
 };
 
 const htmlMinify = () => {
-  return src('src/**/*.pug')
+  return src('src/*.pug')
     .pipe(
       pug({
         doctype: 'html',
@@ -29,7 +29,7 @@ const htmlMinify = () => {
 };
 
 const sassMinify = () => {
-  return src('src/style/**/*.scss')
+  return src('src/style/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', notify.onError()))
     .pipe(
