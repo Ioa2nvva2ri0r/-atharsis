@@ -1,7 +1,7 @@
 //- Mixins
 include mixin.pug
 
-section.common-desc.container(class=`${cssClassDesc || "services"}-desc`)
+section.common-desc.container#common-desc(class=`${cssClassDesc || "services"}-desc`)
   .common-desc__container(class=`${cssClassDesc || "services"}-desc__container`)  
     picture
       source(class=`${cssClassDesc || "services"}-desc__img`, srcset=`img/${imageDesc}`).common-desc__img
@@ -9,3 +9,5 @@ section.common-desc.container(class=`${cssClassDesc || "services"}-desc`)
     .common-desc__content(class=`${cssClassDesc || "services"}-desc__content`)
       p.common-desc__desc-1(class=`${cssClassDesc || "services"}-desc__desc-1`)= desc1
       p.common-desc__desc-2(class=`${cssClassDesc || "services"}-desc__desc-2`)= desc2
+
+script(src="js/common-desc.js") 

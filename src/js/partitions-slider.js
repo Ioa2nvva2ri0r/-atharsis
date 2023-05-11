@@ -11,5 +11,8 @@ const swiperPartitions = new Swiper('.partitions__slider', {
     prevSlideMessage: 'Назад',
     nextSlideMessage: 'Вперёд',
   },
+  autoplay: {
+    delay: 3000,
+  },
   speed: 1000,
 });

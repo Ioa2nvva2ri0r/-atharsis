@@ -1,6 +1,20 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 
+const imageDesc = document.querySelectorAll('.about__img');
+const observerTranslate = new IntersectionObserver(
+  ([entry]) => {
+    if (window.screen.width > 768)
+      if (entry.isIntersecting)
+        imageDesc.forEach((el) => el.classList.add('active'));
+      else imageDesc.forEach((el) => el.classList.remove('active'));
+  },
+  {
+    threshold: [0.6],
+  }
+);
+observerTranslate.observe(...imageDesc);
+
 const swiperReviews = new Swiper('.about-reviews__slider', {
   loop: true,
   navigation: {

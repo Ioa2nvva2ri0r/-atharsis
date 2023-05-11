@@ -1,6 +1,17 @@
 .common-desc {
   padding-top: 19.15rem;
   padding-bottom: 19rem;
+  &.active {
+    & .common-desc__content,
+    & .common-desc__img {
+      transform: translateX(0);
+    }
+  }
+  &__content,
+  &__img {
+    @include transition(transform);
+    transition-duration: 1.2s;
+  }
   &__container {
     @include flex-center-y();
     justify-content: flex-end;
@@ -13,6 +24,7 @@
     left: 0;
     z-index: 1;
     @include picture(92.1rem, 100%);
+    transform: translateX(35rem);
   }
   &__content {
     position: relative;
@@ -21,6 +33,7 @@
     max-width: 78.5rem;
     padding: 8.5rem 7.9rem 8.65rem 8rem;
     background-color: var(--blue);
+    transform: translateX(-40rem);
   }
   &__desc {
     &-1,
