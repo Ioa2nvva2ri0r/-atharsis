@@ -46,7 +46,11 @@
   }
   &__img {
     display: initial;
+    will-change: width;
     @include picture(58rem, 28rem);
+    &-box {
+      will-change: margin-right;
+    }
     &,
     &-duplicate {
       @include transition(all);
