@@ -3,6 +3,7 @@ const { src, dest, series, watch } = require('gulp');
 const pug = require('gulp-pug');
 const sass = require('gulp-sass')(require('sass'));
 const autoprefixer = require('gulp-autoprefixer');
+const concat = require('gulp-concat');
 const notify = require('gulp-notify');
 const sourcemaps = require('gulp-sourcemaps');
 const del = require('del');
@@ -16,8 +17,12 @@ const fonts = () => {
   return src('src/fonts/**/*.{woff,woff2}').pipe(dest('build/fonts'));
 };
 
+const staticCss = () => {
+  return src('src/style/static/*.css').pipe(dest('build/style'));
+};
+
 const htmlMinify = () => {
-  return src('src/*.pug')
+  return src('src/**/*.pug')
     .pipe(
       pug({
         doctype: 'html',
@@ -37,6 +42,7 @@ const sassMinify = () => {
         cascade: false,
       })
     )
+    .pipe(concat('style.css'))
     .pipe(sourcemaps.write())
     .pipe(dest('build/style'))
     .pipe(browserSync.stream());
@@ -72,7 +78,16 @@ const watchFiles = () => {
 };
 
 const projectBuild = (...view) =>
-  series(clean, fonts, htmlMinify, sassMinify, imgRest, scripts, ...view);
+  series(
+    clean,
+    fonts,
+    htmlMinify,
+    sassMinify,
+    staticCss,
+    imgRest,
+    scripts,
+    ...view
+  );
 
 exports.dev = projectBuild(watchFiles);
 exports.build = projectBuild();

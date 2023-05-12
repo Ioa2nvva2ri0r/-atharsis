@@ -1,10 +1,10 @@
-.about {
+.about-common {
   overflow: hidden;
   padding-top: 18rem;
   padding-bottom: 18rem;
   &.active {
-    & .about__container,
-    & .about__img {
+    & .about-common__container,
+    & .about-common__img {
       transform: translateX(0);
     }
   }
@@ -45,8 +45,8 @@
   @media (max-width: 48em) {
     padding-top: 18rem;
     padding-bottom: 18rem;
-    & .about__container,
-    & .about__img {
+    & .about-common__container,
+    & .about-common__img {
       transform: translateX(0);
     }
     &__container {

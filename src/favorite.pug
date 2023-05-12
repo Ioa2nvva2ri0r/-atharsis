@@ -6,8 +6,6 @@ html(lang="ru")
     
     title Катарсис - Избранное
 
-    //- Basic Styles
-    link(rel="stylesheet", href='style/favorite.css')
     //- Basic JavaScript
     script(src="js/sofas-product-add.js", defer) 
 
@@ -21,9 +19,9 @@ html(lang="ru")
 
     main
 
-      section.favorite.container 
-        h1.favorite__title.us-title Избранное
-        ul.favorite__list
+      section.favorite-main.container 
+        h1.favorite-main__title.us-title Избранное
+        ul.favorite-main__list
 
           - for(var i = 1; i < 13; i++)
               li.catalog-sofas__item
