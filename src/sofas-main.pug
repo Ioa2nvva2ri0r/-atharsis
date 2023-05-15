@@ -6,9 +6,6 @@ html(lang="ru")
     include common/head.pug
 
     title Катарсис - Дизайнерская мебель
-    
-    //- Basic JavaScript
-    script(src="js/sofas-main.js", defer)
 
   body
 
@@ -61,13 +58,12 @@ html(lang="ru")
 
       //- Popular
       - var titleSlider = "Популярные товары"
-      - var cardSlider = "sofas"
+      - var cardSlider = 'sofas'
 
       include common/common-slider.pug    
 
       //- Common-form
       - var popup = true
-      - var scale = true
 
       include common/common-form.pug    
 
@@ -79,5 +75,12 @@ html(lang="ru")
 
     //- Footer
     include common/footer.pug
+
+    //- Swiper-Slider
+    script(src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js")
+    //- Yandex-map
+    script(src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&lang=ru_RU", type="text/javascript")
+    //- Basic JavaScript
+    script(src="js/sofas-main.js")
 
 

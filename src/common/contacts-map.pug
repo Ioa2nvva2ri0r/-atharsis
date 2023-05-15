@@ -61,8 +61,3 @@ section.contacts-map.container(class=`${cssClassContactsMap || ''}`)
                 a.socials__link.contacts-map__socials-link(href= objSocials.href, aria-label=objSocials.id)
                   +icon(objSocials.id)
   .contacts-map__map#map
-
-  //- Yandex-map
-  script(src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&lang=ru_RU", type="text/javascript")
-  //- Yandex-map -- init
-  script(src='js/map.js')

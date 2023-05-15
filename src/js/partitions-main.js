@@ -34,73 +34,20 @@ if (!document.getElementById('header-banner')) {
   });
 }
 
-const swiperContacts = new Swiper('.contacts-slider__slider', {
+const swiperPartitions = new Swiper('.partitions__slider', {
   loop: true,
   navigation: {
-    nextEl: '.contacts-slider__btn-next',
-    prevEl: '.contacts-slider__btn-prev',
+    nextEl: '.partitions__slider-btn-next',
+    prevEl: '.partitions__slider-btn-prev',
   },
   a11y: {
     prevSlideMessage: 'Назад',
     nextSlideMessage: 'Вперёд',
   },
-  speed: 1000,
-  breakpoints: {
-    1200: {
-      slidesPerView: 4,
-      slidesPerGroup: 4,
-      spaceBetween: 29,
-    },
-    768: {
-      slidesPerView: 3,
-      slidesPerGroup: 3,
-      spaceBetween: 29,
-    },
-    320: {
-      slidesPerView: 'auto',
-      slidesPerGroup: 1,
-      spaceBetween: 10,
-    },
+  autoplay: {
+    delay: 3000,
   },
-});
-
-const tabContacts = document.querySelectorAll('[data-tab]');
-const tabItemContacts = document.querySelectorAll('[data-itemtab]');
-
-tabContacts.forEach((btn) => {
-  btn.addEventListener('click', (e) => {
-    const thisEl = e.currentTarget;
-
-    [...tabContacts, ...tabItemContacts].forEach((el) =>
-      el.classList.remove('active')
-    );
-
-    [
-      thisEl,
-      document.querySelector(`[data-itemtab='${thisEl.dataset.tab}']`),
-    ].forEach((el) => el.classList.toggle('active'));
-  });
-});
-
-// Popup
-const popup = document.getElementById('popup');
-const popupBox = document.getElementById('popup-box');
-const popupClose = document.getElementById('popup-close');
-
-['common-form', 'search-form', 'services-form', 'contacts-form', 'about-form']
-  .map((id) => document.getElementById(id))
-  .filter((el) => el)
-  .forEach((el) =>
-    el.addEventListener('submit', (e) => {
-      e.preventDefault();
-      popup.classList.add('active');
-    })
-  );
-
-popupClose.addEventListener('click', () => popup.classList.remove('active'));
-document.body.addEventListener('click', (e) => {
-  if (popup.classList.contains('active') && !popupBox.contains(e.target))
-    popup.classList.remove('active');
+  speed: 1000,
 });
 
 // Scale image form
@@ -117,6 +64,20 @@ const observerImage = new IntersectionObserver(
   }
 );
 observerImage.observe(...image);
+
+// About translate block
+const blockAbout = document.getElementById('block-about');
+const observerTranslate = new IntersectionObserver(
+  ([entry]) => {
+    if (window.screen.width > 768)
+      if (entry.isIntersecting) blockAbout.classList.add('active');
+      else blockAbout.classList.remove('active');
+  },
+  {
+    threshold: [0.6],
+  }
+);
+observerTranslate.observe(blockAbout);
 
 // Map
 const tabs = document.querySelectorAll('.contacts-slider__address');
@@ -183,3 +144,24 @@ function init() {
   myMap.controls.remove('zoomControl');
   myMap.controls.remove('rulerControl');
 }
+
+// Popup
+const popup = document.getElementById('popup');
+const popupBox = document.getElementById('popup-box');
+const popupClose = document.getElementById('popup-close');
+
+['common-form', 'search-form', 'services-form', 'contacts-form', 'about-form']
+  .map((id) => document.getElementById(id))
+  .filter((el) => el)
+  .forEach((el) =>
+    el.addEventListener('submit', (e) => {
+      e.preventDefault();
+      popup.classList.add('active');
+    })
+  );
+
+popupClose.addEventListener('click', () => popup.classList.remove('active'));
+document.body.addEventListener('click', (e) => {
+  if (popup.classList.contains('active') && !popupBox.contains(e.target))
+    popup.classList.remove('active');
+});

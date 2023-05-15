@@ -7,9 +7,6 @@ html(lang="ru")
     
     title Катарсис - О компании
 
-    //- Basic JavaScript
-    script(src="js/about.js", defer) 
-
   body
 
     //- Mixins
@@ -88,7 +85,6 @@ html(lang="ru")
       - var descForm = 'Поделитесь своими впечатлениями!'
       - var dataInput = [{id: 'name', name: 'name', placeholder: 'Имя', type: 'text'}, {id: 'review', name: 'review', placeholder: 'Отзыв', type: 'text', view: 'textarea'}, {id: 'stars', placeholder: 'Оценка'}]
       - var popup = true
-      - var scale = true
 
       include common/common-form.pug 
 
@@ -97,3 +93,10 @@ html(lang="ru")
 
     //- Footer
     include common/footer.pug
+
+    //- Swiper-Slider
+    script(src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js")
+    //- Yandex-map
+    script(src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&lang=ru_RU", type="text/javascript")
+    //- Basic JavaScript
+    script(src="js/about.js") 

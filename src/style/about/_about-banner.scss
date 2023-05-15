@@ -93,6 +93,7 @@
   }
   @media (max-width: 48em) {
     &__img {
+      transform: scale(1) translate(0, 0);
       &-background {
         height: 105rem;
         background-position: -44% 100%;

@@ -34,66 +34,65 @@ if (!document.getElementById('header-banner')) {
   });
 }
 
-const swiperPartitions = new Swiper('.partitions__slider', {
+const swiperCommon = new Swiper('.common-slider__slider', {
   loop: true,
   navigation: {
-    nextEl: '.partitions__slider-btn-next',
-    prevEl: '.partitions__slider-btn-prev',
+    nextEl: '.common-slider__btn-next',
+    prevEl: '.common-slider__btn-prev',
   },
   a11y: {
     prevSlideMessage: 'Назад',
     nextSlideMessage: 'Вперёд',
   },
-  autoplay: {
-    delay: 3000,
+  scrollbar: {
+    el: '.common-slider__scrollbar',
+    draggable: true,
   },
   speed: 1000,
-});
-
-// Range Slider
-const sliderHeight = document.getElementById('slider-height');
-const sliderValueHeightMin = document.getElementById(
-  'opening-height-value-min'
-);
-const sliderValueHeightMax = document.getElementById(
-  'opening-height-value-max'
-);
-const sliderWidth = document.getElementById('slider-width');
-const sliderValueWidthMin = document.getElementById('opening-width-value-min');
-const sliderValueWidthMax = document.getElementById('opening-width-value-max');
-
-const options = {
-  start: 140,
-  connect: [true, false],
-  tooltips: {
-    to: function (numericValue) {
-      return numericValue.toFixed(0);
+  breakpoints: {
+    1200: {
+      slidesPerView: 4,
+      slidesPerGroup: 4,
+      spaceBetween: 29,
+    },
+    768: {
+      slidesPerView: 3,
+      slidesPerGroup: 3,
+      spaceBetween: 29,
+    },
+    320: {
+      slidesPerView: 'auto',
+      slidesPerGroup: 1,
+      spaceBetween: 10,
     },
   },
-  step: 10,
-  range: {
-    min: 80,
-    max: 400,
+  on: {
+    init: function () {
+      const last = this.slides[this.loopedSlides];
+      last.style.opacity = '0.2';
+    },
+    slideChange: function () {
+      const first = this.slides[this.activeIndex];
+      const last = this.slides[this.activeIndex + this.loopedSlides];
+      first.style.opacity = '1';
+      last.style.opacity = '0.2';
+    },
   },
-};
-
-noUiSlider.create(sliderHeight, options);
-noUiSlider.create(sliderWidth, options);
-
-const heightRange = sliderHeight.noUiSlider.options.range;
-sliderValueHeightMin.textContent = heightRange.min;
-sliderValueHeightMax.textContent = heightRange.max;
-
-const widthRange = sliderWidth.noUiSlider.options.range;
-sliderValueWidthMin.textContent = widthRange.min;
-sliderValueWidthMax.textContent = widthRange.max;
-
-sliderHeight.noUiSlider.on('update', function (values, handle) {
-  document.getElementById('opening-height').value = Math.round(values[handle]);
 });
-sliderWidth.noUiSlider.on('update', function (values, handle) {
-  document.getElementById('opening-width').value = Math.round(values[handle]);
-});
+
+// Common-desc
+const commonDesc = document.getElementById('common-desc');
+const observerTranslate = new IntersectionObserver(
+  ([entry]) => {
+    if (window.screen.width > 768)
+      if (entry.isIntersecting) commonDesc.classList.add('active');
+      else commonDesc.classList.remove('active');
+  },
+  {
+    threshold: [0.6],
+  }
+);
+observerTranslate.observe(commonDesc);
 
 // Popup
 const popup = document.getElementById('popup');

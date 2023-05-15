@@ -7,10 +7,6 @@ html(lang="ru")
     
     title Катарсис - Дизайнерская мебель - Продукт
 
-    //- Basic JavaScript
-    script(src=`js/sofas-product.js`, defer)
-    
-
   body 
 
     //- Mixins
@@ -129,9 +125,14 @@ html(lang="ru")
 
       //- Popular
       - var titleSlider = "Популярные товары"
-      - var cardSlider = "sofas"
+      - var cardSlider = 'sofas'
 
       include common/common-slider.pug   
 
     //- Footer
     include common/footer.pug
+
+    //- Swiper-Slider
+    script(src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js")
+    //- Basic JavaScript
+    script(src=`js/sofas-product.js`)

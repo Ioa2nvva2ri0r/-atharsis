@@ -1,6 +1,17 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 
+// Change Logo
+function changeLogo() {
+  const logo = document.getElementById('logo');
+
+  if (window.screen.width <= 768) logo.src = `img/logo-min.svg`;
+  else logo.src = `img/logo.svg`;
+}
+
+window.addEventListener('resize', changeLogo);
+window.addEventListener('load', changeLogo);
+
 // -- Banner elements
 const openMenuBanner = document.getElementById('menu-open');
 const banner = document.getElementById('banner');
@@ -150,3 +161,34 @@ const swiperBanner = new Swiper('.banner__slider', {
     },
   },
 });
+
+// Popup
+const popup = document.getElementById('popup');
+const popupBox = document.getElementById('popup-box');
+const popupClose = document.getElementById('popup-close');
+
+['common-form', 'search-form', 'services-form', 'contacts-form', 'about-form']
+  .map((id) => document.getElementById(id))
+  .filter((el) => el)
+  .forEach((el) =>
+    el.addEventListener('submit', (e) => {
+      e.preventDefault();
+      popup.classList.add('active');
+    })
+  );
+
+popupClose.addEventListener('click', () => popup.classList.remove('active'));
+document.body.addEventListener('click', (e) => {
+  if (popup.classList.contains('active') && !popupBox.contains(e.target))
+    popup.classList.remove('active');
+});
+
+const labelDescFile = document.querySelector(
+  '.common-form__label[for=file] span'
+);
+const inputFile = document.querySelector('.common-form__input[type=file]');
+
+if (inputFile)
+  inputFile.addEventListener('change', (e) => {
+    labelDescFile.textContent = e.currentTarget.files[0].name;
+  });

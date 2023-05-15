@@ -7,10 +7,6 @@ html(lang="ru")
     
     title Катарсис - Межкомнатные перегородки
 
-    //- Range Slider
-    script(src="js/nouislider.min.js", defer)
-    script(src="js/partitions-order.js", defer)  
-
   body
 
     //- Mixins
@@ -21,88 +17,88 @@ html(lang="ru")
 
     main
 
-      section.order-slider.container
-        h2.order-slider__title.us-title перегородки для офиса
+      section.order-partitions-slider.container
+        h2.order-partitions-slider__title.us-title перегородки для офиса
 
         //- Slider
         - var imagePath = 'partitions-order'
 
         include common/partitions-slider.pug 
 
-      section.order.container 
-        form.order__form#common-form
-          h2.order__title.us-title Создай свой дизайн перегородки
-          .order-type__box 
-            h3.order-type__title Выберите тип стекла
-            ul.order-type__list 
+      section.order-partitions.container 
+        form.order-partitions__form#common-form
+          h2.order-partitions__title.us-title Создай свой дизайн перегородки
+          .order-partitions-type__box 
+            h3.order-partitions-type__title Выберите тип стекла
+            ul.order-partitions-type__list 
 
               - for(var i = 1; i < 6; i++)
-                li.order-type__item 
-                  input(id=`type-${i}`, type="radio", name="type", value=`№${i}`, checked=(i === 1)).order-type__input
-                  span.order-type__check
+                li.order-partitions-type__item 
+                  input(id=`type-${i}`, type="radio", name="type", value=`№${i}`, checked=(i === 1)).order-partitions-type__input
+                  span.order-partitions-type__check
                     +icon('check-2')
                   picture
-                    source(srcset="img/partitions-order/type/1.webp").order__img.order-type__img
-                    img(src="img/partitions-order/type/1.webp", alt=`Изображение-${i}`).order__img.order-type__img
-                  label(for=`type-${i}`).order-type__label Бесцветное стекло
-                  p.order-type__desc Позволяет обозначить функциональные зоны, не ограничивает распространение света.
-          .order-color__box 
-            h3.order-color__title Выберите цвет
-            ul.order-color__list
+                    source(srcset="img/partitions-order/type/1.webp").order-partitions__img.order-partitions-type__img
+                    img(src="img/partitions-order/type/1.webp", alt=`Изображение-${i}`).order-partitions__img.order-partitions-type__img
+                  label(for=`type-${i}`).order-partitions-type__label Бесцветное стекло
+                  p.order-partitions-type__desc Позволяет обозначить функциональные зоны, не ограничивает распространение света.
+          .order-partitions-color__box 
+            h3.order-partitions-color__title Выберите цвет
+            ul.order-partitions-color__list
               //- Data check color
               - var colors = [{name: 'Серый', color: '#6A6A6A'}, {name: 'Чёрный', color: '#000000'}, {name: 'Коричневый', color: '#3C2A12'}]
 
               each item, index in colors
-                li.order-color__item 
-                  input(id=`color-${index + 1}`, type="radio", name="color", value= item.name, checked=(index + 1 === 1)).order-color__input
-                  span.order-color__check
+                li.order-partitions-color__item 
+                  input(id=`color-${index + 1}`, type="radio", name="color", value= item.name, checked=(index + 1 === 1)).order-partitions-color__input
+                  span.order-partitions-color__check
                     +icon('check-2')
-                  .order-color__img.order__img(style= ("background-color: " + item.color))
-                  label(for=`color-${index + 1}`).order-color__label= item.name
-          .order-profile__box 
-            h3.order-profile__title Выберите профиль
-            ul.order-profile__list
+                  .order-partitions-color__img.order-partitions__img(style= ("background-color: " + item.color))
+                  label(for=`color-${index + 1}`).order-partitions-color__label= item.name
+          .order-partitions-profile__box 
+            h3.order-partitions-profile__title Выберите профиль
+            ul.order-partitions-profile__list
               //- Data check profile
               - var profiles = ["анодированный профиль", "профиль, окрашенный по каталогу RAL", "ламинированный профиль"]
 
               each profile, index in profiles
-                li.order-profile__item 
-                  input(id=`profile-${index + 1}`, type="radio", name="profile", value= profile, checked=(index + 1 === 1)).order-profile__input
-                  span.order-profile__check
+                li.order-partitions-profile__item 
+                  input(id=`profile-${index + 1}`, type="radio", name="profile", value= profile, checked=(index + 1 === 1)).order-partitions-profile__input
+                  span.order-partitions-profile__check
                     +icon('check-2')
                   picture
-                    source(srcset=`img/partitions-order/profile/${index + 1}.webp`).order__img.order-profile__img
-                    img(src=`img/partitions-order/profile/${index + 1}.webp`, alt=`Изображение-${index + 1}`).order__img.order-profile__img
-                  label(for=`profile-${index + 1}`).order-profile__label= profile
+                    source(srcset=`img/partitions-order/profile/${index + 1}.webp`).order-partitions__img.order-partitions-profile__img
+                    img(src=`img/partitions-order/profile/${index + 1}.webp`, alt=`Изображение-${index + 1}`).order-partitions__img.order-partitions-profile__img
+                  label(for=`profile-${index + 1}`).order-partitions-profile__label= profile
           //- Data opening dimensions
           - var dimensions = [{id: "height", title: "Выберите высоту проёма"}, {id: "width", title: "Выберите ширину проёма"}]
 
           each item in dimensions
-            .order-opening__box 
-              h3.order-opening__title= item.title
-              .order-opening__slider-box
-                .order-opening__slider(id=`slider-${item.id}`)
-                strong(id=`opening-${item.id}-value-min`).order-opening__slider-value.order-opening__slider-value-left
-                strong(id=`opening-${item.id}-value-max`).order-opening__slider-value.order-opening__slider-value-right
-              label(for=`opening-${item.id}`).order-opening__label
-                input(id=`opening-${item.id}` type="number", name=`opening-${item.id}`).order-opening__input
-          p.order__desc *&nbsp;&nbsp;Дополнительные вариации исполнения по запросу
-          ul.order__list
+            .order-partitions-opening__box 
+              h3.order-partitions-opening__title= item.title
+              .order-partitions-opening__slider-box
+                .order-partitions-opening__slider(id=`slider-${item.id}`)
+                strong(id=`opening-${item.id}-value-min`).order-partitions-opening__slider-value.order-partitions-opening__slider-value-left
+                strong(id=`opening-${item.id}-value-max`).order-partitions-opening__slider-value.order-partitions-opening__slider-value-right
+              label(for=`opening-${item.id}`).order-partitions-opening__label
+                input(id=`opening-${item.id}` type="number", name=`opening-${item.id}`).order-partitions-opening__input
+          p.order-partitions__desc *&nbsp;&nbsp;Дополнительные вариации исполнения по запросу
+          ul.order-partitions__list
             //- Data input
             - var formData = [{title: 'Введите имя', inputName: 'name', inputType: 'text', inputPlaceholder: 'Имя'}, {title: 'Введите e-mail', inputName: 'email', inputType: 'email', inputPlaceholder: 'E-mail'}, {title: 'Введите телефон', inputName: 'tel', inputType: 'tel', inputPlaceholder: 'Номер телефона'}]
 
             each item in formData
-              li.order__item 
-                h3.order__input-title= item.title
-                label(for= "order-" + item.inputName).order__label
+              li.order-partitions__item 
+                h3.order-partitions__input-title= item.title
+                label(for= "order-" + item.inputName).order-partitions__label
                   span= item.inputPlaceholder
-                  input(id= "order-" + item.inputName, type= item.inputType, name= item.inputName, placeholder= item.inputPlaceholder).order__input 
+                  input(id= "order-" + item.inputName, type= item.inputType, name= item.inputName, placeholder= item.inputPlaceholder).order-partitions__input 
 
-          .order__box-btn 
-            button.order__btn.us-btn 
+          .order-partitions__box-btn 
+            button.order-partitions__btn.us-btn 
               | Заказать
               +icon('arrow-2')
-            p.order__btn-desc
+            p.order-partitions__btn-desc
               | Отправляя форму, вы соглашаетесь с&nbsp;
               a(href="#") политикой&nbsp;конфиденциальности
 
@@ -111,4 +107,11 @@ html(lang="ru")
     include common/footer.pug
 
     //- Popup
-    include common/popup.pug 
+    include common/popup.pug
+
+    //- Range Slider
+    script(src="js/nouislider.min.js")
+    //- Swiper-Slider
+    script(src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js")
+    //- Basic JavaScript
+    script(src="js/partitions-order.js")   

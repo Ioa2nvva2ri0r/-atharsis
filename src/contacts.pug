@@ -6,9 +6,6 @@ html(lang="ru")
     
     title Катарсис - Контакты
 
-    //- Basic JavaScript
-    script(src="js/contacts.js", defer) 
-
   body
 
     //- Mixins
@@ -45,15 +42,21 @@ html(lang="ru")
       - var contactTitle = true
       - var cssClassContactsMap = "contacts-main"
       - var addresses = [{id: "tab-1", name: "г. Москва, Расточная, 24 А"}, {id: "tab-2", name: "г. Москва, Новинский бульвар, 18с1"}, {id: "tab-3", name: "г. Москва, ул. Таганская, 26 А"}, {id: "tab-4", name: "г. Москва, ул. Расточная, 24 А"}, {id: "tab-5", name: "г. Москва, Расточная, 24 А"}, {id: "tab-6", name: "г. Москва, ул. Таганская, 26 А"}]
-      - var popup = true
-      - var scale = true
 
       include common/contacts-map.pug 
 
       //- Common-form
       - var cssClassForm = "contacts-form"
+      - var popup = true
 
       include common/common-form.pug  
 
     //- Footer
     include common/footer.pug 
+    
+    //- Swiper-Slider
+    script(src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js")
+    //- Yandex-map
+    script(src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&lang=ru_RU", type="text/javascript")
+    //- Basic JavaScript
+    script(src="js/contacts.js") 
