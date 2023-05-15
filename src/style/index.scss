@@ -577,6 +577,12 @@
     letter-spacing: 0;
   }
   &__item {
+    &:hover,
+    &:active {
+      & .portfolio__title {
+        transform: translateX(-(calc((52rem + 1.4rem))));
+      }
+    }
     &,
     &:last-child {
       border-color: var(--white);
@@ -591,8 +597,8 @@
     letter-spacing: 0;
   }
   &__img {
-    width: 52rem;
     &-box {
+      width: 52rem;
       margin-right: 1.4rem;
     }
   }
@@ -638,6 +644,12 @@
       margin: 8rem auto 8rem;
     }
     &__item {
+      &:hover,
+      &:active {
+        & .portfolio__title {
+          transform: translateX(0);
+        }
+      }
       &,
       &:last-child {
         border-color: var(--grey);
@@ -652,8 +664,8 @@
       line-height: 5.6rem;
     }
     &__img {
-      width: 100%;
       &-box {
+        width: 100%;
         margin-bottom: 4rem;
       }
     }

@@ -18,14 +18,14 @@
       & .portfolio__title {
         color: var(--white);
       }
-      & .portfolio__img {
-        width: 0;
-        &-box {
-          margin-right: 0;
-        }
+      & .portfolio__title {
+        transform: translateX(-(calc((58rem + 3.55rem))));
       }
-      & .portfolio__img-duplicate {
-        opacity: 1;
+      & .portfolio__img {
+        transform: translateX(-100%);
+        &-duplicate {
+          opacity: 1;
+        }
       }
     }
   }
@@ -42,25 +42,28 @@
   &__subtitle,
   &__title {
     margin-bottom: 0;
+  }
+  &__subtitle {
     @include transition(color);
+  }
+  &__title,
+  &__img {
+    will-change: transform;
   }
   &__img {
     display: initial;
-    will-change: width;
-    @include picture(58rem, 28rem);
+    @include picture(100%);
+    @include transition(transform, translateX(0));
     &-box {
-      will-change: margin-right;
-    }
-    &,
-    &-duplicate {
-      @include transition(all);
+      overflow: hidden;
+      @include block-size(58rem, 28rem);
     }
     &-duplicate {
-      opacity: 0;
       z-index: 1;
       background-repeat: no-repeat;
       background-position: center center;
       background-size: cover;
+      @include transition(opacity, 0);
       &,
       &::after {
         position: absolute;
@@ -76,6 +79,8 @@
   }
   &__title {
     max-width: 55rem;
+    transform: translateX(0);
+    @include transitions((color, transform));
   }
   @media (max-width: 48em) {
     padding-bottom: 18.4rem;
@@ -100,15 +105,15 @@
         & .portfolio__title {
           color: var(--black);
         }
+        & .portfolio__title,
         & .portfolio__img {
-          width: 100%;
+          transform: translateX(0);
         }
       }
     }
     &__img {
-      @include block-size(100%, 34rem);
       &-box {
-        width: 100%;
+        @include block-size(100%, 34rem);
         margin-right: 0;
         margin-bottom: 4.1rem;
       }
