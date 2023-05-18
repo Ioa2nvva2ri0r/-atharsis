@@ -1,17 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 
-// Change Logo
-function changeLogo() {
-  const logo = document.getElementById('logo');
-
-  if (window.screen.width <= 768) logo.src = `img/logo-min.svg`;
-  else logo.src = `img/logo.svg`;
-}
-
-window.addEventListener('resize', changeLogo);
-window.addEventListener('load', changeLogo);
-
 // -- Banner elements
 const openMenuBanner = document.getElementById('menu-open');
 const banner = document.getElementById('banner');

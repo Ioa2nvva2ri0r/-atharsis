@@ -12,6 +12,9 @@
     @include block-size(20.2rem, 4.8rem);
     margin-left: -0.7rem;
     & img {
+      &:last-child {
+        display: none;
+      }
       @include block-size(inherit);
       margin-top: -0.1rem;
     }
@@ -65,6 +68,12 @@
       @include block-size(11.4rem, 9.2rem);
       margin-left: 1.4rem;
       & img {
+        &:first-child {
+          display: none;
+        }
+        &:last-child {
+          display: block;
+        }
         margin-top: -0.4rem;
       }
     }
